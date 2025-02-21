@@ -1,1 +1,1 @@
-# PROJETO T-art: Facilite Seu Negocio 
+# PROJETO Teart: Facilite Seu Negocio 
