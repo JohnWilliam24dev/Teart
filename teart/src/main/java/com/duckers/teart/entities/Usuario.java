@@ -1,53 +1,53 @@
 package com.duckers.teart.entities;
 
 public class Usuario {
-    private int Id;
-    private String Nome;
-    private String Email;
-    private String Senha;
-    private String Endereco;
+    private int id;
+    private String nome;
+    private String email;
+    private String senha;
+    private String endereco;
 
 
-    public Usuario(int Id, String Nome, String Email, String Senha, String Endereco){
-        this.Email = Email;
-        this.Senha = Senha;
-        this.Endereco = Endereco;
-        this.Id = Id;
-        this.Nome = Nome;
+    public Usuario(int id, String nome, String email, String senha, String endereco){
+        this.email = email;
+        this.senha = senha;
+        this.endereco = endereco;
+        this.id = id;
+        this.nome = nome;
         
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
     public String getEndereco() {
-        return Endereco;
+        return endereco;
     }
     public int getId() {
-        return Id;
+        return id;
     }
     public String getNome() {
-        return Nome;
+        return nome;
     }
     public String getSenha() {
-        return Senha;
+        return senha;
     }
     
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
     public void setEndereco(String endereco) {
-        Endereco = endereco;
+        this.endereco = endereco;
     }
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
     public void setSenha(String senha) {
-        Senha = senha;
+        this.senha = senha;
     }
 
 }
