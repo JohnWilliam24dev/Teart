@@ -2,19 +2,23 @@ package com.duckers.teart.entities;
 
 public class EnderecoAtelier {
     private long id;
+    private long idAtelier;
     private String rua;
     private String numero;
+    private String logradouro;
     private String bairro;
     private String cidade;
     private String estado;
     private String cep;
 
-    public EnderecoAtelier(String bairro, String cep, String cidade, String estado, long id, String numero, String rua) {
+    public EnderecoAtelier(String bairro, String cep, String cidade, String estado, long id, long idAtelier, String logradouro, String numero, String rua) {
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;
         this.estado = estado;
         this.id = id;
+        this.idAtelier = idAtelier;
+        this.logradouro = logradouro;
         this.numero = numero;
         this.rua = rua;
     }
@@ -57,6 +61,22 @@ public class EnderecoAtelier {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getIdAtelier() {
+        return idAtelier;
+    }
+
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
     public String getNumero() {

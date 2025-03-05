@@ -2,19 +2,19 @@ package com.duckers.teart.entities;
 
 public class DonoAtelier {
     private long id;
-    private String nome;
-    private String cpf;
+    private String nomeSocial;
+    private String nomeUsuario;
     private String email;
-    private String usuario;
     private String senha;
+    private String cpf;
 
-    public DonoAtelier(String cpf, String email, long id, String nome, String senha, String usuario) {
+    public DonoAtelier(String cpf, String email, long id, String nomeSocial, String nomeUsuario, String senha) {
         this.cpf = cpf;
         this.email = email;
         this.id = id;
-        this.nome = nome;
+        this.nomeSocial = nomeSocial;
+        this.nomeUsuario = nomeUsuario;
         this.senha = senha;
-        this.usuario = usuario;
     }
 
     public String getCpf() {
@@ -41,12 +41,20 @@ public class DonoAtelier {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeUsuario() {
+        return nomeUsuario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+
+    public String getNomeSocial() {
+        return nomeSocial;
+    }
+
+    public void setNomeSocial(String nomeSocial) {
+        this.nomeSocial = nomeSocial;
     }
 
     public String getSenha() {
@@ -55,13 +63,5 @@ public class DonoAtelier {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 }
