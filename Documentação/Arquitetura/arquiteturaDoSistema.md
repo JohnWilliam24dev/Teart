@@ -29,40 +29,41 @@
 #### Pacote `model`
 
 - **Usuario**
-   Atributos: `id`, `nome`, `email`, `endereco`
-   Relacionamentos: `EnderecoUsuario`
+   Atributos: `id`, `nome`, `email`, `senha`
+   Relacionamentos: `EnderecoUsuario`, `Pedido`
 
 - **EnderecoUsuario**
-   Atributos: `id`, `rua`, `numero`, `bairro`, `cidade`, `estado`, `cep`
+   Atributos: `id`, `idUsuario`, `rua`, `logradouro`, `numero`, `bairro`, `cidade`, `estado`, `cep`
+   Relacionamentos: `Usuario`
 
 - **Atelier**
-   Atributos: `id`, `nome`, `endereco`, `dono`
+   Atributos: `id`, `nome`, `cnpj`, `idDonoAtelier`
    Relacionamentos: `EnderecoAtelier`, `DonoAtelier`
 
 - **EnderecoAtelier**
-   Atributos: `id`, `rua`, `numero`, `bairro`, `cidade`, `estado`, `cep`
+   Atributos: `id`, `idAtelier`, `rua`, `numero`, `logradouro`, `bairro`, `cidade`, `estado`, `cep`
+   Relacionamentos: `Atelier`
 
 - **DonoAtelier**
-   Atributos: `id`, `nome`, `email`, `telefone`
+   Atributos: `id`, `nomeSocial`, `nomeUsuario`, `email`, `senha`, `cpf`
+   Relacionamentos: `Atelier`
 
 - **Produto**
-   Atributos: `id`, `nome`, `descricao`, `preco`, `atelier`
-   Relacionamentos: `Atelier`
+   Atributos: `id`, `nome`, `moda` *ENUM*, `tamanho` *ENUM*, `preco`, `idAtelier`
+   Relacionamentos: `Atelier`, `ItemPedido`
 
 - **Servico**
-   Atributos: `id`, `nome`, `descricao`, `preco`, `atelier`
-   Relacionamentos: `Atelier`
+   Atributos: `id`, `nome`, `descricao`, `valorMaximo`, `valorMinimo`, `idAtelier`
+   Relacionamentos: `Atelier`, `ItemPedido`
 
 - **Pedido**
-   Atributos: `id`, `usuario`, `dataPedido`, `formaPagamento`, `itens`
-   Relacionamentos: `Usuario`, `FormaPagamento`, `ItemPedido`
+   Atributos: `id`, `idUsuario`, `dataPedido`, `dataEnvio`, `statusPedido` *ENUM*, `valorTotal`, `FormaPagamento` *ENUM*, `idItemPedido`
+   Relacionamentos: `Usuario`, `ItemPedido`
 
 - **ItemPedido**
-   Atributos: `id`, `produto`, `servico`, `quantidade`, `preco`
+   Atributos: `id`, `idProduto`, `idServico`, `idPedido`, `quantidade`, `tipoProdutoServico` *ENUM*
    Relacionamentos: `Produto`, `Servico`, `Pedido`
 
-- **FormaPagamento**
-   Atributos: `id`, `nome`
 
 ---
 #### Pacote `repository`
