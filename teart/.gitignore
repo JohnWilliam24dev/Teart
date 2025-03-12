@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### ignoring all IDE settings ###
+.idea/workspace.xml
