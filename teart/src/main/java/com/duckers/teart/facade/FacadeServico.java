@@ -1,12 +1,10 @@
 package com.duckers.teart.facade;
-
-import java.util.ArrayList;
-
+import java.util.List;
 import com.duckers.teart.entities.Servico;
 import com.duckers.teart.application.ServicoApplication;
 
 public class FacadeServico {
-  /**/private ServicoApplication applicationServico;
+  private ServicoApplication applicationServico;
    
   public FacadeServico(ServicoApplication applicationServico){
     this.applicationServico = applicationServico;
@@ -20,7 +18,7 @@ public class FacadeServico {
         applicationServico.updateServico(id, servico);
     }
 
-    public ArrayList<Servico> listaServicos() {
+    public List<Servico> listaServicos() {
         return applicationServico.getAllServicos();
     }
 
