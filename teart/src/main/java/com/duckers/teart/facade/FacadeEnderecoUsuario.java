@@ -1,7 +1,6 @@
 package com.duckers.teart.facade;
-
-import java.util.ArrayList;
-
+import java.util.List;
+import com.duckers.teart.application.EnderecoUsuarioApplication;
 import com.duckers.teart.entities.EnderecoUsuario;
 
 public class FacadeEnderecoUsuario {
@@ -20,7 +19,7 @@ private EnderecoUsuarioApplication applicationEnderecoUsuario;
         applicationEnderecoUsuario.updateEnderecoUsuario(id, enderecoUsuario);
     }
 
-    public ArrayList<EnderecoUsuario> ListaEnderecoUsuarios(){
+    public List<EnderecoUsuario> ListaEnderecoUsuarios(){
         return applicationEnderecoUsuario.getAllEnderecoUsuarios();
     }
 

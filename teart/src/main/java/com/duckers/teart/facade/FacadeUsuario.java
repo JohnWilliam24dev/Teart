@@ -1,12 +1,7 @@
 package com.duckers.teart.facade;
-
-
-import java.util.ArrayList;
-
-import com.duckers.teart.application.EnderecoAtelierApplication;
-import com.duckers.teart.entities.EnderecoAtelier;
+import java.util.List;
 import com.duckers.teart.entities.Usuario;
-import com.duckers.teart.entities.UsuarioApplication;
+import com.duckers.teart.application.UsuarioApplication;
 
 public class FacadeUsuario {
     private UsuarioApplication applicationUsuario;
@@ -16,15 +11,15 @@ public class FacadeUsuario {
 
     }
 
-    public void cadastrar(UsuarioApplication applicationUsuario) {
-        applicationUsuario.createUsuario(enderecoAtelier);
+    public void cadastrar(Usuario usuario) {
+        applicationUsuario.createUsuario(usuario);
     }
 
-    public void atualizar(int id, UsuarioApplication applicationUsuarior) {
+    public void atualizar(int id, Usuario usuario) {
         applicationUsuario.updateUsuario(id, usuario);
     }
 
-    public ArrayList<Usuario> listaUsuarios() {
+    public List<Usuario> listaUsuarios() {
         return applicationUsuario.getAllUsuarios();
     }
 
