@@ -2,7 +2,8 @@ package com.duckers.teart.facade;
 import java.util.List;
 import com.duckers.teart.entities.Usuario;
 import com.duckers.teart.application.UsuarioApplication;
-
+import org.springframework.stereotype.Component;
+@Component
 public class FacadeUsuario {
     private UsuarioApplication applicationUsuario;
 

@@ -2,7 +2,8 @@ package com.duckers.teart.repositorie;
 import com.duckers.teart.entities.Servico;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class ServicoRepositorie {
     List<Servico> servicos = new ArrayList<>();
 

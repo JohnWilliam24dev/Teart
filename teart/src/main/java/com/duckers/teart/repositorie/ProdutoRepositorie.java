@@ -2,7 +2,8 @@ package com.duckers.teart.repositorie;
 import com.duckers.teart.entities.Produto;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class ProdutoRepositorie {
     List<Produto> produtos = new ArrayList<>();
 

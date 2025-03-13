@@ -3,6 +3,8 @@ import com.duckers.teart.entities.Pedido;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+@Repository
 public class PedidoRepositorie {
     List<Pedido> pedidos = new ArrayList<>();
 

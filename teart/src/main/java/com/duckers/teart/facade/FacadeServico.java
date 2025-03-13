@@ -2,7 +2,8 @@ package com.duckers.teart.facade;
 import java.util.List;
 import com.duckers.teart.entities.Servico;
 import com.duckers.teart.application.ServicoApplication;
-
+import org.springframework.stereotype.Component;
+@Component
 public class FacadeServico {
   private ServicoApplication applicationServico;
    

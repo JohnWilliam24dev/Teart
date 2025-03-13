@@ -1,8 +1,12 @@
 package com.duckers.teart.facade;
 import java.util.List;
+
+
+
 import com.duckers.teart.application.EnderecoUsuarioApplication;
 import com.duckers.teart.entities.EnderecoUsuario;
-
+import org.springframework.stereotype.Component;
+@Component
 public class FacadeEnderecoUsuario {
 
 private EnderecoUsuarioApplication applicationEnderecoUsuario;
