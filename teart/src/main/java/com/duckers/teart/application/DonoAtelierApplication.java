@@ -3,7 +3,9 @@ package com.duckers.teart.application;
 import java.util.ArrayList;
 import com.duckers.teart.entities.DonoAtelier;
 import com.duckers.teart.repositorie.DonoAtelierRepositorie;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DonoAtelierApplication {
     private DonoAtelierRepositorie donoRepository;
     
