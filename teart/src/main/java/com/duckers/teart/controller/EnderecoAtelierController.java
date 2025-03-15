@@ -4,6 +4,8 @@ import com.duckers.teart.application.EnderecoAtelierApplication;
 import com.duckers.teart.entities.EnderecoAtelier;
 import com.duckers.teart.facade.FacadeEnderecoAtelier;
 import com.duckers.teart.repositorie.EnderecoAtelierRepositorie;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,42 +13,37 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/enderecoAtelier")
 public class EnderecoAtelierController {
-    private static EnderecoAtelierRepositorie enderecoAtelierRepositorie;
-    private static EnderecoAtelierApplication enderecoAtelierApplication;
-    private static FacadeEnderecoAtelier facadeEnderecoAtelier;
+    
+    private final FacadeEnderecoAtelier facadeEnderecoAtelier;
 
-    private static void injetarDependencias() {
-        enderecoAtelierRepositorie = new EnderecoAtelierRepositorie();
-        enderecoAtelierApplication = new EnderecoAtelierApplication(enderecoAtelierRepositorie);
-        facadeEnderecoAtelier = new FacadeEnderecoAtelier(enderecoAtelierApplication);
-    }
-
-    public EnderecoAtelierController() {
-        injetarDependencias();
+    
+    @Autowired
+    public EnderecoAtelierController(FacadeEnderecoAtelier facadeEnderecoAtelier) {
+        this.facadeEnderecoAtelier = facadeEnderecoAtelier;
     }
 
     @PostMapping
     public void createEnderecoAtelier(@RequestBody EnderecoAtelier endereco) {
-        enderecoAtelierApplication.createEnderecoAtelier(endereco);
+        facadeEnderecoAtelier.cadastrar(endereco);
     }
 
     @GetMapping("/{id}")
     public EnderecoAtelier getEnderecoAtelierById(@PathVariable int id) {
-        return enderecoAtelierApplication.getEnderecoAtelierById(id);
+        return facadeEnderecoAtelier.buscarEnderecoAtelierPorId(id);
     }
 
     @GetMapping
     public ArrayList<EnderecoAtelier> getAllEnderecoAteliers() {
-        return enderecoAtelierApplication.getAllEnderecoAteliers();
+        return facadeEnderecoAtelier.listaEnderecoAteliers();
     }
 
     @PutMapping("/{id}")
     public void updateEnderecoAtelier(@PathVariable int id, @RequestBody EnderecoAtelier endereco) {
-        enderecoAtelierApplication.updateEnderecoAtelier(id, endereco);
+        facadeEnderecoAtelier.atualizar(id, endereco);
     }
 
     @DeleteMapping("/{id}")
     public void deleteEnderecoAtelier(@PathVariable int id) {
-        enderecoAtelierApplication.deleteEnderecoAtelier(id);
+        facadeEnderecoAtelier.excluir(id);
     }
 }
