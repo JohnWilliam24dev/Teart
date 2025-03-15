@@ -1,6 +1,12 @@
 package com.duckers.teart.controller;
+import com.duckers.teart.application.ItemPedidoApplication;
+import com.duckers.teart.application.PedidoApplication;
 import com.duckers.teart.entities.Pedido;
+import com.duckers.teart.facade.ItemPedidoFacade;
 import com.duckers.teart.facade.PedidoFacade;
+import com.duckers.teart.repositorie.ItemPedidoRepositorie;
+import com.duckers.teart.repositorie.PedidoRepositorie;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +15,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/pedidos")
 public class PedidoController {
-    private final PedidoFacade pedidoFacade;
+    private static PedidoFacade pedidoFacade;
+    private static PedidoApplication pedidoApplication;
+    private static PedidoRepositorie pedidoRepositorie;
+
+    public static void injetarDependencias(){
+        pedidoRepositorie = new PedidoRepositorie();
+        pedidoApplication = new PedidoApplication(pedidoRepositorie);
+        pedidoFacade = new PedidoFacade(pedidoApplication);
+
+    }
+
+    public PedidoController(){
+        injetarDependencias();
+    }
 
     @Autowired
     public PedidoController(PedidoFacade pedidoFacade) {
