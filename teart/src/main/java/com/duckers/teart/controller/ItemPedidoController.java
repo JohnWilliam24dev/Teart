@@ -1,11 +1,9 @@
 package com.duckers.teart.controller;
-import com.duckers.teart.application.EnderecoUsuarioApplication;
-import com.duckers.teart.application.ItemPedidoApplication;
+
 import com.duckers.teart.entities.ItemPedido;
-import com.duckers.teart.facade.FacadeEnderecoUsuario;
+
 import com.duckers.teart.facade.ItemPedidoFacade;
-import com.duckers.teart.repositorie.EnderecoUsuarioRepositorie;
-import com.duckers.teart.repositorie.ItemPedidoRepositorie;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,9 @@
 package com.duckers.teart.controller;
 
-import com.duckers.teart.application.EnderecoAtelierApplication;
+
 import com.duckers.teart.entities.EnderecoAtelier;
 import com.duckers.teart.facade.FacadeEnderecoAtelier;
-import com.duckers.teart.repositorie.EnderecoAtelierRepositorie;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

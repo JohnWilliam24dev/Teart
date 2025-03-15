@@ -1,12 +1,9 @@
 package com.duckers.teart.controller;
 
-import com.duckers.teart.application.AtelierApplication;
+
 import com.duckers.teart.entities.Atelier;
 import com.duckers.teart.facade.FacadeAtelier;
-import com.duckers.teart.repositorie.AtelierRepositorie;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
