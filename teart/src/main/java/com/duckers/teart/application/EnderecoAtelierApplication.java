@@ -3,7 +3,9 @@ package com.duckers.teart.application;
 import java.util.ArrayList;
 import com.duckers.teart.entities.EnderecoAtelier;
 import com.duckers.teart.repositorie.EnderecoAtelierRepositorie;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EnderecoAtelierApplication {
     private EnderecoAtelierRepositorie enderecoRepository;
     

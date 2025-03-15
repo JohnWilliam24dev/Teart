@@ -2,7 +2,8 @@ package com.duckers.teart.repositorie;
 
 import java.util.ArrayList;
 import com.duckers.teart.entities.DonoAtelier;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class DonoAtelierRepositorie {
     ArrayList<DonoAtelier> donoAtelierList = new ArrayList<>();
 
