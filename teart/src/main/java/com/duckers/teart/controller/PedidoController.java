@@ -15,20 +15,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/pedidos")
 public class PedidoController {
-    private static PedidoFacade pedidoFacade;
-    private static PedidoApplication pedidoApplication;
-    private static PedidoRepositorie pedidoRepositorie;
+    private final PedidoFacade pedidoFacade;
+    
 
-    public static void injetarDependencias(){
-        pedidoRepositorie = new PedidoRepositorie();
-        pedidoApplication = new PedidoApplication(pedidoRepositorie);
-        pedidoFacade = new PedidoFacade(pedidoApplication);
-
-    }
-
-    public PedidoController(){
-        injetarDependencias();
-    }
+    
 
     @Autowired
     public PedidoController(PedidoFacade pedidoFacade) {

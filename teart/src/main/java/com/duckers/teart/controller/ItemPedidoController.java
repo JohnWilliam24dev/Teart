@@ -15,20 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/itempedidos")
 public class ItemPedidoController {
-    private static ItemPedidoFacade itemPedidoFacade;
-    private static ItemPedidoApplication itemPedidoApplication;
-    private static ItemPedidoRepositorie itemPedidoRepositorie;
-
-    public static void injetarDependencias(){
-        itemPedidoRepositorie = new ItemPedidoRepositorie();
-        itemPedidoApplication = new ItemPedidoApplication(itemPedidoRepositorie);
-        itemPedidoFacade = new ItemPedidoFacade(itemPedidoApplication);
-
-    }
-
-    public ItemPedidoController(){
-        injetarDependencias();
-    }
+    private final ItemPedidoFacade itemPedidoFacade;
+    
 
     @Autowired
     public ItemPedidoController(ItemPedidoFacade itemPedidoFacade) {
