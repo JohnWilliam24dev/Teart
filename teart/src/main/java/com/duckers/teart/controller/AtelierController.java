@@ -11,42 +11,37 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/atelier")
 public class AtelierController {
-    private static AtelierRepositorie atelierRepositorie;
-    private static AtelierApplication atelierApplication;
-    private static FacadeAtelier facadeAtelier;
+    
+    private final FacadeAtelier facadeAtelier;
 
-    private static void injetarDependencias() {
-        atelierRepositorie = new AtelierRepositorie();
-        atelierApplication = new AtelierApplication(atelierRepositorie);
-        facadeAtelier = new FacadeAtelier(atelierApplication);
-    }
+   
 
-    public AtelierController() {
-        injetarDependencias();
+    public AtelierController(FacadeAtelier facadeAtelier) {
+        this.facadeAtelier = facadeAtelier;
     }
 
     @PostMapping
     public void createAtelier(@RequestBody Atelier atelier) {
-        atelierApplication.createAtelier(atelier);
+        facadeAtelier.cadastrar(atelier);
     }
 
     @GetMapping("/{id}")
     public Atelier getAtelierById(@PathVariable int id) {
-        return atelierApplication.getAtelierById(id);
+        return facadeAtelier.buscarAtelierPorId(id);
     }
 
     @GetMapping
     public ArrayList<Atelier> getAllAteliers() {
-        return atelierApplication.getAllAteliers();
+        return facadeAtelier.listaAteliers();
     }
 
     @PutMapping("/{id}")
     public void updateAtelier(@PathVariable int id, @RequestBody Atelier atelier) {
-        atelierApplication.updateAtelier(id, atelier);
+        facadeAtelier.atualizar(id, atelier);
     }
 
     @DeleteMapping("/{id}")
     public void deleteAtelier(@PathVariable int id) {
-        atelierApplication.deleteAtelier(id);
+        facadeAtelier.excluir(id);
     }
 }
