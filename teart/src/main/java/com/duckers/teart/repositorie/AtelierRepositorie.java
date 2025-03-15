@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import com.duckers.teart.entities.Atelier;
 
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class AtelierRepositorie {
     ArrayList<Atelier> atelierList= new ArrayList<Atelier>();
     

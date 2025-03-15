@@ -2,7 +2,8 @@ package com.duckers.teart.repositorie;
 
 import java.util.ArrayList;
 import com.duckers.teart.entities.EnderecoAtelier;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class EnderecoAtelierRepositorie {
     ArrayList<EnderecoAtelier> enderecoList = new ArrayList<>();
 

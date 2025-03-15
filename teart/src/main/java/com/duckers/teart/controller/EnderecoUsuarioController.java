@@ -26,9 +26,6 @@ public class EnderecoUsuarioController {
     private final FacadeEnderecoUsuario enderecoUsuarioFacade;
     
 
-    
-
-    
     @Autowired
     public EnderecoUsuarioController(FacadeEnderecoUsuario enderecoUsuarioFacade) {
         this.enderecoUsuarioFacade = enderecoUsuarioFacade;

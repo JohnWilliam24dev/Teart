@@ -4,6 +4,9 @@ import com.duckers.teart.application.AtelierApplication;
 import com.duckers.teart.entities.Atelier;
 import com.duckers.teart.facade.FacadeAtelier;
 import com.duckers.teart.repositorie.AtelierRepositorie;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -15,7 +18,7 @@ public class AtelierController {
     private final FacadeAtelier facadeAtelier;
 
    
-
+    @Autowired
     public AtelierController(FacadeAtelier facadeAtelier) {
         this.facadeAtelier = facadeAtelier;
     }
@@ -23,6 +26,7 @@ public class AtelierController {
     @PostMapping
     public void createAtelier(@RequestBody Atelier atelier) {
         facadeAtelier.cadastrar(atelier);
+        
     }
 
     @GetMapping("/{id}")
