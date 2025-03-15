@@ -23,20 +23,10 @@ import com.duckers.teart.repositorie.EnderecoUsuarioRepositorie;
 @RestController
 @RequestMapping("/enderecoUsuarios")
 public class EnderecoUsuarioController {
-    private static FacadeEnderecoUsuario enderecoUsuarioFacade;
-    private static EnderecoUsuarioApplication enderecoUsuarioApplication;
-    private static EnderecoUsuarioRepositorie enderecoUsuarioRepositorie;
+    private final FacadeEnderecoUsuario enderecoUsuarioFacade;
+    
 
-    public static void injetarDependencias(){
-        enderecoUsuarioRepositorie = new EnderecoUsuarioRepositorie();
-        enderecoUsuarioApplication = new EnderecoUsuarioApplication(enderecoUsuarioRepositorie);
-        enderecoUsuarioFacade = new FacadeEnderecoUsuario(enderecoUsuarioApplication);
-
-    }
-
-    public EnderecoUsuarioController(){
-        injetarDependencias();
-    }
+    
 
     
     @Autowired
