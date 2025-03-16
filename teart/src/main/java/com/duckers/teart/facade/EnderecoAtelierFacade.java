@@ -1,7 +1,5 @@
 package com.duckers.teart.facade;
-
 import java.util.ArrayList;
-
 import com.duckers.teart.application.EnderecoAtelierApplication;
 import com.duckers.teart.entities.EnderecoAtelier;
 import org.springframework.stereotype.Component;

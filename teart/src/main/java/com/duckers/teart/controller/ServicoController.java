@@ -1,5 +1,4 @@
 package com.duckers.teart.controller;
-
 import com.duckers.teart.entities.Servico;
 import com.duckers.teart.facade.ServicoFacade;
 import org.springframework.beans.factory.annotation.Autowired;

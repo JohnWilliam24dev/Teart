@@ -1,13 +1,8 @@
 package com.duckers.teart.controller;
-
-
 import com.duckers.teart.entities.EnderecoAtelier;
 import com.duckers.teart.facade.EnderecoAtelierFacade;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 
 @RestController

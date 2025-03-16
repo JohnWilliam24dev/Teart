@@ -1,5 +1,4 @@
 package com.duckers.teart.controller;
-
 import com.duckers.teart.entities.Usuario;
 import com.duckers.teart.facade.UsuarioFacade;
 import org.springframework.beans.factory.annotation.Autowired;
