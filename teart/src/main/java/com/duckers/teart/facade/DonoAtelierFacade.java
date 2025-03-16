@@ -8,11 +8,11 @@ import com.duckers.teart.application.DonoAtelierApplication;
 import com.duckers.teart.entities.DonoAtelier;
 
 @Component
-public class FacadeDonoAtelier {
+public class DonoAtelierFacade {
 
     private DonoAtelierApplication applicationDonoAtelier;
 
-    public FacadeDonoAtelier(DonoAtelierApplication applicationDonoAtelier) {
+    public DonoAtelierFacade(DonoAtelierApplication applicationDonoAtelier) {
         this.applicationDonoAtelier = applicationDonoAtelier;
     }
 
