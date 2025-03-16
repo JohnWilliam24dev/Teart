@@ -2,7 +2,7 @@ package com.duckers.teart.controller;
 
 
 import com.duckers.teart.entities.EnderecoAtelier;
-import com.duckers.teart.facade.FacadeEnderecoAtelier;
+import com.duckers.teart.facade.EnderecoAtelierFacade;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,11 @@ import java.util.ArrayList;
 @RequestMapping("/enderecoAtelier")
 public class EnderecoAtelierController {
     
-    private final FacadeEnderecoAtelier facadeEnderecoAtelier;
+    private final EnderecoAtelierFacade facadeEnderecoAtelier;
 
     
     @Autowired
-    public EnderecoAtelierController(FacadeEnderecoAtelier facadeEnderecoAtelier) {
+    public EnderecoAtelierController(EnderecoAtelierFacade facadeEnderecoAtelier) {
         this.facadeEnderecoAtelier = facadeEnderecoAtelier;
     }
 

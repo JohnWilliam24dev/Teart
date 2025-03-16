@@ -7,11 +7,11 @@ import com.duckers.teart.entities.EnderecoAtelier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FacadeEnderecoAtelier {
+public class EnderecoAtelierFacade {
 
     private EnderecoAtelierApplication applicationEnderecoAtelier;
 
-    public FacadeEnderecoAtelier(EnderecoAtelierApplication applicationEnderecoAtelier) {
+    public EnderecoAtelierFacade(EnderecoAtelierApplication applicationEnderecoAtelier) {
         this.applicationEnderecoAtelier = applicationEnderecoAtelier;
     }
 
