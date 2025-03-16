@@ -1,6 +1,6 @@
 package com.duckers.teart.facade;
 
-import java.util.ArrayList;
+import java.util.List;
 import com.duckers.teart.application.AtelierApplication;
 import com.duckers.teart.entities.Atelier;
 
@@ -20,7 +20,7 @@ public class FacadeAtelier {
         applicationAtelier.updateAtelier(id, atelier);
     }
 
-    public ArrayList<Atelier> listaAteliers() {
+    public List<Atelier> listaAteliers() {
         return applicationAtelier.getAllAteliers();
     }
 

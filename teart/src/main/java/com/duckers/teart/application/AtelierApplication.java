@@ -1,6 +1,6 @@
 package com.duckers.teart.application;
 
-import java.util.ArrayList;
+import java.util.List;
 import com.duckers.teart.entities.Atelier;
 import com.duckers.teart.repositorie.AtelierRepositorie;
 
@@ -19,7 +19,7 @@ public class AtelierApplication {
         return atelierRepository.getAtelierById(id);
     }
     
-    public ArrayList<Atelier> getAllAteliers() {
+    public List<Atelier> getAllAteliers() {
         return atelierRepository.getAtelierList();
     }
     

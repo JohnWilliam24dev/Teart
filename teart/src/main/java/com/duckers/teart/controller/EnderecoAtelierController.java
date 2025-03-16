@@ -6,7 +6,7 @@ import com.duckers.teart.facade.FacadeEnderecoAtelier;
 import com.duckers.teart.repositorie.EnderecoAtelierRepositorie;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/enderecoAtelier")
@@ -36,7 +36,7 @@ public class EnderecoAtelierController {
     }
 
     @GetMapping
-    public ArrayList<EnderecoAtelier> getAllEnderecoAteliers() {
+    public List<EnderecoAtelier> getAllEnderecoAteliers() {
         return enderecoAtelierApplication.getAllEnderecoAteliers();
     }
 

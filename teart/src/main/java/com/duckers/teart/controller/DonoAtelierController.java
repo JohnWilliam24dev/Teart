@@ -6,7 +6,7 @@ import com.duckers.teart.facade.FacadeDonoAtelier;
 import com.duckers.teart.repositorie.DonoAtelierRepositorie;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/donoAtelier")
@@ -36,7 +36,7 @@ public class DonoAtelierController {
     }
 
     @GetMapping
-    public ArrayList<DonoAtelier> getAllDonoAteliers() {
+    public List<DonoAtelier> getAllDonoAteliers() {
         return donoAtelierApplication.getAllDonoAteliers();
     }
 

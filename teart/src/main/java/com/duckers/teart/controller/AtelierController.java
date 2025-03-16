@@ -6,7 +6,7 @@ import com.duckers.teart.facade.FacadeAtelier;
 import com.duckers.teart.repositorie.AtelierRepositorie;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/atelier")
@@ -36,7 +36,7 @@ public class AtelierController {
     }
 
     @GetMapping
-    public ArrayList<Atelier> getAllAteliers() {
+    public List<Atelier> getAllAteliers() {
         return atelierApplication.getAllAteliers();
     }
 
