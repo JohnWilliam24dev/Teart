@@ -2,7 +2,7 @@ package com.duckers.teart.controller;
 
 
 import com.duckers.teart.entities.Atelier;
-import com.duckers.teart.facade.FacadeAtelier;
+import com.duckers.teart.facade.AtelierFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +12,11 @@ import java.util.ArrayList;
 @RequestMapping("/atelier")
 public class AtelierController {
     
-    private final FacadeAtelier facadeAtelier;
+    private final AtelierFacade facadeAtelier;
 
    
     @Autowired
-    public AtelierController(FacadeAtelier facadeAtelier) {
+    public AtelierController(AtelierFacade facadeAtelier) {
         this.facadeAtelier = facadeAtelier;
     }
 

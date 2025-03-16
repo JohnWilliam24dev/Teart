@@ -8,11 +8,11 @@ import com.duckers.teart.application.AtelierApplication;
 import com.duckers.teart.entities.Atelier;
 
 @Component
-public class FacadeAtelier {
+public class AtelierFacade {
 
     private AtelierApplication applicationAtelier;
 
-    public FacadeAtelier(AtelierApplication applicationAtelier) {
+    public AtelierFacade(AtelierApplication applicationAtelier) {
         this.applicationAtelier = applicationAtelier;
     }
 
