@@ -1,6 +1,6 @@
 package com.duckers.teart.facade;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.duckers.teart.application.EnderecoAtelierApplication;
 import com.duckers.teart.entities.EnderecoAtelier;
@@ -23,7 +23,7 @@ public class EnderecoAtelierFacade {
         applicationEnderecoAtelier.updateEnderecoAtelier(id, enderecoAtelier);
     }
 
-    public ArrayList<EnderecoAtelier> listaEnderecoAteliers() {
+    public List<EnderecoAtelier> listaEnderecoAteliers() {
         return applicationEnderecoAtelier.getAllEnderecoAteliers();
     }
 

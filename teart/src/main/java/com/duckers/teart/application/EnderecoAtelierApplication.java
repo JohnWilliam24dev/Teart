@@ -1,6 +1,6 @@
 package com.duckers.teart.application;
 
-import java.util.ArrayList;
+import java.util.List;
 import com.duckers.teart.entities.EnderecoAtelier;
 import com.duckers.teart.repositorie.EnderecoAtelierRepositorie;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class EnderecoAtelierApplication {
         return enderecoRepository.getEnderecoAtelierById(id);
     }
     
-    public ArrayList<EnderecoAtelier> getAllEnderecoAteliers() {
+    public List<EnderecoAtelier> getAllEnderecoAteliers() {
         return enderecoRepository.getEnderecoAtelierList();
     }
     
