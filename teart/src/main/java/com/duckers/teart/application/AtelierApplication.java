@@ -3,7 +3,9 @@ package com.duckers.teart.application;
 import java.util.ArrayList;
 import com.duckers.teart.entities.Atelier;
 import com.duckers.teart.repositorie.AtelierRepositorie;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AtelierApplication {
     private AtelierRepositorie atelierRepository;
     

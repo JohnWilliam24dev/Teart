@@ -4,10 +4,10 @@ import com.duckers.teart.entities.Servico;
 import com.duckers.teart.application.ServicoApplication;
 import org.springframework.stereotype.Component;
 @Component
-public class FacadeServico {
+public class ServicoFacade {
   private ServicoApplication applicationServico;
    
-  public FacadeServico(ServicoApplication applicationServico){
+  public ServicoFacade(ServicoApplication applicationServico){
     this.applicationServico = applicationServico;
   }
 
