@@ -1,4 +1,5 @@
 package com.duckers.teart.controller;
+
 import com.duckers.teart.entities.Pedido;
 import com.duckers.teart.facade.PedidoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,6 @@ import java.util.List;
 @RequestMapping("/pedidos")
 public class PedidoController {
     private final PedidoFacade pedidoFacade;
-    
-
-    
 
     @Autowired
     public PedidoController(PedidoFacade pedidoFacade) {

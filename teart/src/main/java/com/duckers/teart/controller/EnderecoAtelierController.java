@@ -1,14 +1,12 @@
 package com.duckers.teart.controller;
 
-
 import com.duckers.teart.entities.EnderecoAtelier;
 import com.duckers.teart.facade.EnderecoAtelierFacade;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/enderecoAtelier")
@@ -33,7 +31,7 @@ public class EnderecoAtelierController {
     }
 
     @GetMapping
-    public ArrayList<EnderecoAtelier> getAllEnderecoAteliers() {
+    public List<EnderecoAtelier> getAllEnderecoAteliers() {
         return facadeEnderecoAtelier.listaEnderecoAteliers();
     }
 

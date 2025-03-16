@@ -1,12 +1,11 @@
 package com.duckers.teart.controller;
 
-
 import com.duckers.teart.entities.Atelier;
 import com.duckers.teart.facade.AtelierFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/atelier")
@@ -32,7 +31,7 @@ public class AtelierController {
     }
 
     @GetMapping
-    public ArrayList<Atelier> getAllAteliers() {
+    public List<Atelier> getAllAteliers() {
         return facadeAtelier.listaAteliers();
     }
 

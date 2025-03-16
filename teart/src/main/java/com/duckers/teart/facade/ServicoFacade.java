@@ -3,6 +3,7 @@ import java.util.List;
 import com.duckers.teart.entities.Servico;
 import com.duckers.teart.application.ServicoApplication;
 import org.springframework.stereotype.Component;
+
 @Component
 public class ServicoFacade {
   private ServicoApplication applicationServico;

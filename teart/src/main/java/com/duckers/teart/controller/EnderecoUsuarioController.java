@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.duckers.teart.entities.EnderecoUsuario;
 import com.duckers.teart.facade.EnderecoUsuarioFacade;
-
 
 @RestController
 @RequestMapping("/enderecoUsuarios")

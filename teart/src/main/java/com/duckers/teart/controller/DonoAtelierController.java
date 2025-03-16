@@ -1,20 +1,17 @@
 package com.duckers.teart.controller;
 
-
 import com.duckers.teart.entities.DonoAtelier;
 import com.duckers.teart.facade.DonoAtelierFacade;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/donoAtelier")
 public class DonoAtelierController {
     private final DonoAtelierFacade facadeDonoAtelier;
-
 
     @Autowired
     public DonoAtelierController(DonoAtelierFacade facadeDonoAtelier) {
@@ -32,7 +29,7 @@ public class DonoAtelierController {
     }
 
     @GetMapping
-    public ArrayList<DonoAtelier> getAllDonoAteliers() {
+    public List<DonoAtelier> getAllDonoAteliers() {
         return facadeDonoAtelier.listaDonoAteliers();
     }
 
