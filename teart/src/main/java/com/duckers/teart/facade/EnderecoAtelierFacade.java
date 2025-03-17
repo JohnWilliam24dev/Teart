@@ -1,14 +1,17 @@
 package com.duckers.teart.facade;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import com.duckers.teart.application.EnderecoAtelierApplication;
 import com.duckers.teart.entities.EnderecoAtelier;
+import org.springframework.stereotype.Component;
 
-public class FacadeEnderecoAtelier {
+@Component
+public class EnderecoAtelierFacade {
 
     private EnderecoAtelierApplication applicationEnderecoAtelier;
 
-    public FacadeEnderecoAtelier(EnderecoAtelierApplication applicationEnderecoAtelier) {
+    public EnderecoAtelierFacade(EnderecoAtelierApplication applicationEnderecoAtelier) {
         this.applicationEnderecoAtelier = applicationEnderecoAtelier;
     }
 
@@ -20,7 +23,7 @@ public class FacadeEnderecoAtelier {
         applicationEnderecoAtelier.updateEnderecoAtelier(id, enderecoAtelier);
     }
 
-    public ArrayList<EnderecoAtelier> listaEnderecoAteliers() {
+    public List<EnderecoAtelier> listaEnderecoAteliers() {
         return applicationEnderecoAtelier.getAllEnderecoAteliers();
     }
 

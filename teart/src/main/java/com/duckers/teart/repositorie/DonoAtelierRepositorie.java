@@ -1,10 +1,12 @@
 package com.duckers.teart.repositorie;
 
 import java.util.ArrayList;
+import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class DonoAtelierRepositorie {
-    ArrayList<DonoAtelier> donoAtelierList = new ArrayList<>();
+    List<DonoAtelier> donoAtelierList = new ArrayList<>();
 
     public DonoAtelier getDonoAtelierById(int id) {
         return donoAtelierList.stream()
@@ -13,7 +15,7 @@ public class DonoAtelierRepositorie {
                               .orElse(null);
     }
 
-    public ArrayList<DonoAtelier> getDonoAtelierList() {
+    public List<DonoAtelier> getDonoAtelierList() {
         return donoAtelierList;
     }
 

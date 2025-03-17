@@ -14,15 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.duckers.teart.entities.EnderecoUsuario;
-import com.duckers.teart.facade.FacadeEnderecoUsuario;
+import com.duckers.teart.facade.EnderecoUsuarioFacade;
 
 @RestController
 @RequestMapping("/enderecoUsuarios")
 public class EnderecoUsuarioController {
-    private final FacadeEnderecoUsuario enderecoUsuarioFacade;
+    private final EnderecoUsuarioFacade enderecoUsuarioFacade;
+    
 
     @Autowired
-    public EnderecoUsuarioController(FacadeEnderecoUsuario enderecoUsuarioFacade) {
+    public EnderecoUsuarioController(EnderecoUsuarioFacade enderecoUsuarioFacade) {
         this.enderecoUsuarioFacade = enderecoUsuarioFacade;
     }
 

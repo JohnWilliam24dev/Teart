@@ -1,17 +1,19 @@
 package com.duckers.teart.repositorie;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.duckers.teart.entities.Atelier;
 
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class AtelierRepositorie {
-    ArrayList<Atelier> atelierList= new ArrayList<Atelier>();
+    List<Atelier> atelierList= new ArrayList<>();
     
     public Atelier getAtelierById(int id){
         return atelierList.stream().filter(p->p.getId()==id).findFirst().orElse(null); 
     }
-    public ArrayList<Atelier> getAtelierList(){
+    public List<Atelier> getAtelierList(){
         return atelierList;
     }
     public void add(Atelier atelier){

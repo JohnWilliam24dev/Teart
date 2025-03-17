@@ -4,10 +4,10 @@ import com.duckers.teart.entities.Usuario;
 import com.duckers.teart.application.UsuarioApplication;
 import org.springframework.stereotype.Component;
 @Component
-public class FacadeUsuario {
+public class UsuarioFacade {
     private UsuarioApplication applicationUsuario;
 
-    public FacadeUsuario(UsuarioApplication applicationUsuario){
+    public UsuarioFacade(UsuarioApplication applicationUsuario){
         this.applicationUsuario = applicationUsuario;
 
     }
