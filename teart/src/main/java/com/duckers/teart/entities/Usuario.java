@@ -7,7 +7,6 @@ public class Usuario {
     private String senha;
     private String endereco;
 
-
     public Usuario(int id, String nome, String email, String senha, String endereco){
         this.email = email;
         this.senha = senha;
