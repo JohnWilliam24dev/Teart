@@ -1,14 +1,25 @@
 package com.duckers.teart.entities;
-
+import jakarta.persistence.*;
 import com.duckers.teart.enums.Moda;
 import com.duckers.teart.enums.Tamanho;
-
+@Entity
+@Table(name="produto")
 public class Produto {
-    private int id, idAtelier;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
+    private long idAtelier;
+    @Column
     private Moda moda;
+    @Column
     private Tamanho tamanho;
+    @Column
     private String nome;
+    @Column
     private double preco;
+
+    public Produto(){}
 
     public Produto(int id, int idAtelier, Moda moda, Tamanho tamanho, String nome, double preco) {
         this.id = id;
@@ -19,11 +30,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public int getIdAtelier() {
+    public long getIdAtelier() {
         return idAtelier;
     }
 
