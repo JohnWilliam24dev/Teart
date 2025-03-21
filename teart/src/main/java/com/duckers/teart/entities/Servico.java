@@ -1,9 +1,30 @@
 package com.duckers.teart.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="servico")
 public class Servico {
-    private int id, idAtelier;
-    private String nome, descricao;
-    private double valorMaximo, valorMinimo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id; 
+    @Column
+    private long idAtelier;
+    @Column
+    private String nome;
+    @Column
+    private String descricao;
+    @Column
+    private double valorMaximo;
+    @Column
+    private double valorMinimo;
+
+    public Servico(){}
 
     public Servico(int id, int idAtelier, String nome, String descricao, double valorMaximo, double valoMinimo) {
         this.id = id;
@@ -14,7 +35,7 @@ public class Servico {
         this.valorMinimo = valoMinimo;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -22,7 +43,7 @@ public class Servico {
         this.id = id;
     }
 
-    public int getIdAtelier() {
+    public long getIdAtelier() {
         return idAtelier;
     }
 

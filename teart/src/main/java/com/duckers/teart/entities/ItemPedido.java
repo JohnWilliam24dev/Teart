@@ -1,9 +1,32 @@
 package com.duckers.teart.entities;
 import com.duckers.teart.enums.TipoProdutoServico;
+import jakarta.persistence.*;
 
+@Table(name="item_pedido")
+@Entity
 public class ItemPedido {
-    private int id, idProduto, idServico, idPedido, quantidade;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name="id_produto") // FK -> @ManyToOne
+    private long idProduto;
+
+    @Column(name="id_servico") // FK -> @ManyToOne
+    private long idServico;
+
+    @Column(name="id_pedido") // FK -> @ManyToOne
+    private long idPedido;
+
+    @Column(name="id_quantidade")
+    private int quantidade;
+
+    @Column(name="tipo_produto_servico")
     TipoProdutoServico tipoProdutoServico;
+
+    public ItemPedido() { // JPA construtor
+
+    }
 
     public ItemPedido(int id, int idProduto, int idServico, int idPedido, int quantidade, TipoProdutoServico tipoProdutoServico) {
         this.id = id;
@@ -14,19 +37,19 @@ public class ItemPedido {
         this.tipoProdutoServico = tipoProdutoServico;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public int getIdProduto() {
+    public long getIdProduto() {
         return idProduto;
     }
 
-    public int getIdServico() {
+    public long getIdServico() {
         return idServico;
     }
 
-    public int getIdPedido() {
+    public long getIdPedido() {
         return idPedido;
     }
 

@@ -1,12 +1,21 @@
 package com.duckers.teart.entities;
 
-public class Usuario {
-    private int id;
-    private String nome;
-    private String email;
-    private String senha;
-    private String endereco;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="usuario")
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column
+    private String nome;
+    @Column
+    private String email;
+    @Column
+    private String senha;
+    @Column
+    private String endereco;
 
     public Usuario(int id, String nome, String email, String senha, String endereco){
         this.email = email;

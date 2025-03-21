@@ -1,16 +1,32 @@
 package com.duckers.teart.entities;
 
-public class EnderecoUsuario {
-    private int id;
-    private int idUsuario;
-    private String rua;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String pais;
-    private String cep;
-    private int numero;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "endereco_usuario")
+public class EnderecoUsuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
+    private long idUsuario;
+    @Column
+    private String rua;
+    @Column
+    private String bairro;
+    @Column
+    private String cidade;
+    @Column
+    private String estado;
+    @Column
+    private String pais;
+    @Column
+    private String cep;
+    @Column
+    private int numero;
+    public EnderecoUsuario(){
+        
+    }
     public EnderecoUsuario(int id, int idUsuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep){
         this.id = id;
         this.idUsuario = idUsuario;
@@ -24,7 +40,7 @@ public class EnderecoUsuario {
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
     public String getRua() {
@@ -45,7 +61,7 @@ public class EnderecoUsuario {
     public int getNumero() {
         return numero;
     }
-    public int getId_Usuario() {
+    public long getId_Usuario() {
         return idUsuario;
     }
     public String getPais() {

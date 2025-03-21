@@ -1,13 +1,39 @@
 package com.duckers.teart.entities;
 import com.duckers.teart.enums.FormaPagamento;
 import com.duckers.teart.enums.StatusPedido;
+import jakarta.persistence.*;
 
+@Table(name="pedido")
+@Entity
 public class Pedido {
-    private int id, idUsuario, idItemPedido;
-    private String dataPedido, dataEnvio;
-    private StatusPedido statusPedido; // enum
-    private FormaPagamento formaPagamento; // enum
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name="id_usuario")
+    private long idUsuario; // FK -> @ManyToOne
+
+    @Column(name="id_item_pedido") // FK -> @ManyToOne
+    private long idItemPedido;
+
+    @Column(name="data_pedido")
+    private String dataPedido;
+
+    @Column(name="data_envio")
+    private String dataEnvio;
+
+    @Column(name="status_pedido")
+    private StatusPedido statusPedido;
+
+    @Column(name="forma_pagamento")
+    private FormaPagamento formaPagamento;
+
+    @Column(name="valor_total")
     private double valorTotal;
+
+    public Pedido() { // construtor da JPA
+
+    }
 
     public Pedido(int id, int idUsuario, int idItemPedido, String dataPedido, String dataEnvio,
     StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal) {
@@ -21,15 +47,15 @@ public class Pedido {
         this.valorTotal = valorTotal;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public int getIdUsuario() {
+    public long getIdUsuario() {
         return idUsuario;
     }
 
-    public int getIdItemPedido() {
+    public long getIdItemPedido() {
         return idItemPedido;
     }
 
