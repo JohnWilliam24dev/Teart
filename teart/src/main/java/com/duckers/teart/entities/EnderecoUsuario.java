@@ -1,14 +1,28 @@
 package com.duckers.teart.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "endereco_usuario")
 public class EnderecoUsuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private int idUsuario;
+    @Column
     private String rua;
+    @Column
     private String bairro;
+    @Column
     private String cidade;
+    @Column
     private String estado;
+    @Column
     private String pais;
+    @Column
     private String cep;
+    @Column
     private int numero;
 
     public EnderecoUsuario(int id, int idUsuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep){
