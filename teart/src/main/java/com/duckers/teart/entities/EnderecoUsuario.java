@@ -7,9 +7,9 @@ import jakarta.persistence.*;
 public class EnderecoUsuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @Column
-    private int idUsuario;
+    private long idUsuario;
     @Column
     private String rua;
     @Column
@@ -24,7 +24,9 @@ public class EnderecoUsuario {
     private String cep;
     @Column
     private int numero;
-
+    public EnderecoUsuario(){
+        
+    }
     public EnderecoUsuario(int id, int idUsuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep){
         this.id = id;
         this.idUsuario = idUsuario;
@@ -38,7 +40,7 @@ public class EnderecoUsuario {
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
     public String getRua() {
@@ -59,7 +61,7 @@ public class EnderecoUsuario {
     public int getNumero() {
         return numero;
     }
-    public int getId_Usuario() {
+    public long getId_Usuario() {
         return idUsuario;
     }
     public String getPais() {
