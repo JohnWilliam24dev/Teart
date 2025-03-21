@@ -1,10 +1,25 @@
 package com.duckers.teart.entities;
 
+import jakarta.persistence.*;
+
+
+
+@Entity
+@Table(name="atelier")
 public class Atelier {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String nome;
+    @Column
     private String cnpj;
+    @Column
     private long idDonoAtelier;
+
+    public Atelier(){
+        
+    }
 
     public Atelier(String cnpj, long id, long idDonoAtelier, String nome) {
         this.cnpj = cnpj;
