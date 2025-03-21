@@ -1,7 +1,7 @@
 package com.duckers.teart.controller;
 
 import com.duckers.teart.entities.Usuario;
-import com.duckers.teart.facade.FacadeUsuario;
+import com.duckers.teart.facade.UsuarioFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +10,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
-    private final FacadeUsuario usuarioFacade;
+    private final UsuarioFacade usuarioFacade;
 
     @Autowired
-    public UsuarioController(FacadeUsuario usuarioFacade) {
+    public UsuarioController(UsuarioFacade usuarioFacade) {
         this.usuarioFacade = usuarioFacade;
     }
 

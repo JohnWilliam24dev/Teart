@@ -1,14 +1,18 @@
 package com.duckers.teart.facade;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 import com.duckers.teart.application.DonoAtelierApplication;
 import com.duckers.teart.entities.DonoAtelier;
 
-public class FacadeDonoAtelier {
+@Component
+public class DonoAtelierFacade {
 
     private DonoAtelierApplication applicationDonoAtelier;
 
-    public FacadeDonoAtelier(DonoAtelierApplication applicationDonoAtelier) {
+    public DonoAtelierFacade(DonoAtelierApplication applicationDonoAtelier) {
         this.applicationDonoAtelier = applicationDonoAtelier;
     }
 
@@ -20,7 +24,7 @@ public class FacadeDonoAtelier {
         applicationDonoAtelier.updateDonoAtelier(id, donoAtelier);
     }
 
-    public ArrayList<DonoAtelier> listaDonoAteliers() {
+    public List<DonoAtelier> listaDonoAteliers() {
         return applicationDonoAtelier.getAllDonoAteliers();
     }
 

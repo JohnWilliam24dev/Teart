@@ -1,10 +1,12 @@
 package com.duckers.teart.repositorie;
 
 import java.util.ArrayList;
+import java.util.List;
 import com.duckers.teart.entities.EnderecoAtelier;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class EnderecoAtelierRepositorie {
-    ArrayList<EnderecoAtelier> enderecoList = new ArrayList<>();
+    List<EnderecoAtelier> enderecoList = new ArrayList<>();
 
     public EnderecoAtelier getEnderecoAtelierById(int id) {
         return enderecoList.stream()
@@ -13,7 +15,7 @@ public class EnderecoAtelierRepositorie {
                            .orElse(null);
     }
 
-    public ArrayList<EnderecoAtelier> getEnderecoAtelierList() {
+    public List<EnderecoAtelier> getEnderecoAtelierList() {
         return enderecoList;
     }
 
