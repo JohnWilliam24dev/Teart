@@ -16,19 +16,19 @@ public class UsuarioFacade {
         applicationUsuario.createUsuario(usuario);
     }
 
-    public void atualizar(int id, Usuario usuario) {
-        applicationUsuario.updateUsuario(usuario);
+    public void atualizar(long id, Usuario usuario) {
+        applicationUsuario.updateUsuario(id, usuario);
     }
 
     public List<Usuario> listaUsuarios() {
         return applicationUsuario.getAllUsuarios();
     }
 
-    public Usuario buscarUsuarioPorId(Long id) {
+    public Usuario buscarUsuarioPorId(long id) {
         return applicationUsuario.getUsuarioById(id);
     }
 
-    public void excluir(Long id) {
+    public void excluir(long id) {
         applicationUsuario.deleteUsuario(id);
     }
 }

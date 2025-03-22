@@ -40,14 +40,14 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateUsuario(@PathVariable int id, @RequestBody Usuario usuario) {
+    public ResponseEntity<Void> updateUsuario(@PathVariable long id, @RequestBody Usuario usuario) {
         usuarioFacade.atualizar(id, usuario);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUsuario(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUsuario(@PathVariable long id) {
         usuarioFacade.excluir(id);
         return ResponseEntity.noContent().build();
-    }
+    } 
 }
