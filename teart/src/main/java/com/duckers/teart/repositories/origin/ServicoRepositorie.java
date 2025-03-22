@@ -1,4 +1,4 @@
-package com.duckers.teart.repositorie;
+package com.duckers.teart.repositories.origin;
 import com.duckers.teart.entities.Servico;
 import java.util.ArrayList;
 import java.util.List;
