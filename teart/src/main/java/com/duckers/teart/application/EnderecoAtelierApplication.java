@@ -2,7 +2,7 @@ package com.duckers.teart.application;
 
 import java.util.List;
 import com.duckers.teart.entities.EnderecoAtelier;
-import com.duckers.teart.repositorie.EnderecoAtelierRepositorie;
+import com.duckers.teart.repositories.origin.EnderecoAtelierRepositorie;
 import org.springframework.stereotype.Service;
 
 @Service

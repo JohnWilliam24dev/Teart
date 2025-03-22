@@ -1,7 +1,7 @@
 package com.duckers.teart.application;
 import java.util.List;
 import com.duckers.teart.entities.ItemPedido;
-import com.duckers.teart.repositorie.ItemPedidoRepositorie;
+import com.duckers.teart.repositories.origin.ItemPedidoRepositorie;
 import org.springframework.stereotype.Service;
 
 @Service
