@@ -24,7 +24,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> getUsuarioById(@PathVariable int id) {
+    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id) {
         Usuario usuario = usuarioFacade.buscarUsuarioPorId(id);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
@@ -46,7 +46,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUsuario(@PathVariable int id) {
+    public ResponseEntity<Void> deleteUsuario(@PathVariable Long id) {
         usuarioFacade.excluir(id);
         return ResponseEntity.noContent().build();
     }
