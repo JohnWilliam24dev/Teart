@@ -1,7 +1,7 @@
 package com.duckers.teart.application;
 import java.util.List;
 import com.duckers.teart.entities.ItemPedido;
-import com.duckers.teart.repositories.origin.ItemPedidoRepositorie;
+import com.duckers.teart.repositories.ItemPedidoRepositorie;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,20 +13,20 @@ public class ItemPedidoApplication {
     }
 
     public void createItemPedido(ItemPedido itemPedido) {
-        itemPedidoRepositorie.add(itemPedido);
+        itemPedidoRepositorie.save(itemPedido);
     }
 
-    public ItemPedido getItemPedidoById(int id) {
-        return itemPedidoRepositorie.getItemPedidoById(id);
+    public ItemPedido getItemPedidoById(long id) {
+        return itemPedidoRepositorie.findById(id).get();
     }
 
     public List<ItemPedido> getAllItemPedidos() {
-        return itemPedidoRepositorie.getItemPedidosList();
+        return itemPedidoRepositorie.findAll();
     }
 
     // a entidade ItemPedido nao possui atributos passiveis de update no Banco de Dados
 
-    public void deleteItemPedido(int id) {
-        itemPedidoRepositorie.remove(id);
+    public void deleteItemPedido(long id) {
+        itemPedidoRepositorie.deleteById(id);
     }
 }

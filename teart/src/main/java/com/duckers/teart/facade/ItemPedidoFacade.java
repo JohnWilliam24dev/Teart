@@ -22,11 +22,11 @@ public class ItemPedidoFacade {
         return itemPedidoApplication.getAllItemPedidos();
     }
 
-    public ItemPedido buscarItemPedidoPorId(int id) {
+    public ItemPedido buscarItemPedidoPorId(long id) {
         return itemPedidoApplication.getItemPedidoById(id);
     }
 
-    public void excluir(int id) {
+    public void excluir(long id) {
         itemPedidoApplication.deleteItemPedido(id);
     }
 }

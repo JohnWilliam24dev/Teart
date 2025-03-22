@@ -16,7 +16,7 @@ public class PedidoFacade {
         pedidoApplication.createPedido(pedido);
     }
 
-    public void atualizar(int id, Pedido pedido) {
+    public void atualizar(long id, Pedido pedido) {
         pedidoApplication.updatePedido(id, pedido);
     }
 
@@ -24,11 +24,11 @@ public class PedidoFacade {
         return pedidoApplication.getAllPedidos();
     }
 
-    public Pedido buscarPedidoPorId(int id) {
+    public Pedido buscarPedidoPorId(long id) {
         return pedidoApplication.getPedidoById(id);
     }
 
-    public void excluir(int id) {
+    public void excluir(long id) {
         pedidoApplication.deletePedido(id);
     }
 }
