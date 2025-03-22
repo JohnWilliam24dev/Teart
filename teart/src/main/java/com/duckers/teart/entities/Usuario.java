@@ -1,13 +1,23 @@
 package com.duckers.teart.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="usuario")
 public class Usuario {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String nome;
+    @Column
     private String email;
+    @Column
     private String senha;
+    @Column
     private String endereco;
 
-    public Usuario(int id, String nome, String email, String senha, String endereco){
+    public Usuario(Long id, String nome, String email, String senha, String endereco){
         this.email = email;
         this.senha = senha;
         this.endereco = endereco;
@@ -22,7 +32,7 @@ public class Usuario {
     public String getEndereco() {
         return endereco;
     }
-    public int getId() {
+    public Long getId() {
         return id;
     }
     public String getNome() {
@@ -39,7 +49,7 @@ public class Usuario {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public void setNome(String nome) {

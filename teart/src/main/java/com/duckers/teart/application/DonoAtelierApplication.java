@@ -2,7 +2,7 @@ package com.duckers.teart.application;
 
 import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
-import com.duckers.teart.repositorie.DonoAtelierRepositorie;
+import com.duckers.teart.repositories.origin.DonoAtelierRepositorie;
 import org.springframework.stereotype.Service;
 
 @Service
