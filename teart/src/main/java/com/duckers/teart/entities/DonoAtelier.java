@@ -1,12 +1,25 @@
 package com.duckers.teart.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="dono_atelier")
 public class DonoAtelier {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String nomeSocial;
+    @Column
     private String nomeUsuario;
+    @Column
     private String email;
+    @Column
     private String senha;
+    @Column
     private String cpf;
+
+    public DonoAtelier(){}
 
     public DonoAtelier(String cpf, String email, long id, String nomeSocial, String nomeUsuario, String senha) {
         this.cpf = cpf;

@@ -26,7 +26,7 @@ public class EnderecoAtelier {
     @Column
     private String cep;
 
-
+    public EnderecoAtelier(){}
     public EnderecoAtelier(String bairro, String cep, String cidade, String estado, long id, long idAtelier, String logradouro, String numero, String rua) {
         this.bairro = bairro;
         this.cep = cep;
