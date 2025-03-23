@@ -29,6 +29,7 @@ public class EnderecoUsuarioController {
 
     @PostMapping
     public ResponseEntity<Void> createEnderecoUsuario(@RequestBody EnderecoUsuario enderecoUsuario) {
+        System.out.println("Recebido: " + enderecoUsuario.getIdUsuario());
         enderecoUsuarioFacade.cadastrar(enderecoUsuario);
         return ResponseEntity.ok().build();
     }
