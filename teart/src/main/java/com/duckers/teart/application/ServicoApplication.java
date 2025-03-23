@@ -1,19 +1,19 @@
 package com.duckers.teart.application;
 import java.util.List;
 import com.duckers.teart.entities.Servico;
-import com.duckers.teart.repositories.origin.ServicoRepositorie;
+import com.duckers.teart.repositories.ServicoRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ServicoApplication {
-    private ServicoRepositorie servicoRepositorie;
+    private ServicoRepository servicoRepositorie;
 
-    public ServicoApplication(ServicoRepositorie servicoRepositorie) {
+    public ServicoApplication(ServicoRepository servicoRepositorie) {
         this.servicoRepositorie = servicoRepositorie;
     }
 
     public void createServico(Servico servico) {
-        servicoRepositorie.add(servico);
+        servicoRepositorie.createPedido(servico);
     }
 
     public Servico getServicoById(int id) {
@@ -21,14 +21,14 @@ public class ServicoApplication {
     }
 
     public List<Servico> getAllServicos() {
-        return servicoRepositorie.getServicosList();
+        return servicoRepositorie.getAllServico();
     }
 
     public void updateServico(int id, Servico servico) {
-        servicoRepositorie.update(id, servico);
+        servicoRepositorie.updateServico(id, servico);
     }
 
     public void deleteServico(int id) {
-        servicoRepositorie.remove(id);
+        servicoRepositorie.deleteServico(id);
     }
 }
