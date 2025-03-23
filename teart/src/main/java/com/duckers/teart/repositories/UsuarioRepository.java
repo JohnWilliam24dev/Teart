@@ -8,7 +8,7 @@ import com.duckers.teart.entities.Usuario;
 import com.duckers.teart.repositories.Interfaces.UsuarioJPA;
 @Repository
 public class UsuarioRepository {
-private UsuarioJPA usuarioRepositorie;
+    private UsuarioJPA usuarioRepositorie;
 
     public UsuarioRepository(UsuarioJPA usuarioRepositorie) {
         this.usuarioRepositorie = usuarioRepositorie;
@@ -28,13 +28,13 @@ private UsuarioJPA usuarioRepositorie;
 
     public void updateUsuario(long id, Usuario usuario) {
         Usuario usuario1 = this.usuarioRepositorie.findById(id).get();
-        
+
 
         usuario1.setNome(usuario.getNome());
         usuario1.setEmail(usuario.getEmail());
         usuario1.setSenha(usuario.getSenha());
         usuario1.setEndereco(usuario.getEndereco());
-        
+
 
         this.usuarioRepositorie.save(usuario1);
     }

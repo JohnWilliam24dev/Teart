@@ -3,7 +3,7 @@ package com.duckers.teart.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "endereco_atelier")
+@Table(name = "enderecos_atelier")
 
 public class EnderecoAtelier {
     @Id

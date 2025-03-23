@@ -2,7 +2,7 @@ package com.duckers.teart.entities;
 import com.duckers.teart.enums.TipoProdutoServico;
 import jakarta.persistence.*;
 
-@Table(name="item_pedido")
+@Table(name="item_pedidos")
 @Entity
 public class ItemPedido {
     @Id
@@ -59,5 +59,29 @@ public class ItemPedido {
 
     public TipoProdutoServico getTipoProdutoServico() {
         return tipoProdutoServico;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    public void setIdServico(long idServico) {
+        this.idServico = idServico;
+    }
+
+    public void setIdPedido(long idPedido) {
+        this.idPedido = idPedido;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setTipoProdutoServico(TipoProdutoServico tipoProdutoServico) {
+        this.tipoProdutoServico = tipoProdutoServico;
     }
 }

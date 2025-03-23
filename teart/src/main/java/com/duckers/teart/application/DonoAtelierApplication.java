@@ -1,45 +1,34 @@
 package com.duckers.teart.application;
-
 import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
-import com.duckers.teart.repositories.Interfaces.DonoAtelierJPA;
-
+import com.duckers.teart.repositories.DonoAtelierRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DonoAtelierApplication {
-    private DonoAtelierJPA donoRepositorie;
-    
-    public DonoAtelierApplication(DonoAtelierJPA donoAtelierRepositorie) {
-        this.donoRepositorie = donoAtelierRepositorie;
+    private DonoAtelierRepository donoAtelierRepositorie;
+
+    public DonoAtelierApplication(DonoAtelierRepository donoAtelierRepositorie) {
+        this.donoAtelierRepositorie = donoAtelierRepositorie;
     }
-    
-    public void createDonoAtelier(DonoAtelier dono) {
-        donoRepositorie.save(dono);
+
+    public void createDonoAtelier(DonoAtelier donoAtelier) {
+        donoAtelierRepositorie.createDonoAtelier(donoAtelier);
     }
-    
+
     public DonoAtelier getDonoAtelierById(long id) {
-        return donoRepositorie.findById(id).get();
+        return donoAtelierRepositorie.getDonoAtelierById(id);
     }
-    
+
     public List<DonoAtelier> getAllDonoAteliers() {
-        return donoRepositorie.findAll();
+        return donoAtelierRepositorie.getDonoAteliersList();
     }
 
-    public void updateDonoAtelier(long id, DonoAtelier dono) {
-        DonoAtelier DonoPersistido = getDonoAtelierById(id);
-
-        DonoPersistido.setCpf(dono.getCpf());
-        DonoPersistido.setEmail(dono.getEmail());
-        DonoPersistido.setNomeSocial(dono.getNomeSocial());
-        DonoPersistido.setNomeUsuario(dono.getNomeUsuario());
-        DonoPersistido.setSenha(dono.getSenha());
-
-        this.donoRepositorie.save(DonoPersistido);
+    public void updateDonoAtelier(long id, DonoAtelier donoAtelier) {
+        donoAtelierRepositorie.updateDonoAtelier(id, donoAtelier);
     }
-
 
     public void deleteDonoAtelier(long id) {
-        donoRepositorie.deleteById(id);
+        donoAtelierRepositorie.deleteDonoAtelier(id);
     }
 }

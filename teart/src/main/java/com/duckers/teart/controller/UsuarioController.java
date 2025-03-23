@@ -49,5 +49,5 @@ public class UsuarioController {
     public ResponseEntity<Void> deleteUsuario(@PathVariable long id) {
         usuarioFacade.excluir(id);
         return ResponseEntity.noContent().build();
-    } 
+    }
 }
