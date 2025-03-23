@@ -2,8 +2,8 @@ package com.duckers.teart.repositories.origin;
 import com.duckers.teart.entities.Usuario;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Repository;
-@Repository
+
+
 public class UsuarioRepositorie {
     List<Usuario> usuarios = new ArrayList<>();
 
