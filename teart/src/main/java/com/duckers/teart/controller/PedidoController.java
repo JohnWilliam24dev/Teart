@@ -1,5 +1,4 @@
 package com.duckers.teart.controller;
-
 import com.duckers.teart.entities.Pedido;
 import com.duckers.teart.facade.PedidoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class PedidoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pedido> getPedidoById(@PathVariable int id) {
+    public ResponseEntity<Pedido> getPedidoById(@PathVariable long id) {
         Pedido pedido = pedidoFacade.buscarPedidoPorId(id);
         if (pedido != null) {
             return ResponseEntity.ok(pedido);
@@ -40,13 +39,13 @@ public class PedidoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updatePedido(@PathVariable int id, @RequestBody Pedido pedido) {
+    public ResponseEntity<Void> updatePedido(@PathVariable long id, @RequestBody Pedido pedido) {
         pedidoFacade.atualizar(id, pedido);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduto(@PathVariable int id) {
+    public ResponseEntity<Void> deleteProduto(@PathVariable long id) {
         pedidoFacade.excluir(id);
         return ResponseEntity.noContent().build();
     }
