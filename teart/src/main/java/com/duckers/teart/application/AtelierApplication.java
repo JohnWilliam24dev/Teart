@@ -2,14 +2,15 @@ package com.duckers.teart.application;
 
 import java.util.List;
 import com.duckers.teart.entities.Atelier;
-import com.duckers.teart.repositories.AtelierRepositorie;
+import com.duckers.teart.repositories.Interfaces.AtelierJPA;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class AtelierApplication {
-    private AtelierRepositorie atelierRepository;
+    private AtelierJPA atelierRepository;
 
-    public AtelierApplication(AtelierRepositorie atelierRepositorie) {
+    public AtelierApplication(AtelierJPA atelierRepositorie) {
         this.atelierRepository = atelierRepositorie;
     }
 
