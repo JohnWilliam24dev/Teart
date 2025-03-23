@@ -2,34 +2,34 @@ package com.duckers.teart.application;
 
 import java.util.List;
 import com.duckers.teart.entities.EnderecoAtelier;
-import com.duckers.teart.repositories.origin.EnderecoAtelierRepositorie;
+import com.duckers.teart.repositories.EnderecoAtelierRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EnderecoAtelierApplication {
-    private EnderecoAtelierRepositorie enderecoRepository;
+    private EnderecoAtelierRepository enderecoAtelierRepository;
     
-    public EnderecoAtelierApplication(EnderecoAtelierRepositorie enderecoAtelierRepositorie) {
-        this.enderecoRepository = enderecoAtelierRepositorie;
+    public EnderecoAtelierApplication(EnderecoAtelierRepository enderecoAtelierRepository) {
+        this.enderecoAtelierRepository = enderecoAtelierRepository;
     }
     
-    public void createEnderecoAtelier(EnderecoAtelier endereco) {
-        enderecoRepository.add(endereco);
+    public void createEnderecoAtelier(EnderecoAtelier enderecoAtelier) {
+        enderecoAtelierRepository.createEnderecoAtelier(enderecoAtelier);
     }
     
-    public EnderecoAtelier getEnderecoAtelierById(int id) {
-        return enderecoRepository.getEnderecoAtelierById(id);
+    public EnderecoAtelier getEnderecoAtelierById(long id) {
+        return enderecoAtelierRepository.getEnderecoAtelierById(id);
     }
     
     public List<EnderecoAtelier> getAllEnderecoAteliers() {
-        return enderecoRepository.getEnderecoAtelierList();
+        return enderecoAtelierRepository.getAllEnderecoAtelier();
     }
     
-    public void updateEnderecoAtelier(int id, EnderecoAtelier endereco) {
-        enderecoRepository.update(id, endereco);
+    public void updateEnderecoAtelier(long id, EnderecoAtelier endereco) {
+        enderecoAtelierRepository.updateEnderecoAtelier(id,endereco);
     }
     
-    public void deleteEnderecoAtelier(int id) {
-        enderecoRepository.remove(id);
+    public void deleteEnderecoAtelier(long id) {
+        enderecoAtelierRepository.deleteUsuario(id);
     }
 }

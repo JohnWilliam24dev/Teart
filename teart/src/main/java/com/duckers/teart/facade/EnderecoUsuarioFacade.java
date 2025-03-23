@@ -5,32 +5,33 @@ import java.util.List;
 import com.duckers.teart.application.EnderecoUsuarioApplication;
 import com.duckers.teart.entities.EnderecoUsuario;
 import org.springframework.stereotype.Component;
+
 @Component
 public class EnderecoUsuarioFacade {
 
-private EnderecoUsuarioApplication applicationEnderecoUsuario;
+    private EnderecoUsuarioApplication enderecoUsuarioApplication;
 
-    public EnderecoUsuarioFacade(EnderecoUsuarioApplication applicationEnderecoUsuario){
-        this.applicationEnderecoUsuario = applicationEnderecoUsuario;
+    public EnderecoUsuarioFacade(EnderecoUsuarioApplication enderecoUsuarioApplication) {
+        this.enderecoUsuarioApplication = enderecoUsuarioApplication;
     }
 
-    public void cadastrar(EnderecoUsuario EnderecoUsuario){
-        applicationEnderecoUsuario.createEnderecoUsuario(EnderecoUsuario);
+    public void createEnderecoUsuario(EnderecoUsuario enderecoUsuario) {
+        enderecoUsuarioApplication.createEnderecoUsuario(enderecoUsuario);
     }
 
-    public void atualizar(int id, EnderecoUsuario enderecoUsuario){
-        applicationEnderecoUsuario.updateEnderecoUsuario(id, enderecoUsuario);
+    public void updateEnderecoUsuario(long id, EnderecoUsuario enderecoUsuario) {
+        enderecoUsuarioApplication.updateEnderecoUsuario(id, enderecoUsuario);
     }
 
-    public List<EnderecoUsuario> ListaEnderecoUsuarios(){
-        return applicationEnderecoUsuario.getAllEnderecoUsuarios();
+    public List<EnderecoUsuario> getAllEnderecoUsuarios() {
+        return enderecoUsuarioApplication.getAllEnderecoUsuarios();
     }
 
-    public EnderecoUsuario buscarEnderecoUsuarioPorId(int id){
-        return applicationEnderecoUsuario.getEnderecoUsuarioById(id);
+    public EnderecoUsuario getEnderecoUsuarioById(long id) {
+        return enderecoUsuarioApplication.getEnderecoUsuarioById(id);
     }
 
-    public void excluir(int id){
-        applicationEnderecoUsuario.deleteEnderecoUsuario(id);
+    public void deleteEnderecoUsuario(long id) {
+        enderecoUsuarioApplication.deleteEnderecoUsuario(id);
     }
 }

@@ -9,7 +9,7 @@ public class EnderecoUsuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private Long idUsuario;
+    private long idUsuario;
     @Column
     private String rua;
     @Column
@@ -73,7 +73,7 @@ public class EnderecoUsuario {
     public int getNumero() {
         return numero;
     }
-    public Long getIdUsuario() {
+    public long getIdUsuario() {
         return idUsuario;
     }
     public String getPais() {
@@ -94,6 +94,7 @@ public class EnderecoUsuario {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    public void setPais(String pais){this.pais = pais;}
     public void setId(int id) {
         this.id = id;
     }
@@ -103,7 +104,7 @@ public class EnderecoUsuario {
     public void setRua(String rua) {
         this.rua = rua;
     }
-    public void setIdUsuario(Long idUsuario) {
+    public void setIdUsuario(long idUsuario) {
         this.idUsuario = idUsuario;
     }
     
