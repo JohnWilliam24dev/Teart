@@ -2,14 +2,15 @@ package com.duckers.teart.application;
 
 import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
-import com.duckers.teart.repositories.DonoAtelierRepositorie;
+import com.duckers.teart.repositories.Interfaces.DonoAtelierJPA;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class DonoAtelierApplication {
-    private DonoAtelierRepositorie donoRepositorie;
+    private DonoAtelierJPA donoRepositorie;
     
-    public DonoAtelierApplication(DonoAtelierRepositorie donoAtelierRepositorie) {
+    public DonoAtelierApplication(DonoAtelierJPA donoAtelierRepositorie) {
         this.donoRepositorie = donoAtelierRepositorie;
     }
     
