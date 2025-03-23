@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.duckers.teart.entities.Atelier;
 
-import org.springframework.stereotype.Repository;
-@Repository
 public class AtelierRepositorie {
     List<Atelier> atelierList= new ArrayList<>();
     
