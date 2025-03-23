@@ -5,6 +5,8 @@ import com.duckers.teart.repositories.Interfaces.EnderecoAtelierJPA;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+@Repository
 public class EnderecoAtelierRepository {
     private final EnderecoAtelierJPA enderecoAtelierJPA;
 

@@ -5,6 +5,8 @@ import com.duckers.teart.repositories.Interfaces.AtelierJPA;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+@Repository
 public class AtelierRepository {
     private final AtelierJPA atelierJPA;
 
