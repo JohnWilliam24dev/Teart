@@ -1,14 +1,15 @@
 package com.duckers.teart.application;
 import java.util.List;
 import com.duckers.teart.entities.Pedido;
-import com.duckers.teart.repositories.PedidoRepositorie;
+import com.duckers.teart.repositories.Interfaces.PedidoJPA;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class PedidoApplication {
-    private PedidoRepositorie pedidoRepositorie;
+    private PedidoJPA pedidoRepositorie;
 
-    public PedidoApplication(PedidoRepositorie pedidoRepositorie) {
+    public PedidoApplication(PedidoJPA pedidoRepositorie) {
         this.pedidoRepositorie = pedidoRepositorie;
     }
 
