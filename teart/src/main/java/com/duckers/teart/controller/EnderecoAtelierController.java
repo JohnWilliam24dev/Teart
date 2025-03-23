@@ -11,37 +11,36 @@ import java.util.List;
 @RestController
 @RequestMapping("/enderecoAtelier")
 public class EnderecoAtelierController {
-    
-    private final EnderecoAtelierFacade facadeEnderecoAtelier;
 
-    
+    private final EnderecoAtelierFacade enderecoAtelierFacade;
+
     @Autowired
-    public EnderecoAtelierController(EnderecoAtelierFacade facadeEnderecoAtelier) {
-        this.facadeEnderecoAtelier = facadeEnderecoAtelier;
+    public EnderecoAtelierController(EnderecoAtelierFacade enderecoAtelierFacade) {
+        this.enderecoAtelierFacade = enderecoAtelierFacade;
     }
 
     @PostMapping
     public void createEnderecoAtelier(@RequestBody EnderecoAtelier endereco) {
-        facadeEnderecoAtelier.cadastrar(endereco);
+        enderecoAtelierFacade.createEnderecoAtelier(endereco);
     }
 
     @GetMapping("/{id}")
-    public EnderecoAtelier getEnderecoAtelierById(@PathVariable int id) {
-        return facadeEnderecoAtelier.buscarEnderecoAtelierPorId(id);
+    public EnderecoAtelier getEnderecoAtelierById(@PathVariable long id) {
+        return enderecoAtelierFacade.getEnderecoAtelierById(id);
     }
 
     @GetMapping
     public List<EnderecoAtelier> getAllEnderecoAteliers() {
-        return facadeEnderecoAtelier.listaEnderecoAteliers();
+        return enderecoAtelierFacade.getAllEnderecoAteliers();
     }
 
     @PutMapping("/{id}")
-    public void updateEnderecoAtelier(@PathVariable int id, @RequestBody EnderecoAtelier endereco) {
-        facadeEnderecoAtelier.atualizar(id, endereco);
+    public void updateEnderecoAtelier(@PathVariable long id, @RequestBody EnderecoAtelier endereco) {
+        enderecoAtelierFacade.updateEnderecoAtelier(id, endereco);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEnderecoAtelier(@PathVariable int id) {
-        facadeEnderecoAtelier.excluir(id);
+    public void deleteEnderecoAtelier(@PathVariable long id) {
+        enderecoAtelierFacade.deleteEnderecoAtelier(id);
     }
 }

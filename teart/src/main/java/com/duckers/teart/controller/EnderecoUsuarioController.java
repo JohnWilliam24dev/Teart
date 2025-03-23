@@ -4,14 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.duckers.teart.entities.EnderecoUsuario;
 import com.duckers.teart.facade.EnderecoUsuarioFacade;
@@ -20,7 +13,6 @@ import com.duckers.teart.facade.EnderecoUsuarioFacade;
 @RequestMapping("/enderecoUsuarios")
 public class EnderecoUsuarioController {
     private final EnderecoUsuarioFacade enderecoUsuarioFacade;
-    
 
     @Autowired
     public EnderecoUsuarioController(EnderecoUsuarioFacade enderecoUsuarioFacade) {
@@ -29,35 +21,30 @@ public class EnderecoUsuarioController {
 
     @PostMapping
     public ResponseEntity<Void> createEnderecoUsuario(@RequestBody EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioFacade.cadastrar(enderecoUsuario);
+        enderecoUsuarioFacade.createEnderecoUsuario(enderecoUsuario);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EnderecoUsuario> getEnderecoUsuarioById(@PathVariable int id) {
-        EnderecoUsuario enderecoUsuario = enderecoUsuarioFacade.buscarEnderecoUsuarioPorId(id);
-        if (enderecoUsuario != null) {
-            return ResponseEntity.ok(enderecoUsuario);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<EnderecoUsuario> getEnderecoUsuarioById(@PathVariable long id) {
+        EnderecoUsuario enderecoUsuario = enderecoUsuarioFacade.getEnderecoUsuarioById(id);
+        return enderecoUsuario != null ? ResponseEntity.ok(enderecoUsuario) : ResponseEntity.notFound().build();
     }
 
     @GetMapping
     public ResponseEntity<List<EnderecoUsuario>> getAllEnderecoUsuarios() {
-        List<EnderecoUsuario> enderecos = enderecoUsuarioFacade.ListaEnderecoUsuarios();
-        return ResponseEntity.ok(enderecos);
+        return ResponseEntity.ok(enderecoUsuarioFacade.getAllEnderecoUsuarios());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateEnderecoUsuario(@PathVariable int id, @RequestBody EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioFacade.atualizar(id, enderecoUsuario);
+    public ResponseEntity<Void> updateEnderecoUsuario(@PathVariable long id, @RequestBody EnderecoUsuario enderecoUsuario) {
+        enderecoUsuarioFacade.updateEnderecoUsuario(id, enderecoUsuario);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEnderecoUsuario(@PathVariable int id) {
-        enderecoUsuarioFacade.excluir(id);
+    public ResponseEntity<Void> deleteEnderecoUsuario(@PathVariable long id) {
+        enderecoUsuarioFacade.deleteEnderecoUsuario(id);
         return ResponseEntity.noContent().build();
     }
 }

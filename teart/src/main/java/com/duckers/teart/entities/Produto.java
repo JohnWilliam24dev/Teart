@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import com.duckers.teart.enums.Moda;
 import com.duckers.teart.enums.Tamanho;
 @Entity
-@Table(name="produto")
+@Table(name="produtos")
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,12 +38,12 @@ public class Produto {
         return idAtelier;
     }
 
-    public String getModa() {
-        return moda.getDescricao();
+    public Moda getModa() {
+        return moda;
     }
 
-    public String getTamanho() {
-        return tamanho.getDescricao();
+    public Tamanho getTamanho() {
+        return tamanho;
     }
 
     public String getNome() {

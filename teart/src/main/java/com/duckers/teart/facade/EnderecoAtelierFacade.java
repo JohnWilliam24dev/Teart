@@ -9,29 +9,29 @@ import org.springframework.stereotype.Component;
 @Component
 public class EnderecoAtelierFacade {
 
-    private EnderecoAtelierApplication applicationEnderecoAtelier;
+    private EnderecoAtelierApplication enderecoAtelierApplication;
 
-    public EnderecoAtelierFacade(EnderecoAtelierApplication applicationEnderecoAtelier) {
-        this.applicationEnderecoAtelier = applicationEnderecoAtelier;
+    public EnderecoAtelierFacade(EnderecoAtelierApplication enderecoAtelierApplication) {
+        this.enderecoAtelierApplication = enderecoAtelierApplication;
     }
 
-    public void cadastrar(EnderecoAtelier enderecoAtelier) {
-        applicationEnderecoAtelier.createEnderecoAtelier(enderecoAtelier);
+    public void createEnderecoAtelier(EnderecoAtelier enderecoAtelier) {
+        enderecoAtelierApplication.createEnderecoAtelier(enderecoAtelier);
     }
 
-    public void atualizar(int id, EnderecoAtelier enderecoAtelier) {
-        applicationEnderecoAtelier.updateEnderecoAtelier(id, enderecoAtelier);
+    public void updateEnderecoAtelier(long id, EnderecoAtelier enderecoAtelier) {
+        enderecoAtelierApplication.updateEnderecoAtelier(id, enderecoAtelier);
     }
 
-    public List<EnderecoAtelier> listaEnderecoAteliers() {
-        return applicationEnderecoAtelier.getAllEnderecoAteliers();
+    public List<EnderecoAtelier> getAllEnderecoAteliers() {
+        return enderecoAtelierApplication.getAllEnderecoAteliers();
     }
 
-    public EnderecoAtelier buscarEnderecoAtelierPorId(int id) {
-        return applicationEnderecoAtelier.getEnderecoAtelierById(id);
+    public EnderecoAtelier getEnderecoAtelierById(long id) {
+        return enderecoAtelierApplication.getEnderecoAtelierById(id);
     }
 
-    public void excluir(int id) {
-        applicationEnderecoAtelier.deleteEnderecoAtelier(id);
+    public void deleteEnderecoAtelier(long id) {
+        enderecoAtelierApplication.deleteEnderecoAtelier(id);
     }
 }

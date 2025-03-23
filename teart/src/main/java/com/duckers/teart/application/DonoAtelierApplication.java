@@ -1,35 +1,34 @@
 package com.duckers.teart.application;
-
 import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
-import com.duckers.teart.repositorie.DonoAtelierRepositorie;
+import com.duckers.teart.repositories.DonoAtelierRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DonoAtelierApplication {
-    private DonoAtelierRepositorie donoRepository;
-    
-    public DonoAtelierApplication(DonoAtelierRepositorie donoAtelierRepositorie) {
-        this.donoRepository = donoAtelierRepositorie;
+    private DonoAtelierRepository donoAtelierRepositorie;
+
+    public DonoAtelierApplication(DonoAtelierRepository donoAtelierRepositorie) {
+        this.donoAtelierRepositorie = donoAtelierRepositorie;
     }
-    
-    public void createDonoAtelier(DonoAtelier dono) {
-        donoRepository.add(dono);
+
+    public void createDonoAtelier(DonoAtelier donoAtelier) {
+        donoAtelierRepositorie.createDonoAtelier(donoAtelier);
     }
-    
-    public DonoAtelier getDonoAtelierById(int id) {
-        return donoRepository.getDonoAtelierById(id);
+
+    public DonoAtelier getDonoAtelierById(long id) {
+        return donoAtelierRepositorie.getDonoAtelierById(id);
     }
-    
+
     public List<DonoAtelier> getAllDonoAteliers() {
-        return donoRepository.getDonoAtelierList();
+        return donoAtelierRepositorie.getDonoAteliersList();
     }
-    
-    public void updateDonoAtelier(int id, DonoAtelier dono) {
-        donoRepository.update(id, dono);
+
+    public void updateDonoAtelier(long id, DonoAtelier donoAtelier) {
+        donoAtelierRepositorie.updateDonoAtelier(id, donoAtelier);
     }
-    
-    public void deleteDonoAtelier(int id) {
-        donoRepository.remove(id);
+
+    public void deleteDonoAtelier(long id) {
+        donoAtelierRepositorie.deleteDonoAtelier(id);
     }
 }

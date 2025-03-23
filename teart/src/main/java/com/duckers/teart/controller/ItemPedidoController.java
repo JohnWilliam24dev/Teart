@@ -1,9 +1,6 @@
 package com.duckers.teart.controller;
-
 import com.duckers.teart.entities.ItemPedido;
-
 import com.duckers.teart.facade.ItemPedidoFacade;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +10,6 @@ import java.util.List;
 @RequestMapping("/itempedidos")
 public class ItemPedidoController {
     private final ItemPedidoFacade itemPedidoFacade;
-    
 
     @Autowired
     public ItemPedidoController(ItemPedidoFacade itemPedidoFacade) {
@@ -27,7 +23,7 @@ public class ItemPedidoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ItemPedido> getItemPedidoById(@PathVariable int id) {
+    public ResponseEntity<ItemPedido> getItemPedidoById(@PathVariable long id) {
         ItemPedido itemPedido = itemPedidoFacade.buscarItemPedidoPorId(id);
         if (itemPedido != null) {
             return ResponseEntity.ok(itemPedido);
@@ -45,7 +41,7 @@ public class ItemPedidoController {
     // a entidade ItemPedido nao possui atributos passiveis de update no Banco de Dados
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteItemProduto(@PathVariable int id) {
+    public ResponseEntity<Void> deleteItemProduto(@PathVariable long id) {
         itemPedidoFacade.excluir(id);
         return ResponseEntity.noContent().build();
     }

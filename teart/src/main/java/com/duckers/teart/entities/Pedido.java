@@ -3,7 +3,7 @@ import com.duckers.teart.enums.FormaPagamento;
 import com.duckers.teart.enums.StatusPedido;
 import jakarta.persistence.*;
 
-@Table(name="pedido")
+@Table(name="pedidos")
 @Entity
 public class Pedido {
     @Id
@@ -79,6 +79,22 @@ public class Pedido {
         return valorTotal;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public void setIdItemPedido(long idItemPedido) {
+        this.idItemPedido = idItemPedido;
+    }
+
+    public void setDataPedido(String dataPedido) {
+        this.dataPedido = dataPedido;
+    }
+
     public void setDataEnvio(String dataEnvio) {
         this.dataEnvio = dataEnvio;
     }
@@ -89,5 +105,9 @@ public class Pedido {
 
     public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 }

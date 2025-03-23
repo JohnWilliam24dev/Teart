@@ -1,34 +1,36 @@
 package com.duckers.teart.application;
 import java.util.List;
 import com.duckers.teart.entities.Usuario;
-import com.duckers.teart.repositorie.UsuarioRepositorie;
+import com.duckers.teart.repositories.UsuarioRepository;
+
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioApplication {
-    private UsuarioRepositorie usuarioRepositorie;
+    private UsuarioRepository usuarioRepositorie;
 
-    public UsuarioApplication(UsuarioRepositorie usuarioRepositorie) {
-        this.usuarioRepositorie = usuarioRepositorie;
+    public UsuarioApplication(UsuarioRepository usuarioRepository) {
+        this.usuarioRepositorie = usuarioRepository;
     }
 
     public void createUsuario(Usuario usuario) {
-        usuarioRepositorie.add(usuario);
+        usuarioRepositorie.createUsuario(usuario);
     }
 
-    public Usuario getUsuarioById(int id) {
+    public Usuario getUsuarioById(long id) {
         return usuarioRepositorie.getUsuarioById(id);
     }
 
     public List<Usuario> getAllUsuarios() {
-        return usuarioRepositorie.getUsuariosList();
+        return usuarioRepositorie.getAllUsuarios();
     }
 
-    public void updateUsuario(int id, Usuario usuario) {
-        usuarioRepositorie.update(id, usuario);
+    public void updateUsuario(long id, Usuario usuario) {
+        usuarioRepositorie.updateUsuario(id, usuario);
     }
 
-    public void deleteUsuario(int id) {
-        usuarioRepositorie.remove(id);
+    public void deleteUsuario(long id) {
+        usuarioRepositorie.deleteUsuario(id);
     }
 }

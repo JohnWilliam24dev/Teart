@@ -1,34 +1,34 @@
 package com.duckers.teart.application;
 import java.util.List;
 import com.duckers.teart.entities.Pedido;
-import com.duckers.teart.repositorie.PedidoRepositorie;
+import com.duckers.teart.repositories.PedidoRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PedidoApplication {
-    private PedidoRepositorie pedidoRepositorie;
+    private PedidoRepository pedidoRepositorie;
 
-    public PedidoApplication(PedidoRepositorie pedidoRepositorie) {
+    public PedidoApplication(PedidoRepository pedidoRepositorie) {
         this.pedidoRepositorie = pedidoRepositorie;
     }
 
     public void createPedido(Pedido pedido) {
-        pedidoRepositorie.add(pedido);
+        pedidoRepositorie.createPedido(pedido);
     }
 
-    public Pedido getPedidoById(int id) {
+    public Pedido getPedidoById(long id) {
         return pedidoRepositorie.getPedidoById(id);
     }
 
     public List<Pedido> getAllPedidos() {
-        return pedidoRepositorie.getPedidoList();
+        return pedidoRepositorie.getAllPedidos();
     }
 
-    public void updatePedido(int id, Pedido pedido) {
-        pedidoRepositorie.update(id, pedido);
+    public void updatePedido(long id, Pedido pedido) {
+        pedidoRepositorie.updatePedido(id, pedido);
     }
 
-    public void deletePedido(int id) {
-        pedidoRepositorie.remove(id);
+    public void deletePedido(long id) {
+        pedidoRepositorie.deletePedido(id);
     }
 }

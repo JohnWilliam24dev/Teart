@@ -24,7 +24,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> getUsuarioById(@PathVariable int id) {
+    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id) {
         Usuario usuario = usuarioFacade.buscarUsuarioPorId(id);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
@@ -40,13 +40,13 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateUsuario(@PathVariable int id, @RequestBody Usuario usuario) {
+    public ResponseEntity<Void> updateUsuario(@PathVariable long id, @RequestBody Usuario usuario) {
         usuarioFacade.atualizar(id, usuario);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUsuario(@PathVariable int id) {
+    public ResponseEntity<Void> deleteUsuario(@PathVariable long id) {
         usuarioFacade.excluir(id);
         return ResponseEntity.noContent().build();
     }
