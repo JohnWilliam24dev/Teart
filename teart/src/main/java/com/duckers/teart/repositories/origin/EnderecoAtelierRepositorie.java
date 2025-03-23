@@ -3,44 +3,58 @@ package com.duckers.teart.repositories.origin;
 import java.util.ArrayList;
 import java.util.List;
 import com.duckers.teart.entities.EnderecoAtelier;
+import com.duckers.teart.repositories.jpa.EnderecoAtelierJpa;
 import org.springframework.stereotype.Repository;
 @Repository
 public class EnderecoAtelierRepositorie {
-    List<EnderecoAtelier> enderecoList = new ArrayList<>();
+
+    private final EnderecoAtelierJpa enderecoAtelierJpa;
+
+    public EnderecoAtelierRepositorie(EnderecoAtelierJpa enderecoAtelierJpa) {
+        this.enderecoAtelierJpa = enderecoAtelierJpa;
+    }
 
     public EnderecoAtelier getEnderecoAtelierById(int id) {
-        return enderecoList.stream()
-                           .filter(e -> e.getId() == id)
-                           .findFirst()
-                           .orElse(null);
+        return this.enderecoAtelierJpa.findById(id)
+                .orElseThrow(() -> new RuntimeException("Endereço não encontrado para o ID: " + id));
     }
 
     public List<EnderecoAtelier> getEnderecoAtelierList() {
-        return enderecoList;
+
+        return this.enderecoAtelierJpa.findAll();
     }
 
     public void add(EnderecoAtelier endereco) {
-        enderecoList.add(endereco);
+
+        this.enderecoAtelierJpa.save(endereco);
     }
 
     public void remove(int id) {
-        EnderecoAtelier e = getEnderecoAtelierById(id);
-        if (e != null) {
-            enderecoList.remove(e);
+        if (this.enderecoAtelierJpa.existsById(id)){
+            this.enderecoAtelierJpa.deleteById(id);
+        }else{
+            throw new RuntimeException("Endereço não encontrado para o ID: " + id);
         }
+
     }
 
     public void update(int id, EnderecoAtelier endereco) {
-        EnderecoAtelier eInMemory = getEnderecoAtelierById(id);
-        if (eInMemory != null) {
-            eInMemory.setBairro(endereco.getBairro());
-            eInMemory.setCep(endereco.getCep());
-            eInMemory.setCidade(endereco.getCidade());
-            eInMemory.setEstado(endereco.getEstado());
-            eInMemory.setIdAtelier(endereco.getIdAtelier());
-            eInMemory.setLogradouro(endereco.getLogradouro());
-            eInMemory.setNumero(endereco.getNumero());
-            eInMemory.setRua(endereco.getRua());
+        if (endereco == null) {
+            throw new IllegalArgumentException("Os dados para atualização não podem ser nulos.");
         }
+
+        EnderecoAtelier enderecoInDb = this.enderecoAtelierJpa.findById(id).
+                orElseThrow(() -> new RuntimeException("Endereço não encontrado para o ID: " + id));;
+
+        enderecoInDb.setBairro(endereco.getBairro());
+        enderecoInDb.setCep(endereco.getCep());
+        enderecoInDb.setCidade(endereco.getCidade());
+        enderecoInDb.setEstado(endereco.getEstado());
+        enderecoInDb.setIdAtelier(endereco.getIdAtelier());
+        enderecoInDb.setLogradouro(endereco.getLogradouro());
+        enderecoInDb.setNumero(endereco.getNumero());
+        enderecoInDb.setRua(endereco.getRua());
+
+        this.enderecoAtelierJpa.save(enderecoInDb);
     }
 }
