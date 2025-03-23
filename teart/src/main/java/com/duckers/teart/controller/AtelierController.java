@@ -10,38 +10,36 @@ import java.util.List;
 @RestController
 @RequestMapping("/atelier")
 public class AtelierController {
-    
-    private final AtelierFacade facadeAtelier;
 
-   
+    private final AtelierFacade atelierFacade;
+
     @Autowired
-    public AtelierController(AtelierFacade facadeAtelier) {
-        this.facadeAtelier = facadeAtelier;
+    public AtelierController(AtelierFacade atelierFacade) {
+        this.atelierFacade = atelierFacade;
     }
 
     @PostMapping
     public void createAtelier(@RequestBody Atelier atelier) {
-        facadeAtelier.cadastrar(atelier);
-        
+        atelierFacade.createAtelier(atelier);
     }
 
     @GetMapping("/{id}")
-    public Atelier getAtelierById(@PathVariable int id) {
-        return facadeAtelier.buscarAtelierPorId(id);
+    public Atelier getAtelierById(@PathVariable long id) {
+        return atelierFacade.getAtelierById(id);
     }
 
     @GetMapping
     public List<Atelier> getAllAteliers() {
-        return facadeAtelier.listaAteliers();
+        return atelierFacade.getAllAteliers();
     }
 
     @PutMapping("/{id}")
-    public void updateAtelier(@PathVariable int id, @RequestBody Atelier atelier) {
-        facadeAtelier.atualizar(id, atelier);
+    public void updateAtelier(@PathVariable long id, @RequestBody Atelier atelier) {
+        atelierFacade.updateAtelier(id, atelier);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAtelier(@PathVariable int id) {
-        facadeAtelier.excluir(id);
+    public void deleteAtelier(@PathVariable long id) {
+        atelierFacade.deleteAtelier(id);
     }
 }

@@ -10,29 +10,29 @@ import com.duckers.teart.entities.Atelier;
 @Component
 public class AtelierFacade {
 
-    private AtelierApplication applicationAtelier;
+    private AtelierApplication atelierApplication;
 
-    public AtelierFacade(AtelierApplication applicationAtelier) {
-        this.applicationAtelier = applicationAtelier;
+    public AtelierFacade(AtelierApplication atelierApplication) {
+        this.atelierApplication = atelierApplication;
     }
 
-    public void cadastrar(Atelier atelier) {
-        applicationAtelier.createAtelier(atelier);
+    public void createAtelier(Atelier atelier) {
+        atelierApplication.createAtelier(atelier);
     }
 
-    public void atualizar(int id, Atelier atelier) {
-        applicationAtelier.updateAtelier(id, atelier);
+    public Atelier getAtelierById(long id) {
+        return atelierApplication.getAtelierById(id);
     }
 
-    public List<Atelier> listaAteliers() {
-        return applicationAtelier.getAllAteliers();
+    public List<Atelier> getAllAteliers() {
+        return atelierApplication.getAllAteliers();
     }
 
-    public Atelier buscarAtelierPorId(int id) {
-        return applicationAtelier.getAtelierById(id);
+    public void updateAtelier(long id, Atelier atelier) {
+        atelierApplication.updateAtelier(id, atelier);
     }
 
-    public void excluir(int id) {
-        applicationAtelier.deleteAtelier(id);
+    public void deleteAtelier(long id) {
+        atelierApplication.deleteAtelier(id);
     }
 }

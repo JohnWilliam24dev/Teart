@@ -1,34 +1,34 @@
 package com.duckers.teart.application;
 import java.util.List;
 import com.duckers.teart.entities.EnderecoUsuario;
-import com.duckers.teart.repositories.origin.EnderecoUsuarioRepositorie;
+import com.duckers.teart.repositories.EnderecoUsuarioRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EnderecoUsuarioApplication {
-    private EnderecoUsuarioRepositorie enderecoUsuarioRepositorie;
+    private EnderecoUsuarioRepository enderecoUsuarioRepository;
 
-    public EnderecoUsuarioApplication(EnderecoUsuarioRepositorie enderecoUsuarioRepositorie) {
-        this.enderecoUsuarioRepositorie = enderecoUsuarioRepositorie;
+    public EnderecoUsuarioApplication(EnderecoUsuarioRepository enderecoUsuarioRepository) {
+        this.enderecoUsuarioRepository = enderecoUsuarioRepository;
     }
 
     public void createEnderecoUsuario(EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioRepositorie.add(enderecoUsuario);
+        enderecoUsuarioRepository.createEnderecoUsuario(enderecoUsuario);
     }
 
-    public EnderecoUsuario getEnderecoUsuarioById(int id) {
-        return enderecoUsuarioRepositorie.getEnderecoUsuarioById(id);
+    public EnderecoUsuario getEnderecoUsuarioById(long id) {
+        return enderecoUsuarioRepository.getEnderecoUsuarioById(id);
     }
 
     public List<EnderecoUsuario> getAllEnderecoUsuarios() {
-        return enderecoUsuarioRepositorie.getEnderecoUsuariosList();
+        return enderecoUsuarioRepository.getAllEnderecoUsuario();
     }
 
-    public void updateEnderecoUsuario(int id, EnderecoUsuario enderecoUsuarioUpdate) {
-        enderecoUsuarioRepositorie.update(id, enderecoUsuarioUpdate);
+    public void updateEnderecoUsuario(long id, EnderecoUsuario enderecoUsuario) {
+        enderecoUsuarioRepository.updateEnderecoUsuario(id, enderecoUsuario);
     }
 
-    public void deleteEnderecoUsuario(int id) {
-        enderecoUsuarioRepositorie.remove(id);
+    public void deleteEnderecoUsuario(long id) {
+        enderecoUsuarioRepository.deleteEnderecoUsuario(id);
     }
 }
