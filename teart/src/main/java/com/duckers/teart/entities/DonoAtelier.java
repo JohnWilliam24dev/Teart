@@ -3,7 +3,7 @@ package com.duckers.teart.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="dono_atelier")
+@Table(name="donos_atelier")
 public class DonoAtelier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
