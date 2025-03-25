@@ -1,11 +1,16 @@
 package com.duckers.teart.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
 
-
+@Setter
+@Getter
 @Entity
-@Table(name="ateliers")
+@Table(name = "ateliers")
 public class Atelier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,47 +21,17 @@ public class Atelier {
     private String cnpj;
     @Column
     private long idDonoAtelier;
+    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL)
+    private List<EnderecoAtelier> enderecoAtelierList = new ArrayList<>();
 
-    public Atelier(){
-        
+    public Atelier() {
     }
 
-    public Atelier(String cnpj, long id, long idDonoAtelier, String nome) {
-        this.cnpj = cnpj;
-        this.id = id;
-        this.idDonoAtelier = idDonoAtelier;
+    public Atelier(String nome, String cnpj, long idDonoAtelier, List<EnderecoAtelier> enderecoAtelierList) {
         this.nome = nome;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getIdDonoAtelier() {
-        return idDonoAtelier;
-    }
-
-    public void setIdDonoAtelier(long idDonoAtelier) {
         this.idDonoAtelier = idDonoAtelier;
+        this.enderecoAtelierList = enderecoAtelierList;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 }
