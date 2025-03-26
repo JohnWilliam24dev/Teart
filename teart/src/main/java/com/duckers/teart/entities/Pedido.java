@@ -22,7 +22,7 @@ public class Pedido {
     @Column(name="data_envio")
     private String dataEnvio;
 
-    @Column(name="status_pedido")
+    @Column(name="status")
     private StatusPedido statusPedido;
 
     @Column(name="forma_pagamento")
