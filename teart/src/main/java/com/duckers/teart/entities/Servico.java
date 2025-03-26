@@ -1,85 +1,102 @@
 package com.duckers.teart.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="servicos")
 public class Servico {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id; 
-    @Column
-    private long idAtelier;
+    private long id;
+
     @Column
     private String nome;
+
     @Column
     private String descricao;
+
     @Column
     private double valorMaximo;
+
     @Column
     private double valorMinimo;
 
-    public Servico(){}
+    @ManyToOne
+    @JoinColumn(name = "id_atelier", nullable = false) // Define a FK no banco
+    private Atelier atelier;
 
-    public Servico(int id, int idAtelier, String nome, String descricao, double valorMaximo, double valoMinimo) {
-        this.id = id;
-        this.idAtelier = idAtelier;
+    @OneToMany(mappedBy = "servico")
+    private List<ItemPedidoServico> itemPedidoServicoList;
+
+    // Construtor padrão
+    public Servico() {}
+
+    // Construtor com parâmetros (sem o id)
+    public Servico(Atelier atelier, String nome, String descricao, double valorMaximo, double valorMinimo) {
+        this.atelier = atelier;
         this.nome = nome;
         this.descricao = descricao;
         this.valorMaximo = valorMaximo;
-        this.valorMinimo = valoMinimo;
+        this.valorMinimo = valorMinimo;
     }
 
+    // GETTERS
     public long getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public long getIdAtelier() {
-        return idAtelier;
-    }
-
-    public void setIdAtelier(int idAtelier) {
-        this.idAtelier = idAtelier;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getDescricao() {
         return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public double getValorMaximo() {
         return valorMaximo;
     }
 
+    public double getValorMinimo() {
+        return valorMinimo;
+    }
+
+    public Atelier getAtelier() {
+        return atelier;
+    }
+
+    public List<ItemPedidoServico> getItemPedidoServicoList() {
+        return itemPedidoServicoList;
+    }
+
+    // SETTERS
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public void setValorMaximo(double valorMaximo) {
         this.valorMaximo = valorMaximo;
     }
 
-    public double getValoMinimo() {
-        return valorMinimo;
+    public void setValorMinimo(double valorMinimo) {
+        this.valorMinimo = valorMinimo;
     }
 
-    public void setValoMinimo(double valoMinimo) {
-        this.valorMinimo = valoMinimo;
+    public void setAtelier(Atelier atelier) {
+        this.atelier = atelier;
+    }
+
+    public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
+        this.itemPedidoServicoList = itemPedidoServicoList;
     }
 }

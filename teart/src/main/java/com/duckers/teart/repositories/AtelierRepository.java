@@ -31,7 +31,6 @@ public class AtelierRepository {
 
         atelierPersistido.setNome(atelier.getNome());
         atelierPersistido.setCnpj(atelier.getCnpj());
-        atelierPersistido.setIdDonoAtelier(atelier.getIdDonoAtelier());
 
         this.atelierJPA.save(atelierPersistido);
     }
