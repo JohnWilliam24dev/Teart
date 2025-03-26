@@ -1,82 +1,100 @@
 package com.duckers.teart.entities;
 
 import java.util.List;
-
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
-@Table(name="ateliers")
+@Table(name = "ateliers")
 public class Atelier {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String nome;
+
     @Column
     private String cnpj;
-    @Column
-    private long idDonoAtelier;
-    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Servico> servicos;
-    
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_dono_atelier", referencedColumnName = "id")
     private DonoAtelier donoAtelier;
 
+    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Servico> servicos;
+
     @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL)
-    private List<Produto> produtos = new ArrayList<>();
+    private List<Produto> produtos;
 
-    public Atelier(){
-        
-    }
+    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL)
+    private List<EnderecoAtelier> enderecosAtelier;
 
-    public Atelier(String cnpj, long id, long idDonoAtelier, String nome) {
-        this.cnpj = cnpj;
-        this.id = id;
-        this.idDonoAtelier = idDonoAtelier;
+    // Construtor padrão
+    public Atelier() {}
+
+    // Construtor com parâmetros
+    public Atelier(String nome, String cnpj, DonoAtelier donoAtelier) {
         this.nome = nome;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+        this.donoAtelier = donoAtelier;
     }
 
+    // GETTERS
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getIdDonoAtelier() {
-        return idDonoAtelier;
-    }
-
-    public void setIdDonoAtelier(long idDonoAtelier) {
-        this.idDonoAtelier = idDonoAtelier;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getCnpj() {
+        return cnpj;
     }
+
+    public DonoAtelier getDonoAtelier() {
+        return donoAtelier;
+    }
+
     public List<Servico> getServicos() {
         return servicos;
     }
 
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public List<EnderecoAtelier> getEnderecosAtelier() {
+        return enderecosAtelier;
+    }
+
+    // SETTERS
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public void setDonoAtelier(DonoAtelier donoAtelier) {
+        this.donoAtelier = donoAtelier;
+    }
+
     public void setServicos(List<Servico> servicos) {
         this.servicos = servicos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public void setEnderecosAtelier(List<EnderecoAtelier> enderecosAtelier) {
+        this.enderecosAtelier = enderecosAtelier;
     }
 }

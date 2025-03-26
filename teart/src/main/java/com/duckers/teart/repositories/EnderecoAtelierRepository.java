@@ -29,7 +29,6 @@ public class EnderecoAtelierRepository {
     public void updateEnderecoAtelier(long id, EnderecoAtelier enderecoAtelier) {
         EnderecoAtelier enderecoAtelierPersistido = this.enderecoAtelierJPA.findById(id).get();
 
-        enderecoAtelierPersistido.setIdAtelier(enderecoAtelier.getIdAtelier());
         enderecoAtelierPersistido.setRua(enderecoAtelier.getRua());
         enderecoAtelierPersistido.setNumero(enderecoAtelier.getNumero());
         enderecoAtelierPersistido.setLogradouro(enderecoAtelier.getLogradouro());

@@ -29,8 +29,6 @@ public class EnderecoUsuarioRepository {
     public void updateEnderecoUsuario(long id, EnderecoUsuario enderecoUsuario) {
         EnderecoUsuario enderecoUsuarioPersistido = this.enderecoUsuarioJPA.findById(id).get();
 
-
-        enderecoUsuarioPersistido.setIdUsuario(enderecoUsuario.getIdUsuario());
         enderecoUsuarioPersistido.setRua(enderecoUsuario.getRua());
         enderecoUsuarioPersistido.setBairro(enderecoUsuario.getBairro());
         enderecoUsuarioPersistido.setCidade(enderecoUsuario.getCidade());

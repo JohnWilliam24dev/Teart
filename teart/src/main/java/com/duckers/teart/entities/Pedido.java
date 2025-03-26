@@ -1,7 +1,10 @@
 package com.duckers.teart.entities;
+
 import com.duckers.teart.enums.FormaPagamento;
 import com.duckers.teart.enums.StatusPedido;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Table(name="pedidos")
 @Entity
@@ -10,53 +13,48 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="id_usuario")
-    private long idUsuario; // FK -> @ManyToOne
-
-    @Column(name="id_item_pedido") // FK -> @ManyToOne
-    private long idItemPedido;
-
-    @Column(name="data_pedido")
+    @Column
     private String dataPedido;
 
-    @Column(name="data_envio")
+    @Column
     private String dataEnvio;
 
-    @Column(name="status_pedido")
+    @Column
     private StatusPedido statusPedido;
 
-    @Column(name="forma_pagamento")
+    @Column
     private FormaPagamento formaPagamento;
 
-    @Column(name="valor_total")
+    @Column
     private double valorTotal;
 
-    public Pedido() { // construtor da JPA
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    private Usuario usuario;
 
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<ItemPedidoProduto> itemPedidoProdutoList;
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<ItemPedidoServico> itemPedidoServicoList;
+
+    // Construtor padrão da JPA
+    public Pedido() {
     }
 
-    public Pedido(int id, int idUsuario, int idItemPedido, String dataPedido, String dataEnvio,
-    StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal) {
-        this.id = id;
-        this.idUsuario = idUsuario;
-        this.idItemPedido = idItemPedido;
+    // Construtor com parâmetros (sem as listas de itens de pedido)
+    public Pedido(String dataPedido, String dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, Usuario usuario) {
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
         this.statusPedido = statusPedido;
         this.formaPagamento = formaPagamento;
         this.valorTotal = valorTotal;
+        this.usuario = usuario;
     }
 
+    // Getters
     public long getId() {
         return id;
-    }
-
-    public long getIdUsuario() {
-        return idUsuario;
-    }
-
-    public long getIdItemPedido() {
-        return idItemPedido;
     }
 
     public String getDataPedido() {
@@ -79,16 +77,21 @@ public class Pedido {
         return valorTotal;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public List<ItemPedidoProduto> getItemPedidoProdutoList() {
+        return itemPedidoProdutoList;
+    }
+
+    public List<ItemPedidoServico> getItemPedidoServicoList() {
+        return itemPedidoServicoList;
+    }
+
+    // Setters
     public void setId(long id) {
         this.id = id;
-    }
-
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public void setIdItemPedido(long idItemPedido) {
-        this.idItemPedido = idItemPedido;
     }
 
     public void setDataPedido(String dataPedido) {
@@ -109,5 +112,17 @@ public class Pedido {
 
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
+        this.itemPedidoProdutoList = itemPedidoProdutoList;
+    }
+
+    public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
+        this.itemPedidoServicoList = itemPedidoServicoList;
     }
 }
