@@ -1,8 +1,11 @@
 package com.duckers.teart.entities;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="ateliers")
@@ -16,6 +19,16 @@ public class Atelier {
     private String cnpj;
     @Column
     private long idDonoAtelier;
+    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Servico> servicos;
+    
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_dono_atelier", referencedColumnName = "id")
+    private DonoAtelier donoAtelier;
+
+    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL)
+    private List<Produto> produtos = new ArrayList<>();
 
     public Atelier(){
         
@@ -58,5 +71,12 @@ public class Atelier {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
 }

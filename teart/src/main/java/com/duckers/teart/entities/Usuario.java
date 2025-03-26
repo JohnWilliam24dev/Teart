@@ -1,5 +1,8 @@
 package com.duckers.teart.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +20,8 @@ public class Usuario {
     @Column
     private String endereco;
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pedido> pedidos = new ArrayList<>();
 
     public Usuario() {
     }
@@ -45,7 +50,6 @@ public class Usuario {
     public String getSenha() {
         return senha;
     }
-    
 
     public void setEmail(String email) {
         this.email = email;
@@ -61,6 +65,14 @@ public class Usuario {
     }
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
 }

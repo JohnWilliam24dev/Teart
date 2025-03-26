@@ -13,13 +13,16 @@ public class Pedido {
     @Column(name="id_usuario")
     private long idUsuario; // FK -> @ManyToOne
 
+    @Column(name="id_item_pedido") // FK -> @ManyToOne
+    private long idItemPedido;
+
     @Column(name="data_pedido")
     private String dataPedido;
 
     @Column(name="data_envio")
     private String dataEnvio;
 
-    @Column(name="status")
+    @Column(name="status_pedido")
     private StatusPedido statusPedido;
 
     @Column(name="forma_pagamento")
@@ -28,12 +31,15 @@ public class Pedido {
     @Column(name="valor_total")
     private double valorTotal;
 
-    public Pedido() {}
+    public Pedido() { // construtor da JPA
 
-    public Pedido(int id, int idUsuario, String dataPedido, String dataEnvio,
+    }
+
+    public Pedido(int id, int idUsuario, int idItemPedido, String dataPedido, String dataEnvio,
     StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal) {
         this.id = id;
         this.idUsuario = idUsuario;
+        this.idItemPedido = idItemPedido;
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
         this.statusPedido = statusPedido;
@@ -47,6 +53,10 @@ public class Pedido {
 
     public long getIdUsuario() {
         return idUsuario;
+    }
+
+    public long getIdItemPedido() {
+        return idItemPedido;
     }
 
     public String getDataPedido() {
@@ -75,6 +85,10 @@ public class Pedido {
 
     public void setIdUsuario(long idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public void setIdItemPedido(long idItemPedido) {
+        this.idItemPedido = idItemPedido;
     }
 
     public void setDataPedido(String dataPedido) {

@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="servicos")
@@ -12,8 +14,9 @@ public class Servico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id; 
-    @Column
-    private long idAtelier;
+    @ManyToOne
+    @JoinColumn(name = "id_atelier", nullable = false) // Define a FK no banco
+    private Atelier atelier;
     @Column
     private String nome;
     @Column
@@ -25,9 +28,9 @@ public class Servico {
 
     public Servico(){}
 
-    public Servico(int id, int idAtelier, String nome, String descricao, double valorMaximo, double valoMinimo) {
+    public Servico(int id, Atelier atelier, String nome, String descricao, double valorMaximo, double valoMinimo) {
         this.id = id;
-        this.idAtelier = idAtelier;
+        this.atelier = atelier;
         this.nome = nome;
         this.descricao = descricao;
         this.valorMaximo = valorMaximo;
@@ -42,12 +45,12 @@ public class Servico {
         this.id = id;
     }
 
-    public long getIdAtelier() {
-        return idAtelier;
+    public Atelier getIdAtelier() {
+        return atelier;
     }
 
-    public void setIdAtelier(int idAtelier) {
-        this.idAtelier = idAtelier;
+    public void setIdAtelier(Atelier atelier) {
+        this.atelier = atelier;
     }
 
     public String getNome() {
