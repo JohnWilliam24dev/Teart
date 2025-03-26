@@ -1,4 +1,5 @@
 package com.duckers.teart.entities;
+
 import jakarta.persistence.*;
 
 @Table(name="item_pedidos_produto")
@@ -8,55 +9,58 @@ public class ItemPedidoProduto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    //    mapear relacionamento
-    @Column(name="id_produto")
-    private long idProduto;
-
-    //    mapear relacionamento
-    @Column(name="id_pedido")
-    private long idPedido;
-
     @Column(name="quantidade")
     private int quantidade;
 
+    @ManyToOne
+    @JoinColumn(name = "id_produto", referencedColumnName = "id", insertable = false, updatable = false)
+    private Produto produto;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id", insertable = false, updatable = false)
+    private Pedido pedido;
+
+    // Construtor padrão
     public ItemPedidoProduto() {}
 
-    public ItemPedidoProduto(int id, int idProduto, int idPedido, int quantidade) {
-        this.id = id;
-        this.idProduto = idProduto;
-        this.idPedido = idPedido;
+    // Construtor com parâmetros
+    public ItemPedidoProduto(int quantidade, Produto produto, Pedido pedido) {
         this.quantidade = quantidade;
+        this.produto = produto;
+        this.pedido = pedido;
     }
 
+    // GETTERS
     public long getId() {
         return id;
-    }
-
-    public long getIdProduto() {
-        return idProduto;
-    }
-
-    public long getIdPedido() {
-        return idPedido;
     }
 
     public int getQuantidade() {
         return quantidade;
     }
 
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    // SETTERS
     public void setId(long id) {
         this.id = id;
     }
 
-    public void setIdProduto(long idProduto) {
-        this.idProduto = idProduto;
-    }
-
-    public void setIdPedido(long idPedido) {
-        this.idPedido = idPedido;
-    }
-
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 }

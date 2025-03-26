@@ -29,7 +29,7 @@ public class ServicoRepository {
         Servico servicoPersistido = getServicoById(id);
         servicoPersistido.setNome(servicoAtualizado.getNome());
         servicoPersistido.setDescricao(servicoAtualizado.getDescricao());
-        servicoPersistido.setValoMinimo(servicoAtualizado.getValoMinimo());
+        servicoPersistido.setValorMinimo(servicoAtualizado.getValorMinimo());
         servicoPersistido.setValorMaximo(servicoAtualizado.getValorMaximo());
         servicoRepository.save(servicoPersistido);
     }

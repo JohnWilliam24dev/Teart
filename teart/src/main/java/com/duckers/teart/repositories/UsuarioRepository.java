@@ -33,8 +33,6 @@ public class UsuarioRepository {
         usuario1.setNome(usuario.getNome());
         usuario1.setEmail(usuario.getEmail());
         usuario1.setSenha(usuario.getSenha());
-        usuario1.setEndereco(usuario.getEndereco());
-
 
         this.usuarioRepositorie.save(usuario1);
     }
