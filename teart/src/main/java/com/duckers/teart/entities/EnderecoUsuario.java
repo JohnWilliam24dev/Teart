@@ -79,9 +79,6 @@ public class EnderecoUsuario {
     public String getPais() {
         return pais;
     }
-  
-
-
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }

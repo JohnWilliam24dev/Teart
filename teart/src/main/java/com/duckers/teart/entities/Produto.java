@@ -1,7 +1,9 @@
 package com.duckers.teart.entities;
+
 import jakarta.persistence.*;
 import com.duckers.teart.enums.Moda;
 import com.duckers.teart.enums.Tamanho;
+
 @Entity
 @Table(name="produtos")
 public class Produto {
@@ -19,9 +21,13 @@ public class Produto {
     @Column
     private double preco;
 
+    @ManyToOne
+    @JoinColumn(name = "id_atelier", referencedColumnName = "id")
+    private Atelier atelier;
+
     public Produto(){}
 
-    public Produto(int id, int idAtelier, Moda moda, Tamanho tamanho, String nome, double preco) {
+    public Produto(long id, long idAtelier, Moda moda, Tamanho tamanho, String nome, double preco) {
         this.id = id;
         this.idAtelier = idAtelier;
         this.moda = moda;
