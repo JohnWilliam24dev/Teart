@@ -16,7 +16,7 @@ public class ItemPedidoProdutoFacade {
         itemPedidoProdutoApplication.createItemPedidoProduto(itemPedidoProduto);
     }
 
-    public List<ItemPedidoProduto> itemPedidosProdutoProdutoList() {
+    public List<ItemPedidoProduto> itemPedidosProdutoList() {
         return itemPedidoProdutoApplication.getAllItemPedidosProduto();
     }
 

@@ -1,16 +1,16 @@
 package com.duckers.teart.entities;
 import jakarta.persistence.*;
 
-@Table(name="item_pedidos_produto")
+@Table(name="item_pedidos_servico")
 @Entity
-public class ItemPedidoProduto {
+public class ItemPedidoServico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     //    mapear relacionamento
-    @Column(name="id_produto")
-    private long idProduto;
+    @Column(name="id_servico")
+    private long idServico;
 
     //    mapear relacionamento
     @Column(name="id_pedido")
@@ -19,11 +19,11 @@ public class ItemPedidoProduto {
     @Column(name="quantidade")
     private int quantidade;
 
-    public ItemPedidoProduto() {}
+    public ItemPedidoServico() {}
 
-    public ItemPedidoProduto(int id, int idProduto, int idPedido, int quantidade) {
+    public ItemPedidoServico(int id, int idServico, int idPedido, int quantidade) {
         this.id = id;
-        this.idProduto = idProduto;
+        this.idServico = idServico;
         this.idPedido = idPedido;
         this.quantidade = quantidade;
     }
@@ -32,8 +32,8 @@ public class ItemPedidoProduto {
         return id;
     }
 
-    public long getIdProduto() {
-        return idProduto;
+    public long getIdServico() {
+        return idServico;
     }
 
     public long getIdPedido() {
@@ -48,8 +48,8 @@ public class ItemPedidoProduto {
         this.id = id;
     }
 
-    public void setIdProduto(long idProduto) {
-        this.idProduto = idProduto;
+    public void setIdServico(long idServico) {
+        this.idServico = idServico;
     }
 
     public void setIdPedido(long idPedido) {

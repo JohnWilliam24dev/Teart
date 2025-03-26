@@ -34,7 +34,7 @@ public class ItemPedidoProdutoController {
 
     @GetMapping
     public ResponseEntity<List<ItemPedidoProduto>> getAllItemPedidosProduto() {
-        List<ItemPedidoProduto> itemPedidosProduto = itemPedidoProdutoFacade.itemPedidosProdutoProdutoList();
+        List<ItemPedidoProduto> itemPedidosProduto = itemPedidoProdutoFacade.itemPedidosProdutoList();
         return ResponseEntity.ok(itemPedidosProduto);
     }
 
