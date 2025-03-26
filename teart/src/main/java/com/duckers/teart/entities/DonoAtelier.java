@@ -19,6 +19,9 @@ public class DonoAtelier {
     @Column
     private String cpf;
 
+    @OneToOne(mappedBy = "donoAtelier")
+    private Atelier atelier;
+
     public DonoAtelier(){}
 
     public DonoAtelier(String cpf, String email, long id, String nomeSocial, String nomeUsuario, String senha) {
@@ -28,6 +31,13 @@ public class DonoAtelier {
         this.nomeSocial = nomeSocial;
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
+    }
+    public Atelier getAtelier() {
+        return atelier;
+    }
+
+    public void setAtelier(Atelier atelier) {
+        this.atelier = atelier;
     }
 
     public String getCpf() {

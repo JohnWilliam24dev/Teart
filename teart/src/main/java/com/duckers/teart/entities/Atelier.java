@@ -2,7 +2,8 @@ package com.duckers.teart.entities;
 
 import jakarta.persistence.*;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="ateliers")
@@ -16,6 +17,13 @@ public class Atelier {
     private String cnpj;
     @Column
     private long idDonoAtelier;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_dono_atelier", referencedColumnName = "id")
+    private DonoAtelier donoAtelier;
+
+    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL)
+    private List<Produto> produtos = new ArrayList<>();
 
     public Atelier(){
         

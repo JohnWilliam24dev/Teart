@@ -1,4 +1,5 @@
 package com.duckers.teart.entities;
+
 import com.duckers.teart.enums.FormaPagamento;
 import com.duckers.teart.enums.StatusPedido;
 import jakarta.persistence.*;
