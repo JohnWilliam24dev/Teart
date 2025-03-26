@@ -10,9 +10,8 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false) // FK para Usuario
-    private Usuario usuario;
+    @Column(name="id_usuario")
+    private long idUsuario; // FK -> @ManyToOne
 
     @Column(name="id_item_pedido") // FK -> @ManyToOne
     private long idItemPedido;
@@ -36,10 +35,10 @@ public class Pedido {
 
     }
 
-    public Pedido(int id, Usuario Usuario, int idItemPedido, String dataPedido, String dataEnvio,
+    public Pedido(int id, int idUsuario, int idItemPedido, String dataPedido, String dataEnvio,
     StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal) {
         this.id = id;
-        this.usuario = Usuario;
+        this.idUsuario = idUsuario;
         this.idItemPedido = idItemPedido;
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
@@ -52,8 +51,8 @@ public class Pedido {
         return id;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public long getIdUsuario() {
+        return idUsuario;
     }
 
     public long getIdItemPedido() {
@@ -84,8 +83,8 @@ public class Pedido {
         this.id = id;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public void setIdItemPedido(long idItemPedido) {

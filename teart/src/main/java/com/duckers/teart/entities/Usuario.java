@@ -19,6 +19,7 @@ public class Usuario {
     private String senha;
     @Column
     private String endereco;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pedido> pedidos = new ArrayList<>();
 
@@ -49,7 +50,6 @@ public class Usuario {
     public String getSenha() {
         return senha;
     }
-    
 
     public void setEmail(String email) {
         this.email = email;
