@@ -28,14 +28,14 @@ public class Pedido {
     @Column
     private double valorTotal;
 
-    @ManyToOne
+    @ManyToOne(cascade = { CascadeType.PERSIST})
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<ItemPedidoProduto> itemPedidoProdutoList;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<ItemPedidoServico> itemPedidoServicoList;
 
     // Construtor padrão da JPA

@@ -23,8 +23,8 @@ public class Servico {
     @Column
     private double valorMinimo;
 
-    @ManyToOne
-    @JoinColumn(name = "id_atelier", nullable = false) // Define a FK no banco
+    @ManyToOne(cascade = { CascadeType.PERSIST })
+    @JoinColumn(name = "id_atelier", nullable = false)
     private Atelier atelier;
 
     @OneToMany(mappedBy = "servico")

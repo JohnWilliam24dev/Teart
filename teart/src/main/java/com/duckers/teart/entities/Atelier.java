@@ -17,17 +17,17 @@ public class Atelier {
     @Column
     private String cnpj;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinColumn(name = "id_dono_atelier", referencedColumnName = "id")
     private DonoAtelier donoAtelier;
 
-    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "atelier", cascade = { CascadeType.PERSIST })
     private List<Servico> servicos;
 
-    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "atelier", cascade = { CascadeType.PERSIST })
     private List<Produto> produtos;
 
-    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "atelier", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<EnderecoAtelier> enderecosAtelier;
 
     // Construtor padrão
