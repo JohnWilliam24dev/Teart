@@ -16,7 +16,7 @@ public class ItemPedidoServico {
     @JoinColumn(name = "id_servico", referencedColumnName = "id")
     private Servico servico;
 
-    @ManyToOne
+    @ManyToOne(cascade = { CascadeType.PERSIST })
     @JoinColumn(name = "id_pedido", referencedColumnName = "id")
     private Pedido pedido;
 

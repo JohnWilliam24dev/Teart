@@ -31,7 +31,7 @@ public class EnderecoAtelier {
     @Column
     private String cep;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinColumn(name = "id_atelier", referencedColumnName = "id")
     private Atelier atelier;
 

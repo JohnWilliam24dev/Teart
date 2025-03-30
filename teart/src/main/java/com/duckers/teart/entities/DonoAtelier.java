@@ -25,7 +25,7 @@ public class DonoAtelier {
     @Column
     private String cpf;
 
-    @OneToOne(mappedBy = "donoAtelier")
+    @OneToOne(mappedBy = "donoAtelier", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private Atelier atelier;
 
     // Construtor padrão

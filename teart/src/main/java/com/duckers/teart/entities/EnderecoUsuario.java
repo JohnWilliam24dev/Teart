@@ -31,7 +31,7 @@ public class EnderecoUsuario {
     @Column
     private int numero;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 

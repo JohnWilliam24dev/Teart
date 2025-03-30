@@ -21,10 +21,10 @@ public class Usuario {
     @Column
     private String senha;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST })
     private List<Pedido> pedidos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<EnderecoUsuario> enderecoUsuarioList;
 
     public Usuario() {

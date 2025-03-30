@@ -26,7 +26,7 @@ public class Produto {
     @Column
     private double preco;
 
-    @ManyToOne
+    @ManyToOne(cascade = { CascadeType.PERSIST })
     @JoinColumn(name = "id_atelier", referencedColumnName = "id")
     private Atelier atelier;
 
