@@ -6,29 +6,29 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ServicoApplication {
-    private ServicoRepository servicoRepositorie;
+    private ServicoRepository servicoRepository;
 
-    public ServicoApplication(ServicoRepository servicoRepositorie) {
-        this.servicoRepositorie = servicoRepositorie;
+    public ServicoApplication(ServicoRepository servicoRepository) {
+        this.servicoRepository = servicoRepository;
     }
 
     public void createServico(Servico servico) {
-        servicoRepositorie.createPedido(servico);
+        servicoRepository.createPedido(servico);
     }
 
     public Servico getServicoById(int id) {
-        return servicoRepositorie.getServicoById(id);
+        return servicoRepository.getServicoById(id);
     }
 
     public List<Servico> getAllServicos() {
-        return servicoRepositorie.getAllServico();
+        return servicoRepository.getAllServico();
     }
 
     public void updateServico(int id, Servico servico) {
-        servicoRepositorie.updateServico(id, servico);
+        servicoRepository.updateServico(id, servico);
     }
 
     public void deleteServico(int id) {
-        servicoRepositorie.deleteServico(id);
+        servicoRepository.deleteServico(id);
     }
 }

@@ -8,23 +8,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class ItemPedidoServicoApplication {
     private final ItemPedidoServicoRepository itemPedidoServicoRepository;
-    private ItemPedidoServicoRepository itemPedidoServicoRepositorie;
 
-    public ItemPedidoServicoApplication(ItemPedidoServicoRepository itemPedidoServicoRepositorie, ItemPedidoServicoRepository itemPedidoServicoRepository) {
-        this.itemPedidoServicoRepositorie = itemPedidoServicoRepositorie;
+    public ItemPedidoServicoApplication(ItemPedidoServicoRepository itemPedidoServicoRepository) {
         this.itemPedidoServicoRepository = itemPedidoServicoRepository;
     }
 
     public void createItemPedidoServico(ItemPedidoServico itemPedidoServico) {
-        itemPedidoServicoRepositorie.createItemPedidoServico(itemPedidoServico);
+        itemPedidoServicoRepository.createItemPedidoServico(itemPedidoServico);
     }
 
     public ItemPedidoServico getItemPedidoServicoById(long id) {
-        return itemPedidoServicoRepositorie.getItemPedidoServicoById(id);
+        return itemPedidoServicoRepository.getItemPedidoServicoById(id);
     }
 
     public List<ItemPedidoServico> getAllItemPedidosServico() {
-        return itemPedidoServicoRepositorie.getAllItemPedidosServico();
+        return itemPedidoServicoRepository.getAllItemPedidosServico();
     }
 
     public void updateItemPedidoServico(long id, ItemPedidoServico itemPedidoServico) {
@@ -32,6 +30,6 @@ public class ItemPedidoServicoApplication {
     }
 
     public void deleteItemPedidoServico(long id) {
-        itemPedidoServicoRepositorie.deleteItemPedidoServico(id);
+        itemPedidoServicoRepository.deleteItemPedidoServico(id);
     }
 }

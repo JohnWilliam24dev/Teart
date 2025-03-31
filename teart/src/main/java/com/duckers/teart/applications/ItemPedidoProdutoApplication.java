@@ -8,23 +8,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class ItemPedidoProdutoApplication {
     private final ItemPedidoProdutoRepository itemPedidoProdutoRepository;
-    private ItemPedidoProdutoRepository itemPedidoProdutoRepositorie;
 
-    public ItemPedidoProdutoApplication(ItemPedidoProdutoRepository itemPedidoProdutoRepositorie, ItemPedidoProdutoRepository itemPedidoProdutoRepository) {
-        this.itemPedidoProdutoRepositorie = itemPedidoProdutoRepositorie;
+    public ItemPedidoProdutoApplication(ItemPedidoProdutoRepository itemPedidoProdutoRepository) {
         this.itemPedidoProdutoRepository = itemPedidoProdutoRepository;
     }
 
     public void createItemPedidoProduto(ItemPedidoProduto itemPedidoProduto) {
-        itemPedidoProdutoRepositorie.createItemPedidoProduto(itemPedidoProduto);
+        itemPedidoProdutoRepository.createItemPedidoProduto(itemPedidoProduto);
     }
 
     public ItemPedidoProduto getItemPedidoProdutoById(long id) {
-        return itemPedidoProdutoRepositorie.getItemPedidoProdutoById(id);
+        return itemPedidoProdutoRepository.getItemPedidoProdutoById(id);
     }
 
     public List<ItemPedidoProduto> getAllItemPedidosProduto() {
-        return itemPedidoProdutoRepositorie.getAllItemPedidosProduto();
+        return itemPedidoProdutoRepository.getAllItemPedidosProduto();
     }
 
     public void updateItemPedidoProduto(long id, ItemPedidoProduto itemPedidoProduto) {
@@ -32,6 +30,6 @@ public class ItemPedidoProdutoApplication {
     }
 
     public void deleteItemPedidoProduto(long id) {
-        itemPedidoProdutoRepositorie.deleteItemPedidoProduto(id);
+        itemPedidoProdutoRepository.deleteItemPedidoProduto(id);
     }
 }

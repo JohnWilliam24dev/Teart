@@ -6,29 +6,29 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProdutoApplication {
-    private ProdutoRepository produtoRepositorie;
+    private ProdutoRepository produtoRepository;
 
-    public ProdutoApplication(com.duckers.teart.repositories.ProdutoRepository produtoRepositorie) {
-        this.produtoRepositorie = produtoRepositorie;
+    public ProdutoApplication(com.duckers.teart.repositories.ProdutoRepository produtoRepository) {
+        this.produtoRepository = produtoRepository;
     }
 
     public void createProduto(Produto produto) {
-        produtoRepositorie.createPedido(produto);
+        produtoRepository.createPedido(produto);
     }
 
     public Produto getProdutoById(int id) {
-        return produtoRepositorie.getProdutoById(id);
+        return produtoRepository.getProdutoById(id);
     }
 
     public List<Produto> getAllProdutos() {
-        return produtoRepositorie.getAllProduto();
+        return produtoRepository.getAllProduto();
     }
 
     public void updateProduto(int id, Produto produto) {
-        produtoRepositorie.updateProduto(id, produto);
+        produtoRepository.updateProduto(id, produto);
     }
 
     public void deleteProduto(int id) {
-        produtoRepositorie.deleteProduto(id);
+        produtoRepository.deleteProduto(id);
     }
 }

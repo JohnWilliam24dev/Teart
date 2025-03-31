@@ -7,36 +7,36 @@ import com.duckers.teart.repositories.interfaces.UsuarioJPA;
 
 @Repository
 public class UsuarioRepository {
-    private UsuarioJPA usuarioRepositorie;
+    private UsuarioJPA usuarioRepository;
 
-    public UsuarioRepository(UsuarioJPA usuarioRepositorie) {
-        this.usuarioRepositorie = usuarioRepositorie;
+    public UsuarioRepository(UsuarioJPA usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
     }
 
     public void createUsuario(Usuario usuario) {
-        usuarioRepositorie.save(usuario);
+        usuarioRepository.save(usuario);
     }
 
     public Usuario getUsuarioById(long id) {
-        return usuarioRepositorie.findById(id).get();
+        return usuarioRepository.findById(id).get();
     }
 
     public List<Usuario> getAllUsuarios() {
-        return usuarioRepositorie.findAll();
+        return usuarioRepository.findAll();
     }
 
     public void updateUsuario(long id, Usuario usuario) {
-        Usuario usuario1 = this.usuarioRepositorie.findById(id).get();
+        Usuario usuario1 = this.usuarioRepository.findById(id).get();
 
 
         usuario1.setNome(usuario.getNome());
         usuario1.setEmail(usuario.getEmail());
         usuario1.setSenha(usuario.getSenha());
 
-        this.usuarioRepositorie.save(usuario1);
+        this.usuarioRepository.save(usuario1);
     }
 
     public void deleteUsuario(long id) {
-        usuarioRepositorie.deleteById(id);
+        usuarioRepository.deleteById(id);
     }
 }
