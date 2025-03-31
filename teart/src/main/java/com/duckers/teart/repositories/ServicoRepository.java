@@ -3,7 +3,7 @@ package com.duckers.teart.repositories;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 import com.duckers.teart.entities.Servico;
-import com.duckers.teart.repositories.Interfaces.ServicoJPA;
+import com.duckers.teart.repositories.interfaces.ServicoJPA;
 
 @Repository
 public class ServicoRepository {

@@ -2,7 +2,7 @@ package com.duckers.teart.repositories;
 
 import java.util.List;
 import com.duckers.teart.entities.ItemPedidoProduto;
-import com.duckers.teart.repositories.Interfaces.ItemPedidoProdutoJPA;
+import com.duckers.teart.repositories.interfaces.ItemPedidoProdutoJPA;
 import org.springframework.stereotype.Repository;
 
 @Repository

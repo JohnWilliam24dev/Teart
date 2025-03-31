@@ -1,7 +1,7 @@
 package com.duckers.teart.repositories;
 
 import com.duckers.teart.entities.EnderecoAtelier;
-import com.duckers.teart.repositories.Interfaces.EnderecoAtelierJPA;
+import com.duckers.teart.repositories.interfaces.EnderecoAtelierJPA;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 

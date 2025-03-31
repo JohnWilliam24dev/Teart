@@ -2,7 +2,7 @@ package com.duckers.teart.repositories;
 
 import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
-import com.duckers.teart.repositories.Interfaces.DonoAtelierJPA;
+import com.duckers.teart.repositories.interfaces.DonoAtelierJPA;
 import org.springframework.stereotype.Repository;
 
 @Repository

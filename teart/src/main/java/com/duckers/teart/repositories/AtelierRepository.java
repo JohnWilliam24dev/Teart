@@ -1,7 +1,7 @@
 package com.duckers.teart.repositories;
 
 import com.duckers.teart.entities.Atelier;
-import com.duckers.teart.repositories.Interfaces.AtelierJPA;
+import com.duckers.teart.repositories.interfaces.AtelierJPA;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 
