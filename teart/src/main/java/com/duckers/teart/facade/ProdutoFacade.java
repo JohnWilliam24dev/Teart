@@ -1,4 +1,5 @@
 package com.duckers.teart.facade;
+
 import com.duckers.teart.application.ProdutoApplication;
 import com.duckers.teart.entities.Produto;
 import org.springframework.stereotype.Component;

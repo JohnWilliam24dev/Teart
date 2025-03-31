@@ -1,4 +1,5 @@
 package com.duckers.teart.facade;
+
 import com.duckers.teart.application.ItemPedidoProdutoApplication;
 import com.duckers.teart.entities.ItemPedidoProduto;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,10 @@ public class ItemPedidoProdutoFacade {
 
     public void cadastrar(ItemPedidoProduto itemPedidoProduto) {
         itemPedidoProdutoApplication.createItemPedidoProduto(itemPedidoProduto);
+    }
+
+    public void atualizar(long id, ItemPedidoProduto itemPedidoProduto) {
+        itemPedidoProdutoApplication.updateItemPedidoProduto(id, itemPedidoProduto);
     }
 
     public List<ItemPedidoProduto> itemPedidosProdutoList() {

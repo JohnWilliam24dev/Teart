@@ -38,6 +38,12 @@ public class ItemPedidoServicoController {
         return ResponseEntity.ok(itemPedidoServicos);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateItemPedidoServico(@PathVariable long id, @RequestBody ItemPedidoServico itemPedidoServico) {
+        itemPedidoServicoFacade.atualizar(id, itemPedidoServico);
+        return ResponseEntity.ok().build();
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteItemPedidoServico(@PathVariable long id) {
         itemPedidoServicoFacade.excluir(id);

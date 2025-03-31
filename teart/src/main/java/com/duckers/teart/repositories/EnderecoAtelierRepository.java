@@ -2,10 +2,9 @@ package com.duckers.teart.repositories;
 
 import com.duckers.teart.entities.EnderecoAtelier;
 import com.duckers.teart.repositories.Interfaces.EnderecoAtelierJPA;
-
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
+
 @Repository
 public class EnderecoAtelierRepository {
     private final EnderecoAtelierJPA enderecoAtelierJPA;
@@ -36,7 +35,6 @@ public class EnderecoAtelierRepository {
         enderecoAtelierPersistido.setCidade(enderecoAtelier.getCidade());
         enderecoAtelierPersistido.setEstado(enderecoAtelier.getEstado());
         enderecoAtelierPersistido.setCep(enderecoAtelier.getCep());
-
 
         this.enderecoAtelierJPA.save(enderecoAtelierPersistido);
     }

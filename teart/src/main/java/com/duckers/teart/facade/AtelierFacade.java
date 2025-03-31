@@ -1,9 +1,7 @@
 package com.duckers.teart.facade;
 
 import java.util.List;
-
 import org.springframework.stereotype.Component;
-
 import com.duckers.teart.application.AtelierApplication;
 import com.duckers.teart.entities.Atelier;
 

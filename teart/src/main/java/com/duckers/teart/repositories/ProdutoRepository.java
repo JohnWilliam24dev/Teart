@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import com.duckers.teart.entities.Produto;
 import com.duckers.teart.repositories.Interfaces.ProdutoJPA;
+
 @Repository
 public class ProdutoRepository {
 private ProdutoJPA produtoRepository;

@@ -1,4 +1,5 @@
 package com.duckers.teart.facade;
+
 import com.duckers.teart.application.PedidoApplication;
 import com.duckers.teart.entities.Pedido;
 import org.springframework.stereotype.Component;

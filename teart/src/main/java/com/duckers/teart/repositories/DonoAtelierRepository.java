@@ -1,4 +1,5 @@
 package com.duckers.teart.repositories;
+
 import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
 import com.duckers.teart.repositories.Interfaces.DonoAtelierJPA;
@@ -26,11 +27,13 @@ public class DonoAtelierRepository {
 
     public void updateDonoAtelier(long id, DonoAtelier donoAtelier) {
         DonoAtelier donoAtelierPersistido = getDonoAtelierById(id);
+
         donoAtelierPersistido.setCpf(donoAtelier.getCpf());
         donoAtelierPersistido.setEmail(donoAtelier.getEmail());
         donoAtelierPersistido.setNomeSocial(donoAtelier.getNomeSocial());
         donoAtelierPersistido.setNomeUsuario(donoAtelier.getNomeUsuario());
         donoAtelierPersistido.setSenha(donoAtelier.getSenha());
+
         donoAtelierJPA.save(donoAtelierPersistido);
     }
 

@@ -37,6 +37,11 @@ public class ItemPedidoProdutoController {
         List<ItemPedidoProduto> itemPedidosProduto = itemPedidoProdutoFacade.itemPedidosProdutoList();
         return ResponseEntity.ok(itemPedidosProduto);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateItemPedidoProduto(@PathVariable long id, @RequestBody ItemPedidoProduto itemPedidoProduto) {
+        itemPedidoProdutoFacade.atualizar(id, itemPedidoProduto);
+        return ResponseEntity.ok().build();
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteItemPedidoProduto(@PathVariable long id) {

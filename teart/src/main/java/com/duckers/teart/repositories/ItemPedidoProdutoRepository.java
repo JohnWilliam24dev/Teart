@@ -1,4 +1,5 @@
 package com.duckers.teart.repositories;
+
 import java.util.List;
 import com.duckers.teart.entities.ItemPedidoProduto;
 import com.duckers.teart.repositories.Interfaces.ItemPedidoProdutoJPA;
@@ -22,6 +23,16 @@ public class ItemPedidoProdutoRepository {
 
     public List<ItemPedidoProduto> getAllItemPedidosProduto() {
         return itemPedidoProdutoJPA.findAll();
+    }
+
+    public void updateItemPedidoProduto(long id, ItemPedidoProduto itemPedidoProduto) {
+        ItemPedidoProduto itemPedidoProdutoPersistido = this.itemPedidoProdutoJPA.findById(id).get();
+
+        itemPedidoProdutoPersistido.setQuantidade(itemPedidoProduto.getQuantidade());
+        itemPedidoProdutoPersistido.setProduto(itemPedidoProduto.getProduto());
+        itemPedidoProdutoPersistido.setPedido(itemPedidoProduto.getPedido());
+
+        this.itemPedidoProdutoJPA.save(itemPedidoProdutoPersistido);
     }
 
     public void deleteItemPedidoProduto(long id) {

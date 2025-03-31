@@ -1,4 +1,5 @@
 package com.duckers.teart.facade;
+
 import com.duckers.teart.application.ItemPedidoServicoApplication;
 import com.duckers.teart.entities.ItemPedidoServico;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,10 @@ public class ItemPedidoServicoFacade {
 
     public void cadastrar(ItemPedidoServico itemPedidoServico) {
         itemPedidoServicoApplication.createItemPedidoServico(itemPedidoServico);
+    }
+
+    public void atualizar(long id, ItemPedidoServico itemPedidoServico) {
+        itemPedidoServicoApplication.updateItemPedidoServico(id, itemPedidoServico);
     }
 
     public List<ItemPedidoServico> itemPedidosServicoList() {
