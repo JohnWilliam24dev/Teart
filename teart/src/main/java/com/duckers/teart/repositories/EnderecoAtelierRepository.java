@@ -3,6 +3,7 @@ package com.duckers.teart.repositories;
 import com.duckers.teart.entities.EnderecoAtelier;
 import com.duckers.teart.repositories.interfaces.EnderecoAtelierJPA;
 import java.util.List;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -27,15 +28,7 @@ public class EnderecoAtelierRepository {
 
     public void updateEnderecoAtelier(long id, EnderecoAtelier enderecoAtelier) {
         EnderecoAtelier enderecoAtelierPersistido = this.enderecoAtelierJPA.findById(id).get();
-
-        enderecoAtelierPersistido.setRua(enderecoAtelier.getRua());
-        enderecoAtelierPersistido.setNumero(enderecoAtelier.getNumero());
-        enderecoAtelierPersistido.setLogradouro(enderecoAtelier.getLogradouro());
-        enderecoAtelierPersistido.setBairro(enderecoAtelier.getBairro());
-        enderecoAtelierPersistido.setCidade(enderecoAtelier.getCidade());
-        enderecoAtelierPersistido.setEstado(enderecoAtelier.getEstado());
-        enderecoAtelierPersistido.setCep(enderecoAtelier.getCep());
-
+        BeanUtils.copyProperties(enderecoAtelier, enderecoAtelierPersistido, "id");
         this.enderecoAtelierJPA.save(enderecoAtelierPersistido);
     }
 

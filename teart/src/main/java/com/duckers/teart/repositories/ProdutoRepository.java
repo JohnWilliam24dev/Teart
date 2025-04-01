@@ -1,6 +1,7 @@
 package com.duckers.teart.repositories;
 
 import java.util.List;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import com.duckers.teart.entities.Produto;
 import com.duckers.teart.repositories.interfaces.ProdutoJPA;
@@ -26,12 +27,9 @@ private ProdutoJPA produtoRepository;
     }
 
     public void updateProduto(long id, Produto produtoAtualizado) {
-        Produto produtoPersistido = getProdutoById(id);
-        produtoPersistido.setModa(produtoAtualizado.getModa());
-        produtoPersistido.setTamanho(produtoAtualizado.getTamanho());
-        produtoPersistido.setNome(produtoAtualizado.getNome());
-        produtoPersistido.setPreco(produtoAtualizado.getPreco());
-        produtoRepository.save(produtoPersistido);
+        Produto produtoPersistido = this.produtoRepository.findById(id).get();
+        BeanUtils.copyProperties(produtoAtualizado, produtoPersistido, "id");
+        this.produtoRepository.save(produtoPersistido);
     }
 
     public void deleteProduto(long id) {
