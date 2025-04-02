@@ -1,7 +1,9 @@
 package com.duckers.teart.repositories;
+
 import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
-import com.duckers.teart.repositories.Interfaces.DonoAtelierJPA;
+import com.duckers.teart.repositories.interfaces.DonoAtelierJPA;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -25,13 +27,9 @@ public class DonoAtelierRepository {
     }
 
     public void updateDonoAtelier(long id, DonoAtelier donoAtelier) {
-        DonoAtelier donoAtelierPersistido = getDonoAtelierById(id);
-        donoAtelierPersistido.setCpf(donoAtelier.getCpf());
-        donoAtelierPersistido.setEmail(donoAtelier.getEmail());
-        donoAtelierPersistido.setNomeSocial(donoAtelier.getNomeSocial());
-        donoAtelierPersistido.setNomeUsuario(donoAtelier.getNomeUsuario());
-        donoAtelierPersistido.setSenha(donoAtelier.getSenha());
-        donoAtelierJPA.save(donoAtelierPersistido);
+        DonoAtelier donoAtelierPersistido = this.getDonoAtelierById(id);
+        BeanUtils.copyProperties(donoAtelier, donoAtelierPersistido, "id");
+        this.donoAtelierJPA.save(donoAtelierPersistido);
     }
 
     public void deleteDonoAtelier(long id) {

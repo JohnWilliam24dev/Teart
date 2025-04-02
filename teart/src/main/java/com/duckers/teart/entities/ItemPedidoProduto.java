@@ -2,22 +2,23 @@ package com.duckers.teart.entities;
 
 import jakarta.persistence.*;
 
-@Table(name="item_pedidos_produto")
+@Table(name = "item_pedidos_produto")
 @Entity
 public class ItemPedidoProduto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="quantidade")
+    @Column(name = "quantidade")
     private int quantidade;
 
     @ManyToOne
-    @JoinColumn(name = "id_produto", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "id_produto", referencedColumnName = "id")
     private Produto produto;
 
-    @ManyToOne
-    @JoinColumn(name = "id_pedido", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(cascade = { CascadeType.PERSIST })
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
     private Pedido pedido;
 
     // Construtor padrão

@@ -2,42 +2,38 @@ package com.duckers.teart.repositories;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
-
 import com.duckers.teart.entities.Usuario;
-import com.duckers.teart.repositories.Interfaces.UsuarioJPA;
+import com.duckers.teart.repositories.interfaces.UsuarioJPA;
+
 @Repository
 public class UsuarioRepository {
-    private UsuarioJPA usuarioRepositorie;
+    private UsuarioJPA usuarioRepository;
 
-    public UsuarioRepository(UsuarioJPA usuarioRepositorie) {
-        this.usuarioRepositorie = usuarioRepositorie;
+    public UsuarioRepository(UsuarioJPA usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
     }
 
     public void createUsuario(Usuario usuario) {
-        usuarioRepositorie.save(usuario);
+        usuarioRepository.save(usuario);
     }
 
     public Usuario getUsuarioById(long id) {
-        return usuarioRepositorie.findById(id).get();
+        return usuarioRepository.findById(id).get();
     }
 
     public List<Usuario> getAllUsuarios() {
-        return usuarioRepositorie.findAll();
+        return usuarioRepository.findAll();
     }
 
     public void updateUsuario(long id, Usuario usuario) {
-        Usuario usuario1 = this.usuarioRepositorie.findById(id).get();
-
-
-        usuario1.setNome(usuario.getNome());
-        usuario1.setEmail(usuario.getEmail());
-        usuario1.setSenha(usuario.getSenha());
-
-        this.usuarioRepositorie.save(usuario1);
+        Usuario usuarioPersistido = this.usuarioRepository.findById(id).get();
+        BeanUtils.copyProperties(usuario, usuarioPersistido, "id");
+        this.usuarioRepository.save(usuarioPersistido);
     }
 
     public void deleteUsuario(long id) {
-        usuarioRepositorie.deleteById(id);
+        usuarioRepository.deleteById(id);
     }
 }
