@@ -1,11 +1,12 @@
 package com.duckers.teart.repositories;
 
-import com.duckers.teart.entities.Atelier;
-import com.duckers.teart.repositories.Interfaces.AtelierJPA;
-
 import java.util.List;
+import com.duckers.teart.entities.Atelier;
+import com.duckers.teart.repositories.interfaces.AtelierJPA;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
+
 @Repository
 public class AtelierRepository {
     private final AtelierJPA atelierJPA;
@@ -28,10 +29,7 @@ public class AtelierRepository {
 
     public void updateAtelier(long id, Atelier atelier) {
         Atelier atelierPersistido = this.atelierJPA.findById(id).get();
-
-        atelierPersistido.setNome(atelier.getNome());
-        atelierPersistido.setCnpj(atelier.getCnpj());
-
+        BeanUtils.copyProperties(atelier, atelierPersistido, "id");
         this.atelierJPA.save(atelierPersistido);
     }
 

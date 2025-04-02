@@ -1,9 +1,9 @@
 package com.duckers.teart.repositories;
 
 import com.duckers.teart.entities.EnderecoUsuario;
-import com.duckers.teart.repositories.Interfaces.EnderecoUsuarioJPA;
+import com.duckers.teart.repositories.interfaces.EnderecoUsuarioJPA;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -28,15 +28,7 @@ public class EnderecoUsuarioRepository {
 
     public void updateEnderecoUsuario(long id, EnderecoUsuario enderecoUsuario) {
         EnderecoUsuario enderecoUsuarioPersistido = this.enderecoUsuarioJPA.findById(id).get();
-
-        enderecoUsuarioPersistido.setRua(enderecoUsuario.getRua());
-        enderecoUsuarioPersistido.setBairro(enderecoUsuario.getBairro());
-        enderecoUsuarioPersistido.setCidade(enderecoUsuario.getCidade());
-        enderecoUsuarioPersistido.setEstado(enderecoUsuario.getEstado());
-        enderecoUsuarioPersistido.setPais(enderecoUsuario.getPais());
-        enderecoUsuarioPersistido.setCep(enderecoUsuario.getCep());
-        enderecoUsuarioPersistido.setNumero(enderecoUsuario.getNumero());
-
+        BeanUtils.copyProperties(enderecoUsuario, enderecoUsuarioPersistido, "id"); // Ignorando o campo "id"
         this.enderecoUsuarioJPA.save(enderecoUsuarioPersistido);
     }
 

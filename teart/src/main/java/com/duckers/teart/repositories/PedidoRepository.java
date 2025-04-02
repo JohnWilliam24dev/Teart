@@ -1,7 +1,9 @@
 package com.duckers.teart.repositories;
+
 import java.util.List;
 import com.duckers.teart.entities.Pedido;
-import com.duckers.teart.repositories.Interfaces.PedidoJPA;
+import com.duckers.teart.repositories.interfaces.PedidoJPA;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -25,10 +27,9 @@ public class PedidoRepository {
     }
 
     public void updatePedido(long id, Pedido pedidoAtualizado) {
-        Pedido pedidoPersistido = getPedidoById(id);
-        pedidoPersistido.setDataEnvio(pedidoAtualizado.getDataEnvio());
-        pedidoPersistido.setStatusPedido(pedidoAtualizado.getStatusPedido());
-        pedidoJPA.save(pedidoPersistido);
+        Pedido pedidoPersistido = this.pedidoJPA.findById(id).get();
+        BeanUtils.copyProperties(pedidoAtualizado, pedidoPersistido, "id");
+        this.pedidoJPA.save(pedidoPersistido);
     }
 
     public void deletePedido(long id) {
