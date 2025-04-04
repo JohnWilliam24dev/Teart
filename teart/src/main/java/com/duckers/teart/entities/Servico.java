@@ -68,9 +68,9 @@ public class Servico {
         return valorMinimo;
     }
 
-    public Atelier getAtelier() {
+    /*public Atelier getAtelier() {
         return atelier;
-    }
+    }*/
 
     public List<ItemPedidoServico> getItemPedidoServicoList() {
         return itemPedidoServicoList;
@@ -101,9 +101,9 @@ public class Servico {
         this.valorMinimo = valorMinimo;
     }
 
-    public void setAtelier(Atelier atelier) {
+    /*public void setAtelier(Atelier atelier) {
         this.atelier = atelier;
-    }
+    }*/
 
     public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
         this.itemPedidoServicoList = itemPedidoServicoList;

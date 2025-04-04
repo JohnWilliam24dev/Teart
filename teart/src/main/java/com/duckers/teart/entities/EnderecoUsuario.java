@@ -58,9 +58,9 @@ public class EnderecoUsuario {
         return id;
     }
 
-    public Usuario getUsuario() {
+    /*public Usuario getUsuario() {
         return usuario;
-    }
+    }*/
 
     public String getRua() {
         return rua;
@@ -99,9 +99,9 @@ public class EnderecoUsuario {
         this.id = id;
     }
 
-    public void setUsuario(Usuario usuario) {
+    /*public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
+    }*/
 
     public void setRua(String rua) {
         this.rua = rua;

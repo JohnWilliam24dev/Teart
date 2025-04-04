@@ -88,9 +88,9 @@ public class EnderecoAtelier {
         return cep;
     }
 
-    public Atelier getAtelier() {
+    /*public Atelier getAtelier() {
         return atelier;
-    }
+    }*/
 
     public long getIdAtelier() {
         return idAtelier;
@@ -129,9 +129,9 @@ public class EnderecoAtelier {
         this.cep = cep;
     }
 
-    public void setAtelier(Atelier atelier) {
+    /*public void setAtelier(Atelier atelier) {
         this.atelier = atelier;
-    }
+    }*/
     
 
     public void setAtelierId(long idAtelier) {

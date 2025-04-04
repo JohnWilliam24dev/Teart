@@ -48,13 +48,13 @@ public class ItemPedidoProduto {
         return quantidade;
     }
 
-    public Produto getProduto() {
+    /*public Produto getProduto() {
         return produto;
     }
 
     public Pedido getPedido() {
         return pedido;
-    }
+    }*/
     
     public long getIdPedido() {
         return idPedido;
@@ -69,13 +69,13 @@ public class ItemPedidoProduto {
         this.quantidade = quantidade;
     }
 
-    public void setProduto(Produto produto) {
+    /*public void setProduto(Produto produto) {
         this.produto = produto;
     }
 
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
-    }
+    }*/
 
     public long getIdProduto() {
         return idProduto;

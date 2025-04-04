@@ -45,11 +45,11 @@ public class ItemPedidoServico {
 
     /*public Servico getServico() {
         return servico;
-    }*/
+    }
 
     public Pedido getPedido() {
         return pedido;
-    }
+    }*/
 
     public int getQuantidade() {
         return quantidade;
@@ -68,13 +68,13 @@ public class ItemPedidoServico {
         this.id = id;
     }
 
-    public void setServico(Servico servico) {
+    /*public void setServico(Servico servico) {
         this.servico = servico;
     }
 
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
-    }
+    }*/
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;

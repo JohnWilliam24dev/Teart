@@ -71,9 +71,9 @@ public class Produto {
         return preco;
     }
 
-    public Atelier getAtelier() {
+    /*public Atelier getAtelier() {
         return atelier;
-    }
+    }*/
 
     public List<ItemPedidoProduto> getItemPedidoProdutoList() {
         return itemPedidoProdutoList;
@@ -104,9 +104,9 @@ public class Produto {
         this.preco = preco;
     }
 
-    public void setAtelier(Atelier atelier) {
+    /*public void setAtelier(Atelier atelier) {
         this.atelier = atelier;
-    }
+    }*/
 
     public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
         this.itemPedidoProdutoList = itemPedidoProdutoList;

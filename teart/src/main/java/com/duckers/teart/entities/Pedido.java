@@ -82,9 +82,9 @@ public class Pedido {
         return valorTotal;
     }
 
-    public Usuario getUsuario() {
+   /* public Usuario getUsuario() {
         return usuario;
-    }
+    }*/
 
     public List<ItemPedidoProduto> getItemPedidoProdutoList() {
         return itemPedidoProdutoList;
@@ -123,9 +123,9 @@ public class Pedido {
         this.valorTotal = valorTotal;
     }
 
-    public void setUsuario(Usuario usuario) {
+    /*public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
+    }*/
 
     public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
         this.itemPedidoProdutoList = itemPedidoProdutoList;
