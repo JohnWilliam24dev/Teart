@@ -33,7 +33,7 @@ public class Pedido {
     private Usuario usuario;
 
     @Column(name = "id_usuario")
-    private int usuarioId;
+    private long idUsuario;
 
     
 
@@ -93,6 +93,10 @@ public class Pedido {
     public List<ItemPedidoServico> getItemPedidoServicoList() {
         return itemPedidoServicoList;
     }
+    
+    public long getIdUsuario() {
+        return idUsuario;
+    }
 
     // Setters
     public void setId(long id) {
@@ -131,11 +135,9 @@ public class Pedido {
         this.itemPedidoServicoList = itemPedidoServicoList;
     }
 
-    public int getUsuarioId() {
-        return usuarioId;
-    }
+    
 
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }

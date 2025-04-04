@@ -36,7 +36,7 @@ public class EnderecoAtelier {
     private Atelier atelier;
 
     @Column(name = "id_atelier")
-    private int atelierId;
+    private long idAtelier;
 
     
 
@@ -92,6 +92,10 @@ public class EnderecoAtelier {
         return atelier;
     }
 
+    public long getIdAtelier() {
+        return idAtelier;
+    }
+
     // SETTERS
     public void setId(long id) {
         this.id = id;
@@ -129,11 +133,8 @@ public class EnderecoAtelier {
         this.atelier = atelier;
     }
     
-    public int getAtelierId() {
-        return atelierId;
-    }
 
-    public void setAtelierId(int atelierId) {
-        this.atelierId = atelierId;
+    public void setAtelierId(long idAtelier) {
+        this.idAtelier = idAtelier;
     }
 }

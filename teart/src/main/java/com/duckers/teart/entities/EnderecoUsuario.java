@@ -36,7 +36,7 @@ public class EnderecoUsuario {
     private Usuario usuario;
 
     @Column(name = "id_usuario")
-    private int usuarioId;
+    private long idUsuario;
 
     
 
@@ -89,6 +89,10 @@ public class EnderecoUsuario {
     public int getNumero() {
         return numero;
     }
+    
+    public long getIdUsuario() {
+        return idUsuario;
+    }
 
     // Setters
     public void setId(long id) {
@@ -127,11 +131,9 @@ public class EnderecoUsuario {
         this.numero = numero;
     }
 
-    public int getUsuarioId() {
-        return usuarioId;
-    }
+    
 
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }

@@ -17,14 +17,14 @@ public class ItemPedidoServico {
     private Servico servico;
 
     @Column(name = "id_servico")
-    private int servicoId;
+    private long idServico;
 
     @ManyToOne(cascade = { CascadeType.PERSIST })
     @JoinColumn(name = "id_pedido", referencedColumnName = "id", insertable = false, updatable = false)
     private Pedido pedido;
 
     @Column(name = "id_pedido")
-    private int pedidoId;
+    private long idPedido;
 
     
 
@@ -43,9 +43,9 @@ public class ItemPedidoServico {
         return id;
     }
 
-    public Servico getServico() {
+    /*public Servico getServico() {
         return servico;
-    }
+    }*/
 
     public Pedido getPedido() {
         return pedido;
@@ -53,6 +53,14 @@ public class ItemPedidoServico {
 
     public int getQuantidade() {
         return quantidade;
+    }
+    
+    public long getIdPedido() {
+        return idPedido;
+    }
+    
+    public long getIdServico() {
+        return idServico;
     }
 
     // SETTERS
@@ -72,19 +80,13 @@ public class ItemPedidoServico {
         this.quantidade = quantidade;
     }
     
-    public int getServicoId() {
-        return servicoId;
+    
+
+    public void setIdServico(long idServico) {
+        this.idServico = idServico;
     }
 
-    public void setServicoId(int servicoId) {
-        this.servicoId = servicoId;
-    }
-
-    public int getPedidoId() {
-        return pedidoId;
-    }
-
-    public void setPedidoId(int pedidoId) {
-        this.pedidoId = pedidoId;
+    public void setIdPedido(long idPedido) {
+        this.idPedido = idPedido;
     }
 }

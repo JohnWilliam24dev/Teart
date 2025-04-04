@@ -22,7 +22,7 @@ public class Atelier {
     private DonoAtelier donoAtelier;
 
     @Column(name = "id_dono_atelier")
-    private int donoAtelierId;
+    private long idDonoAtelier;
 
     
 
@@ -58,9 +58,9 @@ public class Atelier {
         return cnpj;
     }
 
-    public DonoAtelier getDonoAtelier() {
+    /*public DonoAtelier getDonoAtelier() {
         return donoAtelier;
-    }
+    }*/
 
     public List<Servico> getServicos() {
         return servicos;
@@ -72,6 +72,10 @@ public class Atelier {
 
     public List<EnderecoAtelier> getEnderecosAtelier() {
         return enderecosAtelier;
+    }
+    
+    public long getIdDonoAtelierd() {
+        return idDonoAtelier;
     }
 
     // SETTERS
@@ -87,9 +91,9 @@ public class Atelier {
         this.cnpj = cnpj;
     }
 
-    public void setDonoAtelier(DonoAtelier donoAtelier) {
+    /*public void setDonoAtelier(DonoAtelier donoAtelier) {
         this.donoAtelier = donoAtelier;
-    }
+    }*/
 
     public void setServicos(List<Servico> servicos) {
         this.servicos = servicos;
@@ -103,11 +107,9 @@ public class Atelier {
         this.enderecosAtelier = enderecosAtelier;
     }
     
-    public int getDonoAtelierId() {
-        return donoAtelierId;
-    }
+    
 
-    public void setDonoAtelierId(int donoAtelierId) {
-        this.donoAtelierId = donoAtelierId;
+    public void setIdDonoAtelier(long idDonoAtelier) {
+        this.idDonoAtelier = idDonoAtelier;
     }
 }

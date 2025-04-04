@@ -31,7 +31,7 @@ public class Produto {
     private Atelier atelier;
 
     @Column(name = "id_atelier")
-    private int atelierId;
+    private long idAtelier;
 
     
 
@@ -78,6 +78,10 @@ public class Produto {
     public List<ItemPedidoProduto> getItemPedidoProdutoList() {
         return itemPedidoProdutoList;
     }
+    
+    public long getIdAtelier() {
+        return idAtelier;
+    }
 
     // SETTERS
     public void setId(long id) {
@@ -108,11 +112,7 @@ public class Produto {
         this.itemPedidoProdutoList = itemPedidoProdutoList;
     }
 
-    public int getAtelierId() {
-        return atelierId;
-    }
-
-    public void setAtelierId(int atelierId) {
-        this.atelierId = atelierId;
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
     }
 }

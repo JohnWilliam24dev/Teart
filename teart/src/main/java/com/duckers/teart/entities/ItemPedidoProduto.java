@@ -18,7 +18,7 @@ public class ItemPedidoProduto {
     private Produto produto;
 
     @Column(name = "id_produto")
-    private int produtoId;
+    private long idProduto;
 
     
 
@@ -27,7 +27,7 @@ public class ItemPedidoProduto {
     private Pedido pedido;
 
     @Column(name = "id_pedido")
-    private int pedidoId;
+    private long idPedido;
 
     // Construtor padrão
     public ItemPedidoProduto() {}
@@ -55,6 +55,10 @@ public class ItemPedidoProduto {
     public Pedido getPedido() {
         return pedido;
     }
+    
+    public long getIdPedido() {
+        return idPedido;
+    }
 
     // SETTERS
     public void setId(long id) {
@@ -73,19 +77,15 @@ public class ItemPedidoProduto {
         this.pedido = pedido;
     }
 
-    public int getProdutoId() {
-        return produtoId;
+    public long getIdProduto() {
+        return idProduto;
     }
 
-    public void setProdutoId(int produtoId) {
-        this.produtoId = produtoId;
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
     }
-
-    public int getPedidoId() {
-        return pedidoId;
-    }
-
-    public void setPedidoId(int pedidoId) {
-        this.pedidoId = pedidoId;
+    
+    public void setIdPedido(long idPedido) {
+        this.idPedido = idPedido;
     }
 }
