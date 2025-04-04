@@ -24,8 +24,8 @@ public class PedidoApplication {
         return pedidoRepository.getAllPedidos();
     }
 
-    public void updatePedido(long id, Pedido pedido) {
-        pedidoRepository.updatePedido(id, pedido);
+    public void updatePedido(Pedido pedido) {
+        pedidoRepository.updatePedido(pedido);
     }
 
     public void deletePedido(long id) {

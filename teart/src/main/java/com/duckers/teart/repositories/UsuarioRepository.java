@@ -1,8 +1,6 @@
 package com.duckers.teart.repositories;
 
 import java.util.List;
-
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import com.duckers.teart.entities.Usuario;
 import com.duckers.teart.repositories.interfaces.UsuarioJPA;
@@ -27,10 +25,9 @@ public class UsuarioRepository {
         return usuarioRepository.findAll();
     }
 
-    public void updateUsuario(long id, Usuario usuario) {
-        Usuario usuarioPersistido = this.usuarioRepository.findById(id).get();
-        BeanUtils.copyProperties(usuario, usuarioPersistido, "id");
-        this.usuarioRepository.save(usuarioPersistido);
+    public void updateUsuario(Usuario usuario) {
+
+        this.usuarioRepository.save(usuario);
     }
 
     public void deleteUsuario(long id) {

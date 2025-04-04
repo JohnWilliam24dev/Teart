@@ -18,8 +18,13 @@ public class Atelier {
     private String cnpj;
 
     @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "id_dono_atelier", referencedColumnName = "id")
+    @JoinColumn(name = "id_dono_atelier", referencedColumnName = "id", insertable = false, updatable = false)
     private DonoAtelier donoAtelier;
+
+    @Column(name = "id_dono_atelier")
+    private int donoAtelierId;
+
+    
 
     @OneToMany(mappedBy = "atelier", cascade = { CascadeType.PERSIST })
     private List<Servico> servicos;
@@ -96,5 +101,13 @@ public class Atelier {
 
     public void setEnderecosAtelier(List<EnderecoAtelier> enderecosAtelier) {
         this.enderecosAtelier = enderecosAtelier;
+    }
+    
+    public int getDonoAtelierId() {
+        return donoAtelierId;
+    }
+
+    public void setDonoAtelierId(int donoAtelierId) {
+        this.donoAtelierId = donoAtelierId;
     }
 }

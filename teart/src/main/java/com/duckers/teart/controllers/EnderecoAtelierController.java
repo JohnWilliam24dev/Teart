@@ -34,9 +34,9 @@ public class EnderecoAtelierController {
         return enderecoAtelierFacade.getAllEnderecoAteliers();
     }
 
-    @PutMapping("/{id}")
-    public void updateEnderecoAtelier(@PathVariable long id, @RequestBody EnderecoAtelier endereco) {
-        enderecoAtelierFacade.updateEnderecoAtelier(id, endereco);
+    @PutMapping("")
+    public void updateEnderecoAtelier(@RequestBody EnderecoAtelier endereco) {
+        enderecoAtelierFacade.updateEnderecoAtelier(endereco);
     }
 
     @DeleteMapping("/{id}")

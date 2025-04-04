@@ -27,8 +27,13 @@ public class Produto {
     private double preco;
 
     @ManyToOne(cascade = { CascadeType.PERSIST })
-    @JoinColumn(name = "id_atelier", referencedColumnName = "id")
+    @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable = false)
     private Atelier atelier;
+
+    @Column(name = "id_atelier")
+    private int atelierId;
+
+    
 
     @OneToMany(mappedBy = "produto")
     private List<ItemPedidoProduto> itemPedidoProdutoList;
@@ -101,5 +106,13 @@ public class Produto {
 
     public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
         this.itemPedidoProdutoList = itemPedidoProdutoList;
+    }
+
+    public int getAtelierId() {
+        return atelierId;
+    }
+
+    public void setAtelierId(int atelierId) {
+        this.atelierId = atelierId;
     }
 }

@@ -36,9 +36,9 @@ public class EnderecoUsuarioController {
         return ResponseEntity.ok(enderecoUsuarioFacade.getAllEnderecoUsuarios());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateEnderecoUsuario(@PathVariable long id, @RequestBody EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioFacade.updateEnderecoUsuario(id, enderecoUsuario);
+    @PutMapping("")
+    public ResponseEntity<Void> updateEnderecoUsuario( @RequestBody EnderecoUsuario enderecoUsuario) {
+        enderecoUsuarioFacade.updateEnderecoUsuario( enderecoUsuario);
         return ResponseEntity.ok().build();
     }
 

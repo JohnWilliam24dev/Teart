@@ -24,8 +24,13 @@ public class Servico {
     private double valorMinimo;
 
     @ManyToOne(cascade = { CascadeType.PERSIST })
-    @JoinColumn(name = "id_atelier", nullable = false)
+    @JoinColumn(name = "id_atelier", nullable = false, insertable = false, updatable = false)
     private Atelier atelier;
+
+    @Column(name = "id_atelier")
+    private int atelierId;
+
+    
 
     @OneToMany(mappedBy = "servico")
     private List<ItemPedidoServico> itemPedidoServicoList;
@@ -98,5 +103,13 @@ public class Servico {
 
     public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
         this.itemPedidoServicoList = itemPedidoServicoList;
+    }
+
+    public int getAtelierId() {
+        return atelierId;
+    }
+
+    public void setAtelierId(int atelierId) {
+        this.atelierId = atelierId;
     }
 }

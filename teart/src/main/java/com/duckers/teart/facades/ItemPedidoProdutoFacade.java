@@ -17,8 +17,8 @@ public class ItemPedidoProdutoFacade {
         itemPedidoProdutoApplication.createItemPedidoProduto(itemPedidoProduto);
     }
 
-    public void atualizar(long id, ItemPedidoProduto itemPedidoProduto) {
-        itemPedidoProdutoApplication.updateItemPedidoProduto(id, itemPedidoProduto);
+    public void atualizar(ItemPedidoProduto itemPedidoProduto) {
+        itemPedidoProdutoApplication.updateItemPedidoProduto(itemPedidoProduto);
     }
 
     public List<ItemPedidoProduto> itemPedidosProdutoList() {

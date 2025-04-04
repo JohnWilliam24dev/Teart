@@ -5,8 +5,10 @@ import org.springframework.stereotype.Component;
 import com.duckers.teart.applications.AtelierApplication;
 import com.duckers.teart.entities.Atelier;
 
+
 @Component
 public class AtelierFacade {
+    
 
     private AtelierApplication atelierApplication;
 
@@ -26,8 +28,8 @@ public class AtelierFacade {
         return atelierApplication.getAllAteliers();
     }
 
-    public void updateAtelier(long id, Atelier atelier) {
-        atelierApplication.updateAtelier(id, atelier);
+    public void updateAtelier(Atelier atelier) {
+        atelierApplication.updateAtelier(atelier);
     }
 
     public void deleteAtelier(long id) {

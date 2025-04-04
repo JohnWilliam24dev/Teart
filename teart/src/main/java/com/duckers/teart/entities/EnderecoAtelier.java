@@ -32,8 +32,13 @@ public class EnderecoAtelier {
     private String cep;
 
     @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "id_atelier", referencedColumnName = "id")
+    @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable = false)
     private Atelier atelier;
+
+    @Column(name = "id_atelier")
+    private int atelierId;
+
+    
 
     // Construtor padrão
     public EnderecoAtelier() {}
@@ -122,5 +127,13 @@ public class EnderecoAtelier {
 
     public void setAtelier(Atelier atelier) {
         this.atelier = atelier;
+    }
+    
+    public int getAtelierId() {
+        return atelierId;
+    }
+
+    public void setAtelierId(int atelierId) {
+        this.atelierId = atelierId;
     }
 }

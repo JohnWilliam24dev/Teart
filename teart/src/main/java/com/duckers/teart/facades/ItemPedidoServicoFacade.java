@@ -17,8 +17,8 @@ public class ItemPedidoServicoFacade {
         itemPedidoServicoApplication.createItemPedidoServico(itemPedidoServico);
     }
 
-    public void atualizar(long id, ItemPedidoServico itemPedidoServico) {
-        itemPedidoServicoApplication.updateItemPedidoServico(id, itemPedidoServico);
+    public void atualizar(ItemPedidoServico itemPedidoServico) {
+        itemPedidoServicoApplication.updateItemPedidoServico(itemPedidoServico);
     }
 
     public List<ItemPedidoServico> itemPedidosServicoList() {

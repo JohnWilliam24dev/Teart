@@ -38,9 +38,9 @@ public class PedidoController {
         return ResponseEntity.ok(pedidos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updatePedido(@PathVariable long id, @RequestBody Pedido pedido) {
-        pedidoFacade.atualizar(id, pedido);
+    @PutMapping("")
+    public ResponseEntity<Void> updatePedido(@RequestBody Pedido pedido) {
+        pedidoFacade.atualizar(pedido);
         return ResponseEntity.ok().build();
     }
 

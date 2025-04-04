@@ -38,9 +38,9 @@ public class ProdutoController {
         return ResponseEntity.ok(produtos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateProduto(@PathVariable int id, @RequestBody Produto produto) {
-        produtoFacade.atualizar(id, produto);
+    @PutMapping("")
+    public ResponseEntity<Void> updateProduto(@RequestBody Produto produto) {
+        produtoFacade.atualizar(produto);
         return ResponseEntity.ok().build();
     }
 

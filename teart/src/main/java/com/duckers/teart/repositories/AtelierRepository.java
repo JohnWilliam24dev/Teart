@@ -4,7 +4,6 @@ import java.util.List;
 import com.duckers.teart.entities.Atelier;
 import com.duckers.teart.repositories.interfaces.AtelierJPA;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -27,10 +26,10 @@ public class AtelierRepository {
         return atelierJPA.findAll();
     }
 
-    public void updateAtelier(long id, Atelier atelier) {
-        Atelier atelierPersistido = this.atelierJPA.findById(id).get();
-        BeanUtils.copyProperties(atelier, atelierPersistido, "id");
-        this.atelierJPA.save(atelierPersistido);
+    public void updateAtelier( Atelier atelier) {
+       // Atelier atelierPersistido = this.atelierJPA.findById(id).get();
+        //BeanUtils.copyProperties(atelier, atelierPersistido, "id");
+        this.atelierJPA.save(atelier);
     }
 
     public void deleteAtelier(long id) {

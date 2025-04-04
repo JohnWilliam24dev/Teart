@@ -13,12 +13,20 @@ public class ItemPedidoServico {
     private int quantidade;
 
     @ManyToOne
-    @JoinColumn(name = "id_servico", referencedColumnName = "id")
+    @JoinColumn(name = "id_servico", referencedColumnName = "id", insertable = false, updatable = false)
     private Servico servico;
 
+    @Column(name = "id_servico")
+    private int servicoId;
+
     @ManyToOne(cascade = { CascadeType.PERSIST })
-    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id", insertable = false, updatable = false)
     private Pedido pedido;
+
+    @Column(name = "id_pedido")
+    private int pedidoId;
+
+    
 
     // Construtor padrão
     public ItemPedidoServico() {}
@@ -62,5 +70,21 @@ public class ItemPedidoServico {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+    
+    public int getServicoId() {
+        return servicoId;
+    }
+
+    public void setServicoId(int servicoId) {
+        this.servicoId = servicoId;
+    }
+
+    public int getPedidoId() {
+        return pedidoId;
+    }
+
+    public void setPedidoId(int pedidoId) {
+        this.pedidoId = pedidoId;
     }
 }

@@ -32,8 +32,13 @@ public class EnderecoUsuario {
     private int numero;
 
     @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id", insertable = false, updatable = false)
     private Usuario usuario;
+
+    @Column(name = "id_usuario")
+    private int usuarioId;
+
+    
 
     public EnderecoUsuario() {}
 
@@ -120,5 +125,13 @@ public class EnderecoUsuario {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 }

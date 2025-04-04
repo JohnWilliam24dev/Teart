@@ -29,8 +29,13 @@ public class Pedido {
     private double valorTotal;
 
     @ManyToOne(cascade = { CascadeType.PERSIST})
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id", insertable = false, updatable = false)
     private Usuario usuario;
+
+    @Column(name = "id_usuario")
+    private int usuarioId;
+
+    
 
     @OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<ItemPedidoProduto> itemPedidoProdutoList;
@@ -124,5 +129,13 @@ public class Pedido {
 
     public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
         this.itemPedidoServicoList = itemPedidoServicoList;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 }

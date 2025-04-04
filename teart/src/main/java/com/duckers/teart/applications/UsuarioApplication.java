@@ -25,8 +25,8 @@ public class UsuarioApplication {
         return usuarioRepository.getAllUsuarios();
     }
 
-    public void updateUsuario(long id, Usuario usuario) {
-        usuarioRepository.updateUsuario(id, usuario);
+    public void updateUsuario( Usuario usuario) {
+        usuarioRepository.updateUsuario(usuario);
     }
 
     public void deleteUsuario(long id) {

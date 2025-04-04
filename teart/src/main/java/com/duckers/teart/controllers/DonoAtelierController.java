@@ -33,9 +33,9 @@ public class DonoAtelierController {
         return facadeDonoAtelier.listaDonoAteliers();
     }
 
-    @PutMapping("/{id}")
-    public void updateDonoAtelier(@PathVariable int id, @RequestBody DonoAtelier dono) {
-        facadeDonoAtelier.atualizar(id, dono);
+    @PutMapping("")
+    public void updateDonoAtelier( @RequestBody DonoAtelier dono) {
+        facadeDonoAtelier.atualizar( dono);
     }
 
     @DeleteMapping("/{id}")

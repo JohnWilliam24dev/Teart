@@ -1,7 +1,6 @@
 package com.duckers.teart.repositories;
 
 import java.util.List;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import com.duckers.teart.entities.Servico;
 import com.duckers.teart.repositories.interfaces.ServicoJPA;
@@ -25,10 +24,8 @@ public class ServicoRepository {
         return servicoRepository.findAll();
     }
 
-    public void updateServico(long id, Servico servicoAtualizado) {
-        Servico servicoPersistido = this.servicoRepository.findById(id).get();
-        BeanUtils.copyProperties(servicoAtualizado, servicoPersistido, "id");
-        this.servicoRepository.save(servicoPersistido);
+    public void updateServico(Servico servico) {
+        this.servicoRepository.save(servico);
     }
 
     public void deleteServico(long id) {
