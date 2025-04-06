@@ -26,10 +26,8 @@ private ProdutoJPA produtoRepository;
         return produtoRepository.findAll();
     }
 
-    public void updateProduto(long id, Produto produtoAtualizado) {
-        Produto produtoPersistido = this.produtoRepository.findById(id).get();
-        BeanUtils.copyProperties(produtoAtualizado, produtoPersistido, "id");
-        this.produtoRepository.save(produtoPersistido);
+    public void updateProduto(Produto produto) {
+        this.produtoRepository.save(produto);
     }
 
     public void deleteProduto(long id) {

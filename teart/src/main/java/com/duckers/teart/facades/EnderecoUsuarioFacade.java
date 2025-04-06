@@ -18,8 +18,8 @@ public class EnderecoUsuarioFacade {
         enderecoUsuarioApplication.createEnderecoUsuario(enderecoUsuario);
     }
 
-    public void updateEnderecoUsuario(long id, EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioApplication.updateEnderecoUsuario(id, enderecoUsuario);
+    public void updateEnderecoUsuario(EnderecoUsuario enderecoUsuario) {
+        enderecoUsuarioApplication.updateEnderecoUsuario(enderecoUsuario);
     }
 
     public List<EnderecoUsuario> getAllEnderecoUsuarios() {

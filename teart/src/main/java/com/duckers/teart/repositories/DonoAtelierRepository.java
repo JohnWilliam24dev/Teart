@@ -26,10 +26,8 @@ public class DonoAtelierRepository {
         return donoAtelierJPA.findAll();
     }
 
-    public void updateDonoAtelier(long id, DonoAtelier donoAtelier) {
-        DonoAtelier donoAtelierPersistido = this.getDonoAtelierById(id);
-        BeanUtils.copyProperties(donoAtelier, donoAtelierPersistido, "id");
-        this.donoAtelierJPA.save(donoAtelierPersistido);
+    public void updateDonoAtelier(DonoAtelier donoAtelier) {
+        this.donoAtelierJPA.save(donoAtelier);
     }
 
     public void deleteDonoAtelier(long id) {

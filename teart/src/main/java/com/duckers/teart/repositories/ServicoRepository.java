@@ -25,10 +25,8 @@ public class ServicoRepository {
         return servicoRepository.findAll();
     }
 
-    public void updateServico(long id, Servico servicoAtualizado) {
-        Servico servicoPersistido = this.servicoRepository.findById(id).get();
-        BeanUtils.copyProperties(servicoAtualizado, servicoPersistido, "id");
-        this.servicoRepository.save(servicoPersistido);
+    public void updateServico(Servico servico) {
+        this.servicoRepository.save(servico);
     }
 
     public void deleteServico(long id) {

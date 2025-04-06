@@ -24,8 +24,8 @@ public class DonoAtelierApplication {
         return donoAtelierRepository.getDonoAteliersList();
     }
 
-    public void updateDonoAtelier(long id, DonoAtelier donoAtelier) {
-        donoAtelierRepository.updateDonoAtelier(id, donoAtelier);
+    public void updateDonoAtelier(DonoAtelier donoAtelier) {
+        donoAtelierRepository.updateDonoAtelier(donoAtelier);
     }
 
     public void deleteDonoAtelier(long id) {

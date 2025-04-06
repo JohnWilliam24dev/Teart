@@ -10,7 +10,7 @@ import com.duckers.teart.entities.EnderecoUsuario;
 import com.duckers.teart.facades.EnderecoUsuarioFacade;
 
 @RestController
-@RequestMapping("/enderecoUsuarios") // OBS: plural -> singular
+@RequestMapping("/endereco-usuario") // OBS: plural -> singular
 public class EnderecoUsuarioController {
     private final EnderecoUsuarioFacade enderecoUsuarioFacade;
 
@@ -36,9 +36,9 @@ public class EnderecoUsuarioController {
         return ResponseEntity.ok(enderecoUsuarioFacade.getAllEnderecoUsuarios());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateEnderecoUsuario(@PathVariable long id, @RequestBody EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioFacade.updateEnderecoUsuario(id, enderecoUsuario);
+    @PutMapping("")
+    public ResponseEntity<Void> updateEnderecoUsuario( @RequestBody EnderecoUsuario enderecoUsuario) {
+        enderecoUsuarioFacade.updateEnderecoUsuario(enderecoUsuario);
         return ResponseEntity.ok().build();
     }
 

@@ -26,10 +26,8 @@ public class ItemPedidoProdutoRepository {
         return itemPedidoProdutoJPA.findAll();
     }
 
-    public void updateItemPedidoProduto(long id, ItemPedidoProduto itemPedidoProduto) {
-        ItemPedidoProduto itemPedidoProdutoPersistido = this.itemPedidoProdutoJPA.findById(id).get();
-        BeanUtils.copyProperties(itemPedidoProduto, itemPedidoProdutoPersistido, "id");
-        this.itemPedidoProdutoJPA.save(itemPedidoProdutoPersistido);
+    public void updateItemPedidoProduto(ItemPedidoProduto itemPedidoProduto) {
+        this.itemPedidoProdutoJPA.save(itemPedidoProduto);
     }
 
     public void deleteItemPedidoProduto(long id) {

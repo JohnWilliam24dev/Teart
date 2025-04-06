@@ -17,8 +17,8 @@ public class ProdutoFacade {
         produtoApplication.createProduto(produto);
     }
 
-    public void atualizar(int id, Produto produto) {
-        produtoApplication.updateProduto(id, produto);
+    public void atualizar(Produto produto) {
+        produtoApplication.updateProduto(produto);
     }
 
     public List<Produto> produtosList() {

@@ -24,8 +24,8 @@ public class ProdutoApplication {
         return produtoRepository.getAllProduto();
     }
 
-    public void updateProduto(int id, Produto produto) {
-        produtoRepository.updateProduto(id, produto);
+    public void updateProduto( Produto produto) {
+        produtoRepository.updateProduto(produto);
     }
 
     public void deleteProduto(int id) {

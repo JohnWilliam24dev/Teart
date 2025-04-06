@@ -17,8 +17,8 @@ public class DonoAtelierFacade {
         donoAtelierApplication.createDonoAtelier(donoAtelier);
     }
 
-    public void atualizar(int id, DonoAtelier donoAtelier) {
-        donoAtelierApplication.updateDonoAtelier(id, donoAtelier);
+    public void atualizar(DonoAtelier donoAtelier) {
+        donoAtelierApplication.updateDonoAtelier(donoAtelier);
     }
 
     public List<DonoAtelier> listaDonoAteliers() {

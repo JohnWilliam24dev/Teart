@@ -1,4 +1,5 @@
-package com.duckers.teart.enums;
+package com.duckers.teart.entities.enums;
+
 
 public enum FormaPagamento {
     PIX("Pix"),

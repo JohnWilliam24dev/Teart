@@ -24,8 +24,8 @@ public class EnderecoUsuarioApplication {
         return enderecoUsuarioRepository.getAllEnderecoUsuario();
     }
 
-    public void updateEnderecoUsuario(long id, EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioRepository.updateEnderecoUsuario(id, enderecoUsuario);
+    public void updateEnderecoUsuario(EnderecoUsuario enderecoUsuario) {
+        enderecoUsuarioRepository.updateEnderecoUsuario(enderecoUsuario);
     }
 
     public void deleteEnderecoUsuario(long id) {

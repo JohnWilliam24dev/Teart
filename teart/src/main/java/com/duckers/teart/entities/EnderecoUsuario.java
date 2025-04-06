@@ -18,6 +18,9 @@ public class EnderecoUsuario {
     @Column
     private String bairro;
 
+    @Column
+    private String logradouro;
+
     // falta o atributo:
     //private String logradouro
 
@@ -42,12 +45,15 @@ public class EnderecoUsuario {
     // o que vai contra a regra de negocio, ja que um usuario pode ter varios enderecos
     //@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @ManyToOne
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
     private Usuario usuario;
+
+    @Column(name = "id_usuario")
+    private long idUsuario;
 
     public EnderecoUsuario() {}
 
-    public EnderecoUsuario(Usuario usuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep) {
+    public EnderecoUsuario(Usuario usuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep, String logradouro) {
         this.usuario = usuario;
         this.rua = rua;
         this.bairro = bairro;
@@ -56,6 +62,7 @@ public class EnderecoUsuario {
         this.pais = pais;
         this.cep = cep;
         this.numero = numero;
+        this.logradouro = logradouro;
     }
 
     // Getters
@@ -95,6 +102,14 @@ public class EnderecoUsuario {
         return numero;
     }
 
+    public String getLogradouro(){
+        return logradouro;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
     // Setters
     public void setId(long id) {
         this.id = id;
@@ -130,5 +145,14 @@ public class EnderecoUsuario {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }

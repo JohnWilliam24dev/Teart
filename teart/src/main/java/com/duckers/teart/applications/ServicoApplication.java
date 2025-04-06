@@ -24,8 +24,8 @@ public class ServicoApplication {
         return servicoRepository.getAllServico();
     }
 
-    public void updateServico(int id, Servico servico) {
-        servicoRepository.updateServico(id, servico);
+    public void updateServico(Servico servico) {
+        servicoRepository.updateServico(servico);
     }
 
     public void deleteServico(int id) {

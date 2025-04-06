@@ -18,16 +18,26 @@ public class ItemPedidoServico {
     // sem cascata! correto
     @ManyToOne
 //    @JsonBackReference
-    @JoinColumn(name = "id_servico", referencedColumnName = "id")
+    @JoinColumn(name = "id_servico", referencedColumnName = "id", insertable = false, updatable=false)
     private Servico servico;
+
+    @Column(name = "id_servico")
+    private long idServico;
+
+    
 
     // a cascata abaixo nao e permitida nesse contexto,
     // pois o objeto "pedido" orienta-se em um pedido ja existente (conflito Hibernate)
     // @ManyToOne(cascade = { CascadeType.PERSIST })
     @ManyToOne
 //    @JsonBackReference
-    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id", insertable = false, updatable=false)
     private Pedido pedido;
+
+    @Column(name = "id_pedido")
+    private long idPedido;
+
+    
 
     // Construtor padrão
     public ItemPedidoServico() {}
@@ -55,6 +65,16 @@ public class ItemPedidoServico {
     public int getQuantidade() {
         return quantidade;
     }
+    
+    public long getIdServico() {
+        return idServico;
+    }
+
+    public long getIdPedido() {
+        return idPedido;
+    }
+
+    
 
     // SETTERS
     public void setId(long id) {
@@ -71,5 +91,13 @@ public class ItemPedidoServico {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+    
+    public void setIdServico(long idServico) {
+        this.idServico = idServico;
+    }
+    
+    public void setIdPedido(long idPedido) {
+        this.idPedido = idPedido;
     }
 }

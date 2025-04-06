@@ -1,9 +1,9 @@
 package com.duckers.teart.entities;
+import com.duckers.teart.entities.enums.Moda;
+import com.duckers.teart.entities.enums.Tamanho;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
-import com.duckers.teart.enums.Moda;
-import com.duckers.teart.enums.Tamanho;
 
 import java.util.List;
 
@@ -17,11 +17,11 @@ public class Produto {
     private long id;
 
     @Column
-    // formatar enum para o banco
+    @Enumerated(EnumType.STRING)
     private Moda moda;
 
     @Column
-    // formatar enum para o banco
+    @Enumerated(EnumType.STRING)
     private Tamanho tamanho;
 
     @Column
@@ -34,8 +34,11 @@ public class Produto {
 //    @ManyToOne(cascade = { CascadeType.PERSIST })
 
     @ManyToOne // uso correto: sem cascata
-    @JoinColumn(name = "id_atelier", referencedColumnName = "id")
+    @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable=false)
     private Atelier atelier;
+
+    @Column(name = "id_atelier")
+    private long idAtelier;
 
     @OneToMany(mappedBy = "produto")
     private List<ItemPedidoProduto> itemPedidoProdutoList;
@@ -80,6 +83,12 @@ public class Produto {
     public List<ItemPedidoProduto> getItemPedidoProdutoList() {
         return itemPedidoProdutoList;
     }
+    
+    public long getIdAtelier() {
+        return idAtelier;
+    }
+
+    
 
     // SETTERS
     public void setId(long id) {
@@ -108,5 +117,9 @@ public class Produto {
 
     public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
         this.itemPedidoProdutoList = itemPedidoProdutoList;
+    }
+    
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
     }
 }

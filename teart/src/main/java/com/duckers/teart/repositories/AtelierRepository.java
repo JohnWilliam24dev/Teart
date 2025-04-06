@@ -27,10 +27,8 @@ public class AtelierRepository {
         return atelierJPA.findAll();
     }
 
-    public void updateAtelier(long id, Atelier atelier) {
-        Atelier atelierPersistido = this.atelierJPA.findById(id).get();
-        BeanUtils.copyProperties(atelier, atelierPersistido, "id");
-        this.atelierJPA.save(atelierPersistido);
+    public void updateAtelier(Atelier atelier) {
+        this.atelierJPA.save(atelier);
     }
 
     public void deleteAtelier(long id) {

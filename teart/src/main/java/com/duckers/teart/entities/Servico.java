@@ -35,8 +35,11 @@ public class Servico {
 //    @ManyToOne(cascade = { CascadeType.PERSIST })
 
     @ManyToOne // uso correto: sem cascata
-    @JoinColumn(name = "id_atelier", nullable = false)
+    @JoinColumn(name = "id_atelier", nullable = false, insertable = false, updatable=false)
     private Atelier atelier;
+
+    @Column(name = "id_atelier")
+    private long idAtelier;
 
     @OneToMany(mappedBy = "servico")
     private List<ItemPedidoServico> itemPedidoServicoList;
@@ -81,6 +84,12 @@ public class Servico {
     public List<ItemPedidoServico> getItemPedidoServicoList() {
         return itemPedidoServicoList;
     }
+    
+    public long getIdAtelier() {
+        return idAtelier;
+    }
+
+   
 
     // SETTERS
     public void setId(long id) {
@@ -109,5 +118,9 @@ public class Servico {
 
     public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
         this.itemPedidoServicoList = itemPedidoServicoList;
+    } 
+    
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
     }
 }

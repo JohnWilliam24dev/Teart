@@ -18,8 +18,8 @@ public class EnderecoAtelierFacade {
         enderecoAtelierApplication.createEnderecoAtelier(enderecoAtelier);
     }
 
-    public void updateEnderecoAtelier(long id, EnderecoAtelier enderecoAtelier) {
-        enderecoAtelierApplication.updateEnderecoAtelier(id, enderecoAtelier);
+    public void updateEnderecoAtelier(EnderecoAtelier enderecoAtelier) {
+        enderecoAtelierApplication.updateEnderecoAtelier(enderecoAtelier);
     }
 
     public List<EnderecoAtelier> getAllEnderecoAteliers() {

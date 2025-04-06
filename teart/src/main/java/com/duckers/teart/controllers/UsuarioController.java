@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios") // OBS: plural -> singular
+@RequestMapping("/usuario") // OBS: plural -> singular
 public class UsuarioController {
     private final UsuarioFacade usuarioFacade;
 
@@ -39,9 +39,9 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateUsuario(@PathVariable long id, @RequestBody Usuario usuario) {
-        usuarioFacade.atualizar(id, usuario);
+    @PutMapping("")
+    public ResponseEntity<Void> updateUsuario(@RequestBody Usuario usuario) {
+        usuarioFacade.atualizar(usuario);
         return ResponseEntity.ok().build();
     }
 
