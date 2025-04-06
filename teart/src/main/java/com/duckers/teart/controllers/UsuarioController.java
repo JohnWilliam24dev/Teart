@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/usuarios") // OBS: plural -> singular
 public class UsuarioController {
     private final UsuarioFacade usuarioFacade;
 

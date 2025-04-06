@@ -10,7 +10,7 @@ import com.duckers.teart.entities.EnderecoUsuario;
 import com.duckers.teart.facades.EnderecoUsuarioFacade;
 
 @RestController
-@RequestMapping("/enderecoUsuarios")
+@RequestMapping("/enderecoUsuarios") // OBS: plural -> singular
 public class EnderecoUsuarioController {
     private final EnderecoUsuarioFacade enderecoUsuarioFacade;
 

@@ -2,10 +2,13 @@ package com.duckers.teart.entities;
 
 import com.duckers.teart.enums.FormaPagamento;
 import com.duckers.teart.enums.StatusPedido;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.List;
 
+@JsonIdentityInfo(scope = Pedido.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Table(name="pedidos")
 @Entity
 public class Pedido {
@@ -26,9 +29,12 @@ public class Pedido {
     private FormaPagamento formaPagamento;
 
     @Column
-    private double valorTotal;
+    private double valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
 
-    @ManyToOne(cascade = { CascadeType.PERSIST})
+    // esse tipo de cascata nao e permitido aqui, uma vez que PERSIST nao deixa recuperar
+    // um cliente ja existente (persistido), para atribui-lo ao pedido
+    //@ManyToOne(cascade = { CascadeType.PERSIST})
+    @ManyToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 

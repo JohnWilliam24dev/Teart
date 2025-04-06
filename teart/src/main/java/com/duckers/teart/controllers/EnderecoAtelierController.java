@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/enderecoAtelier")
+@RequestMapping("/enderecoAtelier") // padronizar para "endereco-atelier"
 public class EnderecoAtelierController {
 
     private final EnderecoAtelierFacade enderecoAtelierFacade;

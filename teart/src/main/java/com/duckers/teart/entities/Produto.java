@@ -1,11 +1,13 @@
 package com.duckers.teart.entities;
-
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import com.duckers.teart.enums.Moda;
 import com.duckers.teart.enums.Tamanho;
 
 import java.util.List;
 
+@JsonIdentityInfo(scope = Produto.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 @Table(name="produtos")
 public class Produto {
@@ -15,9 +17,11 @@ public class Produto {
     private long id;
 
     @Column
+    // formatar enum para o banco
     private Moda moda;
 
     @Column
+    // formatar enum para o banco
     private Tamanho tamanho;
 
     @Column
@@ -26,7 +30,10 @@ public class Produto {
     @Column
     private double preco;
 
-    @ManyToOne(cascade = { CascadeType.PERSIST })
+//    uso incorreto do CascadeType abaixo (veja descricao melhor em "entities/Servico")
+//    @ManyToOne(cascade = { CascadeType.PERSIST })
+
+    @ManyToOne // uso correto: sem cascata
     @JoinColumn(name = "id_atelier", referencedColumnName = "id")
     private Atelier atelier;
 
