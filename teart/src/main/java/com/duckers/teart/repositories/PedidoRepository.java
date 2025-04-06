@@ -26,10 +26,8 @@ public class PedidoRepository {
         return pedidoJPA.findAll();
     }
 
-    public void updatePedido(long id, Pedido pedidoAtualizado) {
-        Pedido pedidoPersistido = this.pedidoJPA.findById(id).get();
-        BeanUtils.copyProperties(pedidoAtualizado, pedidoPersistido, "id");
-        this.pedidoJPA.save(pedidoPersistido);
+    public void updatePedido(Pedido pedido) {
+        this.pedidoJPA.save(pedido);
     }
 
     public void deletePedido(long id) {

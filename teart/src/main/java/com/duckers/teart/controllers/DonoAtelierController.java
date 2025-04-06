@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/donoAtelier") // OBS: dono-atelier
+@RequestMapping("/dono-atelier") // OBS: dono-atelier
 public class DonoAtelierController {
     private final DonoAtelierFacade facadeDonoAtelier;
 
@@ -33,9 +33,9 @@ public class DonoAtelierController {
         return facadeDonoAtelier.listaDonoAteliers();
     }
 
-    @PutMapping("/{id}")
-    public void updateDonoAtelier(@PathVariable int id, @RequestBody DonoAtelier dono) {
-        facadeDonoAtelier.atualizar(id, dono);
+    @PutMapping("")
+    public void updateDonoAtelier(@RequestBody DonoAtelier dono) {
+        facadeDonoAtelier.atualizar(dono);
     }
 
     @DeleteMapping("/{id}")

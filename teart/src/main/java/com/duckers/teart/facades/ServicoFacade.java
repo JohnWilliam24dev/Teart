@@ -17,8 +17,8 @@ public class ServicoFacade {
     applicationServico.createServico(servico);
     }
 
-    public void atualizar(int id, Servico servico) {
-        applicationServico.updateServico(id, servico);
+    public void atualizar(Servico servico) {
+        applicationServico.updateServico(servico);
     }
 
     public List<Servico> listaServicos() {

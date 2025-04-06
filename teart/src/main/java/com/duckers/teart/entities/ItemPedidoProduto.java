@@ -17,16 +17,22 @@ public class ItemPedidoProduto {
 
     // sem cascata, correto!
     @ManyToOne
-    @JoinColumn(name = "id_produto", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_produto", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
     private Produto produto;
+
+    @Column(name = "id_produto")
+    private long idProduto; 
 
     // a cascata abaixo nao e permitida nesse contexto,
     // pois o objeto "pedido" orienta-se em um pedido ja existente (conflito Hibernate)
 //    @ManyToOne(cascade = { CascadeType.PERSIST })
 
     @ManyToOne
-    @JoinColumn(name = "id_pedido", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
     private Pedido pedido;
+
+    @Column(name = "id_pedido")
+    private long idPedido;
 
     // Construtor padrão
     public ItemPedidoProduto() {}
@@ -55,6 +61,16 @@ public class ItemPedidoProduto {
         return pedido;
     }
 
+    public long getIdPedido() {
+        return idPedido;
+    }
+    
+    public long getIdProduto() {
+        return idProduto;
+    }
+
+    
+
     // SETTERS
     public void setId(long id) {
         this.id = id;
@@ -70,5 +86,13 @@ public class ItemPedidoProduto {
 
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
+    }
+
+    public void setIdPedido(long idPedido) {
+        this.idPedido = idPedido;
+    }
+    
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
     }
 }

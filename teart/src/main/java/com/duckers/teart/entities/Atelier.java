@@ -21,8 +21,12 @@ public class Atelier {
 
 //    cascata correta, para que seja possivel criar um "donoAtelier" junto com um "atelier"
     @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "id_dono_atelier", referencedColumnName = "id")
+    @JoinColumn(name = "id_dono_atelier", referencedColumnName = "id", insertable = false, updatable = false)
     private DonoAtelier donoAtelier;
+
+    @Column(name = "id_dono_atelier")
+    private long idDonoAtelier;
+    
 
     @OneToMany(mappedBy = "atelier", cascade = { CascadeType.PERSIST })
     private List<Servico> servicos;
@@ -73,6 +77,10 @@ public class Atelier {
     public List<EnderecoAtelier> getEnderecosAtelier() {
         return enderecosAtelier;
     }
+    
+    public long getIdDonoAtelier() {
+        return idDonoAtelier;
+    }
 
     // SETTERS
     public void setId(long id) {
@@ -101,5 +109,9 @@ public class Atelier {
 
     public void setEnderecosAtelier(List<EnderecoAtelier> enderecosAtelier) {
         this.enderecosAtelier = enderecosAtelier;
+    }
+    
+    public void setIdDonoAtelier(long idDonoAtelier) {
+        this.idDonoAtelier = idDonoAtelier;
     }
 }

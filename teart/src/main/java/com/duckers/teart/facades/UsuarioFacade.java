@@ -16,8 +16,8 @@ public class UsuarioFacade {
         applicationUsuario.createUsuario(usuario);
     }
 
-    public void atualizar(long id, Usuario usuario) {
-        applicationUsuario.updateUsuario(id, usuario);
+    public void atualizar(Usuario usuario) {
+        applicationUsuario.updateUsuario(usuario);
     }
 
     public List<Usuario> listaUsuarios() {

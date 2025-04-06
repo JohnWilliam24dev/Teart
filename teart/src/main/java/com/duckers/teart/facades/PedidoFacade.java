@@ -17,8 +17,8 @@ public class PedidoFacade {
         pedidoApplication.createPedido(pedido);
     }
 
-    public void atualizar(long id, Pedido pedido) {
-        pedidoApplication.updatePedido(id, pedido);
+    public void atualizar(Pedido pedido) {
+        pedidoApplication.updatePedido(pedido);
     }
 
     public List<Pedido> pedidosList() {

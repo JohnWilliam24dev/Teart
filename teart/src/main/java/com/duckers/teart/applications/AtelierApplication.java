@@ -26,8 +26,8 @@ public class AtelierApplication {
         return atelierRepository.getAllAtelier();
     }
 
-    public void updateAtelier(long id, Atelier atelier) {
-        atelierRepository.updateAtelier(id, atelier);
+    public void updateAtelier(Atelier atelier) {
+        atelierRepository.updateAtelier(atelier);
     }
 
     public void deleteAtelier(long id) {

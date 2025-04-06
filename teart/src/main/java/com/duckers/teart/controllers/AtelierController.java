@@ -33,9 +33,9 @@ public class AtelierController {
         return atelierFacade.getAllAteliers();
     }
 
-    @PutMapping("/{id}")
-    public void updateAtelier(@PathVariable long id, @RequestBody Atelier atelier) {
-        atelierFacade.updateAtelier(id, atelier);
+    @PutMapping("")
+    public void updateAtelier(@RequestBody Atelier atelier) {
+        atelierFacade.updateAtelier(atelier);
     }
 
     @DeleteMapping("/{id}")

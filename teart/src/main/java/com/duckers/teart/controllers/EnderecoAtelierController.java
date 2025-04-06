@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/enderecoAtelier") // padronizar para "endereco-atelier"
+@RequestMapping("/endereco-atelier") // padronizar para "endereco-atelier"
 public class EnderecoAtelierController {
 
     private final EnderecoAtelierFacade enderecoAtelierFacade;
@@ -34,9 +34,9 @@ public class EnderecoAtelierController {
         return enderecoAtelierFacade.getAllEnderecoAteliers();
     }
 
-    @PutMapping("/{id}")
-    public void updateEnderecoAtelier(@PathVariable long id, @RequestBody EnderecoAtelier endereco) {
-        enderecoAtelierFacade.updateEnderecoAtelier(id, endereco);
+    @PutMapping("")
+    public void updateEnderecoAtelier(@RequestBody EnderecoAtelier endereco) {
+        enderecoAtelierFacade.updateEnderecoAtelier(endereco);
     }
 
     @DeleteMapping("/{id}")

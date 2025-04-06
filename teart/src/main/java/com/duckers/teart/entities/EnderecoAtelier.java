@@ -37,8 +37,12 @@ public class EnderecoAtelier {
     //    uso incorreto do CascadeType abaixo (veja descricao melhor em "entities/Servico")
     //    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @ManyToOne
-    @JoinColumn(name = "id_atelier", referencedColumnName = "id")
+    @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable=false)
     private Atelier atelier;
+
+    @Column(name = "id_atelier")
+    private long idAtelier;
+
 
     // Construtor padrao
     public EnderecoAtelier() {}
@@ -91,6 +95,11 @@ public class EnderecoAtelier {
     public Atelier getAtelier() {
         return atelier;
     }
+    
+    public long getIdAtelier() {
+        return idAtelier;
+    }
+
 
     // SETTERS
     public void setId(long id) {
@@ -127,5 +136,9 @@ public class EnderecoAtelier {
 
     public void setAtelier(Atelier atelier) {
         this.atelier = atelier;
+    }
+    
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
     }
 }

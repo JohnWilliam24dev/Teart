@@ -25,8 +25,8 @@ public class EnderecoAtelierApplication {
         return enderecoAtelierRepository.getAllEnderecoAtelier();
     }
     
-    public void updateEnderecoAtelier(long id, EnderecoAtelier endereco) {
-        enderecoAtelierRepository.updateEnderecoAtelier(id,endereco);
+    public void updateEnderecoAtelier(EnderecoAtelier endereco) {
+        enderecoAtelierRepository.updateEnderecoAtelier(endereco);
     }
     
     public void deleteEnderecoAtelier(long id) {

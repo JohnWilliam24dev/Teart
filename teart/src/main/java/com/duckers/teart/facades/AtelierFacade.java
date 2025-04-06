@@ -26,8 +26,8 @@ public class AtelierFacade {
         return atelierApplication.getAllAteliers();
     }
 
-    public void updateAtelier(long id, Atelier atelier) {
-        atelierApplication.updateAtelier(id, atelier);
+    public void updateAtelier(Atelier atelier) {
+        atelierApplication.updateAtelier(atelier);
     }
 
     public void deleteAtelier(long id) {

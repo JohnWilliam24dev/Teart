@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/itempedidosservico") //OBS: plural -> singular + item-pedido-produto
+@RequestMapping("/item-pedido-servico") //OBS: plural -> singular + item-pedido-produto
 public class ItemPedidoServicoController {
     private final ItemPedidoServicoFacade itemPedidoServicoFacade;
 
@@ -38,9 +38,9 @@ public class ItemPedidoServicoController {
         return ResponseEntity.ok(itemPedidoServicos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateItemPedidoServico(@PathVariable long id, @RequestBody ItemPedidoServico itemPedidoServico) {
-        itemPedidoServicoFacade.atualizar(id, itemPedidoServico);
+    @PutMapping("")
+    public ResponseEntity<Void> updateItemPedidoServico( @RequestBody ItemPedidoServico itemPedidoServico) {
+        itemPedidoServicoFacade.atualizar(itemPedidoServico);
         return ResponseEntity.ok().build();
     }
 

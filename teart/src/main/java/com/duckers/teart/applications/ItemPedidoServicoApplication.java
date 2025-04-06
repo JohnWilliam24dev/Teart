@@ -25,8 +25,8 @@ public class ItemPedidoServicoApplication {
         return itemPedidoServicoRepository.getAllItemPedidosServico();
     }
 
-    public void updateItemPedidoServico(long id, ItemPedidoServico itemPedidoServico) {
-        itemPedidoServicoRepository.updateItemPedidoServico(id, itemPedidoServico);
+    public void updateItemPedidoServico(ItemPedidoServico itemPedidoServico) {
+        itemPedidoServicoRepository.updateItemPedidoServico( itemPedidoServico);
     }
 
     public void deleteItemPedidoServico(long id) {

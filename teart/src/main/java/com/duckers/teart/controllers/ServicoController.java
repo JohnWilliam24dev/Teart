@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/servicos") // OBS: plural -> singular
+@RequestMapping("/servico") // OBS: plural -> singular
 public class ServicoController {
     private final ServicoFacade servicoFacade;
 
@@ -39,9 +39,9 @@ public class ServicoController {
         return ResponseEntity.ok(servicos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateServico(@PathVariable int id, @RequestBody Servico servico) {
-        servicoFacade.atualizar(id, servico);
+    @PutMapping("")
+    public ResponseEntity<Void> updateServico(@RequestBody Servico servico) {
+        servicoFacade.atualizar(servico);
         return ResponseEntity.ok().build();
     }
 
