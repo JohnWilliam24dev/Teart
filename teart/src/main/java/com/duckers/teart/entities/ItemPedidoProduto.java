@@ -1,7 +1,9 @@
 package com.duckers.teart.entities;
-
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
+@JsonIdentityInfo(scope = ItemPedidoProduto.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Table(name = "item_pedidos_produto")
 @Entity
 public class ItemPedidoProduto {
@@ -13,12 +15,17 @@ public class ItemPedidoProduto {
     @Column(name = "quantidade")
     private int quantidade;
 
+    // sem cascata, correto!
     @ManyToOne
-    @JoinColumn(name = "id_produto", referencedColumnName = "id")
+    @JoinColumn(name = "id_produto", referencedColumnName = "id", nullable = false)
     private Produto produto;
 
-    @ManyToOne(cascade = { CascadeType.PERSIST })
-    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
+    // a cascata abaixo nao e permitida nesse contexto,
+    // pois o objeto "pedido" orienta-se em um pedido ja existente (conflito Hibernate)
+//    @ManyToOne(cascade = { CascadeType.PERSIST })
+
+    @ManyToOne
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id", nullable = false)
     private Pedido pedido;
 
     // Construtor padrão

@@ -1,7 +1,10 @@
 package com.duckers.teart.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
+@JsonIdentityInfo(scope = DonoAtelier.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 @Table(name = "donos_atelier")
 public class DonoAtelier {
