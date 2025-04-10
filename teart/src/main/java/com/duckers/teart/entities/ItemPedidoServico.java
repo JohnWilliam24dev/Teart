@@ -1,9 +1,6 @@
 package com.duckers.teart.entities;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
-@JsonIdentityInfo(scope = ItemPedidoServico.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 @Table(name="item_pedidos_servico")
 @Entity
@@ -15,9 +12,8 @@ public class ItemPedidoServico {
     @Column(name="quantidade")
     private int quantidade;
 
-    // sem cascata! correto
     @ManyToOne
-//    @JsonBackReference
+
     @JoinColumn(name = "id_servico", referencedColumnName = "id", insertable = false, updatable=false)
     private Servico servico;
 
@@ -26,11 +22,8 @@ public class ItemPedidoServico {
 
     
 
-    // a cascata abaixo nao e permitida nesse contexto,
-    // pois o objeto "pedido" orienta-se em um pedido ja existente (conflito Hibernate)
-    // @ManyToOne(cascade = { CascadeType.PERSIST })
     @ManyToOne
-//    @JsonBackReference
+
     @JoinColumn(name = "id_pedido", referencedColumnName = "id", insertable = false, updatable=false)
     private Pedido pedido;
 
@@ -54,14 +47,6 @@ public class ItemPedidoServico {
         return id;
     }
 
-    public Servico getServico() {
-        return servico;
-    }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
     public int getQuantidade() {
         return quantidade;
     }
@@ -79,14 +64,6 @@ public class ItemPedidoServico {
     // SETTERS
     public void setId(long id) {
         this.id = id;
-    }
-
-    public void setServico(Servico servico) {
-        this.servico = servico;
-    }
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
     }
 
     public void setQuantidade(int quantidade) {

@@ -1,10 +1,6 @@
 package com.duckers.teart.entities;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
-@JsonIdentityInfo(scope = EnderecoAtelier.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 @Table(name = "enderecos_atelier")
 public class EnderecoAtelier {
@@ -34,8 +30,6 @@ public class EnderecoAtelier {
     @Column
     private String cep;
 
-    //    uso incorreto do CascadeType abaixo (veja descricao melhor em "entities/Servico")
-    //    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @ManyToOne
     @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable=false)
     private Atelier atelier;
@@ -91,10 +85,6 @@ public class EnderecoAtelier {
     public String getCep() {
         return cep;
     }
-
-    public Atelier getAtelier() {
-        return atelier;
-    }
     
     public long getIdAtelier() {
         return idAtelier;
@@ -132,10 +122,6 @@ public class EnderecoAtelier {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-    public void setAtelier(Atelier atelier) {
-        this.atelier = atelier;
     }
     
     public void setIdAtelier(long idAtelier) {

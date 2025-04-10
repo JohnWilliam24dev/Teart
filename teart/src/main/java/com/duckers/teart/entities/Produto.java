@@ -1,13 +1,10 @@
 package com.duckers.teart.entities;
 import com.duckers.teart.entities.enums.Moda;
 import com.duckers.teart.entities.enums.Tamanho;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.List;
 
-@JsonIdentityInfo(scope = Produto.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 @Table(name="produtos")
 public class Produto {
@@ -29,9 +26,6 @@ public class Produto {
 
     @Column
     private double preco;
-
-//    uso incorreto do CascadeType abaixo (veja descricao melhor em "entities/Servico")
-//    @ManyToOne(cascade = { CascadeType.PERSIST })
 
     @ManyToOne // uso correto: sem cascata
     @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable=false)
@@ -76,14 +70,6 @@ public class Produto {
         return preco;
     }
 
-    public Atelier getAtelier() {
-        return atelier;
-    }
-
-    public List<ItemPedidoProduto> getItemPedidoProdutoList() {
-        return itemPedidoProdutoList;
-    }
-    
     public long getIdAtelier() {
         return idAtelier;
     }
@@ -111,14 +97,6 @@ public class Produto {
         this.preco = preco;
     }
 
-    public void setAtelier(Atelier atelier) {
-        this.atelier = atelier;
-    }
-
-    public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
-        this.itemPedidoProdutoList = itemPedidoProdutoList;
-    }
-    
     public void setIdAtelier(long idAtelier) {
         this.idAtelier = idAtelier;
     }
