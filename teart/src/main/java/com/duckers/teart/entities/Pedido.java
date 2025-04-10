@@ -3,17 +3,12 @@ package com.duckers.teart.entities;
 import com.duckers.teart.entities.enums.FormaPagamento;
 import com.duckers.teart.entities.enums.StatusPedido;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
-
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.List;
 
 
-@JsonIdentityInfo(scope = Pedido.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 @Table(name="pedidos")
 @Entity
 public class Pedido {
@@ -40,9 +35,6 @@ public class Pedido {
     @Column
     private double valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
 
-    // esse tipo de cascata nao e permitido aqui, uma vez que PERSIST nao deixa recuperar
-    // um cliente ja existente (persistido), para atribui-lo ao pedido
-    //@ManyToOne(cascade = { CascadeType.PERSIST})
     @ManyToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id", insertable = false, updatable=false)
     private Usuario usuario;
@@ -95,18 +87,6 @@ public class Pedido {
         return valorTotal;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public List<ItemPedidoProduto> getItemPedidoProdutoList() {
-        return itemPedidoProdutoList;
-    }
-
-    public List<ItemPedidoServico> getItemPedidoServicoList() {
-        return itemPedidoServicoList;
-    }
-    
     public long getIdUsuario() {
         return idUsuario;
     }
@@ -135,20 +115,6 @@ public class Pedido {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
-        this.itemPedidoProdutoList = itemPedidoProdutoList;
-    }
-
-    public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
-        this.itemPedidoServicoList = itemPedidoServicoList;
-    }
-
-    
 
     public void setIdUsuario(long idUsuario) {
         this.idUsuario = idUsuario;

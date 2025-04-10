@@ -1,9 +1,8 @@
 package com.duckers.teart.entities;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.*;
 
-@JsonIdentityInfo(scope = EnderecoUsuario.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 @Entity
 @Table(name = "enderecos_usuario")
 public class EnderecoUsuario {
@@ -21,16 +20,13 @@ public class EnderecoUsuario {
     @Column
     private String logradouro;
 
-    // falta o atributo:
-    //private String logradouro
-
     @Column
     private String cidade;
 
     @Column
     private String estado;
 
-    // atributo desnecessario, pois o mesmo nao consta em EnderecoAtelier
+
     @Column
     private String pais;
 
@@ -40,10 +36,6 @@ public class EnderecoUsuario {
     @Column
     private int numero;
 
-
-    // uso incorreto: da forma abaixo, um endereco nao pode ser atribuido a um usuario ja existente (PERSIST)
-    // o que vai contra a regra de negocio, ja que um usuario pode ter varios enderecos
-    //@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @ManyToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
     private Usuario usuario;
@@ -68,10 +60,6 @@ public class EnderecoUsuario {
     // Getters
     public long getId() {
         return id;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
     }
 
     public String getRua() {
@@ -113,10 +101,6 @@ public class EnderecoUsuario {
     // Setters
     public void setId(long id) {
         this.id = id;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public void setRua(String rua) {

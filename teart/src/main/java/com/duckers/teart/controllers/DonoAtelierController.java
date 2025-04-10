@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/dono-atelier") // OBS: dono-atelier
+@RequestMapping("/dono-atelier") 
 public class DonoAtelierController {
     private final DonoAtelierFacade facadeDonoAtelier;
 

@@ -1,11 +1,8 @@
 package com.duckers.teart.entities;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import java.util.List;
 
-@JsonIdentityInfo(scope = Servico.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 @Entity
 @Table(name="servicos")
 public class Servico {
@@ -27,14 +24,9 @@ public class Servico {
     private double valorMinimo;
 
 
-//    uso incorreto do CascadeType abaixo. Aqui, nao faz sentido persistir o objeto 'atelier' de novo,
-//    pois ele ja existe no banco de dados. Nao estamos criando um "servico" sem que antes haja um "atelier"
-//    que seja dono desse servico. O atelier ja existe no banco (ja esta persistido).
-//    Portanto, o uso desse cascata em 'Servico' eh incorreto, e gerou incosistencia na aplicacao.
 
-//    @ManyToOne(cascade = { CascadeType.PERSIST })
 
-    @ManyToOne // uso correto: sem cascata
+    @ManyToOne 
     @JoinColumn(name = "id_atelier", nullable = false, insertable = false, updatable=false)
     private Atelier atelier;
 
@@ -77,14 +69,6 @@ public class Servico {
         return valorMinimo;
     }
 
-    public Atelier getAtelier() {
-        return atelier;
-    }
-
-    public List<ItemPedidoServico> getItemPedidoServicoList() {
-        return itemPedidoServicoList;
-    }
-    
     public long getIdAtelier() {
         return idAtelier;
     }
@@ -112,14 +96,6 @@ public class Servico {
         this.valorMinimo = valorMinimo;
     }
 
-    public void setAtelier(Atelier atelier) {
-        this.atelier = atelier;
-    }
-
-    public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
-        this.itemPedidoServicoList = itemPedidoServicoList;
-    } 
-    
     public void setIdAtelier(long idAtelier) {
         this.idAtelier = idAtelier;
     }
