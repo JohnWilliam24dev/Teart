@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/item-pedido-servico") //OBS: plural -> singular + item-pedido-produto
+@RequestMapping("/item-pedido-servico")
 public class ItemPedidoServicoController {
     private final ItemPedidoServicoFacade itemPedidoServicoFacade;
 

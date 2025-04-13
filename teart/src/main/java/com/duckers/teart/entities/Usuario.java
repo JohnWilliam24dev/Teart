@@ -2,11 +2,8 @@ package com.duckers.teart.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
-@JsonIdentityInfo(scope = Usuario.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 @Table(name="usuarios")
 public class Usuario {
@@ -55,14 +52,6 @@ public class Usuario {
         return senha;
     }
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public List<EnderecoUsuario> getEnderecoUsuarioList() {
-        return enderecoUsuarioList;
-    }
-
     // Setters
     public void setId(long id) {
         this.id = id;
@@ -80,11 +69,4 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    public void setEnderecoUsuarioList(List<EnderecoUsuario> enderecoUsuarioList) {
-        this.enderecoUsuarioList = enderecoUsuarioList;
-    }
 }
