@@ -1,43 +1,59 @@
-package com.duckers.teart.entities;
+package com.duckers.teart.models;
 
-import com.duckers.teart.entities.enums.FormaPagamento;
-import com.duckers.teart.entities.enums.StatusPedido;
+import com.duckers.teart.models.enums.FormaPagamento;
+import com.duckers.teart.models.enums.StatusPedido;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
 
 
-
-public class Pedido {
-
+@Table(name="pedidos")
+@Entity
+public class PedidoModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
+    @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
     private LocalDate dataPedido;
 
+    @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
     private LocalDate dataEnvio;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     private StatusPedido statusPedido;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     private FormaPagamento formaPagamento;
 
+    @Column
     private double valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
 
-    private Usuario usuario;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id", insertable = false, updatable=false)
+    private UsuarioModel usuario;
 
+    @Column(name = "id_usuario")
     private long idUsuario;
 
-    private List<ItemPedidoProduto> itemPedidoProdutoList;
+    @OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    private List<ItemPedidoProdutoModel> itemPedidoProdutoList;
 
-    private List<ItemPedidoServico> itemPedidoServicoList;
+    @OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    private List<ItemPedidoServicoModel> itemPedidoServicoList;
 
     // Construtor padrão da JPA
-    public Pedido() {
+    public PedidoModel() {
     }
 
     // Construtor com parâmetros (sem as listas de itens de pedido)
-    public Pedido(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, Usuario usuario) {
+    public PedidoModel(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, UsuarioModel usuario) {
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
         this.statusPedido = statusPedido;

@@ -1,6 +1,8 @@
 package com.duckers.teart.controllers;
 import com.duckers.teart.entities.Pedido;
 import com.duckers.teart.facades.PedidoFacade;
+import com.duckers.teart.models.PedidoModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,14 +19,14 @@ public class PedidoController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createPedido(@RequestBody Pedido pedido) {
+    public ResponseEntity<Void> createPedido(@RequestBody PedidoModel pedido) {
         pedidoFacade.cadastrar(pedido);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pedido> getPedidoById(@PathVariable long id) {
-        Pedido pedido = pedidoFacade.buscarPedidoPorId(id);
+    public ResponseEntity<PedidoModel> getPedidoById(@PathVariable long id) {
+        PedidoModel pedido = pedidoFacade.buscarPedidoPorId(id);
         if (pedido != null) {
             return ResponseEntity.ok(pedido);
         } else {
@@ -33,13 +35,13 @@ public class PedidoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Pedido>> getAllPedidos() {
-        List<Pedido> pedidos = pedidoFacade.pedidosList();
+    public ResponseEntity<List<PedidoModel>> getAllPedidos() {
+        List<PedidoModel> pedidos = pedidoFacade.pedidosList();
         return ResponseEntity.ok(pedidos);
     }
 
     @PutMapping("")
-    public ResponseEntity<Void> updatePedido( @RequestBody Pedido pedido) {
+    public ResponseEntity<Void> updatePedido( @RequestBody PedidoModel pedido) {
         pedidoFacade.atualizar( pedido);
         return ResponseEntity.ok().build();
     }

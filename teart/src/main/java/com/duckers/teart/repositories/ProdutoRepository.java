@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import com.duckers.teart.entities.Produto;
+import com.duckers.teart.models.ProdutoModel;
 import com.duckers.teart.repositories.interfaces.ProdutoJPA;
 
 @Repository
@@ -14,19 +15,19 @@ private ProdutoJPA produtoRepository;
         this.produtoRepository = produtoRepository;
     }
 
-    public void createPedido(Produto pedido) {
+    public void createPedido(ProdutoModel pedido) {
         produtoRepository.save(pedido);
     }
 
-    public Produto getProdutoById(long id) {
+    public ProdutoModel getProdutoById(long id) {
         return produtoRepository.findById(id).get();
     }
 
-    public List<Produto> getAllProduto() {
+    public List<ProdutoModel> getAllProduto() {
         return produtoRepository.findAll();
     }
 
-    public void updateProduto(Produto produto) {
+    public void updateProduto(ProdutoModel produto) {
         this.produtoRepository.save(produto);
     }
 

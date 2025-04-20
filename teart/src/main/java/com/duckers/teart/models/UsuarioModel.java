@@ -1,27 +1,35 @@
-package com.duckers.teart.entities;
+package com.duckers.teart.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.*;
 
-
-public class Usuario {
-
+@Entity
+@Table(name="usuarios")
+public class UsuarioModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     private String nome;
 
+    @Column
     private String email;
 
+    @Column
     private String senha;
 
-    private List<Pedido> pedidos = new ArrayList<>();
+    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST })
+    private List<PedidoModel> pedidos = new ArrayList<>();
 
-    private List<EnderecoUsuario> enderecoUsuarioList;
+    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    private List<EnderecoUsuarioModel> enderecoUsuarioList;
 
-    public Usuario() {
+    public UsuarioModel() {
     }
 
-    public Usuario(String nome, String email, String senha) {
+    public UsuarioModel(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;

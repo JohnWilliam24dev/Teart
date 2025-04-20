@@ -1,26 +1,38 @@
-package com.duckers.teart.entities;
+package com.duckers.teart.models;
+import jakarta.persistence.*;
 
-public class DonoAtelier {
 
+@Entity
+@Table(name = "donos_atelier")
+public class DonoAtelierModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     private String nomeSocial;
 
+    @Column
     private String nomeUsuario;
 
+    @Column
     private String email;
 
+    @Column
     private String senha;
 
+    @Column
     private String cpf;
 
-    private Atelier atelier;
+    @OneToOne(mappedBy = "donoAtelierModel", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    private AtelierModel atelier;
 
     // Construtor padrão
-    public DonoAtelier() {}
+    public DonoAtelierModel() {}
 
     // Construtor com parâmetros
-    public DonoAtelier(String nomeSocial, String nomeUsuario, String email, String senha, String cpf, Atelier atelier) {
+    public DonoAtelierModel(String nomeSocial, String nomeUsuario, String email, String senha, String cpf, AtelierModel atelier) {
         this.nomeSocial = nomeSocial;
         this.nomeUsuario = nomeUsuario;
         this.email = email;
@@ -54,7 +66,7 @@ public class DonoAtelier {
         return cpf;
     }
 
-    public Atelier getAtelier() {
+    public AtelierModel getAtelier() {
         return atelier;
     }
 
@@ -83,7 +95,7 @@ public class DonoAtelier {
         this.cpf = cpf;
     }
 
-    public void setAtelier(Atelier atelier) {
+    public void setAtelier(AtelierModel atelier) {
         this.atelier = atelier;
     }
 }

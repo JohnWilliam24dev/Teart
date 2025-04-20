@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import com.duckers.teart.applications.AtelierApplication;
 import com.duckers.teart.entities.Atelier;
+import com.duckers.teart.models.AtelierModel;
 
 @Component
 public class AtelierFacade {
@@ -14,19 +15,19 @@ public class AtelierFacade {
         this.atelierApplication = atelierApplication;
     }
 
-    public void createAtelier(Atelier atelier) {
+    public void createAtelier(AtelierModel atelier) {
         atelierApplication.createAtelier(atelier);
     }
 
-    public Atelier getAtelierById(long id) {
+    public AtelierModel getAtelierById(long id) {
         return atelierApplication.getAtelierById(id);
     }
 
-    public List<Atelier> getAllAteliers() {
+    public List<AtelierModel> getAllAteliers() {
         return atelierApplication.getAllAteliers();
     }
 
-    public void updateAtelier(Atelier atelier) {
+    public void updateAtelier(AtelierModel atelier) {
         atelierApplication.updateAtelier(atelier);
     }
 

@@ -1,35 +1,48 @@
-package com.duckers.teart.entities;
+package com.duckers.teart.models;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "enderecos_atelier")
+public class EnderecoAtelierModel {
 
-
-public class EnderecoAtelier {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     private String rua;
 
+    @Column
     private String numero;
 
+    @Column
     private String logradouro;
 
+    @Column
     private String bairro;
 
+    @Column
     private String cidade;
 
+    @Column
     private String estado;
 
+    @Column
     private String cep;
 
-    private Atelier atelier ;
+    @ManyToOne
+    @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable=false)
+    private AtelierModel atelier;
 
+    @Column(name = "id_atelier")
     private long idAtelier;
 
 
     // Construtor padrao
-    public EnderecoAtelier() {}
+    public EnderecoAtelierModel() {}
 
     // Construtor com parametros
-    public EnderecoAtelier(String rua, String numero, String logradouro, String bairro, String cidade, String estado, String cep, Atelier atelier) {
+    public EnderecoAtelierModel(String rua, String numero, String logradouro, String bairro, String cidade, String estado, String cep, AtelierModel atelier) {
         this.rua = rua;
         this.numero = numero;
         this.logradouro = logradouro;

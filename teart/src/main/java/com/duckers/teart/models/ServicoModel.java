@@ -1,30 +1,46 @@
-package com.duckers.teart.entities;
+package com.duckers.teart.models;
+import jakarta.persistence.*;
 import java.util.List;
 
 
-public class Servico {
+@Entity
+@Table(name="servicos")
+public class ServicoModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     private String nome;
 
+    @Column
     private String descricao;
 
+    @Column
     private double valorMaximo;
 
+    @Column
     private double valorMinimo;
 
-    private Atelier atelier;
 
+
+
+    @ManyToOne 
+    @JoinColumn(name = "id_atelier", nullable = false, insertable = false, updatable=false)
+    private AtelierModel atelier;
+
+    @Column(name = "id_atelier")
     private long idAtelier;
 
-    private List<ItemPedidoServico> itemPedidoServicoList;
+    @OneToMany(mappedBy = "servico")
+    private List<ItemPedidoServicoModel> itemPedidoServicoList;
 
     // Construtor padrão
-    public Servico() {}
+    public ServicoModel() {}
 
     // Construtor com parâmetros (sem o id)
-    public Servico(Atelier atelier, String nome, String descricao, double valorMaximo, double valorMinimo) {
+    public ServicoModel(AtelierModel atelier, String nome, String descricao, double valorMaximo, double valorMinimo) {
         this.atelier = atelier;
         this.nome = nome;
         this.descricao = descricao;

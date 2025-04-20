@@ -2,6 +2,7 @@ package com.duckers.teart.controllers;
 
 import com.duckers.teart.entities.DonoAtelier;
 import com.duckers.teart.facades.DonoAtelierFacade;
+import com.duckers.teart.models.DonoAtelierModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,22 +20,22 @@ public class DonoAtelierController {
     }
 
     @PostMapping
-    public void createDonoAtelier(@RequestBody DonoAtelier dono) {
+    public void createDonoAtelier(@RequestBody DonoAtelierModel dono) {
         facadeDonoAtelier.cadastrar(dono);
     }
 
     @GetMapping("/{id}")
-    public DonoAtelier getDonoAtelierById(@PathVariable int id) {
+    public DonoAtelierModel getDonoAtelierById(@PathVariable int id) {
         return facadeDonoAtelier.buscarDonoAtelierPorId(id);
     }
 
     @GetMapping
-    public List<DonoAtelier> getAllDonoAteliers() {
+    public List<DonoAtelierModel> getAllDonoAteliers() {
         return facadeDonoAtelier.listaDonoAteliers();
     }
 
     @PutMapping("")
-    public void updateDonoAtelier(@RequestBody DonoAtelier dono) {
+    public void updateDonoAtelier(@RequestBody DonoAtelierModel dono) {
         facadeDonoAtelier.atualizar(dono);
     }
 
