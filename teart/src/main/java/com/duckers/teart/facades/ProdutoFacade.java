@@ -2,6 +2,8 @@ package com.duckers.teart.facades;
 
 import com.duckers.teart.applications.ProdutoApplication;
 import com.duckers.teart.entities.Produto;
+import com.duckers.teart.models.ProdutoModel;
+
 import org.springframework.stereotype.Component;
 import java.util.List;
 
@@ -13,19 +15,19 @@ public class ProdutoFacade {
         this.produtoApplication = produtoApplication;
     }
 
-    public void cadastrar(Produto produto) {
+    public void cadastrar(ProdutoModel produto) {
         produtoApplication.createProduto(produto);
     }
 
-    public void atualizar(Produto produto) {
+    public void atualizar(ProdutoModel produto) {
         produtoApplication.updateProduto(produto);
     }
 
-    public List<Produto> produtosList() {
+    public List<ProdutoModel> produtosList() {
         return produtoApplication.getAllProdutos();
     }
 
-    public Produto buscarProdutoPorId(int id) {
+    public ProdutoModel buscarProdutoPorId(int id) {
         return produtoApplication.getProdutoById(id);
     }
 

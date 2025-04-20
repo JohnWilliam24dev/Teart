@@ -2,6 +2,8 @@ package com.duckers.teart.facades;
 
 import com.duckers.teart.applications.PedidoApplication;
 import com.duckers.teart.entities.Pedido;
+import com.duckers.teart.models.PedidoModel;
+
 import org.springframework.stereotype.Component;
 import java.util.List;
 
@@ -13,19 +15,19 @@ public class PedidoFacade {
         this.pedidoApplication = pedidoApplication;
     }
 
-    public void cadastrar(Pedido pedido) {
+    public void cadastrar(PedidoModel pedido) {
         pedidoApplication.createPedido(pedido);
     }
 
-    public void atualizar(Pedido pedido) {
+    public void atualizar(PedidoModel pedido) {
         pedidoApplication.updatePedido(pedido);
     }
 
-    public List<Pedido> pedidosList() {
+    public List<PedidoModel> pedidosList() {
         return pedidoApplication.getAllPedidos();
     }
 
-    public Pedido buscarPedidoPorId(long id) {
+    public PedidoModel buscarPedidoPorId(long id) {
         return pedidoApplication.getPedidoById(id);
     }
 

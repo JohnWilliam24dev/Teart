@@ -1,6 +1,7 @@
 package com.duckers.teart.repositories;
 
 import com.duckers.teart.entities.EnderecoAtelier;
+import com.duckers.teart.models.EnderecoAtelierModel;
 import com.duckers.teart.repositories.interfaces.EnderecoAtelierJPA;
 import java.util.List;
 import org.springframework.beans.BeanUtils;
@@ -14,19 +15,19 @@ public class EnderecoAtelierRepository {
         this.enderecoAtelierJPA = enderecoAtelierJPA;
     }
 
-    public void createEnderecoAtelier(EnderecoAtelier enderecoAtelier) {
+    public void createEnderecoAtelier(EnderecoAtelierModel enderecoAtelier) {
         enderecoAtelierJPA.save(enderecoAtelier);
     }
 
-    public EnderecoAtelier getEnderecoAtelierById(long id) {
+    public EnderecoAtelierModel getEnderecoAtelierById(long id) {
         return enderecoAtelierJPA.findById(id).get();
     }
 
-    public List<EnderecoAtelier> getAllEnderecoAtelier() {
+    public List<EnderecoAtelierModel> getAllEnderecoAtelier() {
         return enderecoAtelierJPA.findAll();
     }
 
-    public void updateEnderecoAtelier(EnderecoAtelier enderecoAtelier) {
+    public void updateEnderecoAtelier(EnderecoAtelierModel enderecoAtelier) {
         this.enderecoAtelierJPA.save(enderecoAtelier);
     }
 

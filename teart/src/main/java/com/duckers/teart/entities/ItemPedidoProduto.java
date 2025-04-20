@@ -1,31 +1,17 @@
 package com.duckers.teart.entities;
-import jakarta.persistence.*;
 
-@Table(name = "item_pedidos_produto")
-@Entity
 public class ItemPedidoProduto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "quantidade")
     private int quantidade;
 
-    
-    @ManyToOne
-    @JoinColumn(name = "id_produto", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
     private Produto produto;
 
-    @Column(name = "id_produto")
     private long idProduto; 
 
-
-    @ManyToOne
-    @JoinColumn(name = "id_pedido", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
     private Pedido pedido;
 
-    @Column(name = "id_pedido")
     private long idPedido;
 
  

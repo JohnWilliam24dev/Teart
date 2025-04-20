@@ -2,6 +2,7 @@ package com.duckers.teart.repositories;
 
 import java.util.List;
 import com.duckers.teart.entities.Atelier;
+import com.duckers.teart.models.AtelierModel;
 import com.duckers.teart.repositories.interfaces.AtelierJPA;
 
 import org.springframework.beans.BeanUtils;
@@ -15,19 +16,19 @@ public class AtelierRepository {
         this.atelierJPA = atelierJPA;
     }
 
-    public void createAtelier(Atelier atelier) {
+    public void createAtelier(AtelierModel atelier) {
         atelierJPA.save(atelier);
     }
 
-    public Atelier getAtelierById(long id) {
+    public AtelierModel getAtelierById(long id) {
         return atelierJPA.findById(id).get();
     }
 
-    public List<Atelier> getAllAtelier() {
+    public List<AtelierModel> getAllAtelier() {
         return atelierJPA.findAll();
     }
 
-    public void updateAtelier(Atelier atelier) {
+    public void updateAtelier(AtelierModel atelier) {
         this.atelierJPA.save(atelier);
     }
 

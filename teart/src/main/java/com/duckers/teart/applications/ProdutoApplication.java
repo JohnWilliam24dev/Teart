@@ -1,6 +1,7 @@
 package com.duckers.teart.applications;
 import java.util.List;
 import com.duckers.teart.entities.Produto;
+import com.duckers.teart.models.ProdutoModel;
 import com.duckers.teart.repositories.ProdutoRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,19 +13,19 @@ public class ProdutoApplication {
         this.produtoRepository = produtoRepository;
     }
 
-    public void createProduto(Produto produto) {
+    public void createProduto(ProdutoModel produto) {
         produtoRepository.createPedido(produto);
     }
 
-    public Produto getProdutoById(int id) {
+    public ProdutoModel getProdutoById(int id) {
         return produtoRepository.getProdutoById(id);
     }
 
-    public List<Produto> getAllProdutos() {
+    public List<ProdutoModel> getAllProdutos() {
         return produtoRepository.getAllProduto();
     }
 
-    public void updateProduto( Produto produto) {
+    public void updateProduto( ProdutoModel produto) {
         produtoRepository.updateProduto(produto);
     }
 

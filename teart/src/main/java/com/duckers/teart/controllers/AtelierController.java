@@ -2,6 +2,8 @@ package com.duckers.teart.controllers;
 
 import com.duckers.teart.entities.Atelier;
 import com.duckers.teart.facades.AtelierFacade;
+import com.duckers.teart.models.AtelierModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,22 +21,22 @@ public class AtelierController {
     }
 
     @PostMapping
-    public void createAtelier(@RequestBody Atelier atelier) {
+    public void createAtelier(@RequestBody AtelierModel atelier) {
         atelierFacade.createAtelier(atelier);
     }
 
     @GetMapping("/{id}")
-    public Atelier getAtelierById(@PathVariable long id) {
+    public AtelierModel getAtelierById(@PathVariable long id) {
         return atelierFacade.getAtelierById(id);
     }
 
     @GetMapping
-    public List<Atelier> getAllAteliers() {
+    public List<AtelierModel> getAllAteliers() {
         return atelierFacade.getAllAteliers();
     }
 
     @PutMapping("")
-    public void updateAtelier(@RequestBody Atelier atelier) {
+    public void updateAtelier(@RequestBody AtelierModel atelier) {
         atelierFacade.updateAtelier(atelier);
     }
 
