@@ -2,6 +2,8 @@ package com.duckers.teart.controllers;
 
 import com.duckers.teart.entities.Usuario;
 import com.duckers.teart.facades.UsuarioFacade;
+import com.duckers.teart.models.UsuarioModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +20,14 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<Void> createUsuario(@RequestBody UsuarioModel usuario) {
         usuarioFacade.cadastrar(usuario);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id) {
-        Usuario usuario = usuarioFacade.buscarUsuarioPorId(id);
+    public ResponseEntity<UsuarioModel> getUsuarioById(@PathVariable Long id) {
+        UsuarioModel usuario = usuarioFacade.buscarUsuarioPorId(id);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
         } else {
@@ -34,13 +36,13 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> getAllUsuarios() {
-        List<Usuario> usuarios = usuarioFacade.listaUsuarios();
+    public ResponseEntity<List<UsuarioModel>> getAllUsuarios() {
+        List<UsuarioModel> usuarios = usuarioFacade.listaUsuarios();
         return ResponseEntity.ok(usuarios);
     }
 
     @PutMapping("")
-    public ResponseEntity<Void> updateUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<Void> updateUsuario(@RequestBody UsuarioModel usuario) {
         usuarioFacade.atualizar(usuario);
         return ResponseEntity.ok().build();
     }

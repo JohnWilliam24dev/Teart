@@ -2,6 +2,7 @@ package com.duckers.teart.repositories;
 
 import java.util.List;
 import com.duckers.teart.entities.ItemPedidoServico;
+import com.duckers.teart.models.ItemPedidoServicoModel;
 import com.duckers.teart.repositories.interfaces.ItemPedidoServicoJPA;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
@@ -14,19 +15,19 @@ public class ItemPedidoServicoRepository {
         this.itemPedidoServicoJPA = itemPedidoServicoJPA;
     }
 
-    public void createItemPedidoServico(ItemPedidoServico itemPedidoServico) {
+    public void createItemPedidoServico(ItemPedidoServicoModel itemPedidoServico) {
         itemPedidoServicoJPA.save(itemPedidoServico);
     }
 
-    public ItemPedidoServico getItemPedidoServicoById(long id) {
+    public ItemPedidoServicoModel getItemPedidoServicoById(long id) {
         return itemPedidoServicoJPA.findById(id).get();
     }
 
-    public List<ItemPedidoServico> getAllItemPedidosServico() {
+    public List<ItemPedidoServicoModel> getAllItemPedidosServico() {
         return itemPedidoServicoJPA.findAll();
     }
 
-    public void updateItemPedidoServico(ItemPedidoServico itemPedidoServico) {
+    public void updateItemPedidoServico(ItemPedidoServicoModel itemPedidoServico) {
         this.itemPedidoServicoJPA.save(itemPedidoServico);
     }
 

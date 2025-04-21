@@ -1,28 +1,42 @@
-package com.duckers.teart.entities;
+package com.duckers.teart.models;
+import jakarta.persistence.*;
 
 
-
-public class ItemPedidoServico {
-   
+@Table(name="item_pedidos_servico")
+@Entity
+public class ItemPedidoServicoModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name="quantidade")
     private int quantidade;
 
-    private Servico servico;
+    @ManyToOne
 
+    @JoinColumn(name = "id_servico", referencedColumnName = "id", insertable = false, updatable=false)
+    private ServicoModel servico;
+
+    @Column(name = "id_servico")
     private long idServico;
 
-    private Pedido pedido;
+    
 
+    @ManyToOne
+
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id", insertable = false, updatable=false)
+    private PedidoModel pedido;
+
+    @Column(name = "id_pedido")
     private long idPedido;
 
     
 
     // Construtor padrão
-    public ItemPedidoServico() {}
+    public ItemPedidoServicoModel() {}
 
     // Construtor com parâmetros (sem o id)
-    public ItemPedidoServico(int quantidade, Servico servico, Pedido pedido) {
+    public ItemPedidoServicoModel(int quantidade, ServicoModel servico, PedidoModel pedido) {
         this.quantidade = quantidade;
         this.servico = servico;
         this.pedido = pedido;

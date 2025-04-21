@@ -2,6 +2,7 @@ package com.duckers.teart.applications;
 
 import java.util.List;
 import com.duckers.teart.entities.Atelier;
+import com.duckers.teart.models.AtelierModel;
 import com.duckers.teart.repositories.AtelierRepository;
 
 import org.springframework.stereotype.Service;
@@ -14,19 +15,19 @@ public class AtelierApplication {
         this.atelierRepository = atelierRepository;
     }
 
-    public void createAtelier(Atelier atelier) {
+    public void createAtelier(AtelierModel atelier) {
         atelierRepository.createAtelier(atelier);
     }
 
-    public Atelier getAtelierById(long id) {
+    public AtelierModel getAtelierById(long id) {
         return atelierRepository.getAtelierById(id);
     }
 
-    public List<Atelier> getAllAteliers() {
+    public List<AtelierModel> getAllAteliers() {
         return atelierRepository.getAllAtelier();
     }
 
-    public void updateAtelier(Atelier atelier) {
+    public void updateAtelier(AtelierModel atelier) {
         atelierRepository.updateAtelier(atelier);
     }
 

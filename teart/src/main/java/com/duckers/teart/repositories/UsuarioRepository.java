@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import com.duckers.teart.entities.Usuario;
+import com.duckers.teart.models.UsuarioModel;
 import com.duckers.teart.repositories.interfaces.UsuarioJPA;
 
 @Repository
@@ -15,19 +16,19 @@ public class UsuarioRepository {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public void createUsuario(Usuario usuario) {
+    public void createUsuario(UsuarioModel usuario) {
         usuarioRepository.save(usuario);
     }
 
-    public Usuario getUsuarioById(long id) {
+    public UsuarioModel getUsuarioById(long id) {
         return usuarioRepository.findById(id).get();
     }
 
-    public List<Usuario> getAllUsuarios() {
+    public List<UsuarioModel> getAllUsuarios() {
         return usuarioRepository.findAll();
     }
 
-    public void updateUsuario(Usuario usuario) {
+    public void updateUsuario(UsuarioModel usuario) {
         this.usuarioRepository.save(usuario);
     }
 

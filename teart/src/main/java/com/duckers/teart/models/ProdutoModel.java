@@ -1,34 +1,47 @@
-package com.duckers.teart.entities;
-import com.duckers.teart.entities.enums.Moda;
-import com.duckers.teart.entities.enums.Tamanho;
+package com.duckers.teart.models;
+import com.duckers.teart.models.enums.Moda;
+import com.duckers.teart.models.enums.Tamanho;
+import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity
+@Table(name="produtos")
+public class ProdutoModel {
 
-public class Produto {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     private Moda moda;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     private Tamanho tamanho;
 
+    @Column
     private String nome;
 
+    @Column
     private double preco;
 
-    private Atelier atelier;
+    @ManyToOne // uso correto: sem cascata
+    @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable=false)
+    private AtelierModel atelier;
 
+    @Column(name = "id_atelier")
     private long idAtelier;
 
-
-    private List<ItemPedidoProduto> itemPedidoProdutoList;
+    @OneToMany(mappedBy = "produto")
+    private List<ItemPedidoProdutoModel> itemPedidoProdutoList;
 
     // Construtor padrão
-    public Produto(){}
+    public ProdutoModel(){}
 
     // Construtor com parâmetros (sem o id)
-    public Produto(Moda moda, Tamanho tamanho, String nome, double preco, Atelier atelier) {
+    public ProdutoModel(Moda moda, Tamanho tamanho, String nome, double preco, AtelierModel atelier) {
         this.moda = moda;
         this.tamanho = tamanho;
         this.nome = nome;

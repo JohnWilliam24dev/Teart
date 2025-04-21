@@ -1,8 +1,10 @@
 package com.duckers.teart.repositories.interfaces;
 
 import com.duckers.teart.entities.Pedido;
+import com.duckers.teart.models.PedidoModel;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PedidoJPA extends JpaRepository<Pedido, Long> {
+public interface PedidoJPA extends JpaRepository<PedidoModel, Long> {
 
 }
