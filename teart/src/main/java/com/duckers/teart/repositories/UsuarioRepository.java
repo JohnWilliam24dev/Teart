@@ -2,9 +2,9 @@ package com.duckers.teart.repositories;
 
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
+
 import org.springframework.stereotype.Repository;
-import com.duckers.teart.entities.Usuario;
+
 import com.duckers.teart.models.UsuarioModel;
 import com.duckers.teart.repositories.interfaces.UsuarioJPA;
 

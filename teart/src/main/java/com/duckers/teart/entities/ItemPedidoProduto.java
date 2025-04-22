@@ -1,5 +1,5 @@
 package com.duckers.teart.entities;
-
+import com.duckers.teart.entities.utils.*;
 public class ItemPedidoProduto {
 
     private long id;
@@ -44,6 +44,7 @@ public class ItemPedidoProduto {
         return idProduto;
     }
 
+
     
 
     // SETTERS
@@ -65,5 +66,10 @@ public class ItemPedidoProduto {
 
     public void setIdProduto(long idProduto) {
         this.idProduto = idProduto;
+    }
+
+    public void validar_quantidade(){
+    NumericValueValidator.verificarQuantidadePositiva(quantidade);
+    NumericValueValidator.verificarMaiorQueZero(quantidade);
     }
 }

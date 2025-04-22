@@ -1,9 +1,9 @@
 package com.duckers.teart.repositories;
 
 import java.util.List;
-import org.springframework.beans.BeanUtils;
+
 import org.springframework.stereotype.Repository;
-import com.duckers.teart.entities.Produto;
+
 import com.duckers.teart.models.ProdutoModel;
 import com.duckers.teart.repositories.interfaces.ProdutoJPA;
 

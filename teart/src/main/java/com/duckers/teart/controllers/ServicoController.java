@@ -1,6 +1,6 @@
 package com.duckers.teart.controllers;
 
-import com.duckers.teart.entities.Servico;
+
 import com.duckers.teart.facades.ServicoFacade;
 import com.duckers.teart.models.ServicoModel;
 

@@ -1,6 +1,6 @@
 package com.duckers.teart.controllers;
 
-import com.duckers.teart.entities.Usuario;
+
 import com.duckers.teart.facades.UsuarioFacade;
 import com.duckers.teart.models.UsuarioModel;
 

@@ -1,9 +1,9 @@
 package com.duckers.teart.repositories;
 
-import com.duckers.teart.entities.EnderecoUsuario;
+
 import com.duckers.teart.models.EnderecoUsuarioModel;
 import com.duckers.teart.repositories.interfaces.EnderecoUsuarioJPA;
-import org.springframework.beans.BeanUtils;
+
 import org.springframework.stereotype.Repository;
 import java.util.List;
 

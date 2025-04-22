@@ -1,5 +1,5 @@
 package com.duckers.teart.controllers;
-import com.duckers.teart.entities.Pedido;
+
 import com.duckers.teart.facades.PedidoFacade;
 import com.duckers.teart.models.PedidoModel;
 

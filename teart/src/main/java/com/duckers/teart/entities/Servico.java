@@ -1,6 +1,9 @@
 package com.duckers.teart.entities;
 import java.util.List;
 
+import com.duckers.teart.entities.utils.Generic;
+import com.duckers.teart.entities.utils.NumericValueValidator;
+
 
 public class Servico {
 
@@ -82,5 +85,16 @@ public class Servico {
 
     public void setIdAtelier(long idAtelier) {
         this.idAtelier = idAtelier;
+    }
+    public void validar_nome(){
+        Generic.verificarNaoNuloOuVazio(nome);
+        Generic.verificarTamanhoMaximo(nome, 500);
+    }
+    public void validar_descricao(){
+        Generic.verificarNaoNuloOuVazio(nome);
+        Generic.verificarTamanhoMaximo(nome, 1000);
+    }
+    public void validar_preco(){
+        NumericValueValidator.verificarValorMinMax(valorMinimo, valorMaximo);
     }
 }

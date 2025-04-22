@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.duckers.teart.entities.EnderecoUsuario;
+
 import com.duckers.teart.facades.EnderecoUsuarioFacade;
 import com.duckers.teart.models.EnderecoUsuarioModel;
 

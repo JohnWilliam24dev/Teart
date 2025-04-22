@@ -2,7 +2,7 @@ package com.duckers.teart.facades;
 
 import java.util.List;
 import com.duckers.teart.applications.EnderecoAtelierApplication;
-import com.duckers.teart.entities.EnderecoAtelier;
+
 import com.duckers.teart.models.EnderecoAtelierModel;
 
 import org.springframework.stereotype.Component;

@@ -1,5 +1,5 @@
 package com.duckers.teart.controllers;
-import com.duckers.teart.entities.Produto;
+
 import com.duckers.teart.facades.ProdutoFacade;
 import com.duckers.teart.models.ProdutoModel;
 
