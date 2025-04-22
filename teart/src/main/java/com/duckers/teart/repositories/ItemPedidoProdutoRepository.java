@@ -2,6 +2,7 @@ package com.duckers.teart.repositories;
 
 import java.util.List;
 import com.duckers.teart.entities.ItemPedidoProduto;
+import com.duckers.teart.models.ItemPedidoProdutoModel;
 import com.duckers.teart.repositories.interfaces.ItemPedidoProdutoJPA;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
@@ -14,22 +15,20 @@ public class ItemPedidoProdutoRepository {
         this.itemPedidoProdutoJPA = itemPedidoProdutoJPA;
     }
 
-    public void createItemPedidoProduto(ItemPedidoProduto itemPedidoProduto) {
+    public void createItemPedidoProduto(ItemPedidoProdutoModel itemPedidoProduto) {
         itemPedidoProdutoJPA.save(itemPedidoProduto);
     }
 
-    public ItemPedidoProduto getItemPedidoProdutoById(long id) {
+    public ItemPedidoProdutoModel getItemPedidoProdutoById(long id) {
         return itemPedidoProdutoJPA.findById(id).get();
     }
 
-    public List<ItemPedidoProduto> getAllItemPedidosProduto() {
+    public List<ItemPedidoProdutoModel> getAllItemPedidosProduto() {
         return itemPedidoProdutoJPA.findAll();
     }
 
-    public void updateItemPedidoProduto(long id, ItemPedidoProduto itemPedidoProduto) {
-        ItemPedidoProduto itemPedidoProdutoPersistido = this.itemPedidoProdutoJPA.findById(id).get();
-        BeanUtils.copyProperties(itemPedidoProduto, itemPedidoProdutoPersistido, "id");
-        this.itemPedidoProdutoJPA.save(itemPedidoProdutoPersistido);
+    public void updateItemPedidoProduto(ItemPedidoProdutoModel itemPedidoProduto) {
+        this.itemPedidoProdutoJPA.save(itemPedidoProduto);
     }
 
     public void deleteItemPedidoProduto(long id) {

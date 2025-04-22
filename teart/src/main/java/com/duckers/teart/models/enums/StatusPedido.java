@@ -1,4 +1,4 @@
-package com.duckers.teart.enums;
+package com.duckers.teart.models.enums;
 
 public enum StatusPedido {
     PENDENTE("Pendente"),

@@ -1,44 +1,34 @@
 package com.duckers.teart.entities;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "enderecos_atelier")
+
 public class EnderecoAtelier {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     private String rua;
 
-    @Column
     private String numero;
 
-    @Column
     private String logradouro;
 
-    @Column
     private String bairro;
 
-    @Column
     private String cidade;
 
-    @Column
     private String estado;
 
-    @Column
     private String cep;
 
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "id_atelier", referencedColumnName = "id")
-    private Atelier atelier;
+    private Atelier atelier ;
 
-    // Construtor padrão
+    private long idAtelier;
+
+
+    // Construtor padrao
     public EnderecoAtelier() {}
 
-    // Construtor com parâmetros
+    // Construtor com parametros
     public EnderecoAtelier(String rua, String numero, String logradouro, String bairro, String cidade, String estado, String cep, Atelier atelier) {
         this.rua = rua;
         this.numero = numero;
@@ -82,10 +72,11 @@ public class EnderecoAtelier {
     public String getCep() {
         return cep;
     }
-
-    public Atelier getAtelier() {
-        return atelier;
+    
+    public long getIdAtelier() {
+        return idAtelier;
     }
+
 
     // SETTERS
     public void setId(long id) {
@@ -119,8 +110,8 @@ public class EnderecoAtelier {
     public void setCep(String cep) {
         this.cep = cep;
     }
-
-    public void setAtelier(Atelier atelier) {
-        this.atelier = atelier;
+    
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
     }
 }

@@ -2,6 +2,7 @@ package com.duckers.teart.facades;
 
 import java.util.List;
 import com.duckers.teart.entities.Servico;
+import com.duckers.teart.models.ServicoModel;
 import com.duckers.teart.applications.ServicoApplication;
 import org.springframework.stereotype.Component;
 
@@ -13,19 +14,19 @@ public class ServicoFacade {
     this.applicationServico = applicationServico;
   }
 
-  public void cadastrar(Servico servico) {
+  public void cadastrar(ServicoModel servico) {
     applicationServico.createServico(servico);
     }
 
-    public void atualizar(int id, Servico servico) {
-        applicationServico.updateServico(id, servico);
+    public void atualizar(ServicoModel servico) {
+        applicationServico.updateServico(servico);
     }
 
-    public List<Servico> listaServicos() {
+    public List<ServicoModel> listaServicos() {
         return applicationServico.getAllServicos();
     }
 
-    public Servico buscarServicoPorId(int id) {
+    public ServicoModel buscarServicoPorId(int id) {
         return applicationServico.getServicoById(id);
     }
 

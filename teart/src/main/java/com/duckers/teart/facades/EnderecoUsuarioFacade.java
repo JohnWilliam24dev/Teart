@@ -3,6 +3,8 @@ package com.duckers.teart.facades;
 import java.util.List;
 import com.duckers.teart.applications.EnderecoUsuarioApplication;
 import com.duckers.teart.entities.EnderecoUsuario;
+import com.duckers.teart.models.EnderecoUsuarioModel;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,19 +16,19 @@ public class EnderecoUsuarioFacade {
         this.enderecoUsuarioApplication = enderecoUsuarioApplication;
     }
 
-    public void createEnderecoUsuario(EnderecoUsuario enderecoUsuario) {
+    public void createEnderecoUsuario(EnderecoUsuarioModel enderecoUsuario) {
         enderecoUsuarioApplication.createEnderecoUsuario(enderecoUsuario);
     }
 
-    public void updateEnderecoUsuario(long id, EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioApplication.updateEnderecoUsuario(id, enderecoUsuario);
+    public void updateEnderecoUsuario(EnderecoUsuarioModel enderecoUsuario) {
+        enderecoUsuarioApplication.updateEnderecoUsuario(enderecoUsuario);
     }
 
-    public List<EnderecoUsuario> getAllEnderecoUsuarios() {
+    public List<EnderecoUsuarioModel> getAllEnderecoUsuarios() {
         return enderecoUsuarioApplication.getAllEnderecoUsuarios();
     }
 
-    public EnderecoUsuario getEnderecoUsuarioById(long id) {
+    public EnderecoUsuarioModel getEnderecoUsuarioById(long id) {
         return enderecoUsuarioApplication.getEnderecoUsuarioById(id);
     }
 

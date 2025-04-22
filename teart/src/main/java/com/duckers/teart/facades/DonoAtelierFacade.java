@@ -4,6 +4,7 @@ import java.util.List;
 import com.duckers.teart.applications.DonoAtelierApplication;
 import org.springframework.stereotype.Component;
 import com.duckers.teart.entities.DonoAtelier;
+import com.duckers.teart.models.DonoAtelierModel;
 
 @Component
 public class DonoAtelierFacade {
@@ -13,19 +14,19 @@ public class DonoAtelierFacade {
         this.donoAtelierApplication = donoAtelierApplication;
     }
 
-    public void cadastrar(DonoAtelier donoAtelier) {
+    public void cadastrar(DonoAtelierModel donoAtelier) {
         donoAtelierApplication.createDonoAtelier(donoAtelier);
     }
 
-    public void atualizar(int id, DonoAtelier donoAtelier) {
-        donoAtelierApplication.updateDonoAtelier(id, donoAtelier);
+    public void atualizar(DonoAtelierModel donoAtelier) {
+        donoAtelierApplication.updateDonoAtelier(donoAtelier);
     }
 
-    public List<DonoAtelier> listaDonoAteliers() {
+    public List<DonoAtelierModel> listaDonoAteliers() {
         return donoAtelierApplication.getAllDonoAteliers();
     }
 
-    public DonoAtelier buscarDonoAtelierPorId(int id) {
+    public DonoAtelierModel buscarDonoAtelierPorId(int id) {
         return donoAtelierApplication.getDonoAtelierById(id);
     }
 

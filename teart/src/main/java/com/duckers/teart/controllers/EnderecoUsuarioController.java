@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import com.duckers.teart.entities.EnderecoUsuario;
 import com.duckers.teart.facades.EnderecoUsuarioFacade;
+import com.duckers.teart.models.EnderecoUsuarioModel;
 
 @RestController
-@RequestMapping("/enderecoUsuarios")
+@RequestMapping("/endereco-usuario") 
 public class EnderecoUsuarioController {
     private final EnderecoUsuarioFacade enderecoUsuarioFacade;
 
@@ -20,25 +21,25 @@ public class EnderecoUsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createEnderecoUsuario(@RequestBody EnderecoUsuario enderecoUsuario) {
+    public ResponseEntity<Void> createEnderecoUsuario(@RequestBody EnderecoUsuarioModel enderecoUsuario) {
         enderecoUsuarioFacade.createEnderecoUsuario(enderecoUsuario);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EnderecoUsuario> getEnderecoUsuarioById(@PathVariable long id) {
-        EnderecoUsuario enderecoUsuario = enderecoUsuarioFacade.getEnderecoUsuarioById(id);
+    public ResponseEntity<EnderecoUsuarioModel> getEnderecoUsuarioById(@PathVariable long id) {
+        EnderecoUsuarioModel enderecoUsuario = enderecoUsuarioFacade.getEnderecoUsuarioById(id);
         return enderecoUsuario != null ? ResponseEntity.ok(enderecoUsuario) : ResponseEntity.notFound().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<EnderecoUsuario>> getAllEnderecoUsuarios() {
+    public ResponseEntity<List<EnderecoUsuarioModel>> getAllEnderecoUsuarios() {
         return ResponseEntity.ok(enderecoUsuarioFacade.getAllEnderecoUsuarios());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateEnderecoUsuario(@PathVariable long id, @RequestBody EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioFacade.updateEnderecoUsuario(id, enderecoUsuario);
+    @PutMapping("")
+    public ResponseEntity<Void> updateEnderecoUsuario( @RequestBody EnderecoUsuarioModel enderecoUsuario) {
+        enderecoUsuarioFacade.updateEnderecoUsuario(enderecoUsuario);
         return ResponseEntity.ok().build();
     }
 

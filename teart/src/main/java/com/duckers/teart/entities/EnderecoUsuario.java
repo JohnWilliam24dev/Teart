@@ -1,43 +1,33 @@
 package com.duckers.teart.entities;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "enderecos_usuario")
 public class EnderecoUsuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     private String rua;
 
-    @Column
     private String bairro;
 
-    @Column
+    private String logradouro;
+
     private String cidade;
 
-    @Column
     private String estado;
 
-    @Column
     private String pais;
 
-    @Column
     private String cep;
 
-    @Column
     private int numero;
 
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
+
+    private long idUsuario;
 
     public EnderecoUsuario() {}
 
-    public EnderecoUsuario(Usuario usuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep) {
+    public EnderecoUsuario(Usuario usuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep, String logradouro) {
         this.usuario = usuario;
         this.rua = rua;
         this.bairro = bairro;
@@ -46,15 +36,12 @@ public class EnderecoUsuario {
         this.pais = pais;
         this.cep = cep;
         this.numero = numero;
+        this.logradouro = logradouro;
     }
 
     // Getters
     public long getId() {
         return id;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
     }
 
     public String getRua() {
@@ -85,13 +72,17 @@ public class EnderecoUsuario {
         return numero;
     }
 
+    public String getLogradouro(){
+        return logradouro;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
     // Setters
     public void setId(long id) {
         this.id = id;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public void setRua(String rua) {
@@ -120,5 +111,14 @@ public class EnderecoUsuario {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }

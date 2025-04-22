@@ -1,41 +1,35 @@
 package com.duckers.teart.entities;
 
-import com.duckers.teart.enums.FormaPagamento;
-import com.duckers.teart.enums.StatusPedido;
-import jakarta.persistence.*;
-
+import com.duckers.teart.entities.enums.FormaPagamento;
+import com.duckers.teart.entities.enums.StatusPedido;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDate;
 import java.util.List;
 
-@Table(name="pedidos")
-@Entity
+
+
+
 public class Pedido {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private long id;
 
-    @Column
-    private String dataPedido;
 
-    @Column
-    private String dataEnvio;
+    private LocalDate dataPedido;
 
-    @Column
+    private LocalDate dataEnvio;
+
     private StatusPedido statusPedido;
 
-    @Column
     private FormaPagamento formaPagamento;
 
-    @Column
-    private double valorTotal;
+    private double valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
 
-    @ManyToOne(cascade = { CascadeType.PERSIST})
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    private long idUsuario;
+
     private List<ItemPedidoProduto> itemPedidoProdutoList;
 
-    @OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<ItemPedidoServico> itemPedidoServicoList;
 
     // Construtor padrão da JPA
@@ -43,7 +37,7 @@ public class Pedido {
     }
 
     // Construtor com parâmetros (sem as listas de itens de pedido)
-    public Pedido(String dataPedido, String dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, Usuario usuario) {
+    public Pedido(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, Usuario usuario) {
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
         this.statusPedido = statusPedido;
@@ -57,11 +51,11 @@ public class Pedido {
         return id;
     }
 
-    public String getDataPedido() {
+    public LocalDate getDataPedido() {
         return dataPedido;
     }
 
-    public String getDataEnvio() {
+    public LocalDate getDataEnvio() {
         return dataEnvio;
     }
 
@@ -77,16 +71,8 @@ public class Pedido {
         return valorTotal;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public List<ItemPedidoProduto> getItemPedidoProdutoList() {
-        return itemPedidoProdutoList;
-    }
-
-    public List<ItemPedidoServico> getItemPedidoServicoList() {
-        return itemPedidoServicoList;
+    public long getIdUsuario() {
+        return idUsuario;
     }
 
     // Setters
@@ -94,11 +80,11 @@ public class Pedido {
         this.id = id;
     }
 
-    public void setDataPedido(String dataPedido) {
+    public void setDataPedido(LocalDate dataPedido) {
         this.dataPedido = dataPedido;
     }
 
-    public void setDataEnvio(String dataEnvio) {
+    public void setDataEnvio(LocalDate dataEnvio) {
         this.dataEnvio = dataEnvio;
     }
 
@@ -114,15 +100,9 @@ public class Pedido {
         this.valorTotal = valorTotal;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
-        this.itemPedidoProdutoList = itemPedidoProdutoList;
-    }
-
-    public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
-        this.itemPedidoServicoList = itemPedidoServicoList;
-    }
+    
 }

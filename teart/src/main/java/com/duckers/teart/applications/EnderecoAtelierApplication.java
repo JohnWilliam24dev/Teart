@@ -2,6 +2,7 @@ package com.duckers.teart.applications;
 
 import java.util.List;
 import com.duckers.teart.entities.EnderecoAtelier;
+import com.duckers.teart.models.EnderecoAtelierModel;
 import com.duckers.teart.repositories.EnderecoAtelierRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,20 +14,20 @@ public class EnderecoAtelierApplication {
         this.enderecoAtelierRepository = enderecoAtelierRepository;
     }
     
-    public void createEnderecoAtelier(EnderecoAtelier enderecoAtelier) {
+    public void createEnderecoAtelier(EnderecoAtelierModel enderecoAtelier) {
         enderecoAtelierRepository.createEnderecoAtelier(enderecoAtelier);
     }
     
-    public EnderecoAtelier getEnderecoAtelierById(long id) {
+    public EnderecoAtelierModel getEnderecoAtelierById(long id) {
         return enderecoAtelierRepository.getEnderecoAtelierById(id);
     }
     
-    public List<EnderecoAtelier> getAllEnderecoAteliers() {
+    public List<EnderecoAtelierModel> getAllEnderecoAteliers() {
         return enderecoAtelierRepository.getAllEnderecoAtelier();
     }
     
-    public void updateEnderecoAtelier(long id, EnderecoAtelier endereco) {
-        enderecoAtelierRepository.updateEnderecoAtelier(id,endereco);
+    public void updateEnderecoAtelier(EnderecoAtelierModel endereco) {
+        enderecoAtelierRepository.updateEnderecoAtelier(endereco);
     }
     
     public void deleteEnderecoAtelier(long id) {

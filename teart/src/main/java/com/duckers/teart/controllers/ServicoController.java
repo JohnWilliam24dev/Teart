@@ -2,13 +2,15 @@ package com.duckers.teart.controllers;
 
 import com.duckers.teart.entities.Servico;
 import com.duckers.teart.facades.ServicoFacade;
+import com.duckers.teart.models.ServicoModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/servicos")
+@RequestMapping("/servico")
 public class ServicoController {
     private final ServicoFacade servicoFacade;
 
@@ -18,14 +20,14 @@ public class ServicoController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createServico(@RequestBody Servico servico) {
+    public ResponseEntity<Void> createServico(@RequestBody ServicoModel servico) {
         servicoFacade.cadastrar(servico);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Servico> getServicoById(@PathVariable int id) {
-        Servico servico = servicoFacade.buscarServicoPorId(id);
+    public ResponseEntity<ServicoModel> getServicoById(@PathVariable int id) {
+        ServicoModel servico = servicoFacade.buscarServicoPorId(id);
         if (servico != null) {
             return ResponseEntity.ok(servico);
         } else {
@@ -34,14 +36,14 @@ public class ServicoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Servico>> getAllServicos() {
-        List<Servico> servicos = servicoFacade.listaServicos();
+    public ResponseEntity<List<ServicoModel>> getAllServicos() {
+        List<ServicoModel> servicos = servicoFacade.listaServicos();
         return ResponseEntity.ok(servicos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateServico(@PathVariable int id, @RequestBody Servico servico) {
-        servicoFacade.atualizar(id, servico);
+    @PutMapping("")
+    public ResponseEntity<Void> updateServico(@RequestBody ServicoModel servico) {
+        servicoFacade.atualizar(servico);
         return ResponseEntity.ok().build();
     }
 

@@ -1,6 +1,7 @@
 package com.duckers.teart.applications;
 import java.util.List;
 import com.duckers.teart.entities.DonoAtelier;
+import com.duckers.teart.models.DonoAtelierModel;
 import com.duckers.teart.repositories.DonoAtelierRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,20 +13,20 @@ public class DonoAtelierApplication {
         this.donoAtelierRepository = donoAtelierRepository;
     }
 
-    public void createDonoAtelier(DonoAtelier donoAtelier) {
+    public void createDonoAtelier(DonoAtelierModel donoAtelier) {
         donoAtelierRepository.createDonoAtelier(donoAtelier);
     }
 
-    public DonoAtelier getDonoAtelierById(long id) {
+    public DonoAtelierModel getDonoAtelierById(long id) {
         return donoAtelierRepository.getDonoAtelierById(id);
     }
 
-    public List<DonoAtelier> getAllDonoAteliers() {
+    public List<DonoAtelierModel> getAllDonoAteliers() {
         return donoAtelierRepository.getDonoAteliersList();
     }
 
-    public void updateDonoAtelier(long id, DonoAtelier donoAtelier) {
-        donoAtelierRepository.updateDonoAtelier(id, donoAtelier);
+    public void updateDonoAtelier(DonoAtelierModel donoAtelier) {
+        donoAtelierRepository.updateDonoAtelier(donoAtelier);
     }
 
     public void deleteDonoAtelier(long id) {

@@ -1,6 +1,7 @@
 package com.duckers.teart.applications;
 import java.util.List;
 import com.duckers.teart.entities.EnderecoUsuario;
+import com.duckers.teart.models.EnderecoUsuarioModel;
 import com.duckers.teart.repositories.EnderecoUsuarioRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,20 +13,20 @@ public class EnderecoUsuarioApplication {
         this.enderecoUsuarioRepository = enderecoUsuarioRepository;
     }
 
-    public void createEnderecoUsuario(EnderecoUsuario enderecoUsuario) {
+    public void createEnderecoUsuario(EnderecoUsuarioModel enderecoUsuario) {
         enderecoUsuarioRepository.createEnderecoUsuario(enderecoUsuario);
     }
 
-    public EnderecoUsuario getEnderecoUsuarioById(long id) {
+    public EnderecoUsuarioModel getEnderecoUsuarioById(long id) {
         return enderecoUsuarioRepository.getEnderecoUsuarioById(id);
     }
 
-    public List<EnderecoUsuario> getAllEnderecoUsuarios() {
+    public List<EnderecoUsuarioModel> getAllEnderecoUsuarios() {
         return enderecoUsuarioRepository.getAllEnderecoUsuario();
     }
 
-    public void updateEnderecoUsuario(long id, EnderecoUsuario enderecoUsuario) {
-        enderecoUsuarioRepository.updateEnderecoUsuario(id, enderecoUsuario);
+    public void updateEnderecoUsuario(EnderecoUsuarioModel enderecoUsuario) {
+        enderecoUsuarioRepository.updateEnderecoUsuario(enderecoUsuario);
     }
 
     public void deleteEnderecoUsuario(long id) {

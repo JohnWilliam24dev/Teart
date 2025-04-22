@@ -1,13 +1,15 @@
 package com.duckers.teart.controllers;
 import com.duckers.teart.entities.ItemPedidoServico;
 import com.duckers.teart.facades.ItemPedidoServicoFacade;
+import com.duckers.teart.models.ItemPedidoServicoModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/itempedidosservico")
+@RequestMapping("/item-pedido-servico")
 public class ItemPedidoServicoController {
     private final ItemPedidoServicoFacade itemPedidoServicoFacade;
 
@@ -17,14 +19,14 @@ public class ItemPedidoServicoController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createItemPedidoServico(@RequestBody ItemPedidoServico itemPedidoServico) {
+    public ResponseEntity<Void> createItemPedidoServico(@RequestBody ItemPedidoServicoModel itemPedidoServico) {
         itemPedidoServicoFacade.cadastrar(itemPedidoServico);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ItemPedidoServico> getItemPedidoServicoById(@PathVariable long id) {
-        ItemPedidoServico itemPedidoServico = itemPedidoServicoFacade.buscarItemPedidoServicoPorId(id);
+    public ResponseEntity<ItemPedidoServicoModel> getItemPedidoServicoById(@PathVariable long id) {
+        ItemPedidoServicoModel itemPedidoServico = itemPedidoServicoFacade.buscarItemPedidoServicoPorId(id);
         if (itemPedidoServico != null) {
             return ResponseEntity.ok(itemPedidoServico);
         } else {
@@ -33,14 +35,14 @@ public class ItemPedidoServicoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ItemPedidoServico>> getAllItemPedidosServico() {
-        List<ItemPedidoServico> itemPedidoServicos = itemPedidoServicoFacade.itemPedidosServicoList();
+    public ResponseEntity<List<ItemPedidoServicoModel>> getAllItemPedidosServico() {
+        List<ItemPedidoServicoModel> itemPedidoServicos = itemPedidoServicoFacade.itemPedidosServicoList();
         return ResponseEntity.ok(itemPedidoServicos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateItemPedidoServico(@PathVariable long id, @RequestBody ItemPedidoServico itemPedidoServico) {
-        itemPedidoServicoFacade.atualizar(id, itemPedidoServico);
+    @PutMapping("")
+    public ResponseEntity<Void> updateItemPedidoServico( @RequestBody ItemPedidoServicoModel itemPedidoServico) {
+        itemPedidoServicoFacade.atualizar(itemPedidoServico);
         return ResponseEntity.ok().build();
     }
 

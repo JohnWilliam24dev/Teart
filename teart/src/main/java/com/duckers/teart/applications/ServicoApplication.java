@@ -1,6 +1,7 @@
 package com.duckers.teart.applications;
 import java.util.List;
 import com.duckers.teart.entities.Servico;
+import com.duckers.teart.models.ServicoModel;
 import com.duckers.teart.repositories.ServicoRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,20 +13,20 @@ public class ServicoApplication {
         this.servicoRepository = servicoRepository;
     }
 
-    public void createServico(Servico servico) {
+    public void createServico(ServicoModel servico) {
         servicoRepository.createPedido(servico);
     }
 
-    public Servico getServicoById(int id) {
+    public ServicoModel getServicoById(int id) {
         return servicoRepository.getServicoById(id);
     }
 
-    public List<Servico> getAllServicos() {
+    public List<ServicoModel> getAllServicos() {
         return servicoRepository.getAllServico();
     }
 
-    public void updateServico(int id, Servico servico) {
-        servicoRepository.updateServico(id, servico);
+    public void updateServico(ServicoModel servico) {
+        servicoRepository.updateServico(servico);
     }
 
     public void deleteServico(int id) {

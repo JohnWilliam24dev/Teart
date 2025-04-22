@@ -1,6 +1,7 @@
 package com.duckers.teart.facades;
 import java.util.List;
 import com.duckers.teart.entities.Usuario;
+import com.duckers.teart.models.UsuarioModel;
 import com.duckers.teart.applications.UsuarioApplication;
 import org.springframework.stereotype.Component;
 @Component
@@ -12,19 +13,19 @@ public class UsuarioFacade {
 
     }
 
-    public void cadastrar(Usuario usuario) {
+    public void cadastrar(UsuarioModel usuario) {
         applicationUsuario.createUsuario(usuario);
     }
 
-    public void atualizar(long id, Usuario usuario) {
-        applicationUsuario.updateUsuario(id, usuario);
+    public void atualizar(UsuarioModel usuario) {
+        applicationUsuario.updateUsuario(usuario);
     }
 
-    public List<Usuario> listaUsuarios() {
+    public List<UsuarioModel> listaUsuarios() {
         return applicationUsuario.getAllUsuarios();
     }
 
-    public Usuario buscarUsuarioPorId(long id) {
+    public UsuarioModel buscarUsuarioPorId(long id) {
         return applicationUsuario.getUsuarioById(id);
     }
 

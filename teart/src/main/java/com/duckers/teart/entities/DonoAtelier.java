@@ -1,31 +1,19 @@
 package com.duckers.teart.entities;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "donos_atelier")
 public class DonoAtelier {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     private String nomeSocial;
 
-    @Column
     private String nomeUsuario;
 
-    @Column
     private String email;
 
-    @Column
     private String senha;
 
-    @Column
     private String cpf;
 
-    @OneToOne(mappedBy = "donoAtelier", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private Atelier atelier;
 
     // Construtor padrão

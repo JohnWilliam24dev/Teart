@@ -1,24 +1,22 @@
 package com.duckers.teart.entities;
 
-import jakarta.persistence.*;
 
-@Table(name="item_pedidos_servico")
-@Entity
+
 public class ItemPedidoServico {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   
     private long id;
 
-    @Column(name="quantidade")
     private int quantidade;
 
-    @ManyToOne
-    @JoinColumn(name = "id_servico", referencedColumnName = "id")
     private Servico servico;
 
-    @ManyToOne(cascade = { CascadeType.PERSIST })
-    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
+    private long idServico;
+
     private Pedido pedido;
+
+    private long idPedido;
+
+    
 
     // Construtor padrão
     public ItemPedidoServico() {}
@@ -35,32 +33,34 @@ public class ItemPedidoServico {
         return id;
     }
 
-    public Servico getServico() {
-        return servico;
-    }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
     public int getQuantidade() {
         return quantidade;
     }
+    
+    public long getIdServico() {
+        return idServico;
+    }
+
+    public long getIdPedido() {
+        return idPedido;
+    }
+
+    
 
     // SETTERS
     public void setId(long id) {
         this.id = id;
     }
 
-    public void setServico(Servico servico) {
-        this.servico = servico;
-    }
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
-    }
-
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+    
+    public void setIdServico(long idServico) {
+        this.idServico = idServico;
+    }
+    
+    public void setIdPedido(long idPedido) {
+        this.idPedido = idPedido;
     }
 }

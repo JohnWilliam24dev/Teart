@@ -1,13 +1,15 @@
 package com.duckers.teart.controllers;
 import com.duckers.teart.entities.Produto;
 import com.duckers.teart.facades.ProdutoFacade;
+import com.duckers.teart.models.ProdutoModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/produto")
 public class ProdutoController {
     private final ProdutoFacade produtoFacade;
 
@@ -17,14 +19,14 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createProduto(@RequestBody Produto produto) {
+    public ResponseEntity<Void> createProduto(@RequestBody ProdutoModel produto) {
         produtoFacade.cadastrar(produto);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Produto> getProdutoById(@PathVariable int id) {
-        Produto produto = produtoFacade.buscarProdutoPorId(id);
+    public ResponseEntity<ProdutoModel> getProdutoById(@PathVariable int id) {
+        ProdutoModel produto = produtoFacade.buscarProdutoPorId(id);
         if (produto != null) {
             return ResponseEntity.ok(produto);
         } else {
@@ -33,14 +35,14 @@ public class ProdutoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Produto>> getAllProdutos() {
-        List<Produto> produtos = produtoFacade.produtosList();
+    public ResponseEntity<List<ProdutoModel>> getAllProdutos() {
+        List<ProdutoModel> produtos = produtoFacade.produtosList();
         return ResponseEntity.ok(produtos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateProduto(@PathVariable int id, @RequestBody Produto produto) {
-        produtoFacade.atualizar(id, produto);
+    @PutMapping("")
+    public ResponseEntity<Void> updateProduto(@RequestBody ProdutoModel produto) {
+        produtoFacade.atualizar(produto);
         return ResponseEntity.ok().build();
     }
 

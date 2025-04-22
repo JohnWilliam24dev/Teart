@@ -1,33 +1,23 @@
 package com.duckers.teart.entities;
-
-import jakarta.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name="servicos")
+
 public class Servico {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     private String nome;
 
-    @Column
     private String descricao;
 
-    @Column
     private double valorMaximo;
 
-    @Column
     private double valorMinimo;
 
-    @ManyToOne(cascade = { CascadeType.PERSIST })
-    @JoinColumn(name = "id_atelier", nullable = false)
     private Atelier atelier;
 
-    @OneToMany(mappedBy = "servico")
+    private long idAtelier;
+
     private List<ItemPedidoServico> itemPedidoServicoList;
 
     // Construtor padrão
@@ -63,13 +53,11 @@ public class Servico {
         return valorMinimo;
     }
 
-    public Atelier getAtelier() {
-        return atelier;
+    public long getIdAtelier() {
+        return idAtelier;
     }
 
-    public List<ItemPedidoServico> getItemPedidoServicoList() {
-        return itemPedidoServicoList;
-    }
+   
 
     // SETTERS
     public void setId(long id) {
@@ -92,11 +80,7 @@ public class Servico {
         this.valorMinimo = valorMinimo;
     }
 
-    public void setAtelier(Atelier atelier) {
-        this.atelier = atelier;
-    }
-
-    public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
-        this.itemPedidoServicoList = itemPedidoServicoList;
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
     }
 }

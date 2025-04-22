@@ -3,28 +3,19 @@ package com.duckers.teart.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name="usuarios")
 public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private long id;
 
-    @Column
     private String nome;
 
-    @Column
     private String email;
 
-    @Column
     private String senha;
 
-    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST })
     private List<Pedido> pedidos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<EnderecoUsuario> enderecoUsuarioList;
 
     public Usuario() {
@@ -53,14 +44,6 @@ public class Usuario {
         return senha;
     }
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public List<EnderecoUsuario> getEnderecoUsuarioList() {
-        return enderecoUsuarioList;
-    }
-
     // Setters
     public void setId(long id) {
         this.id = id;
@@ -78,11 +61,4 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    public void setEnderecoUsuarioList(List<EnderecoUsuario> enderecoUsuarioList) {
-        this.enderecoUsuarioList = enderecoUsuarioList;
-    }
 }
