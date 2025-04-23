@@ -3,6 +3,8 @@ package com.duckers.teart.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.duckers.teart.entities.utils.Generic;
+import com.duckers.teart.entities.utils.Pessoa;
 
 public class Usuario {
 
@@ -44,6 +46,14 @@ public class Usuario {
         return senha;
     }
 
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public List<EnderecoUsuario> getEnderecoUsuarioList() {
+        return enderecoUsuarioList;
+    }
+
     // Setters
     public void setId(long id) {
         this.id = id;
@@ -59,6 +69,30 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public void setEnderecoUsuarioList(List<EnderecoUsuario> enderecoUsuarioList) {
+        this.enderecoUsuarioList = enderecoUsuarioList;
+    }
+
+    // Validações
+    public void validarNome(String nome) {
+        Generic.verificarNaoNuloOuVazio(nome);
+        Generic.verificarTamanhoMaximo(nome, 500);
+    }
+
+    public void validarEmail(String email){
+        Generic.verificarNaoNuloOuVazio(email);
+        Generic.verificarTamanhoMaximo(email, 500);
+        Pessoa.validaEmail(email);
+    }
+
+    public void validarSenha(String senha){
+        Pessoa.validarSenha(senha);
     }
 
 }

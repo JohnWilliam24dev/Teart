@@ -31,10 +31,31 @@ public class Pessoa {
         return true;
     }
 
-    public static boolean validaEmail(String email) {
-        if(email == null || !EMAIL_PATTERN.matcher(email).matches())
-            return false;
-        return true;
+    public static void validaEmail(String email) {
+        if(email == null || !EMAIL_PATTERN.matcher(email).matches()){
+            throw new IllegalArgumentException("Email Invalido: Verifique o formato do email");
+        }
+         
+    }
+
+    public static void validarSenha(String senha){
+    
+        if (senha.length() < 8) {
+            throw new IllegalArgumentException("A senha deve ter no mínimo 8 caracteres.");
+        }
+        if (!senha.matches(".*[A-Z].*")) {
+            throw new IllegalArgumentException("A senha deve conter pelo menos uma letra maiúscula.");
+        }
+        if (!senha.matches(".*[a-z].*")) {
+            throw new IllegalArgumentException("A senha deve conter pelo menos uma letra minúscula.");
+        }
+        if (!senha.matches(".*\\d.*")) {
+            throw new IllegalArgumentException("A senha deve conter pelo menos um número.");
+        }
+        if (!senha.matches(".*[^a-zA-Z0-9].*")) {
+            throw new IllegalArgumentException("A senha deve conter pelo menos um caractere especial.");
+        }
+        
     }
 
     public static boolean validaTelefone(String telefone) {
@@ -46,12 +67,15 @@ public class Pessoa {
         return true;
     }
 
-    public static boolean validaCpf(String cpf) {
-        if(cpf == null || !CPF_PATTERN.matcher(cpf).matches())
-            return false;
-        if (isCpfInvalido(cpf))
-            return false;
-        return true;
+    public static void validaCpf(String cpf) {
+        if(cpf == null || !CPF_PATTERN.matcher(cpf).matches()){
+            throw new IllegalArgumentException("CPF Invalido: CPF não segue a formatação padrão");
+        }
+
+        if (isCpfInvalido(cpf)){
+            throw new IllegalArgumentException("CPF Invalido: CPF não segue o padrão");
+        }
+           
     }
 
     private static boolean isCpfInvalido(String cpf) {
