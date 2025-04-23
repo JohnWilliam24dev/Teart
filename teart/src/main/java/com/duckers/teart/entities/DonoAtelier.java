@@ -1,5 +1,8 @@
 package com.duckers.teart.entities;
 
+import com.duckers.teart.entities.utils.Generic;
+import com.duckers.teart.entities.utils.Pessoa;
+
 public class DonoAtelier {
 
     private long id;
@@ -85,5 +88,20 @@ public class DonoAtelier {
 
     public void setAtelier(Atelier atelier) {
         this.atelier = atelier;
+    }
+
+    public void validarNome(String nome) {
+        Generic.verificarNaoNuloOuVazio(nome);
+        Generic.verificarTamanhoMaximo(nome, 500);
+    }
+
+    public void validarEmail(String email){
+        Generic.verificarNaoNuloOuVazio(email);
+        Generic.verificarTamanhoMaximo(email, 500);
+        Pessoa.validaEmail(email);
+    }
+
+    public void validarSenha(String senha){
+        
     }
 }

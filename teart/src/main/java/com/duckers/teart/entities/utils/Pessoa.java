@@ -37,6 +37,13 @@ public class Pessoa {
         return true;
     }
 
+    public static boolean validarSenha(String senha){
+        if (senha == null || senha.length()<8) {
+            return false;
+        }
+        return true;
+    }
+
     public static boolean validaTelefone(String telefone) {
         if (telefone == null || !TELEFONE_PATTERN.matcher(telefone).matches())
             return false;
