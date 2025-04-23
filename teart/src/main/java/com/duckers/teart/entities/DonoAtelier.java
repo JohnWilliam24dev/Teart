@@ -102,6 +102,10 @@ public class DonoAtelier {
     }
 
     public void validarSenha(String senha){
-        
+        Pessoa.validarSenha(senha);
+    }
+
+    public void validarCpf(String cpf){
+        Pessoa.validaCpf(cpf);
     }
 }

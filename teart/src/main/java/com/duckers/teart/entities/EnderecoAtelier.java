@@ -1,6 +1,6 @@
 package com.duckers.teart.entities;
 
-
+import com.duckers.teart.entities.utils.Endereco;
 
 public class EnderecoAtelier {
 
@@ -113,5 +113,17 @@ public class EnderecoAtelier {
     
     public void setIdAtelier(long idAtelier) {
         this.idAtelier = idAtelier;
+    }
+
+    public void validarCep(String cep){
+        if(!Endereco.validaCep(cep)){
+            throw new IllegalArgumentException("CEP Invalido: CEP não existe");
+        }
+    }
+
+    public void validarEndereco(String rua, String numero, String logradouro, String bairro, String cidade, String estado){
+        if(!Endereco.validaEndereco(rua, numero, logradouro, bairro, cidade, estado)){
+            throw new IllegalArgumentException("Endereco Invalido: Todas as informações devem ser preenchidas");
+        }
     }
 }
