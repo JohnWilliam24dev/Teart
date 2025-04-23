@@ -1,7 +1,7 @@
 package com.duckers.teart.applications;
 
 import java.util.List;
-import com.duckers.teart.entities.Atelier;
+
 import com.duckers.teart.models.AtelierModel;
 import com.duckers.teart.repositories.AtelierRepository;
 

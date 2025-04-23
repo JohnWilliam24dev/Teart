@@ -2,7 +2,8 @@ package com.duckers.teart.entities;
 
 import com.duckers.teart.entities.enums.FormaPagamento;
 import com.duckers.teart.entities.enums.StatusPedido;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.duckers.teart.entities.utils.NumericValueValidator;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -104,5 +105,18 @@ public class Pedido {
         this.idUsuario = idUsuario;
     }
 
-    
+    public void validarDatas() {
+        if (dataPedido == null) {
+            throw new IllegalArgumentException("A data do pedido não pode ser nula.");
+        }
+        if (dataEnvio != null && dataEnvio.isBefore(dataPedido)) {
+            throw new IllegalArgumentException(
+                String.format("A data de envio (%s) não pode ser anterior à data do pedido (%s).",
+                              dataEnvio, dataPedido)
+            );
+        }
+    }
+    public void validar_valor(){
+        NumericValueValidator.verificarValorPositivo(valorTotal);
+    }
 }

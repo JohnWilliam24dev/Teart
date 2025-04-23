@@ -1,6 +1,6 @@
 package com.duckers.teart.controllers;
 
-import com.duckers.teart.entities.Atelier;
+
 import com.duckers.teart.facades.AtelierFacade;
 import com.duckers.teart.models.AtelierModel;
 

@@ -1,6 +1,6 @@
 package com.duckers.teart.entities;
 
-
+import com.duckers.teart.entities.utils.NumericValueValidator;
 
 public class ItemPedidoServico {
    
@@ -62,5 +62,9 @@ public class ItemPedidoServico {
     
     public void setIdPedido(long idPedido) {
         this.idPedido = idPedido;
+    }
+    public void validar_quantidade(){
+        NumericValueValidator.verificarQuantidadePositiva(quantidade);
+        NumericValueValidator.verificarMaiorQueZero(quantidade);
     }
 }

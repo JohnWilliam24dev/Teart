@@ -1,7 +1,7 @@
 package com.duckers.teart.facades;
 
 import com.duckers.teart.applications.PedidoApplication;
-import com.duckers.teart.entities.Pedido;
+
 import com.duckers.teart.models.PedidoModel;
 
 import org.springframework.stereotype.Component;

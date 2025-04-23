@@ -1,6 +1,6 @@
 package com.duckers.teart.applications;
 import java.util.List;
-import com.duckers.teart.entities.DonoAtelier;
+
 import com.duckers.teart.models.DonoAtelierModel;
 import com.duckers.teart.repositories.DonoAtelierRepository;
 import org.springframework.stereotype.Service;

@@ -1,10 +1,10 @@
 package com.duckers.teart.repositories;
 
-import com.duckers.teart.entities.EnderecoAtelier;
+
 import com.duckers.teart.models.EnderecoAtelierModel;
 import com.duckers.teart.repositories.interfaces.EnderecoAtelierJPA;
 import java.util.List;
-import org.springframework.beans.BeanUtils;
+
 import org.springframework.stereotype.Repository;
 
 @Repository

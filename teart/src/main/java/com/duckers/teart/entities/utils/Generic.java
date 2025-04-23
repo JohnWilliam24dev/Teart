@@ -7,6 +7,7 @@ public class Generic {
             throw new IllegalArgumentException("O valor não pode ser nulo ou vazio.");
         }
     }
+    
 
     public static void verificarTamanhoExato(String valor, int tamanhoEsperado) {
         if (valor == null || valor.length() != tamanhoEsperado) {
@@ -23,6 +24,11 @@ public class Generic {
     public static void verificarTamanhoMinimo(String valor, int minimo) {
         if (valor == null || valor.length() < minimo) {
             throw new IllegalArgumentException("O valor deve ter pelo menos " + minimo + " caracteres.");
+        }
+    }
+    public static void verificarTamanhoMaximo(String valor, int maximo) {
+        if (valor == null || valor.length() > maximo) {
+            throw new IllegalArgumentException("O valor deve ter pelo menos " + maximo + " caracteres.");
         }
     }
 }

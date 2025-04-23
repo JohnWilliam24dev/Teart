@@ -1,10 +1,10 @@
 package com.duckers.teart.repositories;
 
 import java.util.List;
-import com.duckers.teart.entities.ItemPedidoServico;
+
 import com.duckers.teart.models.ItemPedidoServicoModel;
 import com.duckers.teart.repositories.interfaces.ItemPedidoServicoJPA;
-import org.springframework.beans.BeanUtils;
+
 import org.springframework.stereotype.Repository;
 
 @Repository

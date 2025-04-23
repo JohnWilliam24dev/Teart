@@ -1,7 +1,7 @@
 package com.duckers.teart.facades;
 
 import java.util.List;
-import com.duckers.teart.entities.Servico;
+
 import com.duckers.teart.models.ServicoModel;
 import com.duckers.teart.applications.ServicoApplication;
 import org.springframework.stereotype.Component;
