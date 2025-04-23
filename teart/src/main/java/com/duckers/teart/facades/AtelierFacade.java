@@ -3,7 +3,7 @@ package com.duckers.teart.facades;
 import java.util.List;
 import org.springframework.stereotype.Component;
 import com.duckers.teart.applications.AtelierApplication;
-import com.duckers.teart.entities.Atelier;
+
 import com.duckers.teart.models.AtelierModel;
 
 @Component

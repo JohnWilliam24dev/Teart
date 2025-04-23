@@ -3,7 +3,7 @@ package com.duckers.teart.facades;
 import java.util.List;
 import com.duckers.teart.applications.DonoAtelierApplication;
 import org.springframework.stereotype.Component;
-import com.duckers.teart.entities.DonoAtelier;
+
 import com.duckers.teart.models.DonoAtelierModel;
 
 @Component

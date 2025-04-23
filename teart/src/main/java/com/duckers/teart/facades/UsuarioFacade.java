@@ -1,6 +1,6 @@
 package com.duckers.teart.facades;
 import java.util.List;
-import com.duckers.teart.entities.Usuario;
+
 import com.duckers.teart.models.UsuarioModel;
 import com.duckers.teart.applications.UsuarioApplication;
 import org.springframework.stereotype.Component;

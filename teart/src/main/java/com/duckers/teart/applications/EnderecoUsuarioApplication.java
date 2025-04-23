@@ -1,6 +1,6 @@
 package com.duckers.teart.applications;
 import java.util.List;
-import com.duckers.teart.entities.EnderecoUsuario;
+
 import com.duckers.teart.models.EnderecoUsuarioModel;
 import com.duckers.teart.repositories.EnderecoUsuarioRepository;
 import org.springframework.stereotype.Service;

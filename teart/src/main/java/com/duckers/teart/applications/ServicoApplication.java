@@ -1,6 +1,6 @@
 package com.duckers.teart.applications;
 import java.util.List;
-import com.duckers.teart.entities.Servico;
+
 import com.duckers.teart.models.ServicoModel;
 import com.duckers.teart.repositories.ServicoRepository;
 import org.springframework.stereotype.Service;

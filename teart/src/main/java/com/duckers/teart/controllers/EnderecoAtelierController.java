@@ -1,6 +1,6 @@
 package com.duckers.teart.controllers;
 
-import com.duckers.teart.entities.EnderecoAtelier;
+
 import com.duckers.teart.facades.EnderecoAtelierFacade;
 import com.duckers.teart.models.EnderecoAtelierModel;
 
