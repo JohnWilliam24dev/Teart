@@ -18,7 +18,7 @@ public class ProdutoController {
         this.produtoFacade = produtoFacade;
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Void> createProduto(@RequestBody ProdutoModel produto) {
         produtoFacade.cadastrar(produto);
         return ResponseEntity.ok().build();
@@ -40,7 +40,7 @@ public class ProdutoController {
         return ResponseEntity.ok(produtos);
     }
 
-    @PutMapping("")
+    @PutMapping("/")
     public ResponseEntity<Void> updateProduto(@RequestBody ProdutoModel produto) {
         produtoFacade.atualizar(produto);
         return ResponseEntity.ok().build();

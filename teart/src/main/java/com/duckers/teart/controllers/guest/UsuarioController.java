@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/public")
+@RequestMapping("/guest")
 public class UsuarioController {
     private final UsuarioApplication usuarioApplication;
 
@@ -16,7 +16,7 @@ public class UsuarioController {
         this.usuarioApplication = usuarioApplication;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public void cadastrar(@RequestBody UsuarioRequest usuarioRequest) {
         this.usuarioApplication.cadastrar(usuarioRequest);
     }

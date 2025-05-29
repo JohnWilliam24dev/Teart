@@ -1,4 +1,5 @@
 package com.duckers.teart.models.security;
+
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class UsuarioModel {
     private String senha;
     private boolean enabled;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL)
     private List<PapelModel> papeis;
 
     public UsuarioModel() {

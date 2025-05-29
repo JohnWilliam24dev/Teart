@@ -20,7 +20,7 @@ public class EnderecoUsuarioController {
         this.enderecoUsuarioFacade = enderecoUsuarioFacade;
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Void> createEnderecoUsuario(@RequestBody EnderecoUsuarioModel enderecoUsuario) {
         enderecoUsuarioFacade.createEnderecoUsuario(enderecoUsuario);
         return ResponseEntity.ok().build();
@@ -37,7 +37,7 @@ public class EnderecoUsuarioController {
         return ResponseEntity.ok(enderecoUsuarioFacade.getAllEnderecoUsuarios());
     }
 
-    @PutMapping("")
+    @PutMapping("/")
     public ResponseEntity<Void> updateEnderecoUsuario( @RequestBody EnderecoUsuarioModel enderecoUsuario) {
         enderecoUsuarioFacade.updateEnderecoUsuario(enderecoUsuario);
         return ResponseEntity.ok().build();

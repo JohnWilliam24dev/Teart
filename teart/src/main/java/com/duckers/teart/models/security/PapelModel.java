@@ -11,10 +11,10 @@ public class PapelModel {
     private String papel;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id", insertable = false, updatable = false)
     private UsuarioModel usuarioModel;
 
-    @Column(name = "usuario_id")
+    @Column(name = "id_usuario")
     private long usuarioId;
 
     public PapelModel() {

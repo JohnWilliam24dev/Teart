@@ -18,7 +18,7 @@ public class ItemPedidoServicoController {
         this.itemPedidoServicoFacade = itemPedidoServicoFacade;
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Void> createItemPedidoServico(@RequestBody ItemPedidoServicoModel itemPedidoServico) {
         itemPedidoServicoFacade.cadastrar(itemPedidoServico);
         return ResponseEntity.ok().build();
@@ -40,7 +40,7 @@ public class ItemPedidoServicoController {
         return ResponseEntity.ok(itemPedidoServicos);
     }
 
-    @PutMapping("")
+    @PutMapping("/")
     public ResponseEntity<Void> updateItemPedidoServico( @RequestBody ItemPedidoServicoModel itemPedidoServico) {
         itemPedidoServicoFacade.atualizar(itemPedidoServico);
         return ResponseEntity.ok().build();

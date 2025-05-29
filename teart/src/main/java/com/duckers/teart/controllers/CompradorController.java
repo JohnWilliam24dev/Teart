@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuario") 
+@RequestMapping("/comprador")
 public class CompradorController {
     private final CompradorFacade compradorFacade;
 
@@ -19,7 +19,7 @@ public class CompradorController {
         this.compradorFacade = compradorFacade;
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Void> createUsuario(@RequestBody CompradorModel usuario) {
         compradorFacade.cadastrar(usuario);
         return ResponseEntity.ok().build();
@@ -41,7 +41,7 @@ public class CompradorController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @PutMapping("")
+    @PutMapping("/")
     public ResponseEntity<Void> updateUsuario(@RequestBody CompradorModel usuario) {
         compradorFacade.atualizar(usuario);
         return ResponseEntity.ok().build();
