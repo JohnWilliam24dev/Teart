@@ -37,7 +37,7 @@ public class SecurityConfig {
                     .requestMatchers("/produto/**").hasAnyRole("ADMIN", "BUSINESS")
                     .requestMatchers("/servico/**").hasAnyRole("ADMIN", "BUSINESS")
                     .requestMatchers("/endereco-atelier/**").hasAnyRole("ADMIN", "BUSINESS")
-                    .requestMatchers("/pedido/**").hasAnyRole("ADMIN", "BUSINESS", "COMPRADOR")
+                    .requestMatchers("/pedido/**").hasAnyRole("ADMIN", "BUSINESS", "PURCHASER")
                     .requestMatchers("/item-pedido-produto/**").hasAnyRole("ADMIN", "BUSINESS", "PURCHASER")
                     .requestMatchers("/item-pedido-servico/**").hasAnyRole("ADMIN", "BUSINESS", "PURCHASER")
                     .requestMatchers("/endereco-usuario/**").hasAnyRole("ADMIN", "BUSINESS", "PURCHASER")
