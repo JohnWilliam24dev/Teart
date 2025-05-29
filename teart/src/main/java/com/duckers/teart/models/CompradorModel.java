@@ -5,8 +5,8 @@ import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="usuarios")
-public class UsuarioModel {
+@Table(name="compradores")
+public class CompradorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -26,10 +26,10 @@ public class UsuarioModel {
     @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<EnderecoUsuarioModel> enderecoUsuarioList;
 
-    public UsuarioModel() {
+    public CompradorModel() {
     }
 
-    public UsuarioModel(String nome, String email, String senha) {
+    public CompradorModel(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;

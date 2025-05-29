@@ -25,7 +25,7 @@ public class Pedido {
 
     private double valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
 
-    private Usuario usuario;
+    private Comprador comprador;
 
     private long idUsuario;
 
@@ -38,13 +38,13 @@ public class Pedido {
     }
 
     // Construtor com parâmetros (sem as listas de itens de pedido)
-    public Pedido(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, Usuario usuario) {
+    public Pedido(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, Comprador comprador) {
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
         this.statusPedido = statusPedido;
         this.formaPagamento = formaPagamento;
         this.valorTotal = valorTotal;
-        this.usuario = usuario;
+        this.comprador = comprador;
     }
 
     // Getters
