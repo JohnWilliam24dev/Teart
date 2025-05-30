@@ -19,7 +19,7 @@ public class DonoAtelierController {
         this.facadeDonoAtelier = facadeDonoAtelier;
     }
 
-    @PostMapping
+    @PostMapping("/")
     public void createDonoAtelier(@RequestBody DonoAtelierModel dono) {
         facadeDonoAtelier.cadastrar(dono);
     }
@@ -34,7 +34,7 @@ public class DonoAtelierController {
         return facadeDonoAtelier.listaDonoAteliers();
     }
 
-    @PutMapping("")
+    @PutMapping("/")
     public void updateDonoAtelier(@RequestBody DonoAtelierModel dono) {
         facadeDonoAtelier.atualizar(dono);
     }

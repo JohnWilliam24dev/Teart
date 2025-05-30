@@ -37,7 +37,7 @@ public class PedidoModel {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id", insertable = false, updatable=false)
-    private UsuarioModel usuario;
+    private CompradorModel usuario;
 
     @Column(name = "id_usuario")
     private long idUsuario;
@@ -53,7 +53,7 @@ public class PedidoModel {
     }
 
     // Construtor com parâmetros (sem as listas de itens de pedido)
-    public PedidoModel(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, UsuarioModel usuario) {
+    public PedidoModel(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, CompradorModel usuario) {
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
         this.statusPedido = statusPedido;

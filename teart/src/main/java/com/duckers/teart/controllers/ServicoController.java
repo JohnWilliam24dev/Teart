@@ -19,7 +19,7 @@ public class ServicoController {
         this.servicoFacade = servicoFacade;
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Void> createServico(@RequestBody ServicoModel servico) {
         servicoFacade.cadastrar(servico);
         return ResponseEntity.ok().build();
@@ -41,7 +41,7 @@ public class ServicoController {
         return ResponseEntity.ok(servicos);
     }
 
-    @PutMapping("")
+    @PutMapping("/")
     public ResponseEntity<Void> updateServico(@RequestBody ServicoModel servico) {
         servicoFacade.atualizar(servico);
         return ResponseEntity.ok().build();
