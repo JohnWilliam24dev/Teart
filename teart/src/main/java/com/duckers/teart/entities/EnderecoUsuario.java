@@ -22,14 +22,14 @@ public class EnderecoUsuario {
 
     private int numero;
 
-    private Usuario usuario;
+    private Comprador comprador;
 
     private long idUsuario;
 
     public EnderecoUsuario() {}
 
-    public EnderecoUsuario(Usuario usuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep, String logradouro) {
-        this.usuario = usuario;
+    public EnderecoUsuario(Comprador comprador, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep, String logradouro) {
+        this.comprador = comprador;
         this.rua = rua;
         this.bairro = bairro;
         this.cidade = cidade;

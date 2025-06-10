@@ -38,14 +38,14 @@ public class EnderecoUsuarioModel {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
-    private UsuarioModel usuario;
+    private CompradorModel usuario;
 
     @Column(name = "id_usuario")
     private long idUsuario;
 
     public EnderecoUsuarioModel() {}
 
-    public EnderecoUsuarioModel(UsuarioModel usuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep, String logradouro) {
+    public EnderecoUsuarioModel(CompradorModel usuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep, String logradouro) {
         this.usuario = usuario;
         this.rua = rua;
         this.bairro = bairro;

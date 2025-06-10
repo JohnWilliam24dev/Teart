@@ -18,7 +18,7 @@ public class PedidoController {
         this.pedidoFacade = pedidoFacade;
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Void> createPedido(@RequestBody PedidoModel pedido) {
         pedidoFacade.cadastrar(pedido);
         return ResponseEntity.ok().build();
@@ -40,7 +40,7 @@ public class PedidoController {
         return ResponseEntity.ok(pedidos);
     }
 
-    @PutMapping("")
+    @PutMapping("/")
     public ResponseEntity<Void> updatePedido( @RequestBody PedidoModel pedido) {
         pedidoFacade.atualizar( pedido);
         return ResponseEntity.ok().build();
