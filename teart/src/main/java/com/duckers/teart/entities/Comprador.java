@@ -30,20 +30,6 @@ public class Comprador {
 
 
 
-    // Validações
-    public void validarNome(String nome) {
-        Generic.verificarNaoNuloOuVazio(nome);
-        Generic.verificarTamanhoMaximo(nome, 500);
-    }
 
-    public void validarEmail(String email){
-        Generic.verificarNaoNuloOuVazio(email);
-        Generic.verificarTamanhoMaximo(email, 500);
-        Pessoa.validaEmail(email);
-    }
-
-    public void validarSenha(String senha){
-        Pessoa.validarSenha(senha);
-    }
 
 }

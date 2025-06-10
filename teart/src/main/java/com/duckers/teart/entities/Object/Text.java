@@ -29,6 +29,11 @@ public class Text {
             throw new IllegalArgumentException("O text deve ter pelo menos " + maximo + " caracteres.");
         }
     }
+    public void verificarTamanhoMaximo() {
+        if (text == null || text.length() > 500) {
+            throw new IllegalArgumentException("O text deve ter até " + 500 + " caracteres.");
+        }
+    }
 
 
     public void verificarTamanhoExato(int tamanhoEsperado) {
