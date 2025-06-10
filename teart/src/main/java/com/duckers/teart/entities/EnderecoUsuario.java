@@ -40,11 +40,21 @@ public class EnderecoUsuario {
         this.cep.setCep(cep);
 
     }
-    public void init(){
-        validation();
-    }
-    private void validation(){
 
+    private void validation(){
+        rua.verificarTamanhoMaximo();
+        rua.isNullOrEmpty();
+        numero.verificarTamanhoMaximo();
+        numero.isNullOrEmpty();
+        logradouro.verificarTamanhoMaximo();
+        logradouro.isNullOrEmpty();
+        bairro.verificarTamanhoMaximo();
+        bairro.isNullOrEmpty();
+        cidade.verificarTamanhoMaximo();
+        cidade.isNullOrEmpty();
+        estado.verificarTamanhoMaximo();
+        estado.isNullOrEmpty();
+        cep.validaCep();
     }
 
 

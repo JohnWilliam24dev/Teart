@@ -13,7 +13,7 @@ public class Text {
     public void setText(String text) {
         this.text = text;
     }
-    private boolean isNullOrEmpty(String text) {
+    public boolean isNullOrEmpty() {
 
         return text == null || text.isBlank();
     }

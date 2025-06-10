@@ -6,7 +6,7 @@ public class CEP {
     this.cep=cep;
     }
 
-    public boolean validaCep(String cep) {
+    public boolean validaCep() {
         if (cep == null || cep.isBlank())
             return false;
         if (cep.length() != 8)

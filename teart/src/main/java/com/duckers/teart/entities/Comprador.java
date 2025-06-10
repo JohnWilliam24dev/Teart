@@ -27,7 +27,14 @@ public class Comprador {
         this.email.setEmail(email);
         this.senha.setSenha(senha);
     }
+    public void validation(){
+        nome.verificarTamanhoMaximo();
+        nome.isNullOrEmpty();
+        email.validaEmail();
+        senha.validarSenha();
 
+
+    }
 
 
 

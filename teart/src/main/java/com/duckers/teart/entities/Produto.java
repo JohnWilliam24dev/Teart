@@ -37,6 +37,12 @@ public class Produto {
         this.preco.setNumero(preco);
         this.atelier = atelier;
     }
+    public void validation(){
+        nome.isNullOrEmpty();
+        nome.verificarTamanhoMaximo();
+        preco.verificarnumeroPositivo();
+
+    }
 
 
 

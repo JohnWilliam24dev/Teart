@@ -28,5 +28,7 @@ public class ItemPedidoServico {
         this.pedido = pedido;
     }
 
-
+    public void validation(){
+        quantidade.verificarQuantidadePositiva();
+    }
 }

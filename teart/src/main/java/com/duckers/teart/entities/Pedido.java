@@ -43,6 +43,10 @@ public class Pedido {
         this.valorTotal.setNumero(valorTotal);
         this.comprador = comprador;
     }
+    public void validation(){
+        validarDatas();
+        valorTotal.verificarnumeroPositivo();
+    }
 
 
     public void validarDatas() {

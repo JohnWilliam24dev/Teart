@@ -25,6 +25,12 @@ public class Atelier {
         this.cnpj.setCNPJ(cnpj);
         this.donoAtelier = donoAtelier;
     }
+    public void validation(){
+        nome.verificarTamanhoMaximo();
+        nome.isNullOrEmpty();
+        cnpj.validarCnpj();
+
+    }
 
 
 

@@ -30,6 +30,15 @@ public class DonoAtelier {
         this.cpf.setCpf(cpf);
         this.atelier = atelier;
     }
+    public void validation(){
+        nomeSocial.isNullOrEmpty();
+        nomeSocial.verificarTamanhoMaximo();
+        nomeUsuario.isNullOrEmpty();
+        nomeUsuario.verificarTamanhoMaximo();
+        email.validaEmail();
+        senha.validarSenha();
+        cpf.validaCpf();
+    }
 
 
 

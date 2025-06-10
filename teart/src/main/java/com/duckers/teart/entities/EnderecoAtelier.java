@@ -39,6 +39,21 @@ public class EnderecoAtelier {
         this.cep.setCep(cep);
         this.atelier = atelier;
     }
+    public void validation(){
+        rua.verificarTamanhoMaximo();
+        rua.isNullOrEmpty();
+        numero.verificarTamanhoMaximo();
+        numero.isNullOrEmpty();
+        logradouro.verificarTamanhoMaximo();
+        logradouro.isNullOrEmpty();
+        bairro.verificarTamanhoMaximo();
+        bairro.isNullOrEmpty();
+        cidade.verificarTamanhoMaximo();
+        cidade.isNullOrEmpty();
+        estado.verificarTamanhoMaximo();
+        estado.isNullOrEmpty();
+        cep.validaCep();
+    }
 
 
 

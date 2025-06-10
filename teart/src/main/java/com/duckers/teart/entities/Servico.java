@@ -35,7 +35,14 @@ public class Servico {
         this.valorMaximo.setNumero(valorMaximo);
         this.valorMinimo.setNumero(valorMinimo);
     }
-
+    public void validation(){
+        nome.verificarTamanhoMaximo();
+        nome.isNullOrEmpty();
+        descricao.isNullOrEmpty();
+        descricao.verificarTamanhoMaximo(1000);
+        valorMaximo.verificarnumeroPositivo();
+        valorMinimo.verificarnumeroPositivo();
+    }
 
 
 }
