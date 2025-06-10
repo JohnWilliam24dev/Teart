@@ -1,7 +1,5 @@
 package com.duckers.teart.entities;
 
-import com.duckers.teart.entities.utils.NumericValueValidator;
-
 public class ItemPedidoServico {
    
     private long id;

@@ -3,9 +3,6 @@ package com.duckers.teart.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.duckers.teart.entities.utils.Generic;
-import com.duckers.teart.entities.utils.Pessoa;
-
 public class Comprador {
 
     private long id;

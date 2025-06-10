@@ -1,7 +1,6 @@
 package com.duckers.teart.entities;
 
 import java.util.List;
-import com.duckers.teart.entities.utils.Generic;
 
 public class Atelier {
 

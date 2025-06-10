@@ -2,7 +2,6 @@ package com.duckers.teart.entities;
 
 import com.duckers.teart.entities.enums.FormaPagamento;
 import com.duckers.teart.entities.enums.StatusPedido;
-import com.duckers.teart.entities.utils.NumericValueValidator;
 
 import java.time.LocalDate;
 import java.util.List;

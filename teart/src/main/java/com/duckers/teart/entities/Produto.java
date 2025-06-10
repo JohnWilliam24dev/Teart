@@ -1,8 +1,6 @@
 package com.duckers.teart.entities;
 import com.duckers.teart.entities.enums.Moda;
 import com.duckers.teart.entities.enums.Tamanho;
-import com.duckers.teart.entities.utils.Generic;
-import com.duckers.teart.entities.utils.NumericValueValidator;
 
 import java.util.List;
 

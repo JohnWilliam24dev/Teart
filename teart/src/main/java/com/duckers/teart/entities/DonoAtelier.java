@@ -1,8 +1,5 @@
 package com.duckers.teart.entities;
 
-import com.duckers.teart.entities.utils.Generic;
-import com.duckers.teart.entities.utils.Pessoa;
-
 public class DonoAtelier {
 
     private long id;

@@ -1,7 +1,5 @@
 package com.duckers.teart.entities;
 
-import com.duckers.teart.entities.utils.Endereco;
-
 public class EnderecoUsuario {
 
     private long id;
