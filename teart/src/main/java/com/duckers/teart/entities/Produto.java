@@ -1,9 +1,9 @@
 package com.duckers.teart.entities;
+import com.duckers.teart.entities.Object.*;
 import com.duckers.teart.entities.enums.Moda;
 import com.duckers.teart.entities.enums.Tamanho;
-import com.duckers.teart.entities.utils.Generic;
-import com.duckers.teart.entities.utils.NumericValueValidator;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -15,9 +15,9 @@ public class Produto {
 
     private Tamanho tamanho;
 
-    private String nome;
+    private Text nome;
 
-    private double preco;
+    private Money preco;
 
     private Atelier atelier;
 
@@ -30,71 +30,14 @@ public class Produto {
     public Produto(){}
 
     // Construtor com parâmetros (sem o id)
-    public Produto(Moda moda, Tamanho tamanho, String nome, double preco, Atelier atelier) {
+    public Produto(Moda moda, Tamanho tamanho, String nome, BigDecimal preco, Atelier atelier) {
         this.moda = moda;
         this.tamanho = tamanho;
-        this.nome = nome;
-        this.preco = preco;
+        this.nome.setText(nome);
+        this.preco.setNumero(preco);
         this.atelier = atelier;
     }
 
-    // GETTERS
-    public long getId() {
-        return id;
-    }
 
-    public Moda getModa() {
-        return moda;
-    }
 
-    public Tamanho getTamanho() {
-        return tamanho;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public long getIdAtelier() {
-        return idAtelier;
-    }
-
-    
-
-    // SETTERS
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setModa(Moda moda) {
-        this.moda = moda;
-    }
-
-    public void setTamanho(Tamanho tamanho) {
-        this.tamanho = tamanho;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public void setIdAtelier(long idAtelier) {
-        this.idAtelier = idAtelier;
-    }
-    public void validar_nome(){
-        Generic.verificarNaoNuloOuVazio(nome);
-        Generic.verificarTamanhoMaximo(nome, 500);
-    }
-    public void validar_preco(){
-        NumericValueValidator.verificarValorPositivo(preco);
-        
-    }
 }

@@ -1,12 +1,12 @@
 package com.duckers.teart.entities;
 
-import com.duckers.teart.entities.utils.NumericValueValidator;
+import com.duckers.teart.entities.Object.Number;
 
 public class ItemPedidoServico {
    
     private long id;
 
-    private int quantidade;
+    private Number quantidade;
 
     private Servico servico;
 
@@ -23,48 +23,10 @@ public class ItemPedidoServico {
 
     // Construtor com parâmetros (sem o id)
     public ItemPedidoServico(int quantidade, Servico servico, Pedido pedido) {
-        this.quantidade = quantidade;
+        this.quantidade.setNumero(quantidade);
         this.servico = servico;
         this.pedido = pedido;
     }
 
-    // GETTERS
-    public long getId() {
-        return id;
-    }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
-    
-    public long getIdServico() {
-        return idServico;
-    }
-
-    public long getIdPedido() {
-        return idPedido;
-    }
-
-    
-
-    // SETTERS
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-    
-    public void setIdServico(long idServico) {
-        this.idServico = idServico;
-    }
-    
-    public void setIdPedido(long idPedido) {
-        this.idPedido = idPedido;
-    }
-    public void validar_quantidade(){
-        NumericValueValidator.verificarQuantidadePositiva(quantidade);
-        NumericValueValidator.verificarMaiorQueZero(quantidade);
-    }
 }

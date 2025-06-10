@@ -1,21 +1,20 @@
 package com.duckers.teart.entities;
 
-import com.duckers.teart.entities.utils.Generic;
-import com.duckers.teart.entities.utils.Pessoa;
+import com.duckers.teart.entities.Object.*;
 
 public class DonoAtelier {
 
     private long id;
 
-    private String nomeSocial;
+    private Text nomeSocial;
 
-    private String nomeUsuario;
+    private Text nomeUsuario;
 
-    private String email;
+    private Email email;
 
-    private String senha;
+    private Senha senha;
 
-    private String cpf;
+    private CPF cpf;
 
     private Atelier atelier;
 
@@ -24,88 +23,15 @@ public class DonoAtelier {
 
     // Construtor com parâmetros
     public DonoAtelier(String nomeSocial, String nomeUsuario, String email, String senha, String cpf, Atelier atelier) {
-        this.nomeSocial = nomeSocial;
-        this.nomeUsuario = nomeUsuario;
-        this.email = email;
-        this.senha = senha;
-        this.cpf = cpf;
+        this.nomeSocial.setText(nomeSocial);
+        this.nomeUsuario.setText(nomeUsuario);
+        this.email.setEmail(email);
+        this.senha.setSenha(senha);
+        this.cpf.setCpf(cpf);
         this.atelier = atelier;
     }
 
-    // GETTERS
-    public long getId() {
-        return id;
-    }
 
-    public String getNomeSocial() {
-        return nomeSocial;
-    }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
-    }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public Atelier getAtelier() {
-        return atelier;
-    }
-
-    // SETTERS
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setNomeSocial(String nomeSocial) {
-        this.nomeSocial = nomeSocial;
-    }
-
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public void setAtelier(Atelier atelier) {
-        this.atelier = atelier;
-    }
-
-    public void validarNome(String nome) {
-        Generic.verificarNaoNuloOuVazio(nome);
-        Generic.verificarTamanhoMaximo(nome, 500);
-    }
-
-    public void validarEmail(String email){
-        Generic.verificarNaoNuloOuVazio(email);
-        Generic.verificarTamanhoMaximo(email, 500);
-        Pessoa.validaEmail(email);
-    }
-
-    public void validarSenha(String senha){
-        Pessoa.validarSenha(senha);
-    }
-
-    public void validarCpf(String cpf){
-        Pessoa.validaCpf(cpf);
-    }
 }
