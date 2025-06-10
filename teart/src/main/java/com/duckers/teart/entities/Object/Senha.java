@@ -1,6 +1,20 @@
 package com.duckers.teart.entities.Object;
 
 public class Senha {
+    String senha;
+
+    public Senha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public void validarSenha(String senha){
 
         if (senha.length() < 8) {

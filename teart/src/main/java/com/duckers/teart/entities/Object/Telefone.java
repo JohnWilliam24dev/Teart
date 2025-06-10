@@ -6,6 +6,13 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Telefone {
+
+    String telefone;
+
+    public Telefone(String telefone) {
+        this.telefone = telefone;
+    }
+
     private final Pattern TELEFONE_PATTERN = Pattern.compile("^\\d{11}$");
     private final Set<String> DDD_VALIDOS = new HashSet<>(Arrays.asList(
             "11", "12", "13", "14", "15", "16", "17", "18", "19",
@@ -25,5 +32,11 @@ public class Telefone {
             return false;
         String ddd = telefone.substring(0, 2);
         return DDD_VALIDOS.contains(ddd);
+    }
+    @Override
+    public String toString() {
+        return "Telefone{" +
+                "telefone='" + telefone + '\'' +
+                '}';
     }
 }
