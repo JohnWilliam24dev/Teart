@@ -1,18 +1,18 @@
 package com.duckers.teart.entities.Object;
 
 public class CNPJ {
-    String CNPJ;
+    Text CNPJ;
 
     public CNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+        this.CNPJ.setText(CNPJ);
     }
 
     public String getCNPJ() {
-        return CNPJ;
+        return CNPJ.getText();
     }
 
     public void setCNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+        this.CNPJ.setText(CNPJ);
     }
 
     public boolean validarCnpj(String cnpj) {
@@ -44,12 +44,13 @@ public class CNPJ {
                 segundoDigito == Character.getNumericValue(cnpj.charAt(13)));
     }
 
-    public void validarCnpjFormatado(String cnpj) {
-        if (cnpj == null || !cnpj.matches("\\d{14}")) {
+    public void validarCnpjFormatado() {
+        if (getCNPJ() == null || !cnpj.matches("\\d{14}")) {
             throw new IllegalArgumentException("CNPJ inválido: formato incorreto");
         }
 
         try {
+
             Generic.verificarSomenteNumeros(cnpj);
         } catch (Exception e) {
             throw new IllegalArgumentException("CNPJ inválido: CNPJ deve conter somente números");

@@ -1,24 +1,27 @@
 package com.duckers.teart.entities;
 
+
+import com.duckers.teart.entities.Object.*;
+
 public class EnderecoUsuario {
 
     private long id;
 
-    private String rua;
+    private Text rua;
 
-    private String bairro;
+    private Text numero;
 
-    private String logradouro;
+    private Text logradouro;
 
-    private String cidade;
+    private Text bairro;
 
-    private String estado;
+    private Text cidade;
 
-    private String pais;
+    private Text estado;
 
-    private String cep;
+    private CEP cep;
 
-    private int numero;
+
 
     private Comprador comprador;
 
@@ -26,110 +29,25 @@ public class EnderecoUsuario {
 
     public EnderecoUsuario() {}
 
-    public EnderecoUsuario(Comprador comprador, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep, String logradouro) {
+    public EnderecoUsuario(Comprador comprador, String rua, String bairro, String cidade, String estado, String numero, String cep, String logradouro) {
         this.comprador = comprador;
-        this.rua = rua;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.pais = pais;
-        this.cep = cep;
-        this.numero = numero;
-        this.logradouro = logradouro;
-    }
+        this.rua.setText(rua);
+        this.numero.setText(numero);
+        this.logradouro.setText(logradouro);
+        this.bairro.setText(bairro);
+        this.cidade.setText(cidade);
+        this.estado.setText(estado);
+        this.cep.setCep(cep);
 
-    // Getters
-    public long getId() {
-        return id;
     }
-
-    public String getRua() {
-        return rua;
+    public void init(){
+        validation();
     }
+    private void validation(){
 
-    public String getBairro() {
-        return bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public String getLogradouro(){
-        return logradouro;
-    }
-
-    public long getIdUsuario() {
-        return idUsuario;
-    }
-
-    // Setters
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
     }
 
 
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
-    public void validarCep(String cep){
-        if(!Endereco.validaCep(cep)){
-            throw new IllegalArgumentException("CEP Invalido: CEP não existe");
-        }
-    }
 
-    public void validarEndereco(String rua, String numero, String logradouro, String bairro, String cidade, String estado, String pais){
-        if(!Endereco.validaEndereco(rua, numero, logradouro, bairro, cidade, estado, pais)){
-            throw new IllegalArgumentException("Endereco Invalido: Todas as informações devem ser preenchidas");
-        }
-    }
 }

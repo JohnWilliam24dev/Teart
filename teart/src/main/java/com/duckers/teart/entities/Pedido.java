@@ -1,18 +1,16 @@
 package com.duckers.teart.entities;
 
+import com.duckers.teart.entities.Object.Money;
 import com.duckers.teart.entities.enums.FormaPagamento;
 import com.duckers.teart.entities.enums.StatusPedido;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
-
-
 
 public class Pedido {
 
     private long id;
-
 
     private LocalDate dataPedido;
 
@@ -22,7 +20,7 @@ public class Pedido {
 
     private FormaPagamento formaPagamento;
 
-    private double valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
+    private Money valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
 
     private Comprador comprador;
 
@@ -37,72 +35,15 @@ public class Pedido {
     }
 
     // Construtor com parâmetros (sem as listas de itens de pedido)
-    public Pedido(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, Comprador comprador) {
+    public Pedido(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, BigDecimal valorTotal, Comprador comprador) {
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
         this.statusPedido = statusPedido;
         this.formaPagamento = formaPagamento;
-        this.valorTotal = valorTotal;
+        this.valorTotal.setNumero(valorTotal);
         this.comprador = comprador;
     }
 
-    // Getters
-    public long getId() {
-        return id;
-    }
-
-    public LocalDate getDataPedido() {
-        return dataPedido;
-    }
-
-    public LocalDate getDataEnvio() {
-        return dataEnvio;
-    }
-
-    public StatusPedido getStatusPedido() {
-        return statusPedido;
-    }
-
-    public FormaPagamento getFormaPagamento() {
-        return formaPagamento;
-    }
-
-    public double getValorTotal() {
-        return valorTotal;
-    }
-
-    public long getIdUsuario() {
-        return idUsuario;
-    }
-
-    // Setters
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setDataPedido(LocalDate dataPedido) {
-        this.dataPedido = dataPedido;
-    }
-
-    public void setDataEnvio(LocalDate dataEnvio) {
-        this.dataEnvio = dataEnvio;
-    }
-
-    public void setStatusPedido(StatusPedido statusPedido) {
-        this.statusPedido = statusPedido;
-    }
-
-    public void setFormaPagamento(FormaPagamento formaPagamento) {
-        this.formaPagamento = formaPagamento;
-    }
-
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     public void validarDatas() {
         if (dataPedido == null) {
@@ -115,7 +56,5 @@ public class Pedido {
             );
         }
     }
-    public void validar_valor(){
-        NumericValueValidator.verificarValorPositivo(valorTotal);
-    }
+
 }

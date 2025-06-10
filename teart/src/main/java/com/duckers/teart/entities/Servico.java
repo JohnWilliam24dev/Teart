@@ -1,4 +1,8 @@
 package com.duckers.teart.entities;
+import com.duckers.teart.entities.Object.*;
+
+
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -6,13 +10,13 @@ public class Servico {
 
     private long id;
 
-    private String nome;
+    private Text nome;
 
-    private String descricao;
+    private Text descricao;
 
-    private double valorMaximo;
+    private Money valorMaximo;
 
-    private double valorMinimo;
+    private Money valorMinimo;
 
     private Atelier atelier;
 
@@ -24,74 +28,14 @@ public class Servico {
     public Servico() {}
 
     // Construtor com parâmetros (sem o id)
-    public Servico(Atelier atelier, String nome, String descricao, double valorMaximo, double valorMinimo) {
+    public Servico(Atelier atelier, String nome, String descricao, BigDecimal valorMaximo, BigDecimal valorMinimo) {
         this.atelier = atelier;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.valorMaximo = valorMaximo;
-        this.valorMinimo = valorMinimo;
+        this.nome.setText(nome);
+        this.descricao.setText(descricao);
+        this.valorMaximo.setNumero(valorMaximo);
+        this.valorMinimo.setNumero(valorMinimo);
     }
 
-    // GETTERS
-    public long getId() {
-        return id;
-    }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public double getValorMaximo() {
-        return valorMaximo;
-    }
-
-    public double getValorMinimo() {
-        return valorMinimo;
-    }
-
-    public long getIdAtelier() {
-        return idAtelier;
-    }
-
-   
-
-    // SETTERS
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void setValorMaximo(double valorMaximo) {
-        this.valorMaximo = valorMaximo;
-    }
-
-    public void setValorMinimo(double valorMinimo) {
-        this.valorMinimo = valorMinimo;
-    }
-
-    public void setIdAtelier(long idAtelier) {
-        this.idAtelier = idAtelier;
-    }
-    public void validar_nome(){
-        Generic.verificarNaoNuloOuVazio(nome);
-        Generic.verificarTamanhoMaximo(nome, 500);
-    }
-    public void validar_descricao(){
-        Generic.verificarNaoNuloOuVazio(nome);
-        Generic.verificarTamanhoMaximo(nome, 1000);
-    }
-    public void validar_preco(){
-        NumericValueValidator.verificarValorMinMax(valorMinimo, valorMaximo);
-    }
 }

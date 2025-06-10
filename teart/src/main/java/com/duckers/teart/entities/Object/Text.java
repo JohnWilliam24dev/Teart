@@ -13,33 +13,33 @@ public class Text {
     public void setText(String text) {
         this.text = text;
     }
-    private boolean isNullOrEmpty(String valor) {
+    private boolean isNullOrEmpty(String text) {
 
-        return valor == null || valor.isBlank();
+        return text == null || text.isBlank();
     }
 
-    public void verificarSomenteNumeros(String valor) {
-        if (valor == null || !valor.matches("\\d+")) {
-            throw new IllegalArgumentException("O valor deve conter apenas números.");
+    public void verificarSomenteNumeros() {
+        if (text == null || !text.matches("\\d+")) {
+            throw new IllegalArgumentException("O text deve conter apenas números.");
         }
     }
 
-    public void verificarTamanhoMaximo(String valor, int maximo) {
-        if (valor == null || valor.length() > maximo) {
-            throw new IllegalArgumentException("O valor deve ter pelo menos " + maximo + " caracteres.");
+    public void verificarTamanhoMaximo(int maximo) {
+        if (text == null || text.length() > maximo) {
+            throw new IllegalArgumentException("O text deve ter pelo menos " + maximo + " caracteres.");
         }
     }
 
 
-    public void verificarTamanhoExato(String valor, int tamanhoEsperado) {
-        if (valor == null || valor.length() != tamanhoEsperado) {
-            throw new IllegalArgumentException("O valor deve ter exatamente " + tamanhoEsperado + " caracteres.");
+    public void verificarTamanhoExato(int tamanhoEsperado) {
+        if (text == null || text.length() != tamanhoEsperado) {
+            throw new IllegalArgumentException("O text deve ter exatamente " + tamanhoEsperado + " caracteres.");
         }
     }
 
-    public static void verificarTamanhoMinimo(String valor, int minimo) {
-        if (valor == null || valor.length() < minimo) {
-            throw new IllegalArgumentException("O valor deve ter pelo menos " + minimo + " caracteres.");
+    public void verificarTamanhoMinimo(int minimo) {
+        if (text == null || text.length() < minimo) {
+            throw new IllegalArgumentException("O text deve ter pelo menos " + minimo + " caracteres.");
         }
     }
 

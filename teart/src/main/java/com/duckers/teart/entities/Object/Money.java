@@ -3,9 +3,17 @@ package com.duckers.teart.entities.Object;
 import java.math.BigDecimal;
 
 public class Money {
-    private final BigDecimal numero;
+    private BigDecimal numero;
 
     public Money(BigDecimal numero) {
+        this.numero = numero;
+    }
+
+    public BigDecimal getNumero() {
+        return numero;
+    }
+
+    public void setNumero(BigDecimal numero) {
         this.numero = numero;
     }
 
