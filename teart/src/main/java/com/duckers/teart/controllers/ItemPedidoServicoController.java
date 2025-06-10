@@ -18,7 +18,7 @@ public class ItemPedidoServicoController {
         this.itemPedidoServicoFacade = itemPedidoServicoFacade;
     }
 
-    @PostMapping("/")
+    @PostMapping("/consumidor")
     public ResponseEntity<Void> createItemPedidoServico(@RequestBody ItemPedidoServicoModel itemPedidoServico) {
         itemPedidoServicoFacade.cadastrar(itemPedidoServico);
         return ResponseEntity.ok().build();
@@ -40,13 +40,13 @@ public class ItemPedidoServicoController {
         return ResponseEntity.ok(itemPedidoServicos);
     }
 
-    @PutMapping("/")
+    @PutMapping("/consumidor/admin/")
     public ResponseEntity<Void> updateItemPedidoServico( @RequestBody ItemPedidoServicoModel itemPedidoServico) {
         itemPedidoServicoFacade.atualizar(itemPedidoServico);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/consumidor/admin/{id}")
     public ResponseEntity<Void> deleteItemPedidoServico(@PathVariable long id) {
         itemPedidoServicoFacade.excluir(id);
         return ResponseEntity.noContent().build();

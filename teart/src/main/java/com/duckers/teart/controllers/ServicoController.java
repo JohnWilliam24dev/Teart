@@ -19,7 +19,7 @@ public class ServicoController {
         this.servicoFacade = servicoFacade;
     }
 
-    @PostMapping("/")
+    @PostMapping("/parceiro")
     public ResponseEntity<Void> createServico(@RequestBody ServicoModel servico) {
         servicoFacade.cadastrar(servico);
         return ResponseEntity.ok().build();
@@ -41,13 +41,13 @@ public class ServicoController {
         return ResponseEntity.ok(servicos);
     }
 
-    @PutMapping("/")
+    @PutMapping("/parceiro/admin/")
     public ResponseEntity<Void> updateServico(@RequestBody ServicoModel servico) {
         servicoFacade.atualizar(servico);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/parceiro/admin/{id}")
     public ResponseEntity<Void> deleteServico(@PathVariable int id) {
         servicoFacade.excluir(id);
         return ResponseEntity.noContent().build();

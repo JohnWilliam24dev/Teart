@@ -19,7 +19,7 @@ public class CompradorController {
         this.compradorFacade = compradorFacade;
     }
 
-    @PostMapping("/")
+    @PostMapping("/consumidor")
     public ResponseEntity<Void> createUsuario(@RequestBody CompradorModel usuario) {
         compradorFacade.cadastrar(usuario);
         return ResponseEntity.ok().build();
@@ -41,13 +41,13 @@ public class CompradorController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @PutMapping("/")
+    @PutMapping("/consumidor/admin/")
     public ResponseEntity<Void> updateUsuario(@RequestBody CompradorModel usuario) {
         compradorFacade.atualizar(usuario);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/consumidor/admin/{id}")
     public ResponseEntity<Void> deleteUsuario(@PathVariable long id) {
         compradorFacade.excluir(id);
         return ResponseEntity.noContent().build();

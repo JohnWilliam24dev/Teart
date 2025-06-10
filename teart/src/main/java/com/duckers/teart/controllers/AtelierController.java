@@ -20,7 +20,7 @@ public class AtelierController {
         this.atelierFacade = atelierFacade;
     }
 
-    @PostMapping("/")
+    @PostMapping("/parceiro")
     public void createAtelier(@RequestBody AtelierModel atelier) {
         atelierFacade.createAtelier(atelier);
     }
@@ -35,12 +35,12 @@ public class AtelierController {
         return atelierFacade.getAllAteliers();
     }
 
-    @PutMapping("/")
+    @PutMapping("/parceiro/admin/")
     public void updateAtelier(@RequestBody AtelierModel atelier) {
         atelierFacade.updateAtelier(atelier);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/parceiro/admin/{id}")
     public void deleteAtelier(@PathVariable long id) {
         atelierFacade.deleteAtelier(id);
     }

@@ -19,7 +19,7 @@ public class DonoAtelierController {
         this.facadeDonoAtelier = facadeDonoAtelier;
     }
 
-    @PostMapping("/")
+    @PostMapping("/parceiro")
     public void createDonoAtelier(@RequestBody DonoAtelierModel dono) {
         facadeDonoAtelier.cadastrar(dono);
     }
@@ -34,12 +34,12 @@ public class DonoAtelierController {
         return facadeDonoAtelier.listaDonoAteliers();
     }
 
-    @PutMapping("/")
+    @PutMapping("/parceiro/admin/")
     public void updateDonoAtelier(@RequestBody DonoAtelierModel dono) {
         facadeDonoAtelier.atualizar(dono);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/parceiro/admin/{id}")
     public void deleteDonoAtelier(@PathVariable int id) {
         facadeDonoAtelier.excluir(id);
     }

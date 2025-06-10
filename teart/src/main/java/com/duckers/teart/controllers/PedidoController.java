@@ -18,7 +18,7 @@ public class PedidoController {
         this.pedidoFacade = pedidoFacade;
     }
 
-    @PostMapping("/")
+    @PostMapping("/consumidor")
     public ResponseEntity<Void> createPedido(@RequestBody PedidoModel pedido) {
         pedidoFacade.cadastrar(pedido);
         return ResponseEntity.ok().build();
@@ -40,13 +40,13 @@ public class PedidoController {
         return ResponseEntity.ok(pedidos);
     }
 
-    @PutMapping("/")
+    @PutMapping("/consumidor/admin/")
     public ResponseEntity<Void> updatePedido( @RequestBody PedidoModel pedido) {
         pedidoFacade.atualizar( pedido);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/consumidor/admin/{id}")
     public ResponseEntity<Void> deleteProduto(@PathVariable long id) {
         pedidoFacade.excluir(id);
         return ResponseEntity.noContent().build();
