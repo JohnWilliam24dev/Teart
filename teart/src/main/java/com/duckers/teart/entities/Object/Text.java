@@ -5,7 +5,7 @@ public class Text {
     public Text(String text) {
         this.text=text;
     }
-
+    public Text(){}
     public String getText() {
         return text;
     }

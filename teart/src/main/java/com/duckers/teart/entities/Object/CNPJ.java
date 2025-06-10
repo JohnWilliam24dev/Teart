@@ -6,7 +6,7 @@ public class CNPJ {
     public CNPJ(String cnpj) {
         this.cnpj.setText(cnpj);
     }
-
+    public CNPJ(){}
     public String getCNPJ() {
         return cnpj.getText();
     }

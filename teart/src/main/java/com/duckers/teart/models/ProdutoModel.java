@@ -100,4 +100,20 @@ public class ProdutoModel {
     public void setIdAtelier(long idAtelier) {
         this.idAtelier = idAtelier;
     }
+
+    public AtelierModel getAtelier() {
+        return atelier;
+    }
+
+    public void setAtelier(AtelierModel atelier) {
+        this.atelier = atelier;
+    }
+
+    public List<ItemPedidoProdutoModel> getItemPedidoProdutoList() {
+        return itemPedidoProdutoList;
+    }
+
+    public void setItemPedidoProdutoList(List<ItemPedidoProdutoModel> itemPedidoProdutoList) {
+        this.itemPedidoProdutoList = itemPedidoProdutoList;
+    }
 }

@@ -41,9 +41,71 @@ public class Produto {
         nome.isNullOrEmpty();
         nome.verificarTamanhoMaximo();
         preco.verificarnumeroPositivo();
-
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Moda getModa() {
+        return moda;
+    }
+
+    public void setModa(Moda moda) {
+        this.moda = moda;
+    }
+
+    public Tamanho getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(Tamanho tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public Text getNome() {
+        return nome;
+    }
+
+    public void setNome(Text nome) {
+        this.nome = nome;
+    }
+
+    public Money getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Money preco) {
+        this.preco = preco;
+    }
+
+    public Atelier getAtelier() {
+        return atelier;
+    }
+
+    public void setAtelier(Atelier atelier) {
+        this.atelier = atelier;
+    }
+
+    public long getIdAtelier() {
+        return idAtelier;
+    }
+
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
+    }
+
+    public List<ItemPedidoProduto> getItemPedidoProdutoList() {
+        return itemPedidoProdutoList;
+    }
+
+    public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
+        this.itemPedidoProdutoList = itemPedidoProdutoList;
+    }
 
 
 }

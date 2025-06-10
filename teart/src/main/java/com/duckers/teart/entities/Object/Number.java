@@ -6,7 +6,7 @@ public class Number {
     public Number(Integer numero) {
         this.numero = numero;
     }
-
+    public Number(){}
     public Integer getNumero() {
         return numero;
     }

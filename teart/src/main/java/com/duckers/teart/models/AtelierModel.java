@@ -60,6 +60,38 @@ public class AtelierModel {
         return idDonoAtelier;
     }
 
+    public DonoAtelierModel getDonoAtelierModel() {
+        return donoAtelierModel;
+    }
+
+    public void setDonoAtelierModel(DonoAtelierModel donoAtelierModel) {
+        this.donoAtelierModel = donoAtelierModel;
+    }
+
+    public List<EnderecoAtelierModel> getEnderecosAtelier() {
+        return enderecosAtelier;
+    }
+
+    public void setEnderecosAtelier(List<EnderecoAtelierModel> enderecosAtelier) {
+        this.enderecosAtelier = enderecosAtelier;
+    }
+
+    public List<ProdutoModel> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<ProdutoModel> produtos) {
+        this.produtos = produtos;
+    }
+
+    public List<ServicoModel> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<ServicoModel> servicos) {
+        this.servicos = servicos;
+    }
+
     // SETTERS
     public void setId(long id) {
         this.id = id;
@@ -76,4 +108,6 @@ public class AtelierModel {
     public void setIdDonoAtelier(long idDonoAtelier) {
         this.idDonoAtelier = idDonoAtelier;
     }
+
+
 }

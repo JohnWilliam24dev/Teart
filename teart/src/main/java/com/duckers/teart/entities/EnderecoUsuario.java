@@ -57,7 +57,83 @@ public class EnderecoUsuario {
         cep.validaCep();
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public Text getRua() {
+        return rua;
+    }
 
+    public void setRua(Text rua) {
+        this.rua = rua;
+    }
+
+    public Text getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Text numero) {
+        this.numero = numero;
+    }
+
+    public Text getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(Text logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public Text getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Text bairro) {
+        this.bairro = bairro;
+    }
+
+    public Text getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Text cidade) {
+        this.cidade = cidade;
+    }
+
+    public Text getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Text estado) {
+        this.estado = estado;
+    }
+
+    public CEP getCep() {
+        return cep;
+    }
+
+    public void setCep(CEP cep) {
+        this.cep = cep;
+    }
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 }

@@ -1,4 +1,5 @@
 package com.duckers.teart.entities;
+import ch.qos.logback.classic.model.LevelModel;
 import com.duckers.teart.entities.Object.*;
 
 
@@ -42,6 +43,70 @@ public class Servico {
         descricao.verificarTamanhoMaximo(1000);
         valorMaximo.verificarnumeroPositivo();
         valorMinimo.verificarnumeroPositivo();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Text getNome() {
+        return nome;
+    }
+
+    public void setNome(Text nome) {
+        this.nome = nome;
+    }
+
+    public Text getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(Text descricao) {
+        this.descricao = descricao;
+    }
+
+    public Money getValorMaximo() {
+        return valorMaximo;
+    }
+
+    public void setValorMaximo(Money valorMaximo) {
+        this.valorMaximo = valorMaximo;
+    }
+
+    public Money getValorMinimo() {
+        return valorMinimo;
+    }
+
+    public void setValorMinimo(Money valorMinimo) {
+        this.valorMinimo = valorMinimo;
+    }
+
+    public Atelier getAtelier() {
+        return atelier;
+    }
+
+    public void setAtelier(Atelier atelier) {
+        this.atelier = atelier;
+    }
+
+    public long getIdAtelier() {
+        return idAtelier;
+    }
+
+    public void setIdAtelier(long idAtelier) {
+        this.idAtelier = idAtelier;
+    }
+
+    public List<ItemPedidoServico> getItemPedidoServicoList() {
+        return itemPedidoServicoList;
+    }
+
+    public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
+        this.itemPedidoServicoList = itemPedidoServicoList;
     }
 
 

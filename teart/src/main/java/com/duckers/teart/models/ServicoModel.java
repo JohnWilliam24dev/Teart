@@ -99,4 +99,20 @@ public class ServicoModel {
     public void setIdAtelier(long idAtelier) {
         this.idAtelier = idAtelier;
     }
+
+    public AtelierModel getAtelier() {
+        return atelier;
+    }
+
+    public void setAtelier(AtelierModel atelier) {
+        this.atelier = atelier;
+    }
+
+    public List<ItemPedidoServicoModel> getItemPedidoServicoList() {
+        return itemPedidoServicoList;
+    }
+
+    public void setItemPedidoServicoList(List<ItemPedidoServicoModel> itemPedidoServicoList) {
+        this.itemPedidoServicoList = itemPedidoServicoList;
+    }
 }

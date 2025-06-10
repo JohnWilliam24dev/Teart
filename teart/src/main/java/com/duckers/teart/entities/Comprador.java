@@ -32,11 +32,53 @@ public class Comprador {
         nome.isNullOrEmpty();
         email.validaEmail();
         senha.validarSenha();
-
-
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public Text getNome() {
+        return nome;
+    }
 
+    public void setNome(Text nome) {
+        this.nome = nome;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public Senha getSenha() {
+        return senha;
+    }
+
+    public void setSenha(Senha senha) {
+        this.senha = senha;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public List<EnderecoUsuario> getEnderecoUsuarioList() {
+        return enderecoUsuarioList;
+    }
+
+    public void setEnderecoUsuarioList(List<EnderecoUsuario> enderecoUsuarioList) {
+        this.enderecoUsuarioList = enderecoUsuarioList;
+    }
 }

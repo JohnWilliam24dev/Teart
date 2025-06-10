@@ -120,5 +120,27 @@ public class PedidoModel {
         this.idUsuario = idUsuario;
     }
 
-    
+    public CompradorModel getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(CompradorModel usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<ItemPedidoProdutoModel> getItemPedidoProdutoList() {
+        return itemPedidoProdutoList;
+    }
+
+    public void setItemPedidoProdutoList(List<ItemPedidoProdutoModel> itemPedidoProdutoList) {
+        this.itemPedidoProdutoList = itemPedidoProdutoList;
+    }
+
+    public List<ItemPedidoServicoModel> getItemPedidoServicoList() {
+        return itemPedidoServicoList;
+    }
+
+    public void setItemPedidoServicoList(List<ItemPedidoServicoModel> itemPedidoServicoList) {
+        this.itemPedidoServicoList = itemPedidoServicoList;
+    }
 }

@@ -6,8 +6,7 @@ public class DonoAtelier {
 
     private long id;
 
-    private Text nomeSocial;
-
+    private Text nomeSocial=new Text();
     private Text nomeUsuario;
 
     private Email email;
@@ -40,7 +39,59 @@ public class DonoAtelier {
         cpf.validaCpf();
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public Text getNomeSocial() {
+        return nomeSocial;
+    }
 
+    public void setNomeSocial(Text nomeSocial) {
+        this.nomeSocial = nomeSocial;
+    }
+
+    public Text getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(Text nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public Senha getSenha() {
+        return senha;
+    }
+
+    public void setSenha(Senha senha) {
+        this.senha = senha;
+    }
+
+    public CPF getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(CPF cpf) {
+        this.cpf = cpf;
+    }
+
+    public Atelier getAtelier() {
+        return atelier;
+    }
+
+    public void setAtelier(Atelier atelier) {
+        this.atelier = atelier;
+    }
 }

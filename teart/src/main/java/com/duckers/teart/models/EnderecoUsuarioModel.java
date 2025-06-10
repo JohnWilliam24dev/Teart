@@ -139,4 +139,12 @@ public class EnderecoUsuarioModel {
     public void setIdUsuario(long idUsuario) {
         this.idUsuario = idUsuario;
     }
+
+    public CompradorModel getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(CompradorModel usuario) {
+        this.usuario = usuario;
+    }
 }

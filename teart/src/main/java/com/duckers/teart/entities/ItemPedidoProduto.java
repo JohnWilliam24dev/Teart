@@ -30,4 +30,51 @@ public class ItemPedidoProduto {
         quantidade.verificarQuantidadePositiva();
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Number getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Number quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public long getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public long getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(long idPedido) {
+        this.idPedido = idPedido;
+    }
 }

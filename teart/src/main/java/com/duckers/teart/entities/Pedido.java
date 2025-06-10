@@ -61,4 +61,83 @@ public class Pedido {
         }
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDataPedido() {
+        return dataPedido;
+    }
+
+    public void setDataPedido(LocalDate dataPedido) {
+        this.dataPedido = dataPedido;
+    }
+
+    public LocalDate getDataEnvio() {
+        return dataEnvio;
+    }
+
+    public void setDataEnvio(LocalDate dataEnvio) {
+        this.dataEnvio = dataEnvio;
+    }
+
+    public StatusPedido getStatusPedido() {
+        return statusPedido;
+    }
+
+    public void setStatusPedido(StatusPedido statusPedido) {
+        this.statusPedido = statusPedido;
+    }
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+
+    public Money getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Money valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public List<ItemPedidoProduto> getItemPedidoProdutoList() {
+        return itemPedidoProdutoList;
+    }
+
+    public void setItemPedidoProdutoList(List<ItemPedidoProduto> itemPedidoProdutoList) {
+        this.itemPedidoProdutoList = itemPedidoProdutoList;
+    }
+
+    public List<ItemPedidoServico> getItemPedidoServicoList() {
+        return itemPedidoServicoList;
+    }
+
+    public void setItemPedidoServicoList(List<ItemPedidoServico> itemPedidoServicoList) {
+        this.itemPedidoServicoList = itemPedidoServicoList;
+    }
 }

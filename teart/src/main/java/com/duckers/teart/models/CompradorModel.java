@@ -52,6 +52,22 @@ public class CompradorModel {
         return senha;
     }
 
+    public List<EnderecoUsuarioModel> getEnderecoUsuarioList() {
+        return enderecoUsuarioList;
+    }
+
+    public void setEnderecoUsuarioList(List<EnderecoUsuarioModel> enderecoUsuarioList) {
+        this.enderecoUsuarioList = enderecoUsuarioList;
+    }
+
+    public List<PedidoModel> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<PedidoModel> pedidos) {
+        this.pedidos = pedidos;
+    }
+
     // Setters
     public void setId(long id) {
         this.id = id;

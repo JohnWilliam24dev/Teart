@@ -8,7 +8,7 @@ public class Money {
     public Money(BigDecimal numero) {
         this.numero = numero;
     }
-
+    public Money(){}
     public BigDecimal getNumero() {
         return numero;
     }
@@ -26,7 +26,10 @@ public class Money {
             throw new IllegalArgumentException("O numero deve ser maior que zero.");
         }
     }
-
+    public void setValue(BigDecimal valor) {
+        verificarDuasCasasDecimais(valor);
+        this.numero = valor;
+    }
     public void verificarnumeroEntre(BigDecimal minimo, BigDecimal maximo) {
         if (numero == null) {
             throw new IllegalArgumentException("O numero não pode ser nulo.");

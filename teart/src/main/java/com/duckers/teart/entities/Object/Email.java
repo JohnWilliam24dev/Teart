@@ -8,7 +8,7 @@ public class Email {
     public Email(String email) {
         Email = email;
     }
-
+    public Email(){}
     public String getEmail() {
         return Email;
     }

@@ -6,7 +6,7 @@ public class Senha {
     public Senha(String senha) {
         this.senha = senha;
     }
-
+    public Senha(){}
     public String getSenha() {
         return senha;
     }
