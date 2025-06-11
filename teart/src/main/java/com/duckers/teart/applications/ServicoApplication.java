@@ -1,6 +1,8 @@
 package com.duckers.teart.applications;
 import java.util.List;
 
+import com.duckers.teart.entities.Servico;
+import com.duckers.teart.entities.mapper.DataMapper;
 import com.duckers.teart.models.ServicoModel;
 import com.duckers.teart.repositories.ServicoRepository;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,11 @@ public class ServicoApplication {
     }
 
     public void createServico(ServicoModel servico) {
-        servicoRepository.createPedido(servico);
+        Servico entity= DataMapper.toEntity(servico);
+        entity.validation();
+        //regras de negocio instanciadas aqui
+        ServicoModel model=DataMapper.toModel(entity);
+        servicoRepository.createService(servico);
     }
 
     public ServicoModel getServicoById(int id) {

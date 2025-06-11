@@ -2,6 +2,9 @@ package com.duckers.teart.applications;
 import java.util.List;
 
 
+import com.duckers.teart.entities.ItemPedidoProduto;
+import com.duckers.teart.entities.mapper.DataMapper;
+import com.duckers.teart.models.ItemPedidoProdutoModel;
 import com.duckers.teart.models.ItemPedidoProdutoModel;
 import com.duckers.teart.repositories.ItemPedidoProdutoRepository;
 import org.springframework.stereotype.Service;
@@ -15,7 +18,11 @@ public class ItemPedidoProdutoApplication {
     }
 
     public void createItemPedidoProduto(ItemPedidoProdutoModel itemPedidoProduto) {
-        itemPedidoProdutoRepository.createItemPedidoProduto(itemPedidoProduto);
+        ItemPedidoProduto entity= DataMapper.toEntity(itemPedidoProduto);
+        entity.validation();
+        //regras de negocio instanciadas aqui
+        ItemPedidoProdutoModel model=DataMapper.toModel(entity);
+        itemPedidoProdutoRepository.createItemPedidoProduto(model);
     }
 
     public ItemPedidoProdutoModel getItemPedidoProdutoById(long id) {

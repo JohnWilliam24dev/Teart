@@ -14,7 +14,7 @@ public class ServicoRepository {
         this.servicoRepository = servicoRepository;
     }
 
-    public void createPedido(ServicoModel servico) {
+    public void createService(ServicoModel servico) {
         servicoRepository.save(servico);
     }
 
