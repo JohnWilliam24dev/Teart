@@ -1,6 +1,7 @@
 package com.duckers.teart.entities;
 
 import com.duckers.teart.entities.Object.Money;
+import com.duckers.teart.entities.Object.Number;
 import com.duckers.teart.enums.FormaPagamento;
 import com.duckers.teart.enums.StatusPedido;
 
@@ -20,7 +21,7 @@ public class Pedido {
 
     private FormaPagamento formaPagamento;
 
-    private Money valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
+    private Money valorTotal=new Money(); // testar itemped.qtd * preco + itemser.qtd * preco
 
     private Comprador comprador;
 

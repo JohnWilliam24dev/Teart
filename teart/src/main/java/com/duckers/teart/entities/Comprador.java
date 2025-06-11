@@ -9,11 +9,11 @@ public class Comprador {
 
     private long id;
 
-    private Text nome;
+    private Text nome=new Text();
 
-    private Email email;
+    private Email email=new Email();
 
-    private Senha senha;
+    private Senha senha=new Senha();
 
     private List<Pedido> pedidos = new ArrayList<>();
 

@@ -7,19 +7,19 @@ public class EnderecoUsuario {
 
     private long id;
 
-    private Text rua;
+    private Text rua=new Text();
 
-    private Text numero;
+    private Text numero=new Text();
 
-    private Text logradouro;
+    private Text logradouro=new Text();
 
-    private Text bairro;
+    private Text bairro=new Text();
 
-    private Text cidade;
+    private Text cidade=new Text();
 
-    private Text estado;
+    private Text estado=new Text();
 
-    private CEP cep;
+    private CEP cep=new CEP();
 
 
 

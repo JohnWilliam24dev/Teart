@@ -1,5 +1,6 @@
 package com.duckers.teart.entities;
 import com.duckers.teart.entities.Object.*;
+import com.duckers.teart.entities.Object.Number;
 import com.duckers.teart.enums.Moda;
 import com.duckers.teart.enums.Tamanho;
 
@@ -15,9 +16,9 @@ public class Produto {
 
     private Tamanho tamanho;
 
-    private Text nome;
+    private Text nome=new Text();
 
-    private Money preco;
+    private Money preco=new Money();
 
     private Atelier atelier;
 

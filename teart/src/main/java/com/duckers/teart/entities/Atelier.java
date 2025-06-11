@@ -8,8 +8,8 @@ import java.util.List;
 public class Atelier {
 
     private long id;
-    private Text nome;
-    private CNPJ cnpj;
+    private Text nome=new Text();
+    private CNPJ cnpj=new CNPJ();
     private DonoAtelier donoAtelier;
     private long idDonoAtelier;
     private List<Servico> servicos;

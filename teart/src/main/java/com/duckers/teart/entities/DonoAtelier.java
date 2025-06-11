@@ -7,13 +7,13 @@ public class DonoAtelier {
     private long id;
 
     private Text nomeSocial=new Text();
-    private Text nomeUsuario;
+    private Text nomeUsuario=new Text();
 
-    private Email email;
+    private Email email=new Email();
 
-    private Senha senha;
+    private Senha senha=new Senha();
 
-    private CPF cpf;
+    private CPF cpf=new CPF();
 
     private Atelier atelier;
 

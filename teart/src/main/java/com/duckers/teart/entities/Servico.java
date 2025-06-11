@@ -1,6 +1,7 @@
 package com.duckers.teart.entities;
 import ch.qos.logback.classic.model.LevelModel;
 import com.duckers.teart.entities.Object.*;
+import com.duckers.teart.entities.Object.Number;
 
 
 import java.math.BigDecimal;
@@ -11,13 +12,13 @@ public class Servico {
 
     private long id;
 
-    private Text nome;
+    private Text nome=new Text();
 
-    private Text descricao;
+    private Text descricao=new Text();
 
-    private Money valorMaximo;
+    private Money valorMaximo=new Money();
 
-    private Money valorMinimo;
+    private Money valorMinimo=new Money();
 
     private Atelier atelier;
 

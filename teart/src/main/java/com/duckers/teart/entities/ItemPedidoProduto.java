@@ -7,7 +7,7 @@ public class ItemPedidoProduto {
 
     private long id;
 
-    private Number quantidade;
+    private Number quantidade=new Number();
 
     private Produto produto;
 
