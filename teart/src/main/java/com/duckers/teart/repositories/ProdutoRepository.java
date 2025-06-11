@@ -15,7 +15,7 @@ private ProdutoJPA produtoRepository;
         this.produtoRepository = produtoRepository;
     }
 
-    public void createPedido(ProdutoModel pedido) {
+    public void createProduto(ProdutoModel pedido) {
         produtoRepository.save(pedido);
     }
 

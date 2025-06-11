@@ -47,7 +47,16 @@ public class Pedido {
         validarDatas();
         valorTotal.verificarnumeroPositivo();
     }
+    public void finalizar() {
 
+
+        if ((itemPedidoProdutoList == null || itemPedidoProdutoList.isEmpty()) &&
+                (itemPedidoServicoList == null || itemPedidoServicoList.isEmpty())) {
+            throw new RuntimeException("Pedido deve ter pelo menos um item");
+        }
+
+        this.statusPedido = StatusPedido.CANCELADO;
+    }
 
     public void validarDatas() {
         if (dataPedido == null) {

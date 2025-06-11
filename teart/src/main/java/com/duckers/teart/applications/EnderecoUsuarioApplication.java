@@ -1,6 +1,10 @@
 package com.duckers.teart.applications;
 import java.util.List;
 
+import com.duckers.teart.entities.EnderecoAtelier;
+import com.duckers.teart.entities.EnderecoUsuario;
+import com.duckers.teart.entities.mapper.DataMapper;
+import com.duckers.teart.models.EnderecoAtelierModel;
 import com.duckers.teart.models.EnderecoUsuarioModel;
 import com.duckers.teart.repositories.EnderecoUsuarioRepository;
 import org.springframework.stereotype.Service;
@@ -14,7 +18,11 @@ public class EnderecoUsuarioApplication {
     }
 
     public void createEnderecoUsuario(EnderecoUsuarioModel enderecoUsuario) {
-        enderecoUsuarioRepository.createEnderecoUsuario(enderecoUsuario);
+        EnderecoUsuario entity= DataMapper.toEntity(enderecoUsuario);
+        entity.validation();
+        //regras de negocio instanciadas aqui
+        EnderecoUsuarioModel model=DataMapper.toModel(entity);
+        enderecoUsuarioRepository.createEnderecoUsuario(model);
     }
 
     public EnderecoUsuarioModel getEnderecoUsuarioById(long id) {

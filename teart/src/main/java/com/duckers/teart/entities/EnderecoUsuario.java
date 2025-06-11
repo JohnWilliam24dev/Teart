@@ -41,7 +41,7 @@ public class EnderecoUsuario {
 
     }
 
-    private void validation(){
+    public void validation(){
         rua.verificarTamanhoMaximo();
         rua.isNullOrEmpty();
         numero.verificarTamanhoMaximo();

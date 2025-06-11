@@ -1,6 +1,9 @@
 package com.duckers.teart.applications;
 import java.util.List;
 
+import com.duckers.teart.entities.DonoAtelier;
+import com.duckers.teart.entities.mapper.DataMapper;
+import com.duckers.teart.models.DonoAtelierModel;
 import com.duckers.teart.models.DonoAtelierModel;
 import com.duckers.teart.repositories.DonoAtelierRepository;
 import org.springframework.stereotype.Service;
@@ -14,7 +17,11 @@ public class DonoAtelierApplication {
     }
 
     public void createDonoAtelier(DonoAtelierModel donoAtelier) {
-        donoAtelierRepository.createDonoAtelier(donoAtelier);
+        DonoAtelier entity= DataMapper.toEntity(donoAtelier);
+        entity.validation();
+        //regras de negocio instanciadas aqui
+        DonoAtelierModel model=DataMapper.toModel(entity);
+        donoAtelierRepository.createDonoAtelier(model);
     }
 
     public DonoAtelierModel getDonoAtelierById(long id) {

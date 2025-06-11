@@ -1,6 +1,9 @@
 package com.duckers.teart.applications;
 import java.util.List;
 
+import com.duckers.teart.entities.Pedido;
+import com.duckers.teart.entities.mapper.DataMapper;
+import com.duckers.teart.models.PedidoModel;
 import com.duckers.teart.models.PedidoModel;
 import com.duckers.teart.repositories.PedidoRepository;
 import org.springframework.stereotype.Service;
@@ -14,7 +17,11 @@ public class PedidoApplication {
     }
 
     public void createPedido(PedidoModel pedido) {
-        pedidoRepository.createPedido(pedido);
+        Pedido entity= DataMapper.toEntity(pedido);
+        entity.validation();
+        //regras de negocio instanciadas aqui
+        PedidoModel model=DataMapper.toModel(entity);
+        pedidoRepository.createPedido(model);
     }
 
     public PedidoModel getPedidoById(long id) {
