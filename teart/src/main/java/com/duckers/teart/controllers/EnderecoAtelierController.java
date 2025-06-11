@@ -20,7 +20,7 @@ public class EnderecoAtelierController {
         this.enderecoAtelierFacade = enderecoAtelierFacade;
     }
 
-    @PostMapping("/")
+    @PostMapping("/parceiro")
     public void createEnderecoAtelier(@RequestBody EnderecoAtelierModel endereco) {
         enderecoAtelierFacade.createEnderecoAtelier(endereco);
     }
@@ -35,12 +35,12 @@ public class EnderecoAtelierController {
         return enderecoAtelierFacade.getAllEnderecoAteliers();
     }
 
-    @PutMapping("/")
+    @PutMapping("/parceiro/admin/")
     public void updateEnderecoAtelier(@RequestBody EnderecoAtelierModel endereco) {
         enderecoAtelierFacade.updateEnderecoAtelier(endereco);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/parceiro/admin/{id}")
     public void deleteEnderecoAtelier(@PathVariable long id) {
         enderecoAtelierFacade.deleteEnderecoAtelier(id);
     }

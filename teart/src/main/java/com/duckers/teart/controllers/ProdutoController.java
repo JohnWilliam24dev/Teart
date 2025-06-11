@@ -18,7 +18,7 @@ public class ProdutoController {
         this.produtoFacade = produtoFacade;
     }
 
-    @PostMapping("/")
+    @PostMapping("/parceiro")
     public ResponseEntity<Void> createProduto(@RequestBody ProdutoModel produto) {
         produtoFacade.cadastrar(produto);
         return ResponseEntity.ok().build();
@@ -40,13 +40,13 @@ public class ProdutoController {
         return ResponseEntity.ok(produtos);
     }
 
-    @PutMapping("/")
+    @PutMapping("/parceiro/admin/")
     public ResponseEntity<Void> updateProduto(@RequestBody ProdutoModel produto) {
         produtoFacade.atualizar(produto);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/parceiro/admin/{id}")
     public ResponseEntity<Void> deleteProduto(@PathVariable int id) {
         produtoFacade.excluir(id);
         return ResponseEntity.noContent().build();

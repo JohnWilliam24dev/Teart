@@ -28,19 +28,57 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(configurer -> {
             configurer
                     .requestMatchers("/guest").permitAll()
-                    .requestMatchers("/produto").permitAll()
-                    .requestMatchers("/servico").permitAll()
+
                     .requestMatchers("/atelier").permitAll()
-                    .requestMatchers("/comprador/**").hasRole("ADMIN")
-                    .requestMatchers("/atelier/**").hasRole("ADMIN")
-                    .requestMatchers("/dono-atelier/**").hasRole("ADMIN")
-                    .requestMatchers("/produto/**").hasAnyRole("ADMIN", "BUSINESS")
-                    .requestMatchers("/servico/**").hasAnyRole("ADMIN", "BUSINESS")
-                    .requestMatchers("/endereco-atelier/**").hasAnyRole("ADMIN", "BUSINESS")
-                    .requestMatchers("/pedido/**").hasAnyRole("ADMIN", "BUSINESS", "PURCHASER")
-                    .requestMatchers("/item-pedido-produto/**").hasAnyRole("ADMIN", "BUSINESS", "PURCHASER")
-                    .requestMatchers("/item-pedido-servico/**").hasAnyRole("ADMIN", "BUSINESS", "PURCHASER")
-                    .requestMatchers("/endereco-usuario/**").hasAnyRole("ADMIN", "BUSINESS", "PURCHASER")
+                    .requestMatchers("/atelier/{id}").permitAll()
+                    .requestMatchers("/atelier/parceiro").hasRole("PARCEIRO")
+                    .requestMatchers("/atelier/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
+
+                    .requestMatchers("/comprador/consumidor").hasRole("CONSUMIDOR")
+                    .requestMatchers("/comprador").hasRole("ADMIN")
+                    .requestMatchers("/comprador/{id}").hasAnyRole("ADMIN", "CONSUMIDOR")
+                    .requestMatchers("/comprador/consumidor/admin/**").hasAnyRole("ADMIN", "CONSUMIDOR")
+
+                    .requestMatchers("/dono-atelier").hasRole("ADMIN")
+                    .requestMatchers("/dono-atelier/parceiro").hasRole("PARCEIRO")
+                    .requestMatchers("/dono-atelier/{id}").hasAnyRole("ADMIN", "PARCEIRO")
+                    .requestMatchers("/dono-atelier/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
+
+                    .requestMatchers("/endereco-atelier/parceiro").hasRole("PARCEIRO")
+                    .requestMatchers("/endereco-atelier/{id}").permitAll()
+                    .requestMatchers("/endereco-atelier").permitAll()
+                    .requestMatchers("/endereco-atelier/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
+
+                    .requestMatchers("/endereco-usuario/consumidor").hasRole("CONSUMIDOR")
+                    .requestMatchers("/endereco-usuario/{id}").permitAll()
+                    .requestMatchers("/endereco-usuario").hasRole("ADMIN")
+                    .requestMatchers("/endereco-usuario/consumidor/admin/**").hasAnyRole("ADMIN", "CONSUMIDOR")
+
+                    .requestMatchers("/item-pedido-produto/consumidor").hasRole("CONSUMIDOR")
+                    .requestMatchers("/item-pedido-produto/{id}").hasAnyRole("ADMIN", "CONSUMIDOR")
+                    .requestMatchers("/item-pedido-produto").hasAnyRole("ADMIN", "CONSUMIDOR")
+                    .requestMatchers("/item-pedido-produto/consumidor/admin/**").hasAnyRole("ADMIN", "CONSUMIDOR")
+
+                    .requestMatchers("/item-pedido-servico/consumidor").hasRole("CONSUMIDOR")
+                    .requestMatchers("/item-pedido-servico/{id}").hasAnyRole("ADMIN", "CONSUMIDOR")
+                    .requestMatchers("/item-pedido-servico").hasAnyRole("ADMIN", "CONSUMIDOR")
+                    .requestMatchers("/item-pedido-servico/consumidor/admin/**").hasAnyRole("ADMIN", "CONSUMIDOR")
+
+                    .requestMatchers("/pedido/consumidor").hasRole("CONSUMIDOR")
+                    .requestMatchers("/pedido/{id}").hasAnyRole("ADMIN", "CONSUMIDOR")
+                    .requestMatchers("/pedido").hasAnyRole("ADMIN", "CONSUMIDOR")
+                    .requestMatchers("/pedido/consumidor/admin/**").hasAnyRole("ADMIN", "CONSUMIDOR")
+
+                    .requestMatchers("/produto/parceiro").hasRole("PARCEIRO")
+                    .requestMatchers("/produto/{id}").hasAnyRole("ADMIN", "PARCEIRO")
+                    .requestMatchers("/produto").hasAnyRole("ADMIN", "PARCEIRO")
+                    .requestMatchers("/produto/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
+
+                    .requestMatchers("/servico/parceiro").hasRole("PARCEIRO")
+                    .requestMatchers("/servico/{id}").hasAnyRole("ADMIN", "PARCEIRO")
+                    .requestMatchers("/servico").hasAnyRole("ADMIN", "PARCEIRO")
+                    .requestMatchers("/servico/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
+
                     .anyRequest().authenticated();
         });
         httpSecurity.httpBasic(Customizer.withDefaults());
