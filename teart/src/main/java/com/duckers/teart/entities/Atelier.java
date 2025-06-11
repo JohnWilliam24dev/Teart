@@ -25,7 +25,74 @@ public class Atelier {
         this.cnpj.setCNPJ(cnpj);
         this.donoAtelier = donoAtelier;
     }
+    public void validation(){
+        nome.verificarTamanhoMaximo();
+        nome.isNullOrEmpty();
+        cnpj.validarCnpj();
 
+    }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Text getNome() {
+        return nome;
+    }
+
+    public void setNome(Text nome) {
+        this.nome = nome;
+    }
+
+    public CNPJ getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(CNPJ cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public DonoAtelier getDonoAtelier() {
+        return donoAtelier;
+    }
+
+    public void setDonoAtelier(DonoAtelier donoAtelier) {
+        this.donoAtelier = donoAtelier;
+    }
+
+    public long getIdDonoAtelier() {
+        return idDonoAtelier;
+    }
+
+    public void setIdDonoAtelier(long idDonoAtelier) {
+        this.idDonoAtelier = idDonoAtelier;
+    }
+
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public List<EnderecoAtelier> getEnderecosAtelier() {
+        return enderecosAtelier;
+    }
+
+    public void setEnderecosAtelier(List<EnderecoAtelier> enderecosAtelier) {
+        this.enderecosAtelier = enderecosAtelier;
+    }
 }

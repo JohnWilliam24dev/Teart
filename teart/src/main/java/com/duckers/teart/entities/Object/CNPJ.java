@@ -1,22 +1,22 @@
 package com.duckers.teart.entities.Object;
 
 public class CNPJ {
-    Text CNPJ;
+    Text cnpj;
 
-    public CNPJ(String CNPJ) {
-        this.CNPJ.setText(CNPJ);
+    public CNPJ(String cnpj) {
+        this.cnpj.setText(cnpj);
     }
-
+    public CNPJ(){}
     public String getCNPJ() {
-        return CNPJ.getText();
+        return cnpj.getText();
     }
 
-    public void setCNPJ(String CNPJ) {
-        this.CNPJ.setText(CNPJ);
+    public void setCNPJ(String cnpj) {
+        this.cnpj.setText(cnpj);
     }
 
-    public boolean validarCnpj(String cnpj) {
-        if (cnpj.chars().distinct().count() == 1) {
+    public boolean validarCnpj() {
+        if (cnpj.getText().chars().distinct().count() == 1) {
             return false;
         }
 
@@ -24,7 +24,7 @@ public class CNPJ {
         int soma1 = 0;
 
         for (int i = 0; i < pesos1.length; i++) {
-            soma1 += Character.getNumericValue(cnpj.charAt(i)) * pesos1[i];
+            soma1 += Character.getNumericValue(cnpj.getText().charAt(i)) * pesos1[i];
         }
 
         int resto1 = soma1 % 11;
@@ -34,36 +34,31 @@ public class CNPJ {
         int soma2 = 0;
 
         for (int i = 0; i < pesos2.length; i++) {
-            soma2 += Character.getNumericValue(cnpj.charAt(i)) * pesos2[i];
+            soma2 += Character.getNumericValue(cnpj.getText().charAt(i)) * pesos2[i];
         }
 
         int resto2 = soma2 % 11;
         int segundoDigito = (resto2 < 2) ? 0 : 11 - resto2;
 
-        return (primeiroDigito == Character.getNumericValue(cnpj.charAt(12)) &&
-                segundoDigito == Character.getNumericValue(cnpj.charAt(13)));
+        return (primeiroDigito == Character.getNumericValue(cnpj.getText().charAt(12)) &&
+                segundoDigito == Character.getNumericValue(cnpj.getText().charAt(13)));
     }
 
     public void validarCnpjFormatado() {
-        if (getCNPJ() == null || !cnpj.matches("\\d{14}")) {
+        if (cnpj == null || !cnpj.getText().matches("\\d{14}")) {
             throw new IllegalArgumentException("CNPJ inválido: formato incorreto");
         }
 
         try {
 
-            Generic.verificarSomenteNumeros(cnpj);
+            cnpj.verificarSomenteNumeros();
         } catch (Exception e) {
             throw new IllegalArgumentException("CNPJ inválido: CNPJ deve conter somente números");
         }
 
-        if (!validarCnpj(cnpj)) {
+        if (!validarCnpj()) {
             throw new IllegalArgumentException("CNPJ inválido: Verifique se o número é válido");
         }
     }
-    @Override
-    public String toString() {
-        return "CNPJ{" +
-                "CNPJ='" + CNPJ + '\'' +
-                '}';
-    }
+
 }

@@ -5,7 +5,7 @@ public class Text {
     public Text(String text) {
         this.text=text;
     }
-
+    public Text(){}
     public String getText() {
         return text;
     }
@@ -13,7 +13,7 @@ public class Text {
     public void setText(String text) {
         this.text = text;
     }
-    private boolean isNullOrEmpty(String text) {
+    public boolean isNullOrEmpty() {
 
         return text == null || text.isBlank();
     }
@@ -27,6 +27,11 @@ public class Text {
     public void verificarTamanhoMaximo(int maximo) {
         if (text == null || text.length() > maximo) {
             throw new IllegalArgumentException("O text deve ter pelo menos " + maximo + " caracteres.");
+        }
+    }
+    public void verificarTamanhoMaximo() {
+        if (text == null || text.length() > 500) {
+            throw new IllegalArgumentException("O text deve ter até " + 500 + " caracteres.");
         }
     }
 

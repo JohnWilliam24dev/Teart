@@ -40,14 +40,100 @@ public class EnderecoUsuario {
         this.cep.setCep(cep);
 
     }
-    public void init(){
-        validation();
-    }
+
     private void validation(){
-
+        rua.verificarTamanhoMaximo();
+        rua.isNullOrEmpty();
+        numero.verificarTamanhoMaximo();
+        numero.isNullOrEmpty();
+        logradouro.verificarTamanhoMaximo();
+        logradouro.isNullOrEmpty();
+        bairro.verificarTamanhoMaximo();
+        bairro.isNullOrEmpty();
+        cidade.verificarTamanhoMaximo();
+        cidade.isNullOrEmpty();
+        estado.verificarTamanhoMaximo();
+        estado.isNullOrEmpty();
+        cep.validaCep();
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public Text getRua() {
+        return rua;
+    }
 
+    public void setRua(Text rua) {
+        this.rua = rua;
+    }
+
+    public Text getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Text numero) {
+        this.numero = numero;
+    }
+
+    public Text getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(Text logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public Text getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Text bairro) {
+        this.bairro = bairro;
+    }
+
+    public Text getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Text cidade) {
+        this.cidade = cidade;
+    }
+
+    public Text getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Text estado) {
+        this.estado = estado;
+    }
+
+    public CEP getCep() {
+        return cep;
+    }
+
+    public void setCep(CEP cep) {
+        this.cep = cep;
+    }
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 }

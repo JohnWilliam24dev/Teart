@@ -1,4 +1,4 @@
-package com.duckers.teart.entities.enums;
+package com.duckers.teart.enums;
 
 public enum Tamanho {
     PP("Pechinho pequeno"),

@@ -6,12 +6,12 @@ public class Number {
     public Number(Integer numero) {
         this.numero = numero;
     }
-
+    public Number(){}
     public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 

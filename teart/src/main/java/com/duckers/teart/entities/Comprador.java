@@ -27,23 +27,58 @@ public class Comprador {
         this.email.setEmail(email);
         this.senha.setSenha(senha);
     }
-
-
-
-    // Validações
-    public void validarNome(String nome) {
-        Generic.verificarNaoNuloOuVazio(nome);
-        Generic.verificarTamanhoMaximo(nome, 500);
+    public void validation(){
+        nome.verificarTamanhoMaximo();
+        nome.isNullOrEmpty();
+        email.validaEmail();
+        senha.validarSenha();
     }
 
-    public void validarEmail(String email){
-        Generic.verificarNaoNuloOuVazio(email);
-        Generic.verificarTamanhoMaximo(email, 500);
-        Pessoa.validaEmail(email);
+    public long getId() {
+        return id;
     }
 
-    public void validarSenha(String senha){
-        Pessoa.validarSenha(senha);
+    public void setId(long id) {
+        this.id = id;
     }
 
+    public Text getNome() {
+        return nome;
+    }
+
+    public void setNome(Text nome) {
+        this.nome = nome;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public Senha getSenha() {
+        return senha;
+    }
+
+    public void setSenha(Senha senha) {
+        this.senha = senha;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public List<EnderecoUsuario> getEnderecoUsuarioList() {
+        return enderecoUsuarioList;
+    }
+
+    public void setEnderecoUsuarioList(List<EnderecoUsuario> enderecoUsuarioList) {
+        this.enderecoUsuarioList = enderecoUsuarioList;
+    }
 }

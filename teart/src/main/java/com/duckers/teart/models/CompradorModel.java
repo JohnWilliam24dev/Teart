@@ -20,10 +20,10 @@ public class CompradorModel {
     @Column
     private String senha;
 
-    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST })
+    @OneToMany(mappedBy = "comprador", cascade = { CascadeType.PERSIST })
     private List<PedidoModel> pedidos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(mappedBy = "comprador", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<EnderecoUsuarioModel> enderecoUsuarioList;
 
     public CompradorModel() {
@@ -50,6 +50,22 @@ public class CompradorModel {
 
     public String getSenha() {
         return senha;
+    }
+
+    public List<EnderecoUsuarioModel> getEnderecoUsuarioList() {
+        return enderecoUsuarioList;
+    }
+
+    public void setEnderecoUsuarioList(List<EnderecoUsuarioModel> enderecoUsuarioList) {
+        this.enderecoUsuarioList = enderecoUsuarioList;
+    }
+
+    public List<PedidoModel> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<PedidoModel> pedidos) {
+        this.pedidos = pedidos;
     }
 
     // Setters

@@ -6,7 +6,7 @@ public class Senha {
     public Senha(String senha) {
         this.senha = senha;
     }
-
+    public Senha(){}
     public String getSenha() {
         return senha;
     }
@@ -15,7 +15,7 @@ public class Senha {
         this.senha = senha;
     }
 
-    public void validarSenha(String senha){
+    public void validarSenha(){
 
         if (senha.length() < 8) {
             throw new IllegalArgumentException("A senha deve ter no mínimo 8 caracteres.");

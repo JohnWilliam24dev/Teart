@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class Telefone {
 
     String telefone;
-
+    public Telefone(){}
     public Telefone(String telefone) {
         this.telefone = telefone;
     }

@@ -127,4 +127,12 @@ public class EnderecoAtelierModel {
     public void setIdAtelier(long idAtelier) {
         this.idAtelier = idAtelier;
     }
+
+    public AtelierModel getAtelier() {
+        return atelier;
+    }
+
+    public void setAtelier(AtelierModel atelier) {
+        this.atelier = atelier;
+    }
 }

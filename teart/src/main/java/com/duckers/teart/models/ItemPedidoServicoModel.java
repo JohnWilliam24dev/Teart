@@ -1,4 +1,5 @@
 package com.duckers.teart.models;
+import com.duckers.teart.entities.Object.Number;
 import jakarta.persistence.*;
 
 
@@ -59,7 +60,22 @@ public class ItemPedidoServicoModel {
         return idPedido;
     }
 
-    
+
+    public ServicoModel getServico() {
+        return servico;
+    }
+
+    public void setServico(ServicoModel servico) {
+        this.servico = servico;
+    }
+
+    public PedidoModel getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(PedidoModel pedido) {
+        this.pedido = pedido;
+    }
 
     // SETTERS
     public void setId(long id) {

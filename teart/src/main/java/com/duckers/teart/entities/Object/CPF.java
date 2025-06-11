@@ -8,7 +8,7 @@ public class CPF {
     public CPF(String cpf) {
         this.cpf = cpf;
     }
-
+    public CPF(){}
     public String getCpf() {
         return cpf;
     }

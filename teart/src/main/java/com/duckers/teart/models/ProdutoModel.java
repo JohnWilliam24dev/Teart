@@ -1,8 +1,9 @@
 package com.duckers.teart.models;
-import com.duckers.teart.models.enums.Moda;
-import com.duckers.teart.models.enums.Tamanho;
+import com.duckers.teart.enums.Moda;
+import com.duckers.teart.enums.Tamanho;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class ProdutoModel {
     private String nome;
 
     @Column
-    private double preco;
+    private BigDecimal preco;
 
     @ManyToOne // uso correto: sem cascata
     @JoinColumn(name = "id_atelier", referencedColumnName = "id", insertable = false, updatable=false)
@@ -41,7 +42,7 @@ public class ProdutoModel {
     public ProdutoModel(){}
 
     // Construtor com parâmetros (sem o id)
-    public ProdutoModel(Moda moda, Tamanho tamanho, String nome, double preco, AtelierModel atelier) {
+    public ProdutoModel(Moda moda, Tamanho tamanho, String nome, BigDecimal preco, AtelierModel atelier) {
         this.moda = moda;
         this.tamanho = tamanho;
         this.nome = nome;
@@ -66,7 +67,7 @@ public class ProdutoModel {
         return nome;
     }
 
-    public double getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
@@ -93,11 +94,27 @@ public class ProdutoModel {
         this.nome = nome;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 
     public void setIdAtelier(long idAtelier) {
         this.idAtelier = idAtelier;
+    }
+
+    public AtelierModel getAtelier() {
+        return atelier;
+    }
+
+    public void setAtelier(AtelierModel atelier) {
+        this.atelier = atelier;
+    }
+
+    public List<ItemPedidoProdutoModel> getItemPedidoProdutoList() {
+        return itemPedidoProdutoList;
+    }
+
+    public void setItemPedidoProdutoList(List<ItemPedidoProdutoModel> itemPedidoProdutoList) {
+        this.itemPedidoProdutoList = itemPedidoProdutoList;
     }
 }

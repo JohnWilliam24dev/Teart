@@ -80,4 +80,12 @@ public class ItemPedidoProdutoModel {
     public void setIdProduto(long idProduto) {
         this.idProduto = idProduto;
     }
+
+    public PedidoModel getPedido() {
+        return pedido;
+    }
+
+    public void setIdPedido(long idPedido) {
+        this.idPedido = idPedido;
+    }
 }
