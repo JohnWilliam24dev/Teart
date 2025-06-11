@@ -1,9 +1,11 @@
 package com.duckers.teart.models;
 
-import com.duckers.teart.models.enums.FormaPagamento;
-import com.duckers.teart.models.enums.StatusPedido;
+import com.duckers.teart.enums.FormaPagamento;
+import com.duckers.teart.enums.StatusPedido;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -33,14 +35,14 @@ public class PedidoModel {
     private FormaPagamento formaPagamento;
 
     @Column
-    private double valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
+    private BigDecimal valorTotal; // testar itemped.qtd * preco + itemser.qtd * preco
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id", insertable = false, updatable=false)
-    private CompradorModel usuario;
+    @JoinColumn(name = "id_comprador", referencedColumnName = "id", insertable = false, updatable=false)
+    private CompradorModel comprador;
 
-    @Column(name = "id_usuario")
-    private long idUsuario;
+    @Column(name = "id_comprador")
+    private long idComprador;
 
     @OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<ItemPedidoProdutoModel> itemPedidoProdutoList;
@@ -53,13 +55,13 @@ public class PedidoModel {
     }
 
     // Construtor com parâmetros (sem as listas de itens de pedido)
-    public PedidoModel(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, double valorTotal, CompradorModel usuario) {
+    public PedidoModel(LocalDate dataPedido, LocalDate dataEnvio, StatusPedido statusPedido, FormaPagamento formaPagamento, BigDecimal valorTotal, CompradorModel compradorModel) {
         this.dataPedido = dataPedido;
         this.dataEnvio = dataEnvio;
         this.statusPedido = statusPedido;
         this.formaPagamento = formaPagamento;
         this.valorTotal = valorTotal;
-        this.usuario = usuario;
+        this.comprador = compradorModel;
     }
 
     // Getters
@@ -83,12 +85,12 @@ public class PedidoModel {
         return formaPagamento;
     }
 
-    public double getValorTotal() {
+    public BigDecimal getValorTotal() {
         return valorTotal;
     }
 
     public long getIdUsuario() {
-        return idUsuario;
+        return idComprador;
     }
 
     // Setters
@@ -112,20 +114,19 @@ public class PedidoModel {
         this.formaPagamento = formaPagamento;
     }
 
-    public void setValorTotal(double valorTotal) {
+    public void setValorTotal(BigDecimal valorTotal) {
         this.valorTotal = valorTotal;
     }
 
     public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
+        this.idComprador = idUsuario;
     }
 
-    public CompradorModel getUsuario() {
-        return usuario;
+    public CompradorModel getComprador() {
+        return comprador;
     }
-
-    public void setUsuario(CompradorModel usuario) {
-        this.usuario = usuario;
+    public void setComprador(CompradorModel usuario) {
+        this.comprador = usuario;
     }
 
     public List<ItemPedidoProdutoModel> getItemPedidoProdutoList() {

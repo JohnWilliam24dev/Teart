@@ -1,7 +1,7 @@
 package com.duckers.teart.entities;
 import com.duckers.teart.entities.Object.*;
-import com.duckers.teart.entities.enums.Moda;
-import com.duckers.teart.entities.enums.Tamanho;
+import com.duckers.teart.enums.Moda;
+import com.duckers.teart.enums.Tamanho;
 
 import java.math.BigDecimal;
 import java.util.List;

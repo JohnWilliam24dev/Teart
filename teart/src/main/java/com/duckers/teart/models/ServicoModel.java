@@ -1,5 +1,7 @@
 package com.duckers.teart.models;
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -18,10 +20,10 @@ public class ServicoModel {
     private String descricao;
 
     @Column
-    private double valorMaximo;
+    private BigDecimal valorMaximo;
 
     @Column
-    private double valorMinimo;
+    private BigDecimal valorMinimo;
 
 
 
@@ -39,8 +41,8 @@ public class ServicoModel {
     // Construtor padrão
     public ServicoModel() {}
 
-    // Construtor com parâmetros (sem o id)
-    public ServicoModel(AtelierModel atelier, String nome, String descricao, double valorMaximo, double valorMinimo) {
+    // Construtor com parâmetros
+    public ServicoModel(AtelierModel atelier, String nome, String descricao, BigDecimal valorMaximo, BigDecimal valorMinimo) {
         this.atelier = atelier;
         this.nome = nome;
         this.descricao = descricao;
@@ -61,11 +63,11 @@ public class ServicoModel {
         return descricao;
     }
 
-    public double getValorMaximo() {
+    public BigDecimal getValorMaximo() {
         return valorMaximo;
     }
 
-    public double getValorMinimo() {
+    public BigDecimal getValorMinimo() {
         return valorMinimo;
     }
 
@@ -88,11 +90,11 @@ public class ServicoModel {
         this.descricao = descricao;
     }
 
-    public void setValorMaximo(double valorMaximo) {
+    public void setValorMaximo(BigDecimal valorMaximo) {
         this.valorMaximo = valorMaximo;
     }
 
-    public void setValorMinimo(double valorMinimo) {
+    public void setValorMinimo(BigDecimal valorMinimo) {
         this.valorMinimo = valorMinimo;
     }
 

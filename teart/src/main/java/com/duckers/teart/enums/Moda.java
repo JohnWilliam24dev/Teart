@@ -1,4 +1,4 @@
-package com.duckers.teart.entities.enums;
+package com.duckers.teart.enums;
 
 public enum Moda {
     ALFAIATARIA("Alfaiataria"),

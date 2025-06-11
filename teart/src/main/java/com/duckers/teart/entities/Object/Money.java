@@ -30,6 +30,9 @@ public class Money {
         verificarDuasCasasDecimais(valor);
         this.numero = valor;
     }
+    public BigDecimal getValue() {
+        return this.numero;
+    }
     public void verificarnumeroEntre(BigDecimal minimo, BigDecimal maximo) {
         if (numero == null) {
             throw new IllegalArgumentException("O numero não pode ser nulo.");

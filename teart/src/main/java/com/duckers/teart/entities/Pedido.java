@@ -1,8 +1,8 @@
 package com.duckers.teart.entities;
 
 import com.duckers.teart.entities.Object.Money;
-import com.duckers.teart.entities.enums.FormaPagamento;
-import com.duckers.teart.entities.enums.StatusPedido;
+import com.duckers.teart.enums.FormaPagamento;
+import com.duckers.teart.enums.StatusPedido;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

@@ -20,10 +20,10 @@ public class CompradorModel {
     @Column
     private String senha;
 
-    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST })
+    @OneToMany(mappedBy = "comprador", cascade = { CascadeType.PERSIST })
     private List<PedidoModel> pedidos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "usuario", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(mappedBy = "comprador", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<EnderecoUsuarioModel> enderecoUsuarioList;
 
     public CompradorModel() {

@@ -135,7 +135,7 @@ public class DataMapper {
             ProdutoModel m = new ProdutoModel();
             m.setId(e.getId());
             m.setNome(e.getNome().getText());
-            m.setDescricao(e.getDescricao().getText());
+
             m.setPreco(e.getPreco().getValue());
             return m;
         }
@@ -145,7 +145,8 @@ public class DataMapper {
             Servico e = new Servico();
             e.setId(m.getId());
             e.getDescricao().setText(m.getDescricao());
-            e.getPreco().setValue(m.getPreco());
+            e.getValorMaximo().setValue(m.getValorMaximo());
+            e.getValorMinimo().setValue(m.getValorMinimo());
             return e;
         }
 
@@ -154,7 +155,8 @@ public class DataMapper {
             ServicoModel m = new ServicoModel();
             m.setId(e.getId());
             m.setDescricao(e.getDescricao().getText());
-            m.setPreco(e.getPreco().getValue());
+            m.setValorMaximo(e.getValorMaximo().getValue());
+            m.setValorMinimo(e.getValorMinimo().getValue());
             return m;
         }
 
@@ -164,7 +166,7 @@ public class DataMapper {
             e.setId(m.getId());
             e.setProduto(toEntity(m.getProduto()));
             e.setQuantidade(m.getQuantidade());
-            e.getPrecoUnitario().setValue(m.getPrecoUnitario());
+
             return e;
         }
 
@@ -173,8 +175,8 @@ public class DataMapper {
             ItemPedidoProdutoModel m = new ItemPedidoProdutoModel();
             m.setId(e.getId());
             m.setProduto(toModel(e.getProduto()));
-            m.setQuantidade(e.getQuantidade());
-            m.setPrecoUnitario(e.getPrecoUnitario().getValue());
+            m.setQuantidade(e.getQuantidade().getNumero());
+
             return m;
         }
 
@@ -184,7 +186,7 @@ public class DataMapper {
             e.setId(m.getId());
             e.setServico(toEntity(m.getServico()));
             e.setQuantidade(m.getQuantidade());
-            e.getPrecoUnitario().setValue(m.getPrecoUnitario());
+
             return e;
         }
 
@@ -193,8 +195,8 @@ public class DataMapper {
             ItemPedidoServicoModel m = new ItemPedidoServicoModel();
             m.setId(e.getId());
             m.setServico(toModel(e.getServico()));
-            m.setQuantidade(e.getQuantidade());
-            m.setPrecoUnitario(e.getPrecoUnitario().getValue());
+            m.setQuantidade(e.getQuantidade().getNumero());
+
             return m;
         }
 
@@ -203,12 +205,12 @@ public class DataMapper {
             Pedido e = new Pedido();
             e.setId(m.getId());
             e.setComprador(toEntity(m.getComprador()));
-            e.setEnderecoUsuario(toEntity(m.getEnderecoUsuario()));
-            e.setItensProduto(m.getItensProduto().stream().map(DataMapper::toEntity).collect(Collectors.toList()));
-            e.setItensServico(m.getItensServico().stream().map(DataMapper::toEntity).collect(Collectors.toList()));
-            e.getTotal().setValue(m.getTotal());
-            e.setStatus(m.getStatus());
-            e.setData(m.getData());
+            e.setItemPedidoProdutoList(m.getItemPedidoProdutoList().stream().map(DataMapper::toEntity).collect(Collectors.toList()));
+            e.setItemPedidoServicoList(m.getItemPedidoServicoList().stream().map(DataMapper::toEntity).collect(Collectors.toList()));
+            e.getValorTotal().setValue(m.getValorTotal());
+            e.setStatusPedido(m.getStatusPedido());
+            e.setDataPedido(m.getDataPedido());
+            e.setDataEnvio(m.getDataEnvio());
             return e;
         }
 
@@ -217,12 +219,12 @@ public class DataMapper {
             PedidoModel m = new PedidoModel();
             m.setId(e.getId());
             m.setComprador(toModel(e.getComprador()));
-            m.setEnderecoUsuario(toModel(e.getEnderecoUsuario()));
-            m.setItensProduto(e.getItensProduto().stream().map(DataMapper::toModel).collect(Collectors.toList()));
-            m.setItensServico(e.getItensServico().stream().map(DataMapper::toModel).collect(Collectors.toList()));
-            m.setTotal(e.getTotal().getValue());
-            m.setStatus(e.getStatus());
-            m.setData(e.getData());
+            m.setItemPedidoProdutoList(e.getItemPedidoProdutoList().stream().map(DataMapper::toModel).collect(Collectors.toList()));
+            m.setItemPedidoServicoList(e.getItemPedidoServicoList().stream().map(DataMapper::toModel).collect(Collectors.toList()));
+            m.setValorTotal(e.getValorTotal().getValue());
+            m.setStatusPedido(e.getStatusPedido());
+            m.setDataEnvio(e.getDataEnvio());
+            m.setDataPedido(e.getDataPedido());
             return m;
         }
 }

@@ -1,4 +1,4 @@
-package com.duckers.teart.models.enums;
+package com.duckers.teart.enums;
 
 
 public enum FormaPagamento {

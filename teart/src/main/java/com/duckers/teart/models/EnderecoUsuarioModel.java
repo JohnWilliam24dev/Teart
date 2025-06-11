@@ -37,16 +37,16 @@ public class EnderecoUsuarioModel {
     private int numero;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
-    private CompradorModel usuario;
+    @JoinColumn(name = "id_comprador", referencedColumnName = "id", nullable = false, insertable = false, updatable=false)
+    private CompradorModel comprador;
 
-    @Column(name = "id_usuario")
-    private long idUsuario;
+    @Column(name = "id_comprador")
+    private long idComprador;
 
     public EnderecoUsuarioModel() {}
 
     public EnderecoUsuarioModel(CompradorModel usuario, String rua, String bairro, String cidade, String estado, String pais, int numero, String cep, String logradouro) {
-        this.usuario = usuario;
+        this.comprador = usuario;
         this.rua = rua;
         this.bairro = bairro;
         this.cidade = cidade;
@@ -95,7 +95,7 @@ public class EnderecoUsuarioModel {
     }
 
     public long getIdUsuario() {
-        return idUsuario;
+        return idComprador;
     }
 
     // Setters
@@ -137,14 +137,14 @@ public class EnderecoUsuarioModel {
 
 
     public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
+        this.idComprador = idUsuario;
     }
 
     public CompradorModel getUsuario() {
-        return usuario;
+        return comprador;
     }
 
     public void setUsuario(CompradorModel usuario) {
-        this.usuario = usuario;
+        this.comprador = usuario;
     }
 }

@@ -44,8 +44,8 @@ public class ItemPedidoServico {
         return quantidade;
     }
 
-    public void setQuantidade(Number quantidade) {
-        this.quantidade = quantidade;
+    public void setQuantidade(int quantidade) {
+        this.quantidade.setNumero(quantidade);
     }
 
     public Servico getServico() {

@@ -1,4 +1,5 @@
 package com.duckers.teart.models;
+import com.duckers.teart.entities.Object.Number;
 import jakarta.persistence.*;
 
 
