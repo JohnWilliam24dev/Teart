@@ -1,8 +1,11 @@
 package com.duckers.teart.models;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
-@Table(name = "item_pedidos_produto")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
+@Table(name = "item_pedidos_produto")
 public class ItemPedidoProdutoModel {
 
     @Id

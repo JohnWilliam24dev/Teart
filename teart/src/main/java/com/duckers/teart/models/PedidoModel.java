@@ -3,6 +3,8 @@ package com.duckers.teart.models;
 import com.duckers.teart.enums.FormaPagamento;
 import com.duckers.teart.enums.StatusPedido;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -10,9 +12,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-
-@Table(name="pedidos")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
+@Table(name="pedidos")
 public class PedidoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

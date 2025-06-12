@@ -1,11 +1,14 @@
 package com.duckers.teart.models;
 import com.duckers.teart.enums.Moda;
 import com.duckers.teart.enums.Tamanho;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 @Table(name="produtos")
 public class ProdutoModel {

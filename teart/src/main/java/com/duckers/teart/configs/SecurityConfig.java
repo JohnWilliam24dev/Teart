@@ -29,10 +29,10 @@ public class SecurityConfig {
             configurer
                     .requestMatchers("/guest").permitAll()
 
-                    .requestMatchers("/atelier").permitAll()
-                    .requestMatchers("/atelier/{id}").permitAll()
                     .requestMatchers("/atelier/parceiro").hasRole("PARCEIRO")
                     .requestMatchers("/atelier/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
+                    .requestMatchers("/atelier/{id}").permitAll()
+                    .requestMatchers("/atelier").permitAll()
 
                     .requestMatchers("/comprador/consumidor").hasRole("CONSUMIDOR")
                     .requestMatchers("/comprador").hasRole("ADMIN")
@@ -45,14 +45,15 @@ public class SecurityConfig {
                     .requestMatchers("/dono-atelier/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
 
                     .requestMatchers("/endereco-atelier/parceiro").hasRole("PARCEIRO")
+                    .requestMatchers("/endereco-atelier/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
                     .requestMatchers("/endereco-atelier/{id}").permitAll()
                     .requestMatchers("/endereco-atelier").permitAll()
-                    .requestMatchers("/endereco-atelier/parceiro/admin/**").hasAnyRole("ADMIN", "PARCEIRO")
 
                     .requestMatchers("/endereco-usuario/consumidor").hasRole("CONSUMIDOR")
-                    .requestMatchers("/endereco-usuario/{id}").permitAll()
                     .requestMatchers("/endereco-usuario").hasRole("ADMIN")
                     .requestMatchers("/endereco-usuario/consumidor/admin/**").hasAnyRole("ADMIN", "CONSUMIDOR")
+                    .requestMatchers("/endereco-usuario/{id}").permitAll()
+
 
                     .requestMatchers("/item-pedido-produto/consumidor").hasRole("CONSUMIDOR")
                     .requestMatchers("/item-pedido-produto/{id}").hasAnyRole("ADMIN", "CONSUMIDOR")
