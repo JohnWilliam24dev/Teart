@@ -1,7 +1,7 @@
 package com.duckers.teart.entities.Object;
 
 public class CNPJ {
-    Text cnpj;
+    Text cnpj = new Text();
 
     public CNPJ(String cnpj) {
         this.cnpj.setText(cnpj);

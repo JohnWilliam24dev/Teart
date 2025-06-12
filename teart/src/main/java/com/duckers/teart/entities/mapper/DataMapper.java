@@ -15,6 +15,7 @@ public class DataMapper {
             e.getNome().setText(m.getNome());
             e.getCnpj().setCNPJ(m.getCnpj());
             e.setDonoAtelier(toEntity(m.getDonoAtelierModel()));
+            e.setIdDonoAtelier(m.getIdDonoAtelier());
             e.setServicos(m.getServicos().stream().map(DataMapper::toEntity).collect(Collectors.toList()));
             e.setProdutos(m.getProdutos().stream().map(DataMapper::toEntity).collect(Collectors.toList()));
             return e;
@@ -27,6 +28,7 @@ public class DataMapper {
             m.setNome(e.getNome().getText());
             m.setCnpj(e.getCnpj().getCNPJ());
             m.setDonoAtelierModel(toModel(e.getDonoAtelier()));
+            m.setIdDonoAtelier(e.getIdDonoAtelier());
             m.setServicos(e.getServicos().stream().map(DataMapper::toModel).collect(Collectors.toList()));
             m.setProdutos(e.getProdutos().stream().map(DataMapper::toModel).collect(Collectors.toList()));
             return m;
@@ -51,6 +53,7 @@ public class DataMapper {
             m.setNomeSocial(e.getNomeSocial().getText());
             m.setNomeUsuario(e.getNomeUsuario().getText());
             m.setEmail(e.getEmail().getEmail());
+            m.setSenha(e.getSenha().getSenha());
             m.setCpf(e.getCpf().getCpf());
             return m;
         }
