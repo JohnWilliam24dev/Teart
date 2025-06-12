@@ -17,11 +17,11 @@ public class PedidoApplication {
     }
 
     public void createPedido(PedidoModel pedido) {
-        Pedido entity= DataMapper.toEntity(pedido);
-        entity.validation();
+        //Pedido entity= DataMapper.toEntity(pedido);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        PedidoModel model=DataMapper.toModel(entity);
-        pedidoRepository.createPedido(model);
+        //PedidoModel model=DataMapper.toModel(entity);
+        pedidoRepository.createPedido(pedido);
     }
 
     public PedidoModel getPedidoById(long id) {

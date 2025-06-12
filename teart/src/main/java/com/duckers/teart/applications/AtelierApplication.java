@@ -19,11 +19,11 @@ public class AtelierApplication {
     }
 
     public void createAtelier(AtelierModel atelierModel) {
-        Atelier entity=DataMapper.toEntity(atelierModel);
-        entity.validation();
+        //Atelier entity=DataMapper.toEntity(atelierModel);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        AtelierModel model=DataMapper.toModel(entity);
-        atelierRepository.createAtelier(model);
+        //AtelierModel model=DataMapper.toModel(entity);
+        atelierRepository.createAtelier(atelierModel);
     }
 
     public AtelierModel getAtelierById(long id) {

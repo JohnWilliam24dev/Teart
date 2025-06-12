@@ -18,11 +18,11 @@ public class ItemPedidoProdutoApplication {
     }
 
     public void createItemPedidoProduto(ItemPedidoProdutoModel itemPedidoProduto) {
-        ItemPedidoProduto entity= DataMapper.toEntity(itemPedidoProduto);
-        entity.validation();
+        //ItemPedidoProduto entity= DataMapper.toEntity(itemPedidoProduto);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        ItemPedidoProdutoModel model=DataMapper.toModel(entity);
-        itemPedidoProdutoRepository.createItemPedidoProduto(model);
+        //ItemPedidoProdutoModel model=DataMapper.toModel(entity);
+        itemPedidoProdutoRepository.createItemPedidoProduto(itemPedidoProduto);
     }
 
     public ItemPedidoProdutoModel getItemPedidoProdutoById(long id) {

@@ -19,11 +19,11 @@ public class EnderecoAtelierApplication {
     }
     
     public void createEnderecoAtelier(EnderecoAtelierModel enderecoAtelier) {
-        EnderecoAtelier entity= DataMapper.toEntity(enderecoAtelier);
-        entity.validation();
+        //EnderecoAtelier entity= DataMapper.toEntity(enderecoAtelier);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        EnderecoAtelierModel model=DataMapper.toModel(entity);
-        enderecoAtelierRepository.createEnderecoAtelier(model);
+        //EnderecoAtelierModel model=DataMapper.toModel(entity);
+        enderecoAtelierRepository.createEnderecoAtelier(enderecoAtelier);
     }
     
     public EnderecoAtelierModel getEnderecoAtelierById(long id) {

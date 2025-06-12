@@ -16,10 +16,10 @@ public class ServicoApplication {
     }
 
     public void createServico(ServicoModel servico) {
-        Servico entity= DataMapper.toEntity(servico);
-        entity.validation();
+        //Servico entity= DataMapper.toEntity(servico);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        ServicoModel model=DataMapper.toModel(entity);
+        //ServicoModel model=DataMapper.toModel(entity);
         servicoRepository.createService(servico);
     }
 

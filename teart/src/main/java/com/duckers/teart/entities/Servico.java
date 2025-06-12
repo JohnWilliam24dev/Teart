@@ -26,10 +26,10 @@ public class Servico {
 
     private List<ItemPedidoServico> itemPedidoServicoList;
 
-    // Construtor padrão
+
     public Servico() {}
 
-    // Construtor com parâmetros (sem o id)
+
     public Servico(Atelier atelier, String nome, String descricao, BigDecimal valorMaximo, BigDecimal valorMinimo) {
         this.atelier = atelier;
         this.nome.setText(nome);

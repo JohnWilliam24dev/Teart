@@ -19,11 +19,11 @@ public class CompradorApplication {
     }
 
     public void createUsuario(CompradorModel compradorModel) {
-        Comprador entity= DataMapper.toEntity(compradorModel);
-        entity.validation();
+        //Comprador entity= DataMapper.toEntity(compradorModel);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        CompradorModel model=DataMapper.toModel(entity);
-        compradorRepository.createUsuario(model);
+        //CompradorModel model=DataMapper.toModel(entity);
+        compradorRepository.createUsuario(compradorModel);
     }
 
     public CompradorModel getUsuarioById(long id) {

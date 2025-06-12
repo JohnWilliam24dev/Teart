@@ -17,11 +17,11 @@ public class DonoAtelierApplication {
     }
 
     public void createDonoAtelier(DonoAtelierModel donoAtelier) {
-        DonoAtelier entity= DataMapper.toEntity(donoAtelier);
-        entity.validation();
+        //DonoAtelier entity= DataMapper.toEntity(donoAtelier);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        DonoAtelierModel model=DataMapper.toModel(entity);
-        donoAtelierRepository.createDonoAtelier(model);
+        //DonoAtelierModel model=DataMapper.toModel(entity);
+        donoAtelierRepository.createDonoAtelier(donoAtelier);
     }
 
     public DonoAtelierModel getDonoAtelierById(long id) {

@@ -18,11 +18,11 @@ public class EnderecoUsuarioApplication {
     }
 
     public void createEnderecoUsuario(EnderecoUsuarioModel enderecoUsuario) {
-        EnderecoUsuario entity= DataMapper.toEntity(enderecoUsuario);
-        entity.validation();
+        //EnderecoUsuario entity= DataMapper.toEntity(enderecoUsuario);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        EnderecoUsuarioModel model=DataMapper.toModel(entity);
-        enderecoUsuarioRepository.createEnderecoUsuario(model);
+        //EnderecoUsuarioModel model=DataMapper.toModel(entity);
+        enderecoUsuarioRepository.createEnderecoUsuario(enderecoUsuario);
     }
 
     public EnderecoUsuarioModel getEnderecoUsuarioById(long id) {

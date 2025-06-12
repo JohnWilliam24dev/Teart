@@ -17,11 +17,11 @@ public class ProdutoApplication {
     }
 
     public void createProduto(ProdutoModel produto) {
-        Produto entity= DataMapper.toEntity(produto);
-        entity.validation();
+        //Produto entity= DataMapper.toEntity(produto);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        ProdutoModel model=DataMapper.toModel(entity);
-        produtoRepository.createProduto(model);
+        //ProdutoModel model=DataMapper.toModel(entity);
+        produtoRepository.createProduto(produto);
     }
 
     public ProdutoModel getProdutoById(int id) {

@@ -18,10 +18,10 @@ public class ItemPedidoServicoApplication {
     }
 
     public void createItemPedidoServico(ItemPedidoServicoModel itemPedidoServico) {
-        ItemPedidoServico entity= DataMapper.toEntity(itemPedidoServico);
-        entity.validation();
+        //ItemPedidoServico entity= DataMapper.toEntity(itemPedidoServico);
+        //entity.validation();
         //regras de negocio instanciadas aqui
-        ItemPedidoServicoModel model=DataMapper.toModel(entity);
+        //ItemPedidoServicoModel model=DataMapper.toModel(entity);
         itemPedidoServicoRepository.createItemPedidoServico(itemPedidoServico);
     }
 
